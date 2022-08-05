@@ -2,6 +2,7 @@
 using System.Data.SQLite;
 using System.Drawing;
 using System.Media;
+using System.Text;
 using System.Windows.Forms;
 using ClosedXML.Excel;
 
@@ -23,6 +24,33 @@ namespace SpendWise
             // chime.Play();
             reload();
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            // setting up hints
+            ToolTip buttonToolTip = new ToolTip();
+            buttonToolTip.ToolTipTitle = "Hint";
+            buttonToolTip.UseFading = true;
+            buttonToolTip.UseAnimation = true;
+            buttonToolTip.IsBalloon = false;
+            buttonToolTip.ShowAlways = true;
+
+            buttonToolTip.AutoPopDelay = 5000;
+            buttonToolTip.InitialDelay = 1000;
+            buttonToolTip.ReshowDelay = 500;
+
+            buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
+            buttonToolTip.SetToolTip(btn_mini, "Toggle UI");
+            buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
+            buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
+
+            // setup UI size
+            string state = UiState();
+            if(state == "Mini")
+            {
+                setMiniUi();
+            }
+            else
+            {
+                setLargeUi();
+            }
         }
         // loads charts when called
         public void loadCharts()
@@ -72,6 +100,39 @@ namespace SpendWise
                 MessageBox.Show("Failed to load overall income", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             */
+        }
+        void setMiniUi()
+        {
+            // reduce the size of the window
+            this.Width = 912;
+            this.Height = 500;
+            // refuce the size of the controls
+            panel_income.Height = 200;
+            panel_income.Width = 211;
+
+            panel_expenditure.Height = 200;
+            panel_expenditure.Width = 211;
+
+            panel_transactions.Height = 200;
+        }
+        string UiState()
+        {
+            string setState = con.ReadString("SELECT state FROM wallet");
+            return setState;
+        }
+        void setLargeUi()
+        {
+            // reduce the size of the window
+            this.Width = 1347;
+            this.Height = 697;
+            // reduce the size of the controls
+            panel_income.Height = 400;
+            panel_income.Width = 420;
+
+            panel_expenditure.Height = 400;
+            panel_expenditure.Width = 420;
+
+            panel_transactions.Height = 400;
         }
         // pull user name from system
         private string loadUser()
@@ -495,6 +556,22 @@ namespace SpendWise
             reload();
             SoundPlayer edit = new SoundPlayer(@"beep.wav");
             edit.Play();
+        }
+
+        private void btn_mini_Click(object sender, EventArgs e)
+        {
+            // if the windows starts out large
+            if (this.Height == 697)
+            {
+                con.ExecuteQuery("UPDATE wallet SET state = 'Mini'");
+                setMiniUi();
+            }
+            else
+            {
+                con.ExecuteQuery("UPDATE wallet SET state = 'Large'");
+                setLargeUi();
+            }
+            
         }
     }
 }
