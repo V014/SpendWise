@@ -10,16 +10,11 @@ c:\users\wanga\documents\visual studio 2015\Projects\SpendWise\SpendWise\obj\Deb
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\MetroFramework.Design.dll
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\MetroFramework.dll
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\System.Data.SQLite.xml
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.About.resources
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Profile.resources
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ClosedXML.dll
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.dll
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.dll
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ClosedXML.pdb
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ClosedXML.xml
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Currency.resources
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Coming.resources
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.SplashScreen.resources
@@ -45,3 +40,7 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Properties.Resources.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.SplashScreen.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
