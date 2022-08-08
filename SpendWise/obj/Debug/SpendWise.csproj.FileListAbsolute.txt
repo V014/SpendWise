@@ -44,3 +44,9 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.dll
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Income.resources
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Expenditure.resources

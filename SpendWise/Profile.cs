@@ -8,6 +8,7 @@ namespace SpendWise
     public partial class Profile : MetroFramework.Forms.MetroForm
     {
         Connection con = new Connection();
+        Dashboard dashboard = new Dashboard();
         public Profile()
         {
             InitializeComponent();
@@ -21,7 +22,8 @@ namespace SpendWise
             { 
                 string queryName = "UPDATE wallet SET owner ='"+ name + "' WHERE id = 1";
                 con.ExecuteQuery(queryName);
-                lbl_title.Text = "Restart app now or later";
+                lbl_title.Text = "Refresh app";
+                dashboard.refresh();
                 lbl_title.ForeColor = Color.FromArgb(43, 140, 94);
             }
             catch

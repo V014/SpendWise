@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -39,6 +38,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel_input = new System.Windows.Forms.Panel();
             this.txt_desc = new System.Windows.Forms.ComboBox();
             this.txt_amount = new System.Windows.Forms.TextBox();
@@ -83,6 +83,7 @@
             this.panel_owner = new System.Windows.Forms.Panel();
             this.panel_controls = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_data = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_update = new System.Windows.Forms.Button();
             this.panel_input.SuspendLayout();
             this.panel_wallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_money)).BeginInit();
@@ -186,6 +187,7 @@
             this.panel_wallet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_wallet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.panel_wallet.Controls.Add(this.btn_update);
             this.panel_wallet.Controls.Add(this.btn_mini);
             this.panel_wallet.Controls.Add(this.btn_refresh);
             this.panel_wallet.Controls.Add(this.lbl_currency);
@@ -503,7 +505,10 @@
             chartArea1.Position.Y = 3F;
             chartArea1.ShadowOffset = 20;
             this.chart_income.ChartAreas.Add(chartArea1);
+            this.chart_income.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart_income.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.ForeColor = System.Drawing.Color.White;
             legend1.Name = "Legend1";
             this.chart_income.Legends.Add(legend1);
             this.chart_income.Location = new System.Drawing.Point(0, 0);
@@ -525,10 +530,11 @@
             this.chart_income.Size = new System.Drawing.Size(428, 400);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
+            this.chart_income.Click += new System.EventHandler(this.chart_income_Click);
             // 
             // panel_expenditure
             // 
-            this.panel_expenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel_expenditure.BackColor = System.Drawing.Color.Transparent;
             this.panel_expenditure.Controls.Add(this.chart_expenditure);
             this.panel_expenditure.Location = new System.Drawing.Point(871, 3);
             this.panel_expenditure.Name = "panel_expenditure";
@@ -569,7 +575,10 @@
             chartArea2.Position.Y = 3F;
             chartArea2.ShadowOffset = 20;
             this.chart_expenditure.ChartAreas.Add(chartArea2);
+            this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.White;
             legend2.Name = "Legend1";
             this.chart_expenditure.Legends.Add(legend2);
             this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
@@ -586,6 +595,7 @@
             this.chart_expenditure.Size = new System.Drawing.Size(428, 400);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
+            this.chart_expenditure.Click += new System.EventHandler(this.chart_expenditure_Click);
             // 
             // panel_overall
             // 
@@ -665,7 +675,7 @@
             // 
             // panel_info
             // 
-            this.panel_info.BackColor = System.Drawing.Color.Transparent;
+            this.panel_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.panel_info.Controls.Add(this.lbl_least);
             this.panel_info.Controls.Add(this.lbl_common);
             this.panel_info.Controls.Add(this.lbl_expenditure);
@@ -785,7 +795,7 @@
             this.lbl_owner.AutoSize = true;
             this.lbl_owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lbl_owner.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_owner.Location = new System.Drawing.Point(147, 4);
+            this.lbl_owner.Location = new System.Drawing.Point(8, 9);
             this.lbl_owner.Name = "lbl_owner";
             this.lbl_owner.Size = new System.Drawing.Size(52, 18);
             this.lbl_owner.TabIndex = 1;
@@ -796,13 +806,14 @@
             // 
             this.panel_owner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_owner.Controls.Add(this.lbl_owner);
-            this.panel_owner.Location = new System.Drawing.Point(1089, 19);
+            this.panel_owner.Location = new System.Drawing.Point(1128, 19);
             this.panel_owner.Name = "panel_owner";
-            this.panel_owner.Size = new System.Drawing.Size(200, 35);
+            this.panel_owner.Size = new System.Drawing.Size(161, 35);
             this.panel_owner.TabIndex = 2;
             // 
             // panel_controls
             // 
+            this.panel_controls.BackColor = System.Drawing.Color.Transparent;
             this.panel_controls.Controls.Add(this.panel_input);
             this.panel_controls.Controls.Add(this.panel_wallet);
             this.panel_controls.Controls.Add(this.btn_plus);
@@ -817,6 +828,7 @@
             // 
             // panel_data
             // 
+            this.panel_data.BackColor = System.Drawing.Color.Transparent;
             this.panel_data.Controls.Add(this.panel_transactions);
             this.panel_data.Controls.Add(this.panel_income);
             this.panel_data.Controls.Add(this.panel_expenditure);
@@ -826,6 +838,19 @@
             this.panel_data.Name = "panel_data";
             this.panel_data.Size = new System.Drawing.Size(1307, 408);
             this.panel_data.TabIndex = 8;
+            // 
+            // btn_update
+            // 
+            this.btn_update.FlatAppearance.BorderSize = 0;
+            this.btn_update.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_update.Image = ((System.Drawing.Image)(resources.GetObject("btn_update.Image")));
+            this.btn_update.Location = new System.Drawing.Point(169, 87);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(39, 30);
+            this.btn_update.TabIndex = 2;
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // Dashboard
             // 
@@ -839,12 +864,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
-            this.Opacity = 0.96D;
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "SpendWise";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.panel_input.ResumeLayout(false);
             this.panel_input.PerformLayout();
@@ -916,6 +941,7 @@
         private System.Windows.Forms.Panel panel_transControls;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_mini;
+        public System.Windows.Forms.Button btn_update;
     }
 }
 

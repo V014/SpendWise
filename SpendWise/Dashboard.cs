@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
-using System.Drawing;
 using System.Media;
-using System.Text;
 using System.Windows.Forms;
 using ClosedXML.Excel;
 
@@ -14,33 +12,20 @@ namespace SpendWise
         Money money = new Money();
         Transaction transaction = new Transaction();
         Connection con = new Connection();
+        StyleDataGrid theme = new StyleDataGrid();
         string date = DateTime.Now.ToString("g");
         // constructor
         public Dashboard()
         {
             InitializeComponent();
             // play chime
-            // SoundPlayer chime = new SoundPlayer(@"atm.wav");
-            // chime.Play();
-            reload();
+            //SoundPlayer chime = new SoundPlayer(@"sfx/open.wav");
+            //chime.Play();
+            refresh();
+            // setup UI optimization
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             // setting up hints
-            ToolTip buttonToolTip = new ToolTip();
-            buttonToolTip.ToolTipTitle = "Hint";
-            buttonToolTip.UseFading = true;
-            buttonToolTip.UseAnimation = true;
-            buttonToolTip.IsBalloon = false;
-            buttonToolTip.ShowAlways = true;
-
-            buttonToolTip.AutoPopDelay = 5000;
-            buttonToolTip.InitialDelay = 1000;
-            buttonToolTip.ReshowDelay = 500;
-
-            buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
-            buttonToolTip.SetToolTip(btn_mini, "Toggle UI");
-            buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
-            buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
-
+            toolTips();
             // setup UI size
             string state = UiState();
             if(state == "Mini")
@@ -101,19 +86,42 @@ namespace SpendWise
             }
             */
         }
+        void toolTips()
+        {
+            ToolTip buttonToolTip = new ToolTip();
+            buttonToolTip.ToolTipTitle = "Hint";
+            buttonToolTip.UseFading = true;
+            buttonToolTip.UseAnimation = true;
+            buttonToolTip.IsBalloon = false;
+            buttonToolTip.ShowAlways = true;
+
+            buttonToolTip.AutoPopDelay = 5000;
+            buttonToolTip.InitialDelay = 1000;
+            buttonToolTip.ReshowDelay = 500;
+
+            buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
+            buttonToolTip.SetToolTip(btn_mini, "Toggle UI");
+            buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
+            buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
+            buttonToolTip.SetToolTip(btn_update, "Green: Updated | Blue: Updating | White: Outdated");
+            buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
+            buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
+            buttonToolTip.SetToolTip(btn_trash, "Remove from list");
+            buttonToolTip.SetToolTip(btn_edit, "Edit selected item");
+            buttonToolTip.SetToolTip(chart_income, "Click to expand");
+            buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
+        }
         void setMiniUi()
         {
             // reduce the size of the window
             this.Width = 912;
             this.Height = 500;
             // refuce the size of the controls
+            panel_transactions.Height = 200;
             panel_income.Height = 200;
             panel_income.Width = 211;
-
             panel_expenditure.Height = 200;
             panel_expenditure.Width = 211;
-
-            panel_transactions.Height = 200;
         }
         string UiState()
         {
@@ -126,13 +134,11 @@ namespace SpendWise
             this.Width = 1347;
             this.Height = 697;
             // reduce the size of the controls
+            panel_transactions.Height = 400;
             panel_income.Height = 400;
             panel_income.Width = 420;
-
             panel_expenditure.Height = 400;
             panel_expenditure.Width = 420;
-
-            panel_transactions.Height = 400;
         }
         // pull user name from system
         private string loadUser()
@@ -141,14 +147,14 @@ namespace SpendWise
             string username = con.ReadString(queryUser);
             return username;
         }
-        public void reload()
+        public void refresh()
         {
             // display user
             lbl_owner.Text = loadUser();
             // show money
             lbl_money.Text = money.checkMoney();
             // style datagrid
-            styleDarkDataGridView(data_transactions);
+            theme.style(data_transactions);
             // load the data into the data grid
             transaction.loadTransactions(data_transactions);
             // loads the set currency
@@ -159,7 +165,8 @@ namespace SpendWise
             lbl_expenditure.Text = loadExpenditure();
             lbl_common.Text = loadCommon();
             lbl_least.Text = loadLeast();
-            // reducess flicker in the application
+            txt_amount.Text = "0.00";
+            txt_desc.Text = "";
         }
         // load the currency the user has set
         private string loadCurrency()
@@ -196,41 +203,6 @@ namespace SpendWise
             string Least = con.ReadString(queryLeast);
             return Least;
         }
-        // refresh controls
-        public void refresh()
-        {
-            txt_amount.Text = "0";
-            txt_desc.Text = ""; 
-        }
-        // styling of the datagrid
-        void styleDarkDataGridView(DataGridView dataGrid)
-        {
-            //dataGrid.BorderStyle = BorderStyle.None;
-            dataGrid.EnableHeadersVisualStyles = false;
-            dataGrid.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGrid.RowHeadersVisible = false;
-
-            dataGrid.BackgroundColor = Color.FromArgb(17, 17, 17);
-            dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(17,17,17);
-            dataGrid.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
-
-            dataGrid.RowsDefaultCellStyle.BackColor = Color.FromArgb(17,17,17);
-            dataGrid.RowsDefaultCellStyle.ForeColor = Color.White;
-            dataGrid.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 17, 17);
-
-            dataGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(34,34,34);
-            dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGrid.ColumnHeadersHeight = 50;
-            dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            dataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 9);
-            dataGrid.DefaultCellStyle.Font = new Font("Roboto", 8);
-            dataGrid.AlternatingRowsDefaultCellStyle.Font = new Font("Roboto", 8);
-
-        }
         // when the plus button is clicked...
         private void btn_plus_Click(object sender, System.EventArgs e)
         {
@@ -258,14 +230,14 @@ namespace SpendWise
                     // refresh charts
                     loadCharts();
                     // play chime
-                    SoundPlayer win = new SoundPlayer(@"win.wav");
+                    SoundPlayer win = new SoundPlayer(@"sfx/win.wav");
                     win.Play();
                 }
                 //(Exception ex)
                 catch
                 {
                     // play chime
-                    SoundPlayer save = new SoundPlayer(@"error.wav");
+                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // show suggestion box
                     MessageBox.Show("The application has failed to either update your wallet or record the transaction.", "Application error");
@@ -277,7 +249,7 @@ namespace SpendWise
             } else
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"error.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // show suggestion box
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
@@ -312,13 +284,13 @@ namespace SpendWise
                     // refresh charts
                     loadCharts();
                     // play chime
-                    SoundPlayer coins = new SoundPlayer(@"coins.wav");
+                    SoundPlayer coins = new SoundPlayer(@"sfx/coins.wav");
                     coins.Play();
                 }
                 catch//(Exception ex)
                 {
                     // play chime
-                    SoundPlayer save = new SoundPlayer(@"error.wav");
+                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // show suggestion box
                     //MessageBox.Show(ex.ToString());
@@ -332,7 +304,7 @@ namespace SpendWise
             else
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"error.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // show suggestion box
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
@@ -342,7 +314,7 @@ namespace SpendWise
         private void btn_trash_Click(object sender, EventArgs e)
         {
             // play chime
-            SoundPlayer delete = new SoundPlayer(@"error.wav");
+            SoundPlayer delete = new SoundPlayer(@"sfx/error.wav");
             delete.Play();
             DialogResult dialogResult = MessageBox.Show("Delete transaction?", "Are you sure?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -358,13 +330,13 @@ namespace SpendWise
                     // refresh charts
                     loadCharts();
                     // play chime
-                    SoundPlayer trash = new SoundPlayer(@"click.wav");
+                    SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
                     trash.Play();
                 }
                 catch (Exception ex)
                 {
                     // play chime
-                    SoundPlayer save = new SoundPlayer(@"error.wav");
+                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // show suggestion box
                     MessageBox.Show(ex.ToString());
@@ -396,7 +368,7 @@ namespace SpendWise
                 }
                 else
                 {
-                    SoundPlayer error = new SoundPlayer(@"error.wav");
+                    SoundPlayer error = new SoundPlayer(@"sfx/error.wav");
                     error.Play();
                     MessageBox.Show("Use numbers instead.", "Suggestion");
                     e.Handled = true;
@@ -406,7 +378,7 @@ namespace SpendWise
         // when the about button is clicked
         private void btn_about_Click(object sender, EventArgs e)
         {
-            SoundPlayer chime = new SoundPlayer(@"click.wav");
+            SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
             About us = new About();
             us.Show();
@@ -415,13 +387,13 @@ namespace SpendWise
         private void btn_reset_Click(object sender, EventArgs e)
         {
             // play chime
-            SoundPlayer chime = new SoundPlayer(@"glass.wav");
+            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
             chime.Play();
             DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 // play chime
-                SoundPlayer chime2 = new SoundPlayer(@"erase.wav");
+                SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
                 chime2.Play();
                 string queryResetTrans = "DELETE FROM transactions";
                 con.ExecuteQuery(queryResetTrans);
@@ -429,12 +401,6 @@ namespace SpendWise
                 con.ExecuteQuery(queryResetWallet);
                 // refresh app
                 refresh();
-                // update the money count
-                lbl_money.Text = "0.00";
-                // refresh the data grid
-                transaction.loadTransactions(data_transactions);
-                // refresh charts
-                loadCharts();
             }
         }
         // what happens when name is clicked
@@ -462,7 +428,7 @@ namespace SpendWise
                             workbook.SaveAs(sfd.FileName);
                         }
                         // play chime
-                        SoundPlayer ice = new SoundPlayer(@"ice.wav");
+                        SoundPlayer ice = new SoundPlayer(@"sfx/ice.wav");
                         ice.Play();
                     }
                     catch (Exception ex)
@@ -511,7 +477,7 @@ namespace SpendWise
         private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // play chime
-            SoundPlayer chime = new SoundPlayer(@"beep.wav");
+            SoundPlayer chime = new SoundPlayer(@"sfx/beep.wav");
             chime.Play();
             try
             {
@@ -532,17 +498,10 @@ namespace SpendWise
         private void btn_edit_Click(object sender, EventArgs e)
         {
             // play chime
-            SoundPlayer chime = new SoundPlayer(@"click.wav");
+            SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
             Edit edit = new Edit();
             edit.Show();
-        }
-        // when the user types some notes
-        private void btn_write_Click(object sender, EventArgs e)
-        {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"click.wav");
-            chime.Play();
         }
         // clean up when form closes
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
@@ -553,25 +512,47 @@ namespace SpendWise
         // when refresh button pressed
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            reload();
-            SoundPlayer edit = new SoundPlayer(@"beep.wav");
+            refresh();
+            SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
             edit.Play();
         }
-
+        // when UI toggle button clicked
         private void btn_mini_Click(object sender, EventArgs e)
         {
             // if the windows starts out large
             if (this.Height == 697)
             {
+                SoundPlayer chime = new SoundPlayer(@"sfx/close.wav");
+                chime.Play();
                 con.ExecuteQuery("UPDATE wallet SET state = 'Mini'");
                 setMiniUi();
             }
             else
             {
+                SoundPlayer chime = new SoundPlayer(@"sfx/close.wav");
+                chime.Play();
                 con.ExecuteQuery("UPDATE wallet SET state = 'Large'");
                 setLargeUi();
             }
             
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            Coming pro = new Coming();
+            pro.Show();
+        }
+
+        private void chart_income_Click(object sender, EventArgs e)
+        {
+            Income income = new Income();
+            income.Show();
+        }
+
+        private void chart_expenditure_Click(object sender, EventArgs e)
+        {
+            Expenditure expenditure = new Expenditure();
+            expenditure.Show();
         }
     }
 }

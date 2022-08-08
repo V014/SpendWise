@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel_main = new System.Windows.Forms.Panel();
+            this.txt_currency = new System.Windows.Forms.ComboBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.lbl_title = new System.Windows.Forms.Label();
-            this.txt_currency = new System.Windows.Forms.ComboBox();
             this.panel_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +45,24 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(241, 173);
             this.panel_main.TabIndex = 1;
+            // 
+            // txt_currency
+            // 
+            this.txt_currency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.txt_currency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txt_currency.Font = new System.Drawing.Font("Roboto", 11F);
+            this.txt_currency.ForeColor = System.Drawing.Color.Gray;
+            this.txt_currency.FormattingEnabled = true;
+            this.txt_currency.Items.AddRange(new object[] {
+            "₹ Indian Rupee",
+            "£ British Pound",
+            "$ United States Dollar",
+            "€ European Euro",
+            "MWK Malawian Kwacha"});
+            this.txt_currency.Location = new System.Drawing.Point(8, 54);
+            this.txt_currency.Name = "txt_currency";
+            this.txt_currency.Size = new System.Drawing.Size(230, 26);
+            this.txt_currency.TabIndex = 6;
             // 
             // btn_save
             // 
@@ -72,24 +90,6 @@
             this.lbl_title.Size = new System.Drawing.Size(137, 27);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "Select below";
-            // 
-            // txt_currency
-            // 
-            this.txt_currency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.txt_currency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txt_currency.Font = new System.Drawing.Font("Roboto", 11F);
-            this.txt_currency.ForeColor = System.Drawing.Color.Gray;
-            this.txt_currency.FormattingEnabled = true;
-            this.txt_currency.Items.AddRange(new object[] {
-            "₹ Indian Rupee",
-            "£ British Pound",
-            "$ United States Dollar",
-            "€ European Euro",
-            "mwk Malawian Kwacha"});
-            this.txt_currency.Location = new System.Drawing.Point(8, 54);
-            this.txt_currency.Name = "txt_currency";
-            this.txt_currency.Size = new System.Drawing.Size(230, 26);
-            this.txt_currency.TabIndex = 6;
             // 
             // Currency
             // 

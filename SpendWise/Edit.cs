@@ -47,14 +47,14 @@ namespace SpendWise
                     dashboard.lbl_money.Text = moneyNow.ToString();
                 }
                 // play chime
-                SoundPlayer edit = new SoundPlayer(@"click.wav");
+                SoundPlayer edit = new SoundPlayer(@"sfx/click.wav");
                 edit.Play();
                 this.Name = "Now Refresh 💱";
             }
             else
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"error.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // show suggestion box
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
