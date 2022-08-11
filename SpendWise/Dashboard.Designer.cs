@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -38,13 +39,13 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel_input = new System.Windows.Forms.Panel();
             this.txt_desc = new System.Windows.Forms.ComboBox();
             this.txt_amount = new System.Windows.Forms.TextBox();
             this.lbl_description = new System.Windows.Forms.Label();
             this.lbl_amount = new System.Windows.Forms.Label();
             this.panel_wallet = new System.Windows.Forms.Panel();
+            this.btn_update = new System.Windows.Forms.Button();
             this.btn_mini = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.lbl_currency = new System.Windows.Forms.Label();
@@ -83,7 +84,6 @@
             this.panel_owner = new System.Windows.Forms.Panel();
             this.panel_controls = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_data = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_update = new System.Windows.Forms.Button();
             this.panel_input.SuspendLayout();
             this.panel_wallet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_money)).BeginInit();
@@ -199,6 +199,20 @@
             this.panel_wallet.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel_wallet.Size = new System.Drawing.Size(211, 200);
             this.panel_wallet.TabIndex = 1;
+            // 
+            // btn_update
+            // 
+            this.btn_update.FlatAppearance.BorderSize = 0;
+            this.btn_update.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_update.Image = ((System.Drawing.Image)(resources.GetObject("btn_update.Image")));
+            this.btn_update.Location = new System.Drawing.Point(169, 87);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(39, 30);
+            this.btn_update.TabIndex = 2;
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Visible = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_mini
             // 
@@ -838,19 +852,6 @@
             this.panel_data.Name = "panel_data";
             this.panel_data.Size = new System.Drawing.Size(1307, 408);
             this.panel_data.TabIndex = 8;
-            // 
-            // btn_update
-            // 
-            this.btn_update.FlatAppearance.BorderSize = 0;
-            this.btn_update.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_update.Image = ((System.Drawing.Image)(resources.GetObject("btn_update.Image")));
-            this.btn_update.Location = new System.Drawing.Point(169, 87);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(39, 30);
-            this.btn_update.TabIndex = 2;
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // Dashboard
             // 

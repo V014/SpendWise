@@ -86,6 +86,7 @@ namespace SpendWise
             }
             */
         }
+        // set tool tips where required
         void toolTips()
         {
             ToolTip buttonToolTip = new ToolTip();
@@ -111,6 +112,7 @@ namespace SpendWise
             buttonToolTip.SetToolTip(chart_income, "Click to expand");
             buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
         }
+        // set the interface to minimal
         void setMiniUi()
         {
             // reduce the size of the window
@@ -123,11 +125,13 @@ namespace SpendWise
             panel_expenditure.Height = 200;
             panel_expenditure.Width = 211;
         }
+        // check the current ui state
         string UiState()
         {
             string setState = con.ReadString("SELECT state FROM wallet");
             return setState;
         }
+        // set the interface to large
         void setLargeUi()
         {
             // reduce the size of the window
@@ -536,19 +540,19 @@ namespace SpendWise
             }
             
         }
-
+        // when user clicks update button
         private void btn_update_Click(object sender, EventArgs e)
         {
             Coming pro = new Coming();
             pro.Show();
         }
-
+        // Maximise income chart when clicked
         private void chart_income_Click(object sender, EventArgs e)
         {
             Income income = new Income();
             income.Show();
         }
-
+        // Maximise expenditure chart when clicked
         private void chart_expenditure_Click(object sender, EventArgs e)
         {
             Expenditure expenditure = new Expenditure();
