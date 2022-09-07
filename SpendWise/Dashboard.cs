@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Data.SQLite;
 using System.Media;
 using System.Windows.Forms;
@@ -31,11 +32,37 @@ namespace SpendWise
             if(state == "Mini")
             {
                 setMiniUi();
+                btn_UI.Image = Image.FromFile(@"res/expand.png");
             }
             else
             {
                 setLargeUi();
+                btn_UI.Image = Image.FromFile(@"res/compress.png");
             }
+        }
+        // refreshes the whole app
+        public void refresh()
+        {
+            // display user
+            lbl_owner.Text = loadUser();
+            // show money
+            lbl_money.Text = money.checkMoney();
+            lbl_savings.Text = money.checkSavings();
+            lbl_saved.Text = loadSaved().ToString();
+            // style datagrid
+            theme.style(data_transactions);
+            // load the data into the data grid
+            transaction.loadTransactions(data_transactions);
+            // loads the set currency
+            lbl_currency.Text = loadCurrency();
+            // load charts
+            loadCharts();
+            lbl_income.Text = loadIncome();
+            lbl_expenditure.Text = loadExpenditure();
+            lbl_common.Text = loadCommon();
+            lbl_least.Text = loadLeast();
+            txt_amount.Text = "0.00";
+            txt_desc.Text = "";
         }
         // loads charts when called
         public void loadCharts()
@@ -101,7 +128,7 @@ namespace SpendWise
             buttonToolTip.ReshowDelay = 500;
 
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
-            buttonToolTip.SetToolTip(btn_mini, "Toggle UI");
+            buttonToolTip.SetToolTip(btn_UI, "Toggle UI");
             buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
             buttonToolTip.SetToolTip(btn_update, "Green: Updated | Blue: Updating | White: Outdated");
@@ -151,27 +178,6 @@ namespace SpendWise
             string username = con.ReadString(queryUser);
             return username;
         }
-        public void refresh()
-        {
-            // display user
-            lbl_owner.Text = loadUser();
-            // show money
-            lbl_money.Text = money.checkMoney();
-            // style datagrid
-            theme.style(data_transactions);
-            // load the data into the data grid
-            transaction.loadTransactions(data_transactions);
-            // loads the set currency
-            lbl_currency.Text = loadCurrency();
-            // load charts
-            loadCharts();
-            lbl_income.Text = loadIncome();
-            lbl_expenditure.Text = loadExpenditure();
-            lbl_common.Text = loadCommon();
-            lbl_least.Text = loadLeast();
-            txt_amount.Text = "0.00";
-            txt_desc.Text = "";
-        }
         // load the currency the user has set
         private string loadCurrency()
         {
@@ -189,9 +195,14 @@ namespace SpendWise
         // load the overall expenditure
         private string loadExpenditure()
         {
-            string queryExpenditure = "SELECT sum(amount) FROM transactions WHERE action = '-'";
-            string Expenditure = con.ReadString(queryExpenditure);
+            string Expenditure = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '-'");
             return Expenditure;
+        }
+        // load the overall saved
+        private int loadSaved()
+        {
+            int saved = int.Parse(loadIncome()) - int.Parse(loadExpenditure());
+            return saved;
         }
         // load the common purchased item
         private string loadCommon()
@@ -219,10 +230,17 @@ namespace SpendWise
                     // instanciate values from controls
                     int amount = Convert.ToInt32(txt_amount.Text);
                     int wallet = Convert.ToInt32(money.checkMoney());
+                    int savings = Convert.ToInt32(money.checkSavings());
                     // add the previous and adding values
                     int moneyNow = wallet + amount;
                     // build the querys
                     con.ExecuteQuery($"UPDATE wallet SET money = {moneyNow} WHERE id = 1");
+                    // calculate savings
+                    int calculatedSavings = amount / 100 * 10;
+                    // add it to your current savings
+                    int savingsNow = savings + calculatedSavings;
+                    // document new savings
+                    con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date}', '+')");
                     // refresh app
@@ -521,7 +539,7 @@ namespace SpendWise
             edit.Play();
         }
         // when UI toggle button clicked
-        private void btn_mini_Click(object sender, EventArgs e)
+        private void btn_UI_Click(object sender, EventArgs e)
         {
             // if the windows starts out large
             if (this.Height == 697)
@@ -530,6 +548,7 @@ namespace SpendWise
                 chime.Play();
                 con.ExecuteQuery("UPDATE wallet SET state = 'Mini'");
                 setMiniUi();
+                btn_UI.Image = Image.FromFile(@"res/expand.png");
             }
             else
             {
@@ -537,8 +556,8 @@ namespace SpendWise
                 chime.Play();
                 con.ExecuteQuery("UPDATE wallet SET state = 'Large'");
                 setLargeUi();
+                btn_UI.Image = Image.FromFile(@"res/compress.png");
             }
-            
         }
         // when user clicks update button
         private void btn_update_Click(object sender, EventArgs e)

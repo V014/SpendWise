@@ -26,7 +26,7 @@ namespace SpendWise
             dataGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(34, 34, 34);
             dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGrid.ColumnHeadersHeight = 50;
+            dataGrid.ColumnHeadersHeight = 30;
             dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             dataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 9);

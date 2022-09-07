@@ -2,13 +2,17 @@
 {
     public class Money
     {
+        Connection con = new Connection();
         public string checkMoney()
         {
             // check sales
-            Connection con = new Connection();
-            string queryMoney = "SELECT money FROM wallet";
-            string money = con.ReadString(queryMoney);
+            string money = con.ReadString("SELECT money FROM wallet");
             return money;
+        }
+        public string checkSavings()
+        {
+            string savings = con.ReadString("SELECT savings FROM wallet WHERE id = 1");
+            return savings;
         }
     }
 }
