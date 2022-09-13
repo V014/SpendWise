@@ -61,7 +61,7 @@ namespace SpendWise
             lbl_expenditure.Text = loadExpenditure();
             lbl_common.Text = loadCommon();
             lbl_least.Text = loadLeast();
-            txt_amount.Text = "0.00";
+            txt_amount.Text = "";
             txt_desc.Text = "";
         }
         // loads charts when called
@@ -390,9 +390,7 @@ namespace SpendWise
                 }
                 else
                 {
-                    SoundPlayer error = new SoundPlayer(@"sfx/error.wav");
-                    error.Play();
-                    MessageBox.Show("Use numbers instead.", "Suggestion");
+                    MessageBox.Show("Numbers Only Please!", "Error: Number Only", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Handled = true;
                 }
             }
