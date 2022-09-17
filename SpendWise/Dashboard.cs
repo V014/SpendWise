@@ -14,6 +14,8 @@ namespace SpendWise
         Transaction transaction = new Transaction();
         Connection con = new Connection();
         StyleDataGrid theme = new StyleDataGrid();
+        Income income = new Income();
+        Expenditure expenditure = new Expenditure();
         string date = DateTime.Now.ToString("g");
         // constructor
         public Dashboard()
@@ -565,14 +567,12 @@ namespace SpendWise
         }
         // Maximise income chart when clicked
         private void chart_income_Click(object sender, EventArgs e)
-        {
-            Income income = new Income();
+        { 
             income.Show();
         }
         // Maximise expenditure chart when clicked
         private void chart_expenditure_Click(object sender, EventArgs e)
         {
-            Expenditure expenditure = new Expenditure();
             expenditure.Show();
         }
     }
