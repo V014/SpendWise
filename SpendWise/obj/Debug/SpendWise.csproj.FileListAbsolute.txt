@@ -50,3 +50,4 @@ C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Deb
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Income.resources
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Expenditure.resources
+C:\Users\Wanga\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Savings.resources

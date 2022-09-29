@@ -138,8 +138,8 @@ namespace SpendWise
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
             buttonToolTip.SetToolTip(btn_trash, "Remove from list");
             buttonToolTip.SetToolTip(btn_edit, "Edit selected item");
-            buttonToolTip.SetToolTip(chart_income, "Click to expand");
-            buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
+            //buttonToolTip.SetToolTip(chart_income, "Click to expand");
+            //buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
         }
         // set the interface to minimal
         void setMiniUi()
@@ -237,8 +237,10 @@ namespace SpendWise
                     int moneyNow = wallet + amount;
                     // build the querys
                     con.ExecuteQuery($"UPDATE wallet SET money = {moneyNow} WHERE id = 1");
+                    // get save percentage
+                    int percent = int.Parse(con.ReadString("SELECT save FROM wallet"));
                     // calculate savings
-                    int calculatedSavings = amount / 100 * 10;
+                    int calculatedSavings = amount / 100 * percent;
                     // add it to your current savings
                     int savingsNow = savings + calculatedSavings;
                     // document new savings
@@ -574,6 +576,12 @@ namespace SpendWise
         private void chart_expenditure_Click(object sender, EventArgs e)
         {
             expenditure.Show();
+        }
+
+        private void btn_savings_Click(object sender, EventArgs e)
+        {
+            Savings savings = new Savings();
+            savings.Show();
         }
     }
 }
