@@ -419,10 +419,14 @@ namespace SpendWise
                 // play chime
                 SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
                 chime2.Play();
-                string queryResetTrans = "DELETE FROM transactions";
-                con.ExecuteQuery(queryResetTrans);
-                string queryResetWallet = "UPDATE wallet SET money = 0.00 WHERE id = 1";
-                con.ExecuteQuery(queryResetWallet);
+                // delete transactions
+                con.ExecuteQuery("DELETE FROM transactions");
+                // update wallet
+                con.ExecuteQuery("UPDATE wallet SET money = 0.00, saving = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
+                // reset events
+                con.ExecuteQuery("DELETE FROM events");
+                // reset sequences
+                con.ExecuteQuery("UPDATE sqlite_squence SET transacrions = 1, events = 1, items = 1, items = 1, wallet = 1");
                 // refresh app
                 refresh();
             }
