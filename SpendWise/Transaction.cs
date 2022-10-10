@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace SpendWise
 {
@@ -14,9 +8,11 @@ namespace SpendWise
         // load transactions
         public void loadTransactions(DataGridView datagrid)
         {
-            string queryTransactions = "SELECT id, description, amount, action, date FROM transactions";
+            string queryTransactions = "SELECT id, description, amount, action, date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
-            datagrid.Columns[0].Visible = false;
+            datagrid.Columns[0].Width = 30;
+            datagrid.Columns[3].Width = 50;
+            datagrid.Columns[4].Width = 120;
         }
     }
 }

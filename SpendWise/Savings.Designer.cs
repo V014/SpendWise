@@ -95,7 +95,9 @@
             this.Controls.Add(this.btn_apply);
             this.Controls.Add(this.lbl_percent);
             this.Controls.Add(this.lbl_title);
+            this.MaximizeBox = false;
             this.Name = "Savings";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Savings";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;

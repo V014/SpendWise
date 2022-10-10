@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -38,13 +40,14 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel_input = new System.Windows.Forms.Panel();
             this.txt_desc = new System.Windows.Forms.ComboBox();
             this.txt_amount = new MetroFramework.Controls.MetroTextBox();
             this.lbl_description = new System.Windows.Forms.Label();
             this.lbl_amount = new System.Windows.Forms.Label();
             this.panel_wallet = new System.Windows.Forms.Panel();
+            this.btn_money = new System.Windows.Forms.Button();
+            this.btn_savings = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_UI = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
@@ -63,9 +66,8 @@
             this.btn_about = new System.Windows.Forms.Button();
             this.panel_transactions = new System.Windows.Forms.Panel();
             this.data_transactions = new System.Windows.Forms.DataGridView();
-            this.panel_transControls = new System.Windows.Forms.Panel();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_trash = new System.Windows.Forms.Button();
+            this.dataMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.item_remove = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_income = new System.Windows.Forms.Panel();
             this.chart_income = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel_expenditure = new System.Windows.Forms.Panel();
@@ -88,14 +90,12 @@
             this.panel_owner = new System.Windows.Forms.Panel();
             this.panel_controls = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_data = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_savings = new System.Windows.Forms.Button();
-            this.btn_money = new System.Windows.Forms.Button();
             this.panel_input.SuspendLayout();
             this.panel_wallet.SuspendLayout();
             this.panel_settings.SuspendLayout();
             this.panel_transactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).BeginInit();
-            this.panel_transControls.SuspendLayout();
+            this.dataMenu.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
             this.panel_expenditure.SuspendLayout();
@@ -230,6 +230,35 @@
             this.panel_wallet.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel_wallet.Size = new System.Drawing.Size(211, 200);
             this.panel_wallet.TabIndex = 1;
+            // 
+            // btn_money
+            // 
+            this.btn_money.BackColor = System.Drawing.Color.Transparent;
+            this.btn_money.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_money.BackgroundImage")));
+            this.btn_money.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_money.FlatAppearance.BorderSize = 0;
+            this.btn_money.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btn_money.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_money.Location = new System.Drawing.Point(3, 76);
+            this.btn_money.Name = "btn_money";
+            this.btn_money.Size = new System.Drawing.Size(58, 50);
+            this.btn_money.TabIndex = 4;
+            this.btn_money.UseVisualStyleBackColor = false;
+            // 
+            // btn_savings
+            // 
+            this.btn_savings.BackColor = System.Drawing.Color.Transparent;
+            this.btn_savings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_savings.BackgroundImage")));
+            this.btn_savings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_savings.FlatAppearance.BorderSize = 0;
+            this.btn_savings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
+            this.btn_savings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_savings.Location = new System.Drawing.Point(3, 135);
+            this.btn_savings.Name = "btn_savings";
+            this.btn_savings.Size = new System.Drawing.Size(58, 50);
+            this.btn_savings.TabIndex = 3;
+            this.btn_savings.UseVisualStyleBackColor = false;
+            this.btn_savings.Click += new System.EventHandler(this.btn_savings_Click);
             // 
             // btn_update
             // 
@@ -463,7 +492,6 @@
             // 
             this.panel_transactions.BackColor = System.Drawing.Color.Transparent;
             this.panel_transactions.Controls.Add(this.data_transactions);
-            this.panel_transactions.Controls.Add(this.panel_transControls);
             this.panel_transactions.Location = new System.Drawing.Point(3, 3);
             this.panel_transactions.Name = "panel_transactions";
             this.panel_transactions.Size = new System.Drawing.Size(428, 400);
@@ -477,57 +505,29 @@
             this.data_transactions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.data_transactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.data_transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_transactions.ContextMenuStrip = this.dataMenu;
             this.data_transactions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.data_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.data_transactions.Location = new System.Drawing.Point(0, 0);
             this.data_transactions.Name = "data_transactions";
-            this.data_transactions.ReadOnly = true;
-            this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(428, 360);
+            this.data_transactions.Size = new System.Drawing.Size(428, 400);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellClick);
+            this.data_transactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellValueChanged);
             // 
-            // panel_transControls
+            // dataMenu
             // 
-            this.panel_transControls.Controls.Add(this.btn_edit);
-            this.panel_transControls.Controls.Add(this.btn_trash);
-            this.panel_transControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_transControls.Location = new System.Drawing.Point(0, 360);
-            this.panel_transControls.Name = "panel_transControls";
-            this.panel_transControls.Size = new System.Drawing.Size(428, 40);
-            this.panel_transControls.TabIndex = 2;
+            this.dataMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.item_remove});
+            this.dataMenu.Name = "dataMenu";
+            this.dataMenu.Size = new System.Drawing.Size(118, 26);
             // 
-            // btn_edit
+            // item_remove
             // 
-            this.btn_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_edit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_edit.FlatAppearance.BorderSize = 0;
-            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(217, 0);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(211, 40);
-            this.btn_edit.TabIndex = 2;
-            this.btn_edit.UseVisualStyleBackColor = false;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
-            // btn_trash
-            // 
-            this.btn_trash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_trash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_trash.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_trash.FlatAppearance.BorderSize = 0;
-            this.btn_trash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tomato;
-            this.btn_trash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_trash.Image = ((System.Drawing.Image)(resources.GetObject("btn_trash.Image")));
-            this.btn_trash.Location = new System.Drawing.Point(0, 0);
-            this.btn_trash.Name = "btn_trash";
-            this.btn_trash.Size = new System.Drawing.Size(211, 40);
-            this.btn_trash.TabIndex = 1;
-            this.btn_trash.UseVisualStyleBackColor = false;
-            this.btn_trash.Click += new System.EventHandler(this.btn_trash_Click);
+            this.item_remove.Name = "item_remove";
+            this.item_remove.Size = new System.Drawing.Size(117, 22);
+            this.item_remove.Text = "Remove";
+            this.item_remove.Click += new System.EventHandler(this.item_remove_Click);
             // 
             // panel_income
             // 
@@ -928,35 +928,6 @@
             this.panel_data.Size = new System.Drawing.Size(1307, 408);
             this.panel_data.TabIndex = 8;
             // 
-            // btn_savings
-            // 
-            this.btn_savings.BackColor = System.Drawing.Color.Transparent;
-            this.btn_savings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_savings.BackgroundImage")));
-            this.btn_savings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_savings.FlatAppearance.BorderSize = 0;
-            this.btn_savings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
-            this.btn_savings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_savings.Location = new System.Drawing.Point(3, 135);
-            this.btn_savings.Name = "btn_savings";
-            this.btn_savings.Size = new System.Drawing.Size(58, 50);
-            this.btn_savings.TabIndex = 3;
-            this.btn_savings.UseVisualStyleBackColor = false;
-            this.btn_savings.Click += new System.EventHandler(this.btn_savings_Click);
-            // 
-            // btn_money
-            // 
-            this.btn_money.BackColor = System.Drawing.Color.Transparent;
-            this.btn_money.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_money.BackgroundImage")));
-            this.btn_money.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_money.FlatAppearance.BorderSize = 0;
-            this.btn_money.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_money.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_money.Location = new System.Drawing.Point(3, 76);
-            this.btn_money.Name = "btn_money";
-            this.btn_money.Size = new System.Drawing.Size(58, 50);
-            this.btn_money.TabIndex = 4;
-            this.btn_money.UseVisualStyleBackColor = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -983,7 +954,7 @@
             this.panel_settings.ResumeLayout(false);
             this.panel_transactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).EndInit();
-            this.panel_transControls.ResumeLayout(false);
+            this.dataMenu.ResumeLayout(false);
             this.panel_income.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).EndInit();
             this.panel_expenditure.ResumeLayout(false);
@@ -1007,7 +978,6 @@
         private System.Windows.Forms.Button btn_minus;
         private System.Windows.Forms.Panel panel_input;
         private System.Windows.Forms.Panel panel_transactions;
-        private System.Windows.Forms.Button btn_trash;
         private System.Windows.Forms.Label lbl_amount;
         private System.Windows.Forms.Label lbl_description;
         private System.Windows.Forms.Panel panel_settings;
@@ -1039,8 +1009,6 @@
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.FlowLayoutPanel panel_controls;
         private System.Windows.Forms.FlowLayoutPanel panel_data;
-        private System.Windows.Forms.Panel panel_transControls;
-        private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_UI;
         public System.Windows.Forms.Button btn_update;
         public System.Windows.Forms.Label lbl_savings;
@@ -1052,6 +1020,8 @@
         private System.Windows.Forms.ComboBox txt_desc;
         private System.Windows.Forms.Button btn_savings;
         private System.Windows.Forms.Button btn_money;
+        private MetroFramework.Controls.MetroContextMenu dataMenu;
+        private System.Windows.Forms.ToolStripMenuItem item_remove;
     }
 }
 

@@ -27,6 +27,7 @@ namespace SpendWise
             refresh();
             // setup UI optimization
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             // setting up hints
             toolTips();
             // setup UI size
@@ -49,8 +50,13 @@ namespace SpendWise
             lbl_owner.Text = loadUser();
             // show money
             lbl_money.Text = money.checkMoney();
+            // show savings
             lbl_savings.Text = money.checkSavings();
-            lbl_saved.Text = loadSaved().ToString();
+            // show saved
+            if (loadSaved() > 0)
+            {
+                lbl_saved.Text = loadSaved().ToString();
+            }
             // style datagrid
             theme.style(data_transactions);
             // load the data into the data grid
@@ -59,6 +65,7 @@ namespace SpendWise
             lbl_currency.Text = loadCurrency();
             // load charts
             loadCharts();
+            // apply details
             lbl_income.Text = loadIncome();
             lbl_expenditure.Text = loadExpenditure();
             lbl_common.Text = loadCommon();
@@ -86,7 +93,7 @@ namespace SpendWise
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             try
             {
@@ -98,7 +105,7 @@ namespace SpendWise
             }
             catch (Exception)
             {
-                MessageBox.Show("Failed to load expenditure", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // display overall income
             /*
@@ -136,8 +143,6 @@ namespace SpendWise
             buttonToolTip.SetToolTip(btn_update, "Green: Updated | Blue: Updating | White: Outdated");
             buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
-            buttonToolTip.SetToolTip(btn_trash, "Remove from list");
-            buttonToolTip.SetToolTip(btn_edit, "Edit selected item");
             //buttonToolTip.SetToolTip(chart_income, "Click to expand");
             //buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
         }
@@ -197,14 +202,36 @@ namespace SpendWise
         // load the overall expenditure
         private string loadExpenditure()
         {
-            string Expenditure = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '-'");
-            return Expenditure;
+            try
+            {
+                string Expenditure = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '-'");
+                return Expenditure;
+            }
+            catch (Exception)
+            {
+                return 0.ToString();
+            }
+            
         }
         // load the overall saved
         private int loadSaved()
         {
-            int saved = int.Parse(loadIncome()) - int.Parse(loadExpenditure());
-            return saved;
+            try
+            {
+                int saved = int.Parse(loadIncome()) - int.Parse(loadExpenditure());
+                if(saved > 1)
+                {
+                    return saved;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
         // load the common purchased item
         private string loadCommon()
@@ -339,48 +366,7 @@ namespace SpendWise
         // when the trash button is pressed
         private void btn_trash_Click(object sender, EventArgs e)
         {
-            // play chime
-            SoundPlayer delete = new SoundPlayer(@"sfx/error.wav");
-            delete.Play();
-            DialogResult dialogResult = MessageBox.Show("Delete transaction?", "Are you sure?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                try
-                {
-                    var id = data_transactions.CurrentRow.Cells[0].Value;
-                    // build query to delete user transaction
-                    string queryDelete = "DELETE FROM transactions WHERE id = '" + id + "'";
-                    con.ExecuteQuery(queryDelete);
-                    // build query to pull transactions
-                    transaction.loadTransactions(data_transactions);
-                    // refresh charts
-                    loadCharts();
-                    // play chime
-                    SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
-                    trash.Play();
-                }
-                catch (Exception ex)
-                {
-                    // play chime
-                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
-                    save.Play();
-                    // show suggestion box
-                    MessageBox.Show(ex.ToString());
-                    //MessageBox.Show("The application has failed to either update your transactions.", "Application error");
-                    try
-                    {
-                        // log the error
-                        string queryEvents = "INSERT INTO events  (Date, description, location) VALUES( '" + date + "', 'SQL error', 'Transaction log')";
-                        con.ExecuteQuery(queryEvents);
-                        MessageBox.Show("Error recorded");
-                    }
-                    catch
-                    {
-                        // if logging fails, close the application
-                        Application.Exit();
-                    }
-                }
-            }
+
         }
         // when the amount textbox is clicked
         private void txt_amount_KeyPress(object sender, KeyPressEventArgs e)
@@ -414,22 +400,31 @@ namespace SpendWise
             SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
             chime.Play();
             DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+
+            try
             {
-                // play chime
-                SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
-                chime2.Play();
-                // delete transactions
-                con.ExecuteQuery("DELETE FROM transactions");
-                // update wallet
-                con.ExecuteQuery("UPDATE wallet SET money = 0.00, saving = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
-                // reset events
-                con.ExecuteQuery("DELETE FROM events");
-                // reset sequences
-                con.ExecuteQuery("UPDATE sqlite_squence SET transacrions = 1, events = 1, items = 1, items = 1, wallet = 1");
-                // refresh app
-                refresh();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // play chime
+                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
+                    chime2.Play();
+                    // delete transactions
+                    con.ExecuteQuery("DELETE FROM transactions");
+                    // update wallet
+                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
+                    // reset events
+                    con.ExecuteQuery("DELETE FROM events");
+                    // reset sequences
+                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
+                    // refresh app
+                    refresh();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         // what happens when name is clicked
         private void lbl_owner_Click(object sender, EventArgs e)
@@ -507,34 +502,10 @@ namespace SpendWise
             // play chime
             SoundPlayer chime = new SoundPlayer(@"sfx/beep.wav");
             chime.Play();
-            try
-            {
-                DataGridViewRow row = data_transactions.Rows[e.RowIndex];
-                txt_desc.Text = row.Cells[1].Value.ToString();
-                txt_amount.Text = row.Cells[2].Value.ToString();
-                int itemId = int.Parse(row.Cells[0].Value.ToString());
-                con.ExecuteQuery($"UPDATE item SET itemId = {itemId}");
-            }
-            catch (Exception) // reset textboxes
-            {
-                // refresh fields
-                txt_amount.Text = "0.00";
-                txt_desc.Text = "";
-            }
-        }
-        // when the user clicks the edit button
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
-            chime.Play();
-            Edit edit = new Edit();
-            edit.Show();
         }
         // clean up when form closes
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            con.ExecuteQuery($"UPDATE item SET itemId = 0");
             Application.Exit();
         }
         // when refresh button pressed
@@ -586,6 +557,80 @@ namespace SpendWise
         {
             Savings savings = new Savings();
             savings.Show();
+        }
+
+        private void data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = data_transactions.Rows[e.RowIndex];
+
+                txt_desc.Text = row.Cells[1].Value.ToString();
+                txt_amount.Text = row.Cells[2].Value.ToString();
+
+                int Id = int.Parse(row.Cells[0].Value.ToString());
+                string description = row.Cells[1].Value.ToString();
+                int amount = int.Parse(row.Cells[2].Value.ToString());
+                string action = row.Cells[3].Value.ToString();
+                string date = row.Cells[4].Value.ToString();
+                
+                con.ExecuteQuery($"UPDATE transactions SET description = '{description}', amount = '{amount}', date = '{date}', action = '{action}' WHERE Id = {Id}");
+
+                transaction.loadTransactions(data_transactions);
+                MessageBox.Show("Saved!");
+            }
+            catch (Exception ex) // reset textboxes
+            {
+                // refresh fields
+                txt_amount.Text = "0.00";
+                txt_desc.Text = "";
+                MessageBox.Show(ex.ToString(),"Not saved!");
+            }
+        }
+
+        private void item_remove_Click(object sender, EventArgs e)
+        {
+            // play chime
+            SoundPlayer delete = new SoundPlayer(@"sfx/error.wav");
+            delete.Play();
+            DialogResult dialogResult = MessageBox.Show("Delete transaction?", "Are you sure?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    var id = data_transactions.CurrentRow.Cells[0].Value;
+                    // build query to delete user transaction
+                    con.ExecuteQuery($"DELETE FROM transactions WHERE id = '{id}'");
+                    // build query to pull transactions
+                    transaction.loadTransactions(data_transactions);
+                    // refresh charts
+                    loadCharts();
+                    // play chime
+                    SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
+                    trash.Play();
+                }
+                catch (Exception ex)
+                {
+                    // play chime
+                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                    save.Play();
+                    // show suggestion box
+                    MessageBox.Show(ex.ToString());
+                    //MessageBox.Show("The application has failed to either update your transactions.", "Application error");
+                    try
+                    {
+                        // log the error
+                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( '{date}', 'SQL error', 'Transaction log')";
+                        con.ExecuteQuery(queryEvents);
+                        MessageBox.Show("Error recorded");
+                    }
+                    catch
+                    {
+                        // if logging fails, close the application
+                        Application.Exit();
+                    }
+                }
+            }
         }
     }
 }
