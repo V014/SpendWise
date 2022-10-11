@@ -433,7 +433,7 @@
             // btn_import
             // 
             this.btn_import.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btn_import.Cursor = System.Windows.Forms.Cursors.No;
+            this.btn_import.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_import.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_import.FlatAppearance.BorderSize = 0;
             this.btn_import.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));

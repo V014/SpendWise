@@ -4,6 +4,8 @@ using System.Data.SQLite;
 using System.Media;
 using System.Windows.Forms;
 using ClosedXML.Excel;
+using System.Data.OleDb;
+using System.Data;
 
 namespace SpendWise
 {
@@ -363,11 +365,6 @@ namespace SpendWise
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
             }
         }
-        // when the trash button is pressed
-        private void btn_trash_Click(object sender, EventArgs e)
-        {
-
-        }
         // when the amount textbox is clicked
         private void txt_amount_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -416,8 +413,9 @@ namespace SpendWise
                     con.ExecuteQuery("DELETE FROM events");
                     // reset sequences
                     con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
-                    // refresh app
-                    refresh();
+                    // restart app
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
             }
             catch (Exception ex)
@@ -476,25 +474,38 @@ namespace SpendWise
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                // retrieve the excel file
-                string file = ofd.FileName;
-                // target the database file
-                string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=""Excel 12.0 Xml;HDR=YES;""", file);
-                OleDbConnection Econ = new OleDbConnection(constr);
-                string Query = string.Format("Select [description],[amount],[action],[date] FROM [{0}]", "Sheet1$");
-                OleDbCommand Ecom = new OleDbCommand(Query, Econ);
-                Econ.Open();
+                try
+                {
+                    // retrieve the excel file
+                    string file = ofd.FileName;
+                    // target the database file
+                    string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=""Excel 12.0 Xml;HDR=YES;""", file);
+                    OleDbConnection Econ = new OleDbConnection(constr);
+                    string Query = string.Format("Select [description],[amount],[action],[date] FROM [{0}]", "Sheet$");
+                    OleDbCommand Ecom = new OleDbCommand(Query, Econ);
+                    Econ.Open();
+                    // refresh app
+                    refresh();
+                    // update the money count
+                    //lbl_money.Text = moneyNow.ToString();
+                    // refresh the data grid
+                    transaction.loadTransactions(data_transactions);
+                    // refresh charts
+                    loadCharts();
 
-                loadTransactions();
-                
-                DataSet ds = new DataSet();
-                OleDbDataAdapter oda = new OleDbDataAdapter(Query, Econ);
-                Econ.Close();
-                oda.Fill(ds);
-                DataTable Exceldt = ds.Tables[0];
-               
+                    DataSet ds = new DataSet();
+                    OleDbDataAdapter oda = new OleDbDataAdapter(Query, Econ);
+                    Econ.Close();
+                    oda.Fill(ds);
+                    DataTable Exceldt = ds.Tables[0];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }  
             */
+            
         }
         // transfers details from table transactions to the controls on the top left
         private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -552,13 +563,13 @@ namespace SpendWise
         {
             expenditure.Show();
         }
-
+        // when savings button is clicked
         private void btn_savings_Click(object sender, EventArgs e)
         {
             Savings savings = new Savings();
             savings.Show();
         }
-
+        // when a transaction is clicked
         private void data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -587,7 +598,7 @@ namespace SpendWise
                 MessageBox.Show(ex.ToString(),"Not saved!");
             }
         }
-
+        // when the remove menu item is clicked
         private void item_remove_Click(object sender, EventArgs e)
         {
             // play chime
