@@ -49,14 +49,15 @@
             // btn_submit
             // 
             this.btn_submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(94)))));
+            this.btn_submit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_submit.FlatAppearance.BorderSize = 0;
             this.btn_submit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btn_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_submit.Font = new System.Drawing.Font("Roboto", 11F);
+            this.btn_submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btn_submit.ForeColor = System.Drawing.Color.White;
-            this.btn_submit.Location = new System.Drawing.Point(0, 116);
+            this.btn_submit.Location = new System.Drawing.Point(0, 126);
             this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(239, 44);
+            this.btn_submit.Size = new System.Drawing.Size(245, 44);
             this.btn_submit.TabIndex = 2;
             this.btn_submit.Text = "Save";
             this.btn_submit.UseVisualStyleBackColor = false;
@@ -66,7 +67,7 @@
             // 
             this.txt_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_name.Font = new System.Drawing.Font("Roboto", 12F);
+            this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_name.ForeColor = System.Drawing.Color.Gray;
             this.txt_name.Location = new System.Drawing.Point(3, 30);
             this.txt_name.MaximumSize = new System.Drawing.Size(236, 32);
@@ -78,11 +79,11 @@
             // lbl_title
             // 
             this.lbl_title.AutoSize = true;
-            this.lbl_title.Font = new System.Drawing.Font("Roboto", 16F);
+            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
             this.lbl_title.Location = new System.Drawing.Point(3, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(71, 27);
+            this.lbl_title.Size = new System.Drawing.Size(71, 26);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "Name";
             // 

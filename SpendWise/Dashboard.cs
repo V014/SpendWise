@@ -19,6 +19,8 @@ namespace SpendWise
         Income income = new Income();
         Expenditure expenditure = new Expenditure();
         string date = DateTime.Now.ToString("g");
+        private static string monthNumber = DateTime.Now.Month.ToString("g");
+        private static int year = DateTime.Now.Year;
         // constructor
         public Dashboard()
         {
@@ -45,6 +47,7 @@ namespace SpendWise
                 btn_UI.Image = Image.FromFile(@"res/compress.png");
             }
         }
+        
         // refreshes the whole app
         public void refresh()
         {
@@ -74,6 +77,8 @@ namespace SpendWise
             lbl_least.Text = loadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "";
+            //cmb_month.Text = monthNumber.ToString();
+            //cmb_year.Text = year.ToString();
         }
         // loads charts when called
         public void loadCharts()
@@ -160,6 +165,8 @@ namespace SpendWise
             panel_income.Width = 211;
             panel_expenditure.Height = 200;
             panel_expenditure.Width = 211;
+            panel_extra.Hide();
+            panel_settings.Hide();
         }
         // check the current ui state
         string UiState()
@@ -179,6 +186,8 @@ namespace SpendWise
             panel_income.Width = 420;
             panel_expenditure.Height = 400;
             panel_expenditure.Width = 420;
+            panel_extra.Show();
+            panel_settings.Show();
         }
         // pull user name from system
         private string loadUser()
@@ -642,6 +651,16 @@ namespace SpendWise
                     }
                 }
             }
+        }
+        // loads details from a particular date or month or year
+        private void Date_select_ValueChanged(object sender, EventArgs e)
+        {
+            transaction.loadDate(date_select.Text, data_transactions);
+        }
+        // loads details from a oarticular month
+        private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            transaction.loadMonth(cmb_month.Text, data_transactions);
         }
     }
 }
