@@ -34,9 +34,9 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txt_main = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_main = new System.Windows.Forms.RichTextBox();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -101,6 +101,19 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
+            // txt_main
+            // 
+            this.txt_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.txt_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_main.Font = new System.Drawing.Font("Roboto", 9F);
+            this.txt_main.ForeColor = System.Drawing.Color.Silver;
+            this.txt_main.Location = new System.Drawing.Point(0, 172);
+            this.txt_main.Name = "txt_main";
+            this.txt_main.ReadOnly = true;
+            this.txt_main.Size = new System.Drawing.Size(244, 145);
+            this.txt_main.TabIndex = 2;
+            this.txt_main.Text = resources.GetString("txt_main.Text");
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -123,19 +136,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // txt_main
-            // 
-            this.txt_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.txt_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_main.Font = new System.Drawing.Font("Roboto", 9F);
-            this.txt_main.ForeColor = System.Drawing.Color.Silver;
-            this.txt_main.Location = new System.Drawing.Point(0, 172);
-            this.txt_main.Name = "txt_main";
-            this.txt_main.ReadOnly = true;
-            this.txt_main.Size = new System.Drawing.Size(244, 145);
-            this.txt_main.TabIndex = 2;
-            this.txt_main.Text = resources.GetString("txt_main.Text");
             // 
             // About
             // 

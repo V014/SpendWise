@@ -663,7 +663,11 @@
 </value>
   </data>
   <data name="txt_main.Text" xml:space="preserve">
-    <value>Thank you for using and trusting spendwise as your financial partner. We aim to improve your spending habits  by presenting them accordingly. This application does not distribute your information and as a precaution, you may export your finances in a excel document and manage them on another platfom. If you happen to have your own copy in a Microsoft Excel document, you may import the file.</value>
+    <value>Thank you for using and trusting spendwise as your financial partner. We aim to improve your spending habits  by presenting them accordingly. This application does not distribute your information and as a precaution. 
+ 
+Application Version : 3
+Release : 10/23/2022
+Support : wangakanjala@gmail.com</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -112,3 +112,7 @@ C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.cspr
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.exe
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.pdb
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Period.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Expenditure.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Income.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Period.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Savings.resources

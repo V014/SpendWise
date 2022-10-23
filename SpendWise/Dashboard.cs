@@ -35,6 +35,7 @@ namespace SpendWise
             // setting up hints
             toolTips();
             // setup UI size
+            /*
             string state = UiState();
             if(state == "Mini")
             {
@@ -46,6 +47,7 @@ namespace SpendWise
                 setLargeUi();
                 btn_UI.Image = Image.FromFile(@"res/compress.png");
             }
+            */
         }
         
         // refreshes the whole app
@@ -76,7 +78,7 @@ namespace SpendWise
             lbl_common.Text = loadCommon();
             lbl_least.Text = loadLeast();
             txt_amount.Text = "";
-            txt_desc.Text = "";
+            txt_desc.Text = "Description";
             //cmb_month.Text = monthNumber.ToString();
             //cmb_year.Text = year.ToString();
         }
@@ -144,10 +146,8 @@ namespace SpendWise
             buttonToolTip.ReshowDelay = 500;
 
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
-            buttonToolTip.SetToolTip(btn_UI, "Toggle UI");
             buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
-            buttonToolTip.SetToolTip(btn_update, "Green: Updated | Blue: Updating | White: Outdated");
             buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
             //buttonToolTip.SetToolTip(chart_income, "Click to expand");
@@ -165,8 +165,6 @@ namespace SpendWise
             panel_income.Width = 211;
             panel_expenditure.Height = 200;
             panel_expenditure.Width = 211;
-            panel_extra.Hide();
-            panel_settings.Hide();
         }
         // check the current ui state
         string UiState()
@@ -186,8 +184,6 @@ namespace SpendWise
             panel_income.Width = 420;
             panel_expenditure.Height = 400;
             panel_expenditure.Width = 420;
-            panel_extra.Show();
-            panel_settings.Show();
         }
         // pull user name from system
         private string loadUser()
@@ -402,36 +398,7 @@ namespace SpendWise
         // flush the database after confirmation
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
-            chime.Play();
-            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
 
-            try
-            {
-                if (dialogResult == DialogResult.Yes)
-                {
-                    // play chime
-                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
-                    chime2.Play();
-                    // delete transactions
-                    con.ExecuteQuery("DELETE FROM transactions");
-                    // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
-                    // reset events
-                    con.ExecuteQuery("DELETE FROM events");
-                    // reset sequences
-                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
-                    // restart app
-                    Application.Restart();
-                    Environment.Exit(0);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            
         }
         // what happens when name is clicked
         private void lbl_owner_Click(object sender, EventArgs e)
@@ -442,31 +409,7 @@ namespace SpendWise
         // when user wants to export document
         private void btn_export_Click(object sender, EventArgs e)
         {
-            // display UI that enable user to save file location
-            using(SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
-            {
-                if(sfd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // collect all the known transactions
-                        string queryExport = "SELECT id, description, amount, action, date FROM transactions";
-                        using (XLWorkbook workbook = new XLWorkbook())
-                        {
-                            // export them to an excel file Note. DataTable required
-                            workbook.Worksheets.Add(con.ExportData(queryExport));
-                            workbook.SaveAs(sfd.FileName);
-                        }
-                        // play chime
-                        SoundPlayer ice = new SoundPlayer(@"sfx/ice.wav");
-                        ice.Play();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+
         }
         // when the user clicks the currency label
         private void lbl_currency_Click(object sender, EventArgs e)
@@ -538,23 +481,7 @@ namespace SpendWise
         // when UI toggle button clicked
         private void btn_UI_Click(object sender, EventArgs e)
         {
-            // if the windows starts out large
-            if (this.Height == 697)
-            {
-                SoundPlayer chime = new SoundPlayer(@"sfx/close.wav");
-                chime.Play();
-                con.ExecuteQuery("UPDATE wallet SET state = 'Mini'");
-                setMiniUi();
-                btn_UI.Image = Image.FromFile(@"res/expand.png");
-            }
-            else
-            {
-                SoundPlayer chime = new SoundPlayer(@"sfx/close.wav");
-                chime.Play();
-                con.ExecuteQuery("UPDATE wallet SET state = 'Large'");
-                setLargeUi();
-                btn_UI.Image = Image.FromFile(@"res/compress.png");
-            }
+
         }
         // when user clicks update button
         private void btn_update_Click(object sender, EventArgs e)
@@ -661,6 +588,81 @@ namespace SpendWise
         private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
         {
             transaction.loadMonth(cmb_month.Text, data_transactions);
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Feature comming soon!");
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // display UI that enable user to save file location
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // collect all the known transactions
+                        string queryExport = "SELECT id, description, amount, action, date FROM transactions";
+                        using (XLWorkbook workbook = new XLWorkbook())
+                        {
+                            // export them to an excel file Note. DataTable required
+                            workbook.Worksheets.Add(con.ExportData(queryExport));
+                            workbook.SaveAs(sfd.FileName);
+                        }
+                        // play chime
+                        SoundPlayer ice = new SoundPlayer(@"sfx/ice.wav");
+                        ice.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // play chime
+            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
+            chime.Play();
+            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
+
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // play chime
+                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
+                    chime2.Play();
+                    // delete transactions
+                    con.ExecuteQuery("DELETE FROM transactions");
+                    // update wallet
+                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
+                    // reset events
+                    con.ExecuteQuery("DELETE FROM events");
+                    // reset sequences
+                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
+                    // restart app
+                    Application.Restart();
+                    Environment.Exit(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
+            chime.Play();
+            About us = new About();
+            us.Show();
         }
     }
 }
