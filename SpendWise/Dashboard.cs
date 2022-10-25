@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using ClosedXML.Excel;
 using System.Data.OleDb;
 using System.Data;
+using System.IO;
 
 namespace SpendWise
 {
@@ -34,27 +35,14 @@ namespace SpendWise
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             // setting up hints
             toolTips();
-            // setup UI size
-            /*
-            string state = UiState();
-            if(state == "Mini")
-            {
-                setMiniUi();
-                btn_UI.Image = Image.FromFile(@"res/expand.png");
-            }
-            else
-            {
-                setLargeUi();
-                btn_UI.Image = Image.FromFile(@"res/compress.png");
-            }
-            */
         }
-        
         // refreshes the whole app
         public void refresh()
         {
-            // display user
-            lbl_owner.Text = loadUser();
+            // display user name at the bottom of the ui
+            btn_owner.Text = loadUser();
+            // displays profile image
+            loadPicture();
             // show money
             lbl_money.Text = money.checkMoney();
             // show savings
@@ -79,8 +67,6 @@ namespace SpendWise
             lbl_least.Text = loadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "Description";
-            //cmb_month.Text = monthNumber.ToString();
-            //cmb_year.Text = year.ToString();
         }
         // loads charts when called
         public void loadCharts()
@@ -116,20 +102,6 @@ namespace SpendWise
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // display overall income
-            /*
-            try
-            {
-                chart_overall.Series[0].Points.Clear();
-                chart_overall.Series[1].Points.Clear();
-                chart_overall.Series[0].Points.Add(Convert.ToInt32(loadIncome()));
-                chart_overall.Series[1].Points.Add(Convert.ToInt32(loadExpenditure()));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Failed to load overall income", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            */
         }
         // set tool tips where required
         void toolTips()
@@ -146,44 +118,12 @@ namespace SpendWise
             buttonToolTip.ReshowDelay = 500;
 
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
-            buttonToolTip.SetToolTip(lbl_owner, "Click to rename");
+            buttonToolTip.SetToolTip(btn_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
             buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
             //buttonToolTip.SetToolTip(chart_income, "Click to expand");
             //buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
-        }
-        // set the interface to minimal
-        void setMiniUi()
-        {
-            // reduce the size of the window
-            this.Width = 912;
-            this.Height = 500;
-            // refuce the size of the controls
-            panel_transactions.Height = 200;
-            panel_income.Height = 200;
-            panel_income.Width = 211;
-            panel_expenditure.Height = 200;
-            panel_expenditure.Width = 211;
-        }
-        // check the current ui state
-        string UiState()
-        {
-            string setState = con.ReadString("SELECT state FROM wallet");
-            return setState;
-        }
-        // set the interface to large
-        void setLargeUi()
-        {
-            // reduce the size of the window
-            this.Width = 1347;
-            this.Height = 697;
-            // reduce the size of the controls
-            panel_transactions.Height = 400;
-            panel_income.Height = 400;
-            panel_income.Width = 420;
-            panel_expenditure.Height = 400;
-            panel_expenditure.Width = 420;
         }
         // pull user name from system
         private string loadUser()
@@ -191,6 +131,11 @@ namespace SpendWise
             string queryUser = "SELECT owner FROM wallet";
             string username = con.ReadString(queryUser);
             return username;
+        }
+        // pull user profile picture
+        private void loadPicture()
+        {
+            picbox_image.ImageLocation = @"profile/" + loadUser() + ".jpeg";
         }
         // load the currency the user has set
         private string loadCurrency()
@@ -258,7 +203,7 @@ namespace SpendWise
         private void btn_plus_Click(object sender, System.EventArgs e)
         {
             // check if a description and amount both exist
-            if (txt_desc.Text != "" && Convert.ToInt32(txt_amount.Text) != 0)
+            if (txt_desc.Text != "Description" && txt_amount.Text != "")
             {
                 // pull the last amount in the wallet then credit it
                 try
@@ -280,7 +225,7 @@ namespace SpendWise
                     // document new savings
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date}', '+')");
+                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date_select.Text}', '+')");
                     // refresh app
                     refresh();
                     // update the money count
@@ -289,6 +234,8 @@ namespace SpendWise
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
                     loadCharts();
+                    // load data from where the user stopped
+                    Date_select_ValueChanged(sender, e);
                     // play chime
                     SoundPlayer win = new SoundPlayer(@"sfx/win.wav");
                     win.Play();
@@ -319,7 +266,7 @@ namespace SpendWise
         private void btn_minus_Click(object sender, EventArgs e)
         {
             // check if a description and amount both exist
-            if (txt_desc.Text != "" && Convert.ToInt32(txt_amount.Text) != 0)
+            if (txt_desc.Text != "Description" && txt_amount.Text != "")
             {
                 // pull the last amount in the wallet then credit it
                 try
@@ -335,7 +282,7 @@ namespace SpendWise
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // log the changes
-                    string queryTransaction = "INSERT INTO transactions(description, amount, date, action) VALUES('" + txt_desc.Text + "', " + amount + ", '" + date + "', '-')";
+                    string queryTransaction = "INSERT INTO transactions(description, amount, date, action) VALUES('" + txt_desc.Text + "', " + amount + ", '" + date_select.Text + "', '-')";
                     con.ExecuteQuery(queryTransaction);
                     // refresh app
                     refresh();
@@ -343,6 +290,8 @@ namespace SpendWise
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
                     loadCharts();
+                    // load data from where the user stopped
+                    Date_select_ValueChanged(sender, e);
                     // play chime
                     SoundPlayer coins = new SoundPlayer(@"sfx/coins.wav");
                     coins.Play();
@@ -398,7 +347,35 @@ namespace SpendWise
         // flush the database after confirmation
         private void btn_reset_Click(object sender, EventArgs e)
         {
+            // play chime
+            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
+            chime.Play();
+            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
 
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // play chime
+                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
+                    chime2.Play();
+                    // delete transactions
+                    con.ExecuteQuery("DELETE FROM transactions");
+                    // update wallet
+                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
+                    // reset events
+                    con.ExecuteQuery("DELETE FROM events");
+                    // reset sequences
+                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
+                    // restart app
+                    Application.Restart();
+                    Environment.Exit(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         // what happens when name is clicked
         private void lbl_owner_Click(object sender, EventArgs e)
@@ -477,11 +454,6 @@ namespace SpendWise
             refresh();
             SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
             edit.Play();
-        }
-        // when UI toggle button clicked
-        private void btn_UI_Click(object sender, EventArgs e)
-        {
-
         }
         // when user clicks update button
         private void btn_update_Click(object sender, EventArgs e)
@@ -589,12 +561,12 @@ namespace SpendWise
         {
             transaction.loadMonth(cmb_month.Text, data_transactions);
         }
-
+        // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Feature comming soon!");
         }
-
+        // eports data from app
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // display UI that enable user to save file location
@@ -623,46 +595,41 @@ namespace SpendWise
                 }
             }
         }
-
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
-            chime.Play();
-            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
-
-            try
-            {
-                if (dialogResult == DialogResult.Yes)
-                {
-                    // play chime
-                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
-                    chime2.Play();
-                    // delete transactions
-                    con.ExecuteQuery("DELETE FROM transactions");
-                    // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
-                    // reset events
-                    con.ExecuteQuery("DELETE FROM events");
-                    // reset sequences
-                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
-                    // restart app
-                    Application.Restart();
-                    Environment.Exit(0);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
+        // displays about message
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
             About us = new About();
             us.Show();
+        }
+        // when the user presses the owner button
+        private void Btn_owner_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+        }
+        // when the picture box is clicked
+        private void Picbox_image_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string sourcePath = ofd.FileName;
+                string name = loadUser();
+                string destinationPath = @"profile/" + name + ".jpeg";
+                if (!File.Exists(sourcePath))
+                {
+                    File.Copy(sourcePath, destinationPath);
+                    picbox_image.ImageLocation = sourcePath;
+                }
+                else
+                {
+                    File.Delete(destinationPath);
+                    File.Copy(sourcePath, destinationPath);
+                    picbox_image.ImageLocation = sourcePath;
+                }
+            }
         }
     }
 }
