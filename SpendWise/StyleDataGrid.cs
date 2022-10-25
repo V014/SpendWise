@@ -24,12 +24,12 @@ namespace SpendWise
             dataGrid.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 17, 17);
 
             dataGrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(34, 34, 34);
+            dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 17, 17);
             dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGrid.ColumnHeadersHeight = 30;
             dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-            dataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 9);
+            dataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Roboto", 11);
             dataGrid.DefaultCellStyle.Font = new Font("Roboto", 8);
             dataGrid.AlternatingRowsDefaultCellStyle.Font = new Font("Roboto", 8);
 
