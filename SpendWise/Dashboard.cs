@@ -37,7 +37,7 @@ namespace SpendWise
             toolTips();
         }
         // refreshes the whole app
-        public void refresh()
+        private void refresh()
         {
             // display user name at the bottom of the ui
             btn_owner.Text = loadUser();
@@ -69,7 +69,7 @@ namespace SpendWise
             txt_desc.Text = "Description";
         }
         // loads charts when called
-        public void loadCharts()
+        private void loadCharts()
         {
             SQLiteConnection connection = con.GetConnection();
             // get income
@@ -86,7 +86,7 @@ namespace SpendWise
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -104,7 +104,7 @@ namespace SpendWise
             }
         }
         // set tool tips where required
-        void toolTips()
+        public void toolTips()
         {
             ToolTip buttonToolTip = new ToolTip();
             buttonToolTip.ToolTipTitle = "Hint";
@@ -555,11 +555,75 @@ namespace SpendWise
         private void Date_select_ValueChanged(object sender, EventArgs e)
         {
             transaction.loadDate(date_select.Text, data_transactions);
+            string date = date_select.Text;
+            SQLiteConnection connection = con.GetConnection();
+            // get income
+            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{date}%'", connection);
+            SQLiteDataReader income = queryMoney.ExecuteReader();
+            // get expenditure
+            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{date}%'", connection);
+            SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
+            try
+            {
+                chart_income.Series[0].Points.Clear();
+                while (income.Read())
+                {
+                    chart_income.Series[0].Points.Add(income.GetInt32(0));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                chart_expenditure.Series[0].Points.Clear();
+                while (expenditure.Read())
+                {
+                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         // loads details from a oarticular month
         private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
         {
             transaction.loadMonth(cmb_month.Text, data_transactions);
+            int month = transaction.getMonthNumber(cmb_month.Text);
+            SQLiteConnection connection = con.GetConnection();
+            // get income
+            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{month}%'", connection);
+            SQLiteDataReader income = queryMoney.ExecuteReader();
+            // get expenditure
+            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{month}%'", connection);
+            SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
+            try
+            {
+                chart_income.Series[0].Points.Clear();
+                while (income.Read())
+                {
+                    chart_income.Series[0].Points.Add(income.GetInt32(0));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                chart_expenditure.Series[0].Points.Clear();
+                while (expenditure.Read())
+                {
+                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)

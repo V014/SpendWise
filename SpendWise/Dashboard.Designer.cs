@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_savings = new System.Windows.Forms.Button();
             this.btn_money = new System.Windows.Forms.Button();
             this.txt_desc = new System.Windows.Forms.ComboBox();
@@ -73,8 +73,10 @@
             this.panel_savings = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel_overal_income = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel_overall_expenditure = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel_total_saved = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -83,6 +85,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel_nav = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_plus = new System.Windows.Forms.Button();
@@ -94,16 +104,6 @@
             this.btn_owner = new System.Windows.Forms.Button();
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.dataMenu.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -123,6 +123,8 @@
             this.panel_frequency.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel_nav.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
@@ -135,8 +137,6 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -274,15 +274,23 @@
             // 
             // dataMenu
             // 
+            this.dataMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.dataMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.item_remove});
             this.dataMenu.Name = "dataMenu";
-            this.dataMenu.Size = new System.Drawing.Size(118, 26);
+            this.dataMenu.ShowImageMargin = false;
+            this.dataMenu.Size = new System.Drawing.Size(93, 26);
+            this.dataMenu.Style = MetroFramework.MetroColorStyle.Green;
+            this.dataMenu.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dataMenu.UseStyleColors = true;
             // 
             // item_remove
             // 
+            this.item_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.item_remove.ForeColor = System.Drawing.Color.White;
+            this.item_remove.Image = ((System.Drawing.Image)(resources.GetObject("item_remove.Image")));
             this.item_remove.Name = "item_remove";
-            this.item_remove.Size = new System.Drawing.Size(117, 22);
+            this.item_remove.Size = new System.Drawing.Size(92, 22);
             this.item_remove.Text = "Remove";
             this.item_remove.Click += new System.EventHandler(this.item_remove_Click);
             // 
@@ -304,54 +312,54 @@
             this.chart_income.BorderlineWidth = 0;
             this.chart_income.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_income.BorderSkin.BorderWidth = 0;
-            chartArea3.Area3DStyle.Inclination = 2;
-            chartArea3.Area3DStyle.IsRightAngleAxes = false;
-            chartArea3.Area3DStyle.Perspective = 20;
-            chartArea3.Area3DStyle.Rotation = 5;
-            chartArea3.Area3DStyle.WallWidth = 20;
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea3.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea3.BorderColor = System.Drawing.Color.Empty;
-            chartArea3.BorderWidth = 0;
-            chartArea3.Name = "ChartArea1";
-            chartArea3.Position.Auto = false;
-            chartArea3.Position.Height = 94F;
-            chartArea3.Position.Width = 94F;
-            chartArea3.Position.X = 3F;
-            chartArea3.Position.Y = 3F;
-            chartArea3.ShadowOffset = 20;
-            this.chart_income.ChartAreas.Add(chartArea3);
+            chartArea1.Area3DStyle.Inclination = 2;
+            chartArea1.Area3DStyle.IsRightAngleAxes = false;
+            chartArea1.Area3DStyle.Perspective = 20;
+            chartArea1.Area3DStyle.Rotation = 5;
+            chartArea1.Area3DStyle.WallWidth = 20;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderColor = System.Drawing.Color.Empty;
+            chartArea1.BorderWidth = 0;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 94F;
+            chartArea1.Position.Width = 94F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
+            chartArea1.ShadowOffset = 20;
+            this.chart_income.ChartAreas.Add(chartArea1);
             this.chart_income.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.Name = "Legend1";
-            this.chart_income.Legends.Add(legend3);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            this.chart_income.Legends.Add(legend1);
             this.chart_income.Location = new System.Drawing.Point(0, 0);
             this.chart_income.Name = "chart_income";
             this.chart_income.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            series3.BackSecondaryColor = System.Drawing.Color.DarkGreen;
-            series3.BorderWidth = 0;
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.LimeGreen;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series3.LabelForeColor = System.Drawing.Color.Empty;
-            series3.Legend = "Legend1";
-            series3.Name = "In";
-            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.ShadowOffset = 6;
-            this.chart_income.Series.Add(series3);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            series1.BackSecondaryColor = System.Drawing.Color.DarkGreen;
+            series1.BorderWidth = 0;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.LimeGreen;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.LabelForeColor = System.Drawing.Color.Empty;
+            series1.Legend = "Legend1";
+            series1.Name = "In";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ShadowOffset = 6;
+            this.chart_income.Series.Add(series1);
             this.chart_income.Size = new System.Drawing.Size(303, 146);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
@@ -374,49 +382,49 @@
             this.chart_expenditure.BorderlineWidth = 0;
             this.chart_expenditure.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_expenditure.BorderSkin.BorderWidth = 0;
-            chartArea4.Area3DStyle.Inclination = 2;
-            chartArea4.Area3DStyle.IsRightAngleAxes = false;
-            chartArea4.Area3DStyle.Perspective = 20;
-            chartArea4.Area3DStyle.Rotation = 5;
-            chartArea4.Area3DStyle.WallWidth = 20;
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea4.BorderColor = System.Drawing.Color.Empty;
-            chartArea4.BorderWidth = 0;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 94F;
-            chartArea4.Position.Width = 94F;
-            chartArea4.Position.X = 3F;
-            chartArea4.Position.Y = 3F;
-            chartArea4.ShadowOffset = 20;
-            this.chart_expenditure.ChartAreas.Add(chartArea4);
+            chartArea2.Area3DStyle.Inclination = 2;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.Perspective = 20;
+            chartArea2.Area3DStyle.Rotation = 5;
+            chartArea2.Area3DStyle.WallWidth = 20;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea2.BorderColor = System.Drawing.Color.Empty;
+            chartArea2.BorderWidth = 0;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 94F;
+            chartArea2.Position.Width = 94F;
+            chartArea2.Position.X = 3F;
+            chartArea2.Position.Y = 3F;
+            chartArea2.ShadowOffset = 20;
+            this.chart_expenditure.ChartAreas.Add(chartArea2);
             this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.BackColor = System.Drawing.Color.Transparent;
-            legend4.ForeColor = System.Drawing.Color.White;
-            legend4.Name = "Legend1";
-            this.chart_expenditure.Legends.Add(legend4);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.chart_expenditure.Legends.Add(legend2);
             this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
             this.chart_expenditure.Name = "chart_expenditure";
             this.chart_expenditure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series4.BackSecondaryColor = System.Drawing.Color.Red;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Out";
-            series4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series4.ShadowOffset = 6;
-            this.chart_expenditure.Series.Add(series4);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series2.BackSecondaryColor = System.Drawing.Color.Red;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Out";
+            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series2.ShadowOffset = 6;
+            this.chart_expenditure.Series.Add(series2);
             this.chart_expenditure.Size = new System.Drawing.Size(303, 136);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
@@ -540,31 +548,36 @@
             // 
             // uiMenu
             // 
+            this.uiMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.uiMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.uiMenu.Name = "uiMenu";
-            this.uiMenu.Size = new System.Drawing.Size(111, 70);
+            this.uiMenu.ShowImageMargin = false;
+            this.uiMenu.Size = new System.Drawing.Size(86, 70);
             // 
             // importToolStripMenuItem
             // 
+            this.importToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
+            this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -705,6 +718,20 @@
             this.panel_overal_income.Size = new System.Drawing.Size(200, 64);
             this.panel_overal_income.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(139, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(58, 47);
+            this.button3.TabIndex = 4;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -726,6 +753,20 @@
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(200, 64);
             this.panel_overall_expenditure.TabIndex = 0;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(139, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(58, 47);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -812,6 +853,102 @@
             this.label2.Size = new System.Drawing.Size(84, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Specify month";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(415, 143);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 64);
+            this.panel4.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(143, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(48, 47);
+            this.button2.TabIndex = 3;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btn_savings_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(13, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 15);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Growth";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(14, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 24);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "0.00";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Location = new System.Drawing.Point(621, 143);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 64);
+            this.panel5.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(143, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 47);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_savings_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(13, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 15);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Investments";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(14, 29);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 24);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "0";
             // 
             // panel_nav
             // 
@@ -969,130 +1106,6 @@
             this.splitContainer_dataCharts.SplitterDistance = 533;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(415, 143);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 64);
-            this.panel4.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(13, 3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 15);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Growth";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.label13);
-            this.panel5.Location = new System.Drawing.Point(621, 143);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 64);
-            this.panel5.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(13, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 15);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Investments";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(14, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 24);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "0.00";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(14, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 24);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "0";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(143, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 47);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btn_savings_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(143, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 47);
-            this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.btn_savings_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(139, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 47);
-            this.button3.TabIndex = 4;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(139, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 47);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1140,6 +1153,10 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel_nav.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
@@ -1152,10 +1169,6 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
