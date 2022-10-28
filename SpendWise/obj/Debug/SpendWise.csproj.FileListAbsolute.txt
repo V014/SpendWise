@@ -30,7 +30,6 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ClosedXML.pdb
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\bin\Debug\ClosedXML.xml
-C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.About.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Currency.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Dashboard.resources
@@ -117,3 +116,7 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Period.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Savings.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Investments.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Investments.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete

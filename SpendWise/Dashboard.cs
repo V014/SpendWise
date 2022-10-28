@@ -37,6 +37,10 @@ namespace SpendWise
             timer.Interval = (10 * 1000); // 10 secs
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
+            // set scrollbar properties
+            scrollbar_transactions.Maximum = data_transactions.RowCount;
+            scrollbar_transactions.LargeChange = data_transactions.DisplayedRowCount(true);
+            scrollbar_transactions.SmallChange = 1;
         }
         // refreshes the whole app
         private void refresh()
@@ -71,6 +75,7 @@ namespace SpendWise
             txt_desc.Text = "Description";
             lbl_investments.Text = loadInvestments();
             lbl_complete_investments.Text = loadCompleteInvestments();
+            lbl_growth.Text = loadGrowth().ToString() + "%";
         }
         // refreshes part of the app
         private void autoRefresh()
@@ -106,6 +111,13 @@ namespace SpendWise
             lbl_investments.Text = loadInvestments();
             // loads the number of complete investments
             lbl_complete_investments.Text = loadCompleteInvestments();
+        }
+        // load previous state
+        private void previousState()
+        {
+            string queryUser = "SELECT width, height FROM ui";
+            string username = con.ReadString(queryUser);
+            //return username;
         }
         // loads charts when called
         private void loadCharts()
@@ -167,8 +179,7 @@ namespace SpendWise
         // pull user name from system
         private string loadUser()
         {
-            string queryUser = "SELECT owner FROM wallet";
-            string username = con.ReadString(queryUser);
+            string username = con.ReadString("SELECT owner FROM wallet");
             return username;
         }
         // pull user profile picture
@@ -184,14 +195,23 @@ namespace SpendWise
             return symbol;
         }
         // load growth
-        private string loadGrowth()
+        private double loadGrowth()
         {
             // ending value
-            string ev = loadIncome();
+            int ev = int.Parse(loadIncome());
             // beginning value
-            string bv = con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1");
-            string growth;
-            return growth;
+            int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
+            //double growth = Math.Pow((ev/ bv), (1/3)) -1 * 100;
+            double startValue = 10000;
+            double finalValue = 650000;
+            double diff = finalValue / startValue;
+
+            double years = 1 / 2;
+
+            double total = Math.Pow(diff, years) - 1;
+            double percente = total * 100;
+
+            return total;
         }
         // load investments
         private string loadInvestments()
@@ -510,6 +530,7 @@ namespace SpendWise
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+            con.ExecuteQuery($"UPDATE ui SET width = '{this.Width}', height = '{this.Height}'");
         }
         // when refresh button pressed
         public void btn_refresh_Click(object sender, EventArgs e)
@@ -772,6 +793,10 @@ namespace SpendWise
         private void Timer_Tick(object sender, EventArgs e)
         {
             autoRefresh();
+        }
+
+        private void Scrollbar_transactions_Scroll(object sender, ScrollEventArgs e)
+        {
         }
     }
 }
