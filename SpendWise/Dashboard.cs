@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Data.SQLite;
 using System.Media;
 using System.Windows.Forms;
 using ClosedXML.Excel;
-using System.Data.OleDb;
-using System.Data;
 using System.IO;
 
 namespace SpendWise
@@ -35,6 +32,11 @@ namespace SpendWise
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             // setting up hints
             toolTips();
+            // set timer to auto refresh
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); // 10 secs
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Start();
         }
         // refreshes the whole app
         private void refresh()
@@ -67,6 +69,43 @@ namespace SpendWise
             lbl_least.Text = loadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "Description";
+            lbl_investments.Text = loadInvestments();
+            lbl_complete_investments.Text = loadCompleteInvestments();
+        }
+        // refreshes part of the app
+        private void autoRefresh()
+        {
+            // display user name at the bottom of the ui
+            btn_owner.Text = loadUser();
+            // displays profile image
+            loadPicture();
+            // show money
+            lbl_money.Text = money.checkMoney();
+            // show savings
+            lbl_savings.Text = money.checkSavings();
+            // show saved
+            if (loadSaved() > 0)
+            {
+                lbl_saved.Text = loadSaved().ToString();
+            }
+            // loads the set currency
+            lbl_currency.Text = loadCurrency();
+            // loads the total income realised
+            lbl_income.Text = loadIncome();
+            // loads the total expenditure
+            lbl_expenditure.Text = loadExpenditure();
+            // loads the most common transaction
+            lbl_common.Text = loadCommon();
+            // loads the least common transaction
+            lbl_least.Text = loadLeast();
+            // resets the amount text box
+            txt_amount.Text = "";
+            // Renames the description combo box
+            txt_desc.Text = "Description";
+            // loads the number of investments set
+            lbl_investments.Text = loadInvestments();
+            // loads the number of complete investments
+            lbl_complete_investments.Text = loadCompleteInvestments();
         }
         // loads charts when called
         private void loadCharts()
@@ -143,6 +182,30 @@ namespace SpendWise
             string queryCurrency = "SELECT currency FROM wallet";
             string symbol = con.ReadString(queryCurrency);
             return symbol;
+        }
+        // load growth
+        private string loadGrowth()
+        {
+            // ending value
+            string ev = loadIncome();
+            // beginning value
+            string bv = con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1");
+            string growth;
+            return growth;
+        }
+        // load investments
+        private string loadInvestments()
+        {
+            string queryCurrency = "SELECT COUNT(id) FROM investments";
+            string investments = con.ReadString(queryCurrency);
+            return investments;
+        }
+        // load complete investments
+        private string loadCompleteInvestments()
+        {
+            string queryCurrency = "SELECT COUNT(id) FROM investments WHERE progress = 100";
+            string investments = con.ReadString(queryCurrency);
+            return investments;
         }
         // load the overall income
         private string loadIncome()
@@ -440,7 +503,7 @@ namespace SpendWise
         private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/beep.wav");
+            SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
         }
         // clean up when form closes
@@ -449,7 +512,7 @@ namespace SpendWise
             Application.Exit();
         }
         // when refresh button pressed
-        private void btn_refresh_Click(object sender, EventArgs e)
+        public void btn_refresh_Click(object sender, EventArgs e)
         {
             refresh();
             SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
@@ -587,6 +650,8 @@ namespace SpendWise
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // stops timer to prevent refresh
+            timer.Stop();
         }
         // loads details from a oarticular month
         private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
@@ -624,6 +689,8 @@ namespace SpendWise
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // stops timer to prevent refresh
+            timer.Stop();
         }
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -694,6 +761,17 @@ namespace SpendWise
                     picbox_image.ImageLocation = sourcePath;
                 }
             }
+        }
+        // displays the investment window
+        private void Btn_investments_Click(object sender, EventArgs e)
+        {
+            Investments investment = new Investments();
+            investment.Show();
+        }
+        // what should happen when the timer resets
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            autoRefresh();
         }
     }
 }

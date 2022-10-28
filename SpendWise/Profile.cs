@@ -21,8 +21,7 @@ namespace SpendWise
             try
             { 
                 con.ExecuteQuery($"UPDATE wallet SET owner = '{name}' WHERE id = 1");
-                Application.Restart();
-                Environment.Exit(0);
+                MessageBox.Show("Profile updated!", "Assistant");
             }
             catch
             {

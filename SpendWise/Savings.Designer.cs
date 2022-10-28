@@ -30,8 +30,8 @@
         {
             this.btn_apply = new System.Windows.Forms.Button();
             this.lbl_title = new System.Windows.Forms.Label();
-            this.TrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.lbl_percent = new System.Windows.Forms.Label();
+            this.scrollbar_savings_percentage = new MetroFramework.Controls.MetroScrollBar();
             this.SuspendLayout();
             // 
             // btn_apply
@@ -62,36 +62,40 @@
             this.lbl_title.TabIndex = 3;
             this.lbl_title.Text = "Percentage";
             // 
-            // TrackBar
-            // 
-            this.TrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.TrackBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TrackBar.Location = new System.Drawing.Point(20, 219);
-            this.TrackBar.Name = "TrackBar";
-            this.TrackBar.Size = new System.Drawing.Size(233, 23);
-            this.TrackBar.Style = MetroFramework.MetroColorStyle.Green;
-            this.TrackBar.TabIndex = 7;
-            this.TrackBar.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TrackBar.Value = 0;
-            this.TrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TrackBar_Scroll);
-            // 
             // lbl_percent
             // 
             this.lbl_percent.AutoSize = true;
             this.lbl_percent.Font = new System.Drawing.Font("Roboto", 66F);
             this.lbl_percent.ForeColor = System.Drawing.Color.White;
-            this.lbl_percent.Location = new System.Drawing.Point(23, 103);
+            this.lbl_percent.Location = new System.Drawing.Point(23, 87);
             this.lbl_percent.Name = "lbl_percent";
             this.lbl_percent.Size = new System.Drawing.Size(143, 106);
             this.lbl_percent.TabIndex = 3;
             this.lbl_percent.Text = "00";
+            // 
+            // scrollbar_savings_percentage
+            // 
+            this.scrollbar_savings_percentage.LargeChange = 10;
+            this.scrollbar_savings_percentage.Location = new System.Drawing.Point(23, 212);
+            this.scrollbar_savings_percentage.Maximum = 100;
+            this.scrollbar_savings_percentage.Minimum = 0;
+            this.scrollbar_savings_percentage.MouseWheelBarPartitions = 10;
+            this.scrollbar_savings_percentage.Name = "scrollbar_savings_percentage";
+            this.scrollbar_savings_percentage.Orientation = MetroFramework.Controls.MetroScrollOrientation.Horizontal;
+            this.scrollbar_savings_percentage.ScrollbarSize = 10;
+            this.scrollbar_savings_percentage.Size = new System.Drawing.Size(227, 10);
+            this.scrollbar_savings_percentage.Style = MetroFramework.MetroColorStyle.Green;
+            this.scrollbar_savings_percentage.TabIndex = 6;
+            this.scrollbar_savings_percentage.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.scrollbar_savings_percentage.UseSelectable = true;
+            this.scrollbar_savings_percentage.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Scrollbar_savings_percentage_Scroll);
             // 
             // Savings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 306);
-            this.Controls.Add(this.TrackBar);
+            this.Controls.Add(this.scrollbar_savings_percentage);
             this.Controls.Add(this.btn_apply);
             this.Controls.Add(this.lbl_percent);
             this.Controls.Add(this.lbl_title);
@@ -110,7 +114,7 @@
 
         private System.Windows.Forms.Button btn_apply;
         private System.Windows.Forms.Label lbl_title;
-        private MetroFramework.Controls.MetroTrackBar TrackBar;
         private System.Windows.Forms.Label lbl_percent;
+        private MetroFramework.Controls.MetroScrollBar scrollbar_savings_percentage;
     }
 }
