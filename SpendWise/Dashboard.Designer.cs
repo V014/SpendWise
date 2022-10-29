@@ -108,6 +108,7 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.scrollbar_transactions = new MetroFramework.Controls.MetroScrollBar();
             this.menuTransactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -307,7 +308,7 @@
             this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_income.Location = new System.Drawing.Point(0, 0);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(303, 146);
+            this.panel_income.Size = new System.Drawing.Size(303, 182);
             this.panel_income.TabIndex = 4;
             // 
             // chart_income
@@ -366,7 +367,7 @@
             series9.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series9.ShadowOffset = 6;
             this.chart_income.Series.Add(series9);
-            this.chart_income.Size = new System.Drawing.Size(303, 146);
+            this.chart_income.Size = new System.Drawing.Size(303, 182);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -377,7 +378,7 @@
             this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
             this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(303, 136);
+            this.panel_expenditure.Size = new System.Drawing.Size(303, 177);
             this.panel_expenditure.TabIndex = 5;
             // 
             // chart_expenditure
@@ -431,7 +432,7 @@
             series10.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series10.ShadowOffset = 6;
             this.chart_expenditure.Series.Add(series10);
-            this.chart_expenditure.Size = new System.Drawing.Size(303, 136);
+            this.chart_expenditure.Size = new System.Drawing.Size(303, 177);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
             // 
@@ -567,7 +568,7 @@
             // 
             this.importToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
@@ -575,7 +576,7 @@
             // 
             this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -583,7 +584,7 @@
             // 
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -591,10 +592,11 @@
             // 
             this.panel_transactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.panel_transactions.Controls.Add(this.data_transactions);
+            this.panel_transactions.Controls.Add(this.scrollbar_transactions);
             this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_transactions.Location = new System.Drawing.Point(0, 0);
             this.panel_transactions.Name = "panel_transactions";
-            this.panel_transactions.Size = new System.Drawing.Size(533, 286);
+            this.panel_transactions.Size = new System.Drawing.Size(533, 363);
             this.panel_transactions.TabIndex = 10;
             // 
             // data_transactions
@@ -612,8 +614,9 @@
             this.data_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.data_transactions.Location = new System.Drawing.Point(0, 0);
             this.data_transactions.Name = "data_transactions";
+            this.data_transactions.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(533, 286);
+            this.data_transactions.Size = new System.Drawing.Size(523, 363);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellClick);
             // 
@@ -1010,7 +1013,7 @@
             this.panel_nav.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_nav.Location = new System.Drawing.Point(20, 60);
             this.panel_nav.Name = "panel_nav";
-            this.panel_nav.Size = new System.Drawing.Size(206, 499);
+            this.panel_nav.Size = new System.Drawing.Size(206, 576);
             this.panel_nav.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -1103,7 +1106,7 @@
             // 
             this.panel_owner.Controls.Add(this.btn_owner);
             this.panel_owner.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_owner.Location = new System.Drawing.Point(0, 464);
+            this.panel_owner.Location = new System.Drawing.Point(0, 541);
             this.panel_owner.Name = "panel_owner";
             this.panel_owner.Size = new System.Drawing.Size(206, 35);
             this.panel_owner.TabIndex = 4;
@@ -1137,8 +1140,8 @@
             // splitContainer_charts.Panel2
             // 
             this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
-            this.splitContainer_charts.Size = new System.Drawing.Size(303, 286);
-            this.splitContainer_charts.SplitterDistance = 146;
+            this.splitContainer_charts.Size = new System.Drawing.Size(303, 363);
+            this.splitContainer_charts.SplitterDistance = 182;
             this.splitContainer_charts.TabIndex = 14;
             // 
             // splitContainer_dataCharts
@@ -1154,7 +1157,7 @@
             // splitContainer_dataCharts.Panel2
             // 
             this.splitContainer_dataCharts.Panel2.Controls.Add(this.splitContainer_charts);
-            this.splitContainer_dataCharts.Size = new System.Drawing.Size(840, 286);
+            this.splitContainer_dataCharts.Size = new System.Drawing.Size(840, 363);
             this.splitContainer_dataCharts.SplitterDistance = 533;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
@@ -1162,12 +1165,28 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // scrollbar_transactions
+            // 
+            this.scrollbar_transactions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.scrollbar_transactions.LargeChange = 10;
+            this.scrollbar_transactions.Location = new System.Drawing.Point(523, 0);
+            this.scrollbar_transactions.Maximum = 100;
+            this.scrollbar_transactions.Minimum = 0;
+            this.scrollbar_transactions.MouseWheelBarPartitions = 10;
+            this.scrollbar_transactions.Name = "scrollbar_transactions";
+            this.scrollbar_transactions.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
+            this.scrollbar_transactions.ScrollbarSize = 10;
+            this.scrollbar_transactions.Size = new System.Drawing.Size(10, 363);
+            this.scrollbar_transactions.TabIndex = 2;
+            this.scrollbar_transactions.UseSelectable = true;
+            this.scrollbar_transactions.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Scrollbar_transactions_Scroll);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1086, 579);
+            this.ClientSize = new System.Drawing.Size(1086, 656);
             this.ContextMenuStrip = this.menuUI;
             this.Controls.Add(this.splitContainer_dataCharts);
             this.Controls.Add(this.panel_top);
@@ -1302,6 +1321,7 @@
         private System.Windows.Forms.Label lbl_divider;
         private System.Windows.Forms.Label lbl_complete_investments;
         private System.Windows.Forms.Button btn_saved;
+        private MetroFramework.Controls.MetroScrollBar scrollbar_transactions;
     }
 }
 
