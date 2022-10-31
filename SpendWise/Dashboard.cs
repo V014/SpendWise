@@ -4,6 +4,7 @@ using System.Media;
 using System.Windows.Forms;
 using ClosedXML.Excel;
 using System.IO;
+using System.Data;
 
 namespace SpendWise
 {
@@ -41,6 +42,7 @@ namespace SpendWise
             scrollbar_transactions.Maximum = data_transactions.RowCount;
             scrollbar_transactions.LargeChange = data_transactions.DisplayedRowCount(true);
             scrollbar_transactions.SmallChange = 1;
+            
         }
         // refreshes the whole app
         private void refresh()
@@ -103,10 +105,6 @@ namespace SpendWise
             lbl_common.Text = loadCommon();
             // loads the least common transaction
             lbl_least.Text = loadLeast();
-            // resets the amount text box
-            txt_amount.Text = "";
-            // Renames the description combo box
-            txt_desc.Text = "Description";
             // loads the number of investments set
             lbl_investments.Text = loadInvestments();
             // loads the number of complete investments
@@ -197,22 +195,49 @@ namespace SpendWise
         // load growth
         private double loadGrowth()
         {
-            // ending value
-            int ev = int.Parse(loadIncome());
             // beginning value
             int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-            //double growth = Math.Pow((ev/ bv), (1/3)) -1 * 100;
-            double startValue = 10000;
-            double finalValue = 650000;
-            double diff = finalValue / startValue;
+            // ending value
+            int ev = int.Parse(loadIncome());
 
-            double years = 1 / 2;
+            // beginning year, current year, solve difference
+            int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
+            int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
+            int years = yearNow - by;
 
-            double total = Math.Pow(diff, years) - 1;
-            double percente = total * 100;
-
-            return total;
+            // This is an example that assumes sqlites year extraction function is called year, we group records by year and
+            // from the final counting of each unique year we understand the amount of unique years that have gone by
+            // int years = int.Parse(con.ReadString("SELECT COUNT(*) AS year FROM transactions GROUP BY YEAR(date)"));
+            
+            // Years have been extracted from sqlite
+            if(years != 0)
+            {
+                double factor = 1 / years;
+                double total = Math.Pow(ev / bv, factor) - 1;
+                double percent = total * 100;
+                return percent;
+            }
+            else
+            {
+                return 0;
+            }
         }
+        /*
+        private  DataTable ReadExcel(string fileName)
+        {
+            
+            WorkBook workbook = WorkBook.Load(fileName);
+            //// Work with a single WorkSheet.
+            ////you can pass static sheet name like Sheet1 to get that sheet
+            ////WorkSheet sheet = workbook.GetWorkSheet("Sheet1");
+            //You can also use workbook.DefaultWorkSheet to get default in case you want to get first sheet only
+            WorkSheet sheet = workbook.DefaultWorkSheet;
+            //Convert the worksheet to System.Data.DataTable
+            //Boolean parameter sets the first row as column names of your table.
+            return sheet.ToDataTable(true);
+            
+        }
+        */
         // load investments
         private string loadInvestments()
         {
@@ -717,6 +742,7 @@ namespace SpendWise
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Feature comming soon!");
+
         }
         // eports data from app
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
