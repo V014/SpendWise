@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SpendWise
@@ -41,6 +42,30 @@ namespace SpendWise
         private void Scrollbar_savings_percentage_Scroll(object sender, ScrollEventArgs e)
         {
             lbl_percent.Text = scrollbar_savings_percentage.Value.ToString() + "%";
+        }
+
+        private void Btn_reset_Click(object sender, EventArgs e)
+        {
+            // play chime
+            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
+            chime.Play();
+            DialogResult dialogResult = MessageBox.Show("Resetting the savings will clear all your savings history, are you sure?", "Reset Savings?", MessageBoxButtons.YesNo);
+
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // play chime
+                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
+                    chime2.Play();
+                    // update wallet
+                    con.ExecuteQuery("UPDATE wallet SET savings = 0.00");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

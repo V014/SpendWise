@@ -83,9 +83,10 @@ namespace SpendWise
             try
             {
                 con.LoadData($"SELECT id, description, amount, action, date FROM Transactions WHERE Date LIKE '{ getMonthNumber(date) }%'", dataGrid);
-                dataGrid.Columns[0].Width = 30;
-                dataGrid.Columns[3].Width = 50;
-                dataGrid.Columns[4].Width = 120;
+                dataGrid.Columns[0].Visible = false;
+                //dataGrid.Columns[0].Width = 30;
+                //dataGrid.Columns[3].Width = 50;
+                //dataGrid.Columns[4].Width = 120;
             }
             catch (Exception ex)
             {

@@ -38,10 +38,6 @@ namespace SpendWise
             timer.Interval = (10 * 1000); // 10 secs
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-            // set scrollbar properties
-            scrollbar_transactions.Maximum = data_transactions.RowCount;
-            scrollbar_transactions.LargeChange = data_transactions.DisplayedRowCount(true);
-            scrollbar_transactions.SmallChange = 1;
             
         }
         // refreshes the whole app
@@ -97,10 +93,6 @@ namespace SpendWise
             }
             // loads the set currency
             lbl_currency.Text = loadCurrency();
-            // loads the total income realised
-            lbl_income.Text = loadIncome();
-            // loads the total expenditure
-            lbl_expenditure.Text = loadExpenditure();
             // loads the most common transaction
             lbl_common.Text = loadCommon();
             // loads the least common transaction
@@ -679,6 +671,8 @@ namespace SpendWise
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
                 }
+
+                lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
             }
             catch (Exception)
             {
@@ -691,6 +685,8 @@ namespace SpendWise
                 {
                     chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
                 }
+
+                lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
             }
             catch (Exception)
             {
@@ -704,6 +700,7 @@ namespace SpendWise
         {
             transaction.loadMonth(cmb_month.Text, data_transactions);
             int month = transaction.getMonthNumber(cmb_month.Text);
+
             SQLiteConnection connection = con.GetConnection();
             // get income
             SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{month}%'", connection);
@@ -718,6 +715,8 @@ namespace SpendWise
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
                 }
+
+                lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'");
             }
             catch (Exception)
             {
@@ -730,13 +729,15 @@ namespace SpendWise
                 {
                     chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
                 }
+
+                lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'");
             }
             catch (Exception)
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // stops timer to prevent refresh
-            timer.Stop();
+
+            
         }
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -819,10 +820,6 @@ namespace SpendWise
         private void Timer_Tick(object sender, EventArgs e)
         {
             autoRefresh();
-        }
-
-        private void Scrollbar_transactions_Scroll(object sender, ScrollEventArgs e)
-        {
         }
     }
 }
