@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace SpendWise
 {
@@ -20,12 +19,12 @@ namespace SpendWise
             string name = txt_name.Text;
             try
             { 
-                con.ExecuteQuery($"UPDATE wallet SET owner = '{name}' WHERE id = 1");
+                con.ExecuteQuery($"UPDATE wallet SET owner = '{name}'");
                 MessageBox.Show("Profile updated!", "Assistant");
             }
             catch
             {
-                MessageBox.Show("Sorry app error");
+                MessageBox.Show("Feature unavailable", "Assistant");
             }
             
         }

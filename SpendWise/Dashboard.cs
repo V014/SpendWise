@@ -2,9 +2,7 @@
 using System.Data.SQLite;
 using System.Media;
 using System.Windows.Forms;
-using ClosedXML.Excel;
 using System.IO;
-using System.Data;
 
 namespace SpendWise
 {
@@ -18,8 +16,7 @@ namespace SpendWise
         Income income = new Income();
         Expenditure expenditure = new Expenditure();
         string date = DateTime.Now.ToString("g");
-        private static string monthNumber = DateTime.Now.Month.ToString("g");
-        private static int year = DateTime.Now.Year;
+        string time = DateTime.Now.ToShortTimeString();
         // constructor
         public Dashboard()
         {
@@ -38,7 +35,6 @@ namespace SpendWise
             timer.Interval = (10 * 1000); // 10 secs
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-            
         }
         // refreshes the whole app
         private void refresh()
@@ -73,7 +69,7 @@ namespace SpendWise
             txt_desc.Text = "Description";
             lbl_investments.Text = loadInvestments();
             lbl_complete_investments.Text = loadCompleteInvestments();
-            lbl_growth.Text = loadGrowth().ToString() + "%";
+            lbl_growth.Text = LoadGrowth().ToString() + "%";
         }
         // refreshes part of the app
         private void autoRefresh()
@@ -185,51 +181,49 @@ namespace SpendWise
             return symbol;
         }
         // load growth
-        private double loadGrowth()
+        private double LoadGrowth()
         {
-            // beginning value
-            int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-            // ending value
-            int ev = int.Parse(loadIncome());
-
-            // beginning year, current year, solve difference
-            int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-            int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
-            int years = yearNow - by;
-
-            // This is an example that assumes sqlites year extraction function is called year, we group records by year and
-            // from the final counting of each unique year we understand the amount of unique years that have gone by
-            // int years = int.Parse(con.ReadString("SELECT COUNT(*) AS year FROM transactions GROUP BY YEAR(date)"));
-            
-            // Years have been extracted from sqlite
-            if(years != 0)
+            try
             {
-                double factor = 1 / years;
-                double total = Math.Pow(ev / bv, factor) - 1;
-                double percent = total * 100;
-                return percent;
-            }
-            else
-            {
+                if(!string.IsNullOrEmpty(loadIncome()))
+                {
+                    // beginning value
+                    int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
+                    // ending value
+                    int ev = int.Parse(loadIncome());
+
+                    // beginning year, current year, solve difference
+                    int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
+                    int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
+                    int years = yearNow - by;
+
+                    // This is an example that assumes sqlites year extraction function is called year, we group records by year and
+                    // from the final counting of each unique year we understand the amount of unique years that have gone by
+                    // int years = int.Parse(con.ReadString("SELECT COUNT(*) AS year FROM transactions GROUP BY YEAR(date)"));
+
+                    // Years have been extracted from sqlite
+                    if (years != 0)
+                    {
+                        double factor = 1 / years;
+                        double total = Math.Pow(ev / bv, factor) - 1;
+                        double percent = total * 100;
+                        return percent;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
                 return 0;
             }
-        }
-        /*
-        private  DataTable ReadExcel(string fileName)
-        {
-            
-            WorkBook workbook = WorkBook.Load(fileName);
-            //// Work with a single WorkSheet.
-            ////you can pass static sheet name like Sheet1 to get that sheet
-            ////WorkSheet sheet = workbook.GetWorkSheet("Sheet1");
-            //You can also use workbook.DefaultWorkSheet to get default in case you want to get first sheet only
-            WorkSheet sheet = workbook.DefaultWorkSheet;
-            //Convert the worksheet to System.Data.DataTable
-            //Boolean parameter sets the first row as column names of your table.
-            return sheet.ToDataTable(true);
+            catch (Exception)
+            {
+                MessageBox.Show("Growth feature error!", "Assistant");
+                return 0;
+            }
             
         }
-        */
+        
         // load investments
         private string loadInvestments()
         {
@@ -325,7 +319,7 @@ namespace SpendWise
                     // document new savings
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date_select.Text}', '+')");
+                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date_select.Text} {time}', '+')");
                     // refresh app
                     refresh();
                     // update the money count
@@ -377,13 +371,11 @@ namespace SpendWise
                     // subtract the previous and adding values
                     int moneyNow = wallet - amount;
                     // build the query
-                    string queryMinus = "UPDATE wallet SET money = '" + moneyNow + "' WHERE id = 1";
-                    con.ExecuteQuery(queryMinus);
+                    con.ExecuteQuery($"UPDATE wallet SET money = '{moneyNow}'");
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // log the changes
-                    string queryTransaction = "INSERT INTO transactions(description, amount, date, action) VALUES('" + txt_desc.Text + "', " + amount + ", '" + date_select.Text + "', '-')";
-                    con.ExecuteQuery(queryTransaction);
+                    con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{txt_desc.Text}', '{amount}', '{date_select.Text} {time}', '-')");
                     // refresh app
                     refresh();
                     // refresh the data grid
@@ -462,7 +454,7 @@ namespace SpendWise
                     // delete transactions
                     con.ExecuteQuery("DELETE FROM transactions");
                     // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini' WHERE id = 1");
+                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini'");
                     // reset events
                     con.ExecuteQuery("DELETE FROM events");
                     // reset sequences
@@ -555,12 +547,6 @@ namespace SpendWise
             refresh();
             SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
             edit.Play();
-        }
-        // when user clicks update button
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            Coming pro = new Coming();
-            pro.Show();
         }
         // Maximise income chart when clicked
         private void chart_income_Click(object sender, EventArgs e)
@@ -742,37 +728,14 @@ namespace SpendWise
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature comming soon!");
-
+            DemoUI demo = new DemoUI();
+            demo.Show();
         }
         // eports data from app
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // display UI that enable user to save file location
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // collect all the known transactions
-                        string queryExport = "SELECT id, description, amount, action, date FROM transactions";
-                        using (XLWorkbook workbook = new XLWorkbook())
-                        {
-                            // export them to an excel file Note. DataTable required
-                            workbook.Worksheets.Add(con.ExportData(queryExport));
-                            workbook.SaveAs(sfd.FileName);
-                        }
-                        // play chime
-                        SoundPlayer ice = new SoundPlayer(@"sfx/ice.wav");
-                        ice.Play();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+            Export export = new Export();
+            export.Show();
         }
         // displays about message
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

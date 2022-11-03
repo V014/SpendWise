@@ -9,22 +9,11 @@ namespace SpendWise
         // declare connection variables
         private static SQLiteConnection con;
         private static SQLiteCommand cmd;
-        private static DataSet DS = new DataSet();
-        private static DataTable DT = new DataTable();
 
         // connection to database file
         public void setConnection()
         {
             con = new SQLiteConnection("Data Source=SpendWise.db;Version=3;New=Flase;Compress=True;");
-        }
-        // imports excel file in database
-        public void eCon()
-        {
-            var connection = "Data Source = SpendWise.db; Version = 3;New = Flase; Compress = True;Extended Porperties=\"Excel12.0;IMEX=1;HDR=NO;TypeGuessRows=0;ImportMixedTypes=Text\"";
-            using(var con = new SQLiteConnection(connection))
-            {
-                con.Open();
-            }
         }
         // execute query function with no returning values
         public void ExecuteQuery(string txtQuery)
