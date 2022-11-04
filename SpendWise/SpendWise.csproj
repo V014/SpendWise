@@ -135,6 +135,12 @@
     <Compile Include="Export.Designer.cs">
       <DependentUpon>Export.cs</DependentUpon>
     </Compile>
+    <Compile Include="Growth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Growth.Designer.cs">
+      <DependentUpon>Growth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Income.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Export.resx">
       <DependentUpon>Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Growth.resx">
+      <DependentUpon>Growth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Income.resx">
       <DependentUpon>Income.cs</DependentUpon>

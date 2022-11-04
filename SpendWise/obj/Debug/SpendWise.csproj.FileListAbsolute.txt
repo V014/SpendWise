@@ -127,3 +127,4 @@ C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\Interop.WMPLib
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.ResolveComReference.cache
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.DemoUI.resources
+C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Growth.resources

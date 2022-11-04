@@ -9,6 +9,8 @@ namespace SpendWise
     public partial class Export : MetroFramework.Forms.MetroForm
     {
         Connection con = new Connection();
+        string date = DateTime.Now.ToString("g");
+
         public Export()
         {
             InitializeComponent();
@@ -69,6 +71,7 @@ namespace SpendWise
                     catch (Exception)
                     {
                         MessageBox.Show("Feature unavailable!", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        con.ExecuteQuery($"INSERT INTO events (description, location, date) VALUES('Export function error', 'Export button'. '{date}')");
                     }
                 }
             }

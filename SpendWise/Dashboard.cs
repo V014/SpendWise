@@ -32,9 +32,11 @@ namespace SpendWise
             toolTips();
             // set timer to auto refresh
             Timer timer = new Timer();
-            timer.Interval = (10 * 1000); // 10 secs
+            timer.Interval = (15 * 1000); // 15 secs
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
+            // load previous window state
+            previousState();
         }
         // refreshes the whole app
         private void refresh()
@@ -101,8 +103,8 @@ namespace SpendWise
         // load previous state
         private void previousState()
         {
-            string queryUser = "SELECT width, height FROM ui";
-            string username = con.ReadString(queryUser);
+            this.Width = int.Parse(con.ReadString("SELECT width FROM ui"));
+            this.Height = int.Parse(con.ReadString("SELECT height FROM ui"));
             //return username;
         }
         // loads charts when called
@@ -159,8 +161,7 @@ namespace SpendWise
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
             buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
-            //buttonToolTip.SetToolTip(chart_income, "Click to expand");
-            //buttonToolTip.SetToolTip(chart_expenditure, "Click to expand");
+            
         }
         // pull user name from system
         private string loadUser()
@@ -171,7 +172,7 @@ namespace SpendWise
         // pull user profile picture
         private void loadPicture()
         {
-            picbox_image.ImageLocation = @"profile/" + loadUser() + ".jpeg";
+            picbox_image.ImageLocation = @"res/profile/" + loadUser() + ".jpeg";
         }
         // load the currency the user has set
         private string loadCurrency()
@@ -181,7 +182,7 @@ namespace SpendWise
             return symbol;
         }
         // load growth
-        private double LoadGrowth()
+        public double LoadGrowth()
         {
             try
             {
@@ -199,7 +200,7 @@ namespace SpendWise
 
                     // This is an example that assumes sqlites year extraction function is called year, we group records by year and
                     // from the final counting of each unique year we understand the amount of unique years that have gone by
-                    // int years = int.Parse(con.ReadString("SELECT COUNT(*) AS year FROM transactions GROUP BY YEAR(date)"));
+                    
 
                     // Years have been extracted from sqlite
                     if (years != 0)
@@ -221,7 +222,6 @@ namespace SpendWise
                 MessageBox.Show("Growth feature error!", "Assistant");
                 return 0;
             }
-            
         }
         
         // load investments
@@ -239,7 +239,7 @@ namespace SpendWise
             return investments;
         }
         // load the overall income
-        private string loadIncome()
+        public string loadIncome()
         {
             string queryIncome = "SELECT sum(amount) FROM transactions WHERE action = '+'";
             string Income = con.ReadString(queryIncome);
@@ -454,11 +454,13 @@ namespace SpendWise
                     // delete transactions
                     con.ExecuteQuery("DELETE FROM transactions");
                     // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini'");
+                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini', currency = 'MWK'");
                     // reset events
                     con.ExecuteQuery("DELETE FROM events");
                     // reset sequences
                     con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
+                    // reset investments
+                    con.ExecuteQuery("DELETE FROM investments");
                     // restart app
                     Application.Restart();
                     Environment.Exit(0);
@@ -486,48 +488,7 @@ namespace SpendWise
             Currency currency = new Currency();
             currency.Show();
         }
-        // when a user needs to import their own database
-        private void btn_import_Click(object sender, EventArgs e)
-        {
-            Coming pro = new Coming();
-            pro.Show();
-            /*
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    // retrieve the excel file
-                    string file = ofd.FileName;
-                    // target the database file
-                    string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=""Excel 12.0 Xml;HDR=YES;""", file);
-                    OleDbConnection Econ = new OleDbConnection(constr);
-                    string Query = string.Format("Select [description],[amount],[action],[date] FROM [{0}]", "Sheet$");
-                    OleDbCommand Ecom = new OleDbCommand(Query, Econ);
-                    Econ.Open();
-                    // refresh app
-                    refresh();
-                    // update the money count
-                    //lbl_money.Text = moneyNow.ToString();
-                    // refresh the data grid
-                    transaction.loadTransactions(data_transactions);
-                    // refresh charts
-                    loadCharts();
-
-                    DataSet ds = new DataSet();
-                    OleDbDataAdapter oda = new OleDbDataAdapter(Query, Econ);
-                    Econ.Close();
-                    oda.Fill(ds);
-                    DataTable Exceldt = ds.Tables[0];
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }  
-            */
-            
-        }
+        
         // transfers details from table transactions to the controls on the top left
         private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -722,8 +683,6 @@ namespace SpendWise
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            
         }
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -759,7 +718,7 @@ namespace SpendWise
             {
                 string sourcePath = ofd.FileName;
                 string name = loadUser();
-                string destinationPath = @"profile/" + name + ".jpeg";
+                string destinationPath = @"res/profile/" + name + ".jpeg";
                 if (!File.Exists(sourcePath))
                 {
                     File.Copy(sourcePath, destinationPath);
@@ -783,6 +742,24 @@ namespace SpendWise
         private void Timer_Tick(object sender, EventArgs e)
         {
             autoRefresh();
+        }
+
+        private void Btn_growth_Click(object sender, EventArgs e)
+        {
+            Growth growth = new Growth();
+            growth.Show();
+        }
+
+        private void Dashboard_Resize(object sender, EventArgs e)
+        {
+            if(this.Width <= 880)
+            {
+                splitContainer_dataCharts.Panel2Collapsed = true;
+            }
+            else
+            {
+                splitContainer_dataCharts.Panel2Collapsed = false;
+            }
         }
     }
 }

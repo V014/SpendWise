@@ -5,16 +5,18 @@ namespace SpendWise
 {
     public partial class Currency : MetroFramework.Forms.MetroForm
     {
+        Connection con = new Connection();
+
         public Currency()
         {
             InitializeComponent();
+            txt_currency.Text = con.ReadString("SELECT currency FROM wallet");
         }
-        Connection con = new Connection();
+        
         private void btn_save_Click(object sender, EventArgs e)
-        {
-            string queryCurrency = "UPDATE wallet SET currency = '" + txt_currency.Text + "' WHERE id = 1";
-            con.ExecuteQuery(queryCurrency);
-            lbl_title.Text = "Restart app now or later";
+        { 
+            con.ExecuteQuery($"UPDATE wallet SET currency = '{txt_currency.Text}'");
+            lbl_title.Text = "Wallet renamed!";
             lbl_title.ForeColor = Color.FromArgb(43, 140, 94);
         }
     }
