@@ -93,7 +93,6 @@ C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\ClosedXML.pdb
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\ClosedXML.xml
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.About.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Currency.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Dashboard.resources
@@ -121,10 +120,5 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Export.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\Interop.WMPLib.dll
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\Interop.WMPLib.dll
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.ResolveComReference.cache
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.DemoUI.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Growth.resources
