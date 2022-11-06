@@ -17,19 +17,27 @@ namespace SpendWise
         public Growth()
         {
             InitializeComponent();
-            // beginning value
+            try
+            {
+                // beginning value
             int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-            // ending value
-            int ev = int.Parse(dashboard.loadIncome());
-            // beginning year, current year, solve difference
-            int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-            int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
-            int years = yearNow - by;
+                // ending value
+                int ev = int.Parse(dashboard.loadIncome());
+                // beginning year, current year, solve difference
+                int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
+                int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
+                int years = yearNow - by;
 
-            lbl_bv.Text = bv.ToString();
-            lbl_ev.Text = ev.ToString();
-            lbl_years.Text = years.ToString();
-            lbl_CAGR.Text = dashboard.LoadGrowth().ToString() + "%";
+                lbl_bv.Text = bv.ToString();
+                lbl_ev.Text = ev.ToString();
+                lbl_years.Text = years.ToString();
+                lbl_CAGR.Text = dashboard.LoadGrowth().ToString() + "%";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Data unavilable!", "Assistant");
+            }
+            
         }
 
         private void PictureBox_Click(object sender, EventArgs e)
