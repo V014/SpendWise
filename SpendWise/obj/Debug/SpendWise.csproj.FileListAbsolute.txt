@@ -122,3 +122,4 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debu
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Export.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.DemoUI.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Growth.resources
+C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
