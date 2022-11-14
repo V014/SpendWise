@@ -13,8 +13,6 @@ namespace SpendWise
         Transaction transaction = new Transaction();
         Connection con = new Connection();
         StyleDataGrid theme = new StyleDataGrid();
-        Income income = new Income();
-        Expenditure expenditure = new Expenditure();
         string date = DateTime.Now.ToString("g");
         string time = DateTime.Now.ToShortTimeString();
         // constructor
@@ -509,16 +507,6 @@ namespace SpendWise
             SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
             edit.Play();
         }
-        // Maximise income chart when clicked
-        private void chart_income_Click(object sender, EventArgs e)
-        { 
-            income.Show();
-        }
-        // Maximise expenditure chart when clicked
-        private void chart_expenditure_Click(object sender, EventArgs e)
-        {
-            expenditure.Show();
-        }
         // when savings button is clicked
         private void btn_savings_Click(object sender, EventArgs e)
         {
@@ -687,8 +675,7 @@ namespace SpendWise
         // Imports data into apps
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DemoUI demo = new DemoUI();
-            demo.Show();
+            MessageBox.Show("Copy and replace database file into the spendwise application folder");
         }
         // eports data from app
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
