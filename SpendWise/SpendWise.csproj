@@ -114,24 +114,6 @@
     <Compile Include="Currency.Designer.cs">
       <DependentUpon>Currency.cs</DependentUpon>
     </Compile>
-    <Compile Include="DemoUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DemoUI.Designer.cs">
-      <DependentUpon>DemoUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Edit.Designer.cs">
-      <DependentUpon>Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Expenditure.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Expenditure.Designer.cs">
-      <DependentUpon>Expenditure.cs</DependentUpon>
-    </Compile>
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,12 +125,6 @@
     </Compile>
     <Compile Include="Growth.Designer.cs">
       <DependentUpon>Growth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Income.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Income.Designer.cs">
-      <DependentUpon>Income.cs</DependentUpon>
     </Compile>
     <Compile Include="Investments.cs">
       <SubType>Form</SubType>
@@ -163,18 +139,6 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Coming.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Coming.Designer.cs">
-      <DependentUpon>Coming.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Period.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Period.Designer.cs">
-      <DependentUpon>Period.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
@@ -207,32 +171,14 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Coming.resx">
-      <DependentUpon>Coming.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DemoUI.resx">
-      <DependentUpon>DemoUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Edit.resx">
-      <DependentUpon>Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Expenditure.resx">
-      <DependentUpon>Expenditure.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Export.resx">
       <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Growth.resx">
       <DependentUpon>Growth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Income.resx">
-      <DependentUpon>Income.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Investments.resx">
       <DependentUpon>Investments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Period.resx">
-      <DependentUpon>Period.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
