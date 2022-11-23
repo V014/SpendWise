@@ -11,10 +11,7 @@ namespace SpendWise
         {
             string queryTransactions = "SELECT description, amount, action, date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
-            datagrid.Columns[0].Name = "Description";
-            datagrid.Columns[1].Name = "Amount";
-            datagrid.Columns[2].Name = "Action";
-            datagrid.Columns[3].Name = "Date";
+            
         }
         public int getMonthNumber(string month)
         {
@@ -51,7 +48,7 @@ namespace SpendWise
                 case "October":
                     monthNumber = 10;
                     return monthNumber;
-                case "Novemer":
+                case "November":
                     monthNumber = 11;
                     return monthNumber;
                 case "December":

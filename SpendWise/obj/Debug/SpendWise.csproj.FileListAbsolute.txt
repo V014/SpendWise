@@ -96,10 +96,6 @@ C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\bin\Debug\ExcelNumberFor
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.About.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Currency.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Dashboard.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Coming.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Edit.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Expenditure.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Income.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Profile.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Properties.Resources.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Savings.resources
@@ -109,7 +105,6 @@ C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.cspr
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.exe
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.pdb
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Period.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Expenditure.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Income.resources
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.Period.resources
@@ -120,6 +115,5 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debu
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Visual Studio 2015\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Export.resources
-C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.DemoUI.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Growth.resources
 C:\Users\Wanga Kanjala\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache

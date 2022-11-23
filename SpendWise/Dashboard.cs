@@ -730,13 +730,13 @@ namespace SpendWise
         {
             autoRefresh();
         }
-
+        // displays growth form
         private void Btn_growth_Click(object sender, EventArgs e)
         {
             Growth growth = new Growth();
             growth.Show();
         }
-
+        // toggles charts depending on size
         private void Dashboard_Resize(object sender, EventArgs e)
         {
             if(this.Width <= 880)
