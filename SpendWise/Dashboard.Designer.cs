@@ -190,7 +190,7 @@
             "Education",
             "Family",
             "Food",
-            "Forgotten",
+            "Private",
             "Friend",
             "Fun",
             "Games",
@@ -201,7 +201,8 @@
             "Religion",
             "Transport",
             "Utility bill",
-            "Work"});
+            "Work",
+            "Habbit"});
             this.txt_desc.Location = new System.Drawing.Point(16, 24);
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.Size = new System.Drawing.Size(166, 27);
