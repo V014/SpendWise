@@ -724,6 +724,7 @@ namespace SpendWise
         {
             Investments investment = new Investments();
             investment.Show();
+            dot_investments.Hide();
         }
         // what should happen when the timer resets
         private void Timer_Tick(object sender, EventArgs e)

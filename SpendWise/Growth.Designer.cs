@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Growth));
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lbl_title_bv = new System.Windows.Forms.Label();
-            this.lbl_bv = new System.Windows.Forms.Label();
-            this.lbl_title_ev = new System.Windows.Forms.Label();
-            this.lbl_ev = new System.Windows.Forms.Label();
-            this.lbl_title_years = new System.Windows.Forms.Label();
-            this.lbl_years = new System.Windows.Forms.Label();
-            this.lbl_title_CAGR = new System.Windows.Forms.Label();
             this.lbl_CAGR = new System.Windows.Forms.Label();
+            this.lbl_years = new System.Windows.Forms.Label();
+            this.lbl_ev = new System.Windows.Forms.Label();
+            this.lbl_bv = new System.Windows.Forms.Label();
+            this.lbl_title_CAGR = new System.Windows.Forms.Label();
+            this.lbl_title_years = new System.Windows.Forms.Label();
+            this.lbl_title_ev = new System.Windows.Forms.Label();
+            this.lbl_title_bv = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,60 +82,16 @@
             this.splitContainer1.SplitterDistance = 350;
             this.splitContainer1.TabIndex = 1;
             // 
-            // lbl_title_bv
+            // lbl_CAGR
             // 
-            this.lbl_title_bv.AutoSize = true;
-            this.lbl_title_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_title_bv.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_bv.Location = new System.Drawing.Point(3, 0);
-            this.lbl_title_bv.Name = "lbl_title_bv";
-            this.lbl_title_bv.Size = new System.Drawing.Size(141, 18);
-            this.lbl_title_bv.TabIndex = 0;
-            this.lbl_title_bv.Text = "Beginning value (Bv)";
-            // 
-            // lbl_bv
-            // 
-            this.lbl_bv.AutoSize = true;
-            this.lbl_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_bv.ForeColor = System.Drawing.Color.White;
-            this.lbl_bv.Location = new System.Drawing.Point(150, 0);
-            this.lbl_bv.Name = "lbl_bv";
-            this.lbl_bv.Size = new System.Drawing.Size(16, 18);
-            this.lbl_bv.TabIndex = 0;
-            this.lbl_bv.Text = "0";
-            // 
-            // lbl_title_ev
-            // 
-            this.lbl_title_ev.AutoSize = true;
-            this.lbl_title_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_title_ev.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_ev.Location = new System.Drawing.Point(3, 37);
-            this.lbl_title_ev.Name = "lbl_title_ev";
-            this.lbl_title_ev.Size = new System.Drawing.Size(122, 18);
-            this.lbl_title_ev.TabIndex = 0;
-            this.lbl_title_ev.Text = "Ending value (Ev)";
-            // 
-            // lbl_ev
-            // 
-            this.lbl_ev.AutoSize = true;
-            this.lbl_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_ev.ForeColor = System.Drawing.Color.White;
-            this.lbl_ev.Location = new System.Drawing.Point(150, 37);
-            this.lbl_ev.Name = "lbl_ev";
-            this.lbl_ev.Size = new System.Drawing.Size(16, 18);
-            this.lbl_ev.TabIndex = 0;
-            this.lbl_ev.Text = "0";
-            // 
-            // lbl_title_years
-            // 
-            this.lbl_title_years.AutoSize = true;
-            this.lbl_title_years.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lbl_title_years.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_years.Location = new System.Drawing.Point(3, 78);
-            this.lbl_title_years.Name = "lbl_title_years";
-            this.lbl_title_years.Size = new System.Drawing.Size(46, 18);
-            this.lbl_title_years.TabIndex = 0;
-            this.lbl_title_years.Text = "Years";
+            this.lbl_CAGR.AutoSize = true;
+            this.lbl_CAGR.Font = new System.Drawing.Font("Microsoft Sans Serif", 64F);
+            this.lbl_CAGR.ForeColor = System.Drawing.Color.White;
+            this.lbl_CAGR.Location = new System.Drawing.Point(3, 113);
+            this.lbl_CAGR.Name = "lbl_CAGR";
+            this.lbl_CAGR.Size = new System.Drawing.Size(166, 97);
+            this.lbl_CAGR.TabIndex = 0;
+            this.lbl_CAGR.Text = "0%";
             // 
             // lbl_years
             // 
@@ -148,6 +104,28 @@
             this.lbl_years.TabIndex = 0;
             this.lbl_years.Text = "0";
             // 
+            // lbl_ev
+            // 
+            this.lbl_ev.AutoSize = true;
+            this.lbl_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_ev.ForeColor = System.Drawing.Color.White;
+            this.lbl_ev.Location = new System.Drawing.Point(150, 37);
+            this.lbl_ev.Name = "lbl_ev";
+            this.lbl_ev.Size = new System.Drawing.Size(16, 18);
+            this.lbl_ev.TabIndex = 0;
+            this.lbl_ev.Text = "0";
+            // 
+            // lbl_bv
+            // 
+            this.lbl_bv.AutoSize = true;
+            this.lbl_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_bv.ForeColor = System.Drawing.Color.White;
+            this.lbl_bv.Location = new System.Drawing.Point(150, 0);
+            this.lbl_bv.Name = "lbl_bv";
+            this.lbl_bv.Size = new System.Drawing.Size(16, 18);
+            this.lbl_bv.TabIndex = 0;
+            this.lbl_bv.Text = "0";
+            // 
             // lbl_title_CAGR
             // 
             this.lbl_title_CAGR.AutoSize = true;
@@ -159,16 +137,38 @@
             this.lbl_title_CAGR.TabIndex = 0;
             this.lbl_title_CAGR.Text = "Compound annual growth rate( CAGR)";
             // 
-            // lbl_CAGR
+            // lbl_title_years
             // 
-            this.lbl_CAGR.AutoSize = true;
-            this.lbl_CAGR.Font = new System.Drawing.Font("Microsoft Sans Serif", 64F);
-            this.lbl_CAGR.ForeColor = System.Drawing.Color.White;
-            this.lbl_CAGR.Location = new System.Drawing.Point(3, 113);
-            this.lbl_CAGR.Name = "lbl_CAGR";
-            this.lbl_CAGR.Size = new System.Drawing.Size(166, 97);
-            this.lbl_CAGR.TabIndex = 0;
-            this.lbl_CAGR.Text = "0%";
+            this.lbl_title_years.AutoSize = true;
+            this.lbl_title_years.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_years.ForeColor = System.Drawing.Color.White;
+            this.lbl_title_years.Location = new System.Drawing.Point(3, 78);
+            this.lbl_title_years.Name = "lbl_title_years";
+            this.lbl_title_years.Size = new System.Drawing.Size(46, 18);
+            this.lbl_title_years.TabIndex = 0;
+            this.lbl_title_years.Text = "Years";
+            // 
+            // lbl_title_ev
+            // 
+            this.lbl_title_ev.AutoSize = true;
+            this.lbl_title_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_ev.ForeColor = System.Drawing.Color.White;
+            this.lbl_title_ev.Location = new System.Drawing.Point(3, 37);
+            this.lbl_title_ev.Name = "lbl_title_ev";
+            this.lbl_title_ev.Size = new System.Drawing.Size(122, 18);
+            this.lbl_title_ev.TabIndex = 0;
+            this.lbl_title_ev.Text = "Ending value (Ev)";
+            // 
+            // lbl_title_bv
+            // 
+            this.lbl_title_bv.AutoSize = true;
+            this.lbl_title_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_bv.ForeColor = System.Drawing.Color.White;
+            this.lbl_title_bv.Location = new System.Drawing.Point(3, 0);
+            this.lbl_title_bv.Name = "lbl_title_bv";
+            this.lbl_title_bv.Size = new System.Drawing.Size(141, 18);
+            this.lbl_title_bv.TabIndex = 0;
+            this.lbl_title_bv.Text = "Beginning value (Bv)";
             // 
             // Growth
             // 
@@ -182,6 +182,7 @@
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Growth";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

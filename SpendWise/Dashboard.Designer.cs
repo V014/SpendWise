@@ -110,6 +110,7 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.dot_investments = new System.Windows.Forms.PictureBox();
             this.menuTransactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -143,6 +144,7 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -955,6 +957,7 @@
             // panel_investments
             // 
             this.panel_investments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_investments.Controls.Add(this.dot_investments);
             this.panel_investments.Controls.Add(this.btn_investments);
             this.panel_investments.Controls.Add(this.lbl_title_investment);
             this.panel_investments.Controls.Add(this.lbl_divider);
@@ -1188,6 +1191,16 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // dot_investments
+            // 
+            this.dot_investments.Image = ((System.Drawing.Image)(resources.GetObject("dot_investments.Image")));
+            this.dot_investments.Location = new System.Drawing.Point(85, 4);
+            this.dot_investments.Name = "dot_investments";
+            this.dot_investments.Size = new System.Drawing.Size(16, 15);
+            this.dot_investments.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_investments.TabIndex = 4;
+            this.dot_investments.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1252,6 +1265,7 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1329,6 +1343,7 @@
         private System.Windows.Forms.Label lbl_divider;
         private System.Windows.Forms.Label lbl_complete_investments;
         private System.Windows.Forms.Button btn_saved;
+        private System.Windows.Forms.PictureBox dot_investments;
     }
 }
 

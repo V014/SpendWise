@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer_investments = new System.Windows.Forms.SplitContainer();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
             this.lbl_progress = new MetroFramework.Controls.MetroLabel();
             this.scrollbar_progress = new MetroFramework.Controls.MetroScrollBar();
             this.txt_desc = new MetroFramework.Controls.MetroTextBox();
-            this.btn_add = new System.Windows.Forms.Button();
             this.txt_amount = new MetroFramework.Controls.MetroTextBox();
             this.lbl_title_progress = new System.Windows.Forms.Label();
             this.lbl_title_description = new System.Windows.Forms.Label();
@@ -40,17 +42,15 @@
             this.txt_investment = new MetroFramework.Controls.MetroTextBox();
             this.lbl_title_add = new System.Windows.Forms.Label();
             this.data_investments = new System.Windows.Forms.DataGridView();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).BeginInit();
             this.splitContainer_investments.Panel1.SuspendLayout();
             this.splitContainer_investments.Panel2.SuspendLayout();
             this.splitContainer_investments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_investments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_investments)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer_investments
@@ -78,6 +78,57 @@
             this.splitContainer_investments.Size = new System.Drawing.Size(638, 395);
             this.splitContainer_investments.SplitterDistance = 187;
             this.splitContainer_investments.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 364);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_add);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.btn_update);
+            this.splitContainer1.Size = new System.Drawing.Size(187, 31);
+            this.splitContainer1.SplitterDistance = 92;
+            this.splitContainer1.TabIndex = 6;
+            // 
+            // btn_add
+            // 
+            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btn_add.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.White;
+            this.btn_add.Location = new System.Drawing.Point(0, 0);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(92, 31);
+            this.btn_add.TabIndex = 4;
+            this.btn_add.Text = "Add";
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.Btn_add_Click);
+            // 
+            // btn_update
+            // 
+            this.btn_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.btn_update.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_update.FlatAppearance.BorderSize = 0;
+            this.btn_update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.ForeColor = System.Drawing.Color.White;
+            this.btn_update.Location = new System.Drawing.Point(0, 0);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(91, 31);
+            this.btn_update.TabIndex = 4;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.Btn_update_Click);
             // 
             // lbl_progress
             // 
@@ -142,23 +193,6 @@
             this.txt_desc.WaterMark = "Optional but important...";
             this.txt_desc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_desc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // btn_add
-            // 
-            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_add.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_add.FlatAppearance.BorderSize = 0;
-            this.btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Location = new System.Drawing.Point(0, 0);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(92, 31);
-            this.btn_add.TabIndex = 4;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.Btn_add_Click);
             // 
             // txt_amount
             // 
@@ -295,40 +329,6 @@
             this.data_investments.TabIndex = 5;
             this.data_investments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_investments_CellClick);
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 364);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btn_add);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.btn_update);
-            this.splitContainer1.Size = new System.Drawing.Size(187, 31);
-            this.splitContainer1.SplitterDistance = 92;
-            this.splitContainer1.TabIndex = 6;
-            // 
-            // btn_update
-            // 
-            this.btn_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.btn_update.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_update.FlatAppearance.BorderSize = 0;
-            this.btn_update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_update.ForeColor = System.Drawing.Color.White;
-            this.btn_update.Location = new System.Drawing.Point(0, 0);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(91, 31);
-            this.btn_update.TabIndex = 4;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = false;
-            this.btn_update.Click += new System.EventHandler(this.Btn_update_Click);
-            // 
             // Investments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,17 +341,18 @@
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Investments";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Investments_Load);
             this.splitContainer_investments.Panel1.ResumeLayout(false);
             this.splitContainer_investments.Panel1.PerformLayout();
             this.splitContainer_investments.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).EndInit();
             this.splitContainer_investments.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.data_investments)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.data_investments)).EndInit();
             this.ResumeLayout(false);
 
         }
