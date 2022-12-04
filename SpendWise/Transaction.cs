@@ -55,7 +55,7 @@ namespace SpendWise
                     monthNumber = 12;
                     return monthNumber;
                 default:
-                    monthNumber = 1;
+                    monthNumber = 01;
                     return monthNumber;
             }
         }

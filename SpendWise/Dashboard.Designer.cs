@@ -75,9 +75,11 @@
             this.panel_savings = new System.Windows.Forms.Panel();
             this.lbl_title_savings = new System.Windows.Forms.Label();
             this.panel_overal_income = new System.Windows.Forms.Panel();
+            this.dot_income = new System.Windows.Forms.PictureBox();
             this.btn_income = new System.Windows.Forms.Button();
             this.lbl_title_income = new System.Windows.Forms.Label();
             this.panel_overall_expenditure = new System.Windows.Forms.Panel();
+            this.dot_expenditure = new System.Windows.Forms.PictureBox();
             this.btn_expenditure = new System.Windows.Forms.Button();
             this.lbl_title_expenditure = new System.Windows.Forms.Label();
             this.panel_total_saved = new System.Windows.Forms.Panel();
@@ -112,8 +114,6 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.dot_expenditure = new System.Windows.Forms.PictureBox();
-            this.dot_income = new System.Windows.Forms.PictureBox();
             this.menuTransactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -128,7 +128,9 @@
             this.panel_input.SuspendLayout();
             this.panel_savings.SuspendLayout();
             this.panel_overal_income.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).BeginInit();
             this.panel_overall_expenditure.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
             this.panel_total_saved.SuspendLayout();
             this.panel_frequency.SuspendLayout();
             this.panel_date.SuspendLayout();
@@ -148,8 +150,6 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -318,7 +318,7 @@
             this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_income.Location = new System.Drawing.Point(0, 0);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(303, 182);
+            this.panel_income.Size = new System.Drawing.Size(304, 181);
             this.panel_income.TabIndex = 4;
             // 
             // chart_income
@@ -377,7 +377,7 @@
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ShadowOffset = 6;
             this.chart_income.Series.Add(series1);
-            this.chart_income.Size = new System.Drawing.Size(303, 182);
+            this.chart_income.Size = new System.Drawing.Size(304, 181);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -388,7 +388,7 @@
             this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
             this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(303, 177);
+            this.panel_expenditure.Size = new System.Drawing.Size(304, 178);
             this.panel_expenditure.TabIndex = 5;
             // 
             // chart_expenditure
@@ -442,7 +442,7 @@
             series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series2.ShadowOffset = 6;
             this.chart_expenditure.Series.Add(series2);
-            this.chart_expenditure.Size = new System.Drawing.Size(303, 177);
+            this.chart_expenditure.Size = new System.Drawing.Size(304, 178);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
             // 
@@ -605,7 +605,7 @@
             this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_transactions.Location = new System.Drawing.Point(0, 0);
             this.panel_transactions.Name = "panel_transactions";
-            this.panel_transactions.Size = new System.Drawing.Size(533, 363);
+            this.panel_transactions.Size = new System.Drawing.Size(532, 363);
             this.panel_transactions.TabIndex = 10;
             // 
             // data_transactions
@@ -643,7 +643,7 @@
             this.data_transactions.ReadOnly = true;
             this.data_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(533, 363);
+            this.data_transactions.Size = new System.Drawing.Size(532, 363);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellClick);
             // 
@@ -661,6 +661,7 @@
             // panel_top
             // 
             this.panel_top.AutoScroll = true;
+            this.panel_top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel_top.Controls.Add(this.panel_amount);
             this.panel_top.Controls.Add(this.panel_input);
             this.panel_top.Controls.Add(this.panel_money);
@@ -757,6 +758,17 @@
             this.panel_overal_income.Size = new System.Drawing.Size(200, 64);
             this.panel_overal_income.TabIndex = 0;
             // 
+            // dot_income
+            // 
+            this.dot_income.Image = ((System.Drawing.Image)(resources.GetObject("dot_income.Image")));
+            this.dot_income.Location = new System.Drawing.Point(62, 7);
+            this.dot_income.Name = "dot_income";
+            this.dot_income.Size = new System.Drawing.Size(10, 10);
+            this.dot_income.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_income.TabIndex = 5;
+            this.dot_income.TabStop = false;
+            this.dot_income.Visible = false;
+            // 
             // btn_income
             // 
             this.btn_income.BackColor = System.Drawing.Color.Transparent;
@@ -794,6 +806,17 @@
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(200, 64);
             this.panel_overall_expenditure.TabIndex = 0;
+            // 
+            // dot_expenditure
+            // 
+            this.dot_expenditure.Image = ((System.Drawing.Image)(resources.GetObject("dot_expenditure.Image")));
+            this.dot_expenditure.Location = new System.Drawing.Point(88, 7);
+            this.dot_expenditure.Name = "dot_expenditure";
+            this.dot_expenditure.Size = new System.Drawing.Size(10, 10);
+            this.dot_expenditure.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_expenditure.TabIndex = 5;
+            this.dot_expenditure.TabStop = false;
+            this.dot_expenditure.Visible = false;
             // 
             // btn_expenditure
             // 
@@ -1187,6 +1210,7 @@
             // 
             // splitContainer_charts
             // 
+            this.splitContainer_charts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_charts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer_charts.Location = new System.Drawing.Point(0, 0);
             this.splitContainer_charts.Name = "splitContainer_charts";
@@ -1199,12 +1223,13 @@
             // splitContainer_charts.Panel2
             // 
             this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
-            this.splitContainer_charts.Size = new System.Drawing.Size(303, 363);
-            this.splitContainer_charts.SplitterDistance = 182;
+            this.splitContainer_charts.Size = new System.Drawing.Size(304, 363);
+            this.splitContainer_charts.SplitterDistance = 181;
             this.splitContainer_charts.TabIndex = 14;
             // 
             // splitContainer_dataCharts
             // 
+            this.splitContainer_dataCharts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_dataCharts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer_dataCharts.Location = new System.Drawing.Point(226, 273);
             this.splitContainer_dataCharts.Name = "splitContainer_dataCharts";
@@ -1217,34 +1242,12 @@
             // 
             this.splitContainer_dataCharts.Panel2.Controls.Add(this.splitContainer_charts);
             this.splitContainer_dataCharts.Size = new System.Drawing.Size(840, 363);
-            this.splitContainer_dataCharts.SplitterDistance = 533;
+            this.splitContainer_dataCharts.SplitterDistance = 532;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // dot_expenditure
-            // 
-            this.dot_expenditure.Image = ((System.Drawing.Image)(resources.GetObject("dot_expenditure.Image")));
-            this.dot_expenditure.Location = new System.Drawing.Point(88, 7);
-            this.dot_expenditure.Name = "dot_expenditure";
-            this.dot_expenditure.Size = new System.Drawing.Size(10, 10);
-            this.dot_expenditure.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dot_expenditure.TabIndex = 5;
-            this.dot_expenditure.TabStop = false;
-            this.dot_expenditure.Visible = false;
-            // 
-            // dot_income
-            // 
-            this.dot_income.Image = ((System.Drawing.Image)(resources.GetObject("dot_income.Image")));
-            this.dot_income.Location = new System.Drawing.Point(62, 7);
-            this.dot_income.Name = "dot_income";
-            this.dot_income.Size = new System.Drawing.Size(10, 10);
-            this.dot_income.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dot_income.TabIndex = 5;
-            this.dot_income.TabStop = false;
-            this.dot_income.Visible = false;
             // 
             // Dashboard
             // 
@@ -1258,7 +1261,6 @@
             this.Controls.Add(this.panel_nav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "SpendWise";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1284,8 +1286,10 @@
             this.panel_savings.PerformLayout();
             this.panel_overal_income.ResumeLayout(false);
             this.panel_overal_income.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).EndInit();
             this.panel_overall_expenditure.ResumeLayout(false);
             this.panel_overall_expenditure.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).EndInit();
             this.panel_total_saved.ResumeLayout(false);
             this.panel_total_saved.PerformLayout();
             this.panel_frequency.ResumeLayout(false);
@@ -1311,8 +1315,6 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).EndInit();
             this.ResumeLayout(false);
 
         }

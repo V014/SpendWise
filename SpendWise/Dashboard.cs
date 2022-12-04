@@ -655,13 +655,14 @@ namespace SpendWise
             // get expenditure
             SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{month}%'", connection);
             SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
-            // do some math to show the dots
+            // check values
+            string income = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'");
+            string expenditure = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'");
+            // dot notification
             try
             {
-                int income = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'"));
-                int expenditure = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'"));
                 // make a comparision to see which is highest
-                if (income > expenditure)
+                if (int.Parse(income) > int.Parse(expenditure))
                 {
                     dot_income.Visible = true;
                     dot_expenditure.Visible = false;
@@ -671,14 +672,45 @@ namespace SpendWise
                     dot_expenditure.Visible = true;
                     dot_income.Visible = false;
                 }
+                
             }
             catch (Exception)
             {
-                //MessageBox.Show("No recent transactions from this month", "Assistant");
+                // MessageBox.Show("No recent transactions from this month", "Assistant");
+                /*
+                if (string.IsNullOrEmpty(income))
+                {
+                    splitContainer_charts.Panel1.Controls.Clear();
+                    splitContainer_charts.Panel1.Controls.Add(cover);
+                    cover.Dock = DockStyle.Fill;
+                    cover.Show();
+
+                }
+                else if (string.IsNullOrEmpty(expenditure))
+                {
+                    splitContainer_charts.Panel2.Controls.Clear();
+                    splitContainer_charts.Panel2.Controls.Add(cover);
+                    cover.Dock = DockStyle.Fill;
+                    cover.Show();
+                }
+                else if (string.IsNullOrEmpty(income) & string.IsNullOrEmpty(expenditure))
+                {
+                    splitContainer_charts.Panel1.Controls.Clear();
+                    splitContainer_charts.Panel1.Controls.Add(cover);
+                    cover.Dock = DockStyle.Fill;
+                    cover.Show();
+
+                    splitContainer_charts.Panel2.Controls.Clear();
+                    splitContainer_charts.Panel2.Controls.Add(cover);
+                    cover.Dock = DockStyle.Fill;
+                    cover.Show();
+                }
+                */
+                
             }
-            
-            try
-            {
+                // Fill income chart
+                try
+                {
                 chart_income.Series[0].Points.Clear();
                 while (income_data.Read())
                 {
@@ -691,6 +723,7 @@ namespace SpendWise
             {
                 MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // fill expenditure chart
             try
             {
                 chart_expenditure.Series[0].Points.Clear();
