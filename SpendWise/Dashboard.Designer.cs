@@ -84,6 +84,7 @@
             this.btn_saved = new System.Windows.Forms.Button();
             this.lbl_title_saved = new System.Windows.Forms.Label();
             this.panel_frequency = new System.Windows.Forms.Panel();
+            this.btn_common = new System.Windows.Forms.Button();
             this.panel_date = new System.Windows.Forms.Panel();
             this.lbl_title_date = new System.Windows.Forms.Label();
             this.panel_month = new System.Windows.Forms.Panel();
@@ -93,6 +94,7 @@
             this.lbl_title_growth = new System.Windows.Forms.Label();
             this.lbl_growth = new System.Windows.Forms.Label();
             this.panel_investments = new System.Windows.Forms.Panel();
+            this.dot_investments = new System.Windows.Forms.PictureBox();
             this.btn_investments = new System.Windows.Forms.Button();
             this.lbl_title_investment = new System.Windows.Forms.Label();
             this.lbl_divider = new System.Windows.Forms.Label();
@@ -110,7 +112,8 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.dot_investments = new System.Windows.Forms.PictureBox();
+            this.dot_expenditure = new System.Windows.Forms.PictureBox();
+            this.dot_income = new System.Windows.Forms.PictureBox();
             this.menuTransactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -132,6 +135,7 @@
             this.panel_month.SuspendLayout();
             this.panel_growth.SuspendLayout();
             this.panel_investments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).BeginInit();
             this.panel_nav.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
@@ -144,21 +148,22 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_savings
             // 
             this.btn_savings.BackColor = System.Drawing.Color.Transparent;
             this.btn_savings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_savings.BackgroundImage")));
-            this.btn_savings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_savings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_savings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_savings.FlatAppearance.BorderSize = 0;
+            this.btn_savings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_savings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_savings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_savings.Location = new System.Drawing.Point(143, 0);
+            this.btn_savings.Location = new System.Drawing.Point(143, 7);
             this.btn_savings.Name = "btn_savings";
-            this.btn_savings.Size = new System.Drawing.Size(57, 64);
+            this.btn_savings.Size = new System.Drawing.Size(50, 50);
             this.btn_savings.TabIndex = 3;
             this.btn_savings.UseVisualStyleBackColor = false;
             this.btn_savings.Click += new System.EventHandler(this.btn_savings_Click);
@@ -167,14 +172,14 @@
             // 
             this.btn_money.BackColor = System.Drawing.Color.Transparent;
             this.btn_money.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_money.BackgroundImage")));
-            this.btn_money.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_money.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_money.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_money.FlatAppearance.BorderSize = 0;
+            this.btn_money.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_money.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_money.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_money.Location = new System.Drawing.Point(142, 0);
+            this.btn_money.Location = new System.Drawing.Point(143, 7);
             this.btn_money.Name = "btn_money";
-            this.btn_money.Size = new System.Drawing.Size(58, 64);
+            this.btn_money.Size = new System.Drawing.Size(50, 50);
             this.btn_money.TabIndex = 4;
             this.btn_money.UseVisualStyleBackColor = false;
             this.btn_money.Click += new System.EventHandler(this.lbl_currency_Click);
@@ -446,7 +451,7 @@
             this.lbl_least.AutoSize = true;
             this.lbl_least.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_least.ForeColor = System.Drawing.Color.White;
-            this.lbl_least.Location = new System.Drawing.Point(82, 36);
+            this.lbl_least.Location = new System.Drawing.Point(68, 36);
             this.lbl_least.Name = "lbl_least";
             this.lbl_least.Size = new System.Drawing.Size(59, 15);
             this.lbl_least.TabIndex = 0;
@@ -457,7 +462,7 @@
             this.lbl_common.AutoSize = true;
             this.lbl_common.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_common.ForeColor = System.Drawing.Color.White;
-            this.lbl_common.Location = new System.Drawing.Point(82, 9);
+            this.lbl_common.Location = new System.Drawing.Point(72, 9);
             this.lbl_common.Name = "lbl_common";
             this.lbl_common.Size = new System.Drawing.Size(59, 15);
             this.lbl_common.TabIndex = 0;
@@ -743,6 +748,7 @@
             // panel_overal_income
             // 
             this.panel_overal_income.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_overal_income.Controls.Add(this.dot_income);
             this.panel_overal_income.Controls.Add(this.btn_income);
             this.panel_overal_income.Controls.Add(this.lbl_title_income);
             this.panel_overal_income.Controls.Add(this.lbl_income);
@@ -755,14 +761,14 @@
             // 
             this.btn_income.BackColor = System.Drawing.Color.Transparent;
             this.btn_income.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_income.BackgroundImage")));
-            this.btn_income.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_income.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_income.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_income.FlatAppearance.BorderSize = 0;
+            this.btn_income.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_income.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btn_income.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_income.Location = new System.Drawing.Point(142, 0);
+            this.btn_income.Location = new System.Drawing.Point(143, 7);
             this.btn_income.Name = "btn_income";
-            this.btn_income.Size = new System.Drawing.Size(58, 64);
+            this.btn_income.Size = new System.Drawing.Size(50, 50);
             this.btn_income.TabIndex = 4;
             this.btn_income.UseVisualStyleBackColor = false;
             // 
@@ -780,6 +786,7 @@
             // panel_overall_expenditure
             // 
             this.panel_overall_expenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_overall_expenditure.Controls.Add(this.dot_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_title_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_expenditure);
@@ -792,14 +799,14 @@
             // 
             this.btn_expenditure.BackColor = System.Drawing.Color.Transparent;
             this.btn_expenditure.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_expenditure.BackgroundImage")));
-            this.btn_expenditure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_expenditure.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_expenditure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_expenditure.FlatAppearance.BorderSize = 0;
+            this.btn_expenditure.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_expenditure.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_expenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_expenditure.Location = new System.Drawing.Point(142, 0);
+            this.btn_expenditure.Location = new System.Drawing.Point(143, 7);
             this.btn_expenditure.Name = "btn_expenditure";
-            this.btn_expenditure.Size = new System.Drawing.Size(58, 64);
+            this.btn_expenditure.Size = new System.Drawing.Size(50, 50);
             this.btn_expenditure.TabIndex = 4;
             this.btn_expenditure.UseVisualStyleBackColor = false;
             // 
@@ -829,14 +836,14 @@
             // 
             this.btn_saved.BackColor = System.Drawing.Color.Transparent;
             this.btn_saved.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_saved.BackgroundImage")));
-            this.btn_saved.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_saved.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_saved.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_saved.FlatAppearance.BorderSize = 0;
+            this.btn_saved.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_saved.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_saved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_saved.Location = new System.Drawing.Point(143, 0);
+            this.btn_saved.Location = new System.Drawing.Point(143, 7);
             this.btn_saved.Name = "btn_saved";
-            this.btn_saved.Size = new System.Drawing.Size(57, 64);
+            this.btn_saved.Size = new System.Drawing.Size(50, 50);
             this.btn_saved.TabIndex = 3;
             this.btn_saved.UseVisualStyleBackColor = false;
             // 
@@ -854,6 +861,7 @@
             // panel_frequency
             // 
             this.panel_frequency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_frequency.Controls.Add(this.btn_common);
             this.panel_frequency.Controls.Add(this.lbl_least);
             this.panel_frequency.Controls.Add(this.lbl_com);
             this.panel_frequency.Controls.Add(this.lbl_common);
@@ -862,6 +870,21 @@
             this.panel_frequency.Name = "panel_frequency";
             this.panel_frequency.Size = new System.Drawing.Size(200, 64);
             this.panel_frequency.TabIndex = 0;
+            // 
+            // btn_common
+            // 
+            this.btn_common.BackColor = System.Drawing.Color.Transparent;
+            this.btn_common.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_common.BackgroundImage")));
+            this.btn_common.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_common.FlatAppearance.BorderSize = 0;
+            this.btn_common.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_common.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
+            this.btn_common.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_common.Location = new System.Drawing.Point(145, 6);
+            this.btn_common.Name = "btn_common";
+            this.btn_common.Size = new System.Drawing.Size(49, 52);
+            this.btn_common.TabIndex = 4;
+            this.btn_common.UseVisualStyleBackColor = false;
             // 
             // panel_date
             // 
@@ -920,14 +943,14 @@
             // 
             this.btn_growth.BackColor = System.Drawing.Color.Transparent;
             this.btn_growth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_growth.BackgroundImage")));
-            this.btn_growth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_growth.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_growth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_growth.FlatAppearance.BorderSize = 0;
+            this.btn_growth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_growth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btn_growth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_growth.Location = new System.Drawing.Point(143, 0);
+            this.btn_growth.Location = new System.Drawing.Point(143, 6);
             this.btn_growth.Name = "btn_growth";
-            this.btn_growth.Size = new System.Drawing.Size(57, 64);
+            this.btn_growth.Size = new System.Drawing.Size(50, 50);
             this.btn_growth.TabIndex = 3;
             this.btn_growth.UseVisualStyleBackColor = false;
             this.btn_growth.Click += new System.EventHandler(this.Btn_growth_Click);
@@ -968,18 +991,28 @@
             this.panel_investments.Size = new System.Drawing.Size(200, 64);
             this.panel_investments.TabIndex = 0;
             // 
+            // dot_investments
+            // 
+            this.dot_investments.Image = ((System.Drawing.Image)(resources.GetObject("dot_investments.Image")));
+            this.dot_investments.Location = new System.Drawing.Point(85, 7);
+            this.dot_investments.Name = "dot_investments";
+            this.dot_investments.Size = new System.Drawing.Size(10, 10);
+            this.dot_investments.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_investments.TabIndex = 4;
+            this.dot_investments.TabStop = false;
+            // 
             // btn_investments
             // 
             this.btn_investments.BackColor = System.Drawing.Color.Transparent;
             this.btn_investments.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_investments.BackgroundImage")));
-            this.btn_investments.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_investments.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_investments.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_investments.FlatAppearance.BorderSize = 0;
+            this.btn_investments.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_investments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btn_investments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_investments.Location = new System.Drawing.Point(143, 0);
+            this.btn_investments.Location = new System.Drawing.Point(143, 7);
             this.btn_investments.Name = "btn_investments";
-            this.btn_investments.Size = new System.Drawing.Size(57, 64);
+            this.btn_investments.Size = new System.Drawing.Size(50, 50);
             this.btn_investments.TabIndex = 3;
             this.btn_investments.UseVisualStyleBackColor = false;
             this.btn_investments.Click += new System.EventHandler(this.Btn_investments_Click);
@@ -1191,15 +1224,27 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // dot_investments
+            // dot_expenditure
             // 
-            this.dot_investments.Image = ((System.Drawing.Image)(resources.GetObject("dot_investments.Image")));
-            this.dot_investments.Location = new System.Drawing.Point(85, 4);
-            this.dot_investments.Name = "dot_investments";
-            this.dot_investments.Size = new System.Drawing.Size(16, 15);
-            this.dot_investments.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dot_investments.TabIndex = 4;
-            this.dot_investments.TabStop = false;
+            this.dot_expenditure.Image = ((System.Drawing.Image)(resources.GetObject("dot_expenditure.Image")));
+            this.dot_expenditure.Location = new System.Drawing.Point(88, 7);
+            this.dot_expenditure.Name = "dot_expenditure";
+            this.dot_expenditure.Size = new System.Drawing.Size(10, 10);
+            this.dot_expenditure.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_expenditure.TabIndex = 5;
+            this.dot_expenditure.TabStop = false;
+            this.dot_expenditure.Visible = false;
+            // 
+            // dot_income
+            // 
+            this.dot_income.Image = ((System.Drawing.Image)(resources.GetObject("dot_income.Image")));
+            this.dot_income.Location = new System.Drawing.Point(62, 7);
+            this.dot_income.Name = "dot_income";
+            this.dot_income.Size = new System.Drawing.Size(10, 10);
+            this.dot_income.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dot_income.TabIndex = 5;
+            this.dot_income.TabStop = false;
+            this.dot_income.Visible = false;
             // 
             // Dashboard
             // 
@@ -1253,6 +1298,7 @@
             this.panel_growth.PerformLayout();
             this.panel_investments.ResumeLayout(false);
             this.panel_investments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
             this.panel_nav.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
@@ -1265,7 +1311,8 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dot_income)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1344,6 +1391,9 @@
         private System.Windows.Forms.Label lbl_complete_investments;
         private System.Windows.Forms.Button btn_saved;
         private System.Windows.Forms.PictureBox dot_investments;
+        private System.Windows.Forms.Button btn_common;
+        private System.Windows.Forms.PictureBox dot_income;
+        private System.Windows.Forms.PictureBox dot_expenditure;
     }
 }
 

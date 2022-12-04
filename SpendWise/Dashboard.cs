@@ -595,16 +595,28 @@ namespace SpendWise
             SQLiteConnection connection = con.GetConnection();
             // get income
             SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{date}%'", connection);
-            SQLiteDataReader income = queryMoney.ExecuteReader();
+            SQLiteDataReader income_data = queryMoney.ExecuteReader();
             // get expenditure
             SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{date}%'", connection);
-            SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
+            SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
+            // do some math to show the dots
+            int income = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'"));
+            int expenditure = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'"));
+            // make a comparision to see which is highest
+            if (income > expenditure)
+            {
+                dot_income.Visible = true;
+            }
+            else
+            {
+                dot_investments.Visible = true;
+            }
             try
             {
                 chart_income.Series[0].Points.Clear();
-                while (income.Read())
+                while (income_data.Read())
                 {
-                    chart_income.Series[0].Points.Add(income.GetInt32(0));
+                    chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                 }
 
                 lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
@@ -616,9 +628,9 @@ namespace SpendWise
             try
             {
                 chart_expenditure.Series[0].Points.Clear();
-                while (expenditure.Read())
+                while (expenditure_data.Read())
                 {
-                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
+                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                 }
 
                 lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
@@ -639,16 +651,38 @@ namespace SpendWise
             SQLiteConnection connection = con.GetConnection();
             // get income
             SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{month}%'", connection);
-            SQLiteDataReader income = queryMoney.ExecuteReader();
+            SQLiteDataReader income_data = queryMoney.ExecuteReader();
             // get expenditure
             SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{month}%'", connection);
-            SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
+            SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
+            // do some math to show the dots
+            try
+            {
+                int income = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'"));
+                int expenditure = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'"));
+                // make a comparision to see which is highest
+                if (income > expenditure)
+                {
+                    dot_income.Visible = true;
+                    dot_expenditure.Visible = false;
+                }
+                else
+                {
+                    dot_expenditure.Visible = true;
+                    dot_income.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("No recent transactions from this month", "Assistant");
+            }
+            
             try
             {
                 chart_income.Series[0].Points.Clear();
-                while (income.Read())
+                while (income_data.Read())
                 {
-                    chart_income.Series[0].Points.Add(income.GetInt32(0));
+                    chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                 }
 
                 lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'");
@@ -660,9 +694,9 @@ namespace SpendWise
             try
             {
                 chart_expenditure.Series[0].Points.Clear();
-                while (expenditure.Read())
+                while (expenditure_data.Read())
                 {
-                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
+                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                 }
 
                 lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'");
