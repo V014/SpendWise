@@ -600,53 +600,58 @@ namespace SpendWise
             SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{date}%'", connection);
             SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
             // do some math to show the dots
-            int income = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'"));
-            int expenditure = int.Parse(con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'"));
-            // make a comparision to see which is highest
-            if (income > expenditure)
+            string income = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
+            string expenditure = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
+            // check for empty string
+            if (!string.IsNullOrEmpty(income) && !string.IsNullOrEmpty(expenditure))
             {
-                dot_income.Visible = true;
-            }
-            else
-            {
-                dot_investments.Visible = true;
-            }
-            try
-            {
-                chart_income.Series[0].Points.Clear();
-                while (income_data.Read())
+                // make a comparision to see which is highest
+                if (int.Parse(income) > int.Parse(expenditure))
                 {
-                    chart_income.Series[0].Points.Add(income_data.GetInt32(0));
+                    dot_income.Visible = true;
                 }
-
-                lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            try
-            {
-                chart_expenditure.Series[0].Points.Clear();
-                while (expenditure_data.Read())
+                else
                 {
-                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
+                    dot_investments.Visible = true;
                 }
+                try
+                {
+                    chart_income.Series[0].Points.Clear();
+                    while (income_data.Read())
+                    {
+                        chart_income.Series[0].Points.Add(income_data.GetInt32(0));
+                    }
 
-                lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
+                    lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                try
+                {
+                    chart_expenditure.Series[0].Points.Clear();
+                    while (expenditure_data.Read())
+                    {
+                        chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
+                    }
+
+                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                // stops timer to prevent refresh
+                timer.Stop();
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            // stops timer to prevent refresh
-            timer.Stop();
+            
         }
         // loads details from a oarticular month
         private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
         {
             transaction.loadMonth(cmb_month.Text, data_transactions);
-            int month = transaction.getMonthNumber(cmb_month.Text);
+            string month = transaction.getMonthNumber(cmb_month.Text);
 
             SQLiteConnection connection = con.GetConnection();
             // get income

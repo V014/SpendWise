@@ -13,49 +13,49 @@ namespace SpendWise
             con.LoadData(queryTransactions, datagrid);
             
         }
-        public int getMonthNumber(string month)
+        public string getMonthNumber(string month)
         {
-            int monthNumber;
+            string monthNumber;
             switch (month)
             {
                 case "January":
-                    monthNumber = 1;
+                    monthNumber = "1";
                     return monthNumber;
                 case "February":
-                    monthNumber = 2;
+                    monthNumber = "2";
                     return monthNumber;
                 case "March":
-                    monthNumber = 3;
+                    monthNumber = "3";
                     return monthNumber;
                 case "April":
-                    monthNumber = 4;
+                    monthNumber = "4";
                     return monthNumber;
                 case "May":
-                    monthNumber = 5;
+                    monthNumber = "5";
                     return monthNumber;
                 case "June":
-                    monthNumber = 6;
+                    monthNumber = "6";
                     return monthNumber;
                 case "July":
-                    monthNumber = 7;
+                    monthNumber = "7";
                     return monthNumber;
                 case "August":
-                    monthNumber = 8;
+                    monthNumber = "8";
                     return monthNumber;
                 case "September":
-                    monthNumber = 9;
+                    monthNumber = "9";
                     return monthNumber;
                 case "October":
-                    monthNumber = 10;
+                    monthNumber = "10";
                     return monthNumber;
                 case "November":
-                    monthNumber = 11;
+                    monthNumber = "11";
                     return monthNumber;
                 case "December":
-                    monthNumber = 12;
+                    monthNumber = "12";
                     return monthNumber;
                 default:
-                    monthNumber = 01;
+                    monthNumber = "1";
                     return monthNumber;
             }
         }
