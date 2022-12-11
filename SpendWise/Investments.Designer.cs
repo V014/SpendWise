@@ -325,6 +325,7 @@
             this.data_investments.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.data_investments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.data_investments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_investments.ContextMenuStrip = this.menu_investments;
             this.data_investments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.data_investments.Location = new System.Drawing.Point(0, 0);
             this.data_investments.Name = "data_investments";
@@ -338,12 +339,12 @@
             this.menu_investments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeToolStripMenuItem});
             this.menu_investments.Name = "menu_investments";
-            this.menu_investments.Size = new System.Drawing.Size(181, 48);
+            this.menu_investments.Size = new System.Drawing.Size(118, 26);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
             // 

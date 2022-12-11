@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SpendWise
@@ -46,7 +39,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT ID, Title, Amount, Description, Progress, DateSet FROM investments", data_investments);
+                con.LoadData($"SELECT * FROM investments", data_investments);
                 styleGrid.style(data_investments);
                 data_investments.Columns[0].Visible = false;
                 data_investments.Columns[2].Visible = false;
@@ -75,11 +68,16 @@ namespace SpendWise
 
         private void Btn_add_Click(object sender, EventArgs e)
         {
+            string investment = txt_investment.Text;
+            string amount = txt_amount.Text;
+            string description = txt_desc.Text;
+            string progress = scrollbar_progress.Value.ToString();
+
             if (!string.IsNullOrEmpty(txt_investment.Text) && !string.IsNullOrEmpty(txt_amount.Text))
             {
                 try
                 {
-                    con.ExecuteQuery($"INSERT INTO investments (title, amount, description, progress, dateSet) VALUES ('{txt_investment.Text}', '{txt_amount.Text}', '{txt_desc.Text}', '{scrollbar_progress.Value.ToString()}','{date}')");
+                    con.ExecuteQuery($"INSERT INTO investments (Title, Amount, Description, Progress, Date) VALUES ('{investment}', '{amount}', '{description}', '{progress}','{date}')");
                     MessageBox.Show("Investment set!", "Assistant");
                     loadInvestments(sender, e);
                 }
@@ -96,11 +94,16 @@ namespace SpendWise
 
         private void Btn_update_Click(object sender, EventArgs e)
         {
+            string investment = txt_investment.Text;
+            string amount = txt_amount.Text;
+            string description = txt_desc.Text;
+            string progress = scrollbar_progress.Value.ToString();
+
             if (!string.IsNullOrEmpty(txt_investment.Text) && !string.IsNullOrEmpty(txt_amount.Text))
             {
                 try
                 {
-                    con.ExecuteQuery($"UPDATE investments SET title ='{txt_investment.Text}', amount = '{txt_amount.Text}', description = '{txt_desc.Text}', progress = '{scrollbar_progress.Value.ToString()}' WHERE id = '{investID}'");
+                    con.ExecuteQuery($"UPDATE investments SET Title ='{investment}', Amount = '{amount}', Description = '{description}', Progress = '{progress}' WHERE id = '{investID}'");
                     MessageBox.Show("Investment updated!", "Assistant");
                     loadInvestments(sender, e);
                 }
@@ -128,7 +131,7 @@ namespace SpendWise
                     // collect the id
                     var id = data_investments.CurrentRow.Cells[0].Value;
                     // build query to delete user transaction
-                    con.ExecuteQuery($"DELETE FROM investments WHERE id = '{id}'");
+                    con.ExecuteQuery($"DELETE FROM investments WHERE ID = '{id}'");
                     // build query to pull transactions
                     transaction.loadTransactions(data_investments);
                     // refresh charts

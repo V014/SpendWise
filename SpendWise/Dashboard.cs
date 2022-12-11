@@ -14,6 +14,7 @@ namespace SpendWise
         Connection con = new Connection();
         StyleDataGrid theme = new StyleDataGrid();
         string date = DateTime.Now.ToString("g");
+        string month = DateTime.Now.Month.ToString();
         string time = DateTime.Now.ToShortTimeString();
         // constructor
         public Dashboard()
@@ -39,6 +40,8 @@ namespace SpendWise
             loadInvestmentDot();
             // check your income to expenditure ratio and present dot
             loadMoneyDot();
+            // show details on transactions
+            lbl_income_count.Text = loadIncomeCount();
         }
         // refreshes the whole app
         private void refresh()
@@ -255,7 +258,6 @@ namespace SpendWise
                 return 0;
             }
         }
-        
         // load investments
         private string loadInvestments()
         {
@@ -273,8 +275,13 @@ namespace SpendWise
         // load the overall income
         public string loadIncome()
         {
-            string queryIncome = "SELECT sum(amount) FROM transactions WHERE action = '+'";
-            string Income = con.ReadString(queryIncome);
+            string Income = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '+'");
+            return Income;
+        }
+        // load times gotten income
+        private string loadIncomeCount()
+        {
+            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND date = '{month}%'");
             return Income;
         }
         // load the overall expenditure
@@ -486,7 +493,7 @@ namespace SpendWise
                     // delete transactions
                     con.ExecuteQuery("DELETE FROM transactions");
                     // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET money = 0.00, savings = 0, owner = 'My wallet', state = 'Mini', currency = 'MWK'");
+                    con.ExecuteQuery("UPDATE wallet SET Money = 0.00, Savings = 0, Owner = 'My wallet', State = 'Mini', Currency = 'MWK'");
                     // reset events
                     con.ExecuteQuery("DELETE FROM events");
                     // reset sequences
@@ -520,7 +527,6 @@ namespace SpendWise
             Currency currency = new Currency();
             currency.Show();
         }
-        
         // transfers details from table transactions to the controls on the top left
         private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -563,7 +569,7 @@ namespace SpendWise
                 string action = row.Cells[3].Value.ToString();
                 string date = row.Cells[4].Value.ToString();
                 
-                con.ExecuteQuery($"UPDATE transactions SET description = '{description}', amount = '{amount}', date = '{date}', action = '{action}' WHERE Id = {Id}");
+                con.ExecuteQuery($"UPDATE transactions SET Description = '{description}', Amount = '{amount}', Date = '{date}', Action = '{action}' WHERE Id = {Id}");
 
                 transaction.loadTransactions(data_transactions);
                 MessageBox.Show("Saved!");
@@ -629,14 +635,14 @@ namespace SpendWise
             string date = date_select.Text;
             SQLiteConnection connection = con.GetConnection();
             // get income
-            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '+' AND date LIKE '{date}%'", connection);
+            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '+' AND Date LIKE '{date}%'", connection);
             SQLiteDataReader income_data = queryMoney.ExecuteReader();
             // get expenditure
-            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND date LIKE '{date}%'", connection);
+            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '-' AND Date LIKE '{date}%'", connection);
             SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
             // do some math to show the dots
-            string income = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
-            string expenditure = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
+            string income = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND Date LIKE '{date}%'");
+            string expenditure = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND Date LIKE '{date}%'");
             // check for empty string
             if (!string.IsNullOrEmpty(income) && !string.IsNullOrEmpty(expenditure))
             {
@@ -649,6 +655,7 @@ namespace SpendWise
                 {
                     dot_expenditure.Visible = true;
                 }
+                // now to populate the charts
                 try
                 {
                     chart_income.Series[0].Points.Clear();
@@ -657,7 +664,7 @@ namespace SpendWise
                         chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                     }
 
-                    lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND date LIKE '{date}%'");
+                    lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND Date LIKE '{date}%'");
                 }
                 catch (Exception)
                 {
@@ -671,7 +678,7 @@ namespace SpendWise
                         chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                     }
 
-                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND date LIKE '{date}%'");
+                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND Date LIKE '{date}%'");
                 }
                 catch (Exception)
                 {
@@ -717,7 +724,6 @@ namespace SpendWise
             catch (Exception)
             {
                 // MessageBox.Show("No recent transactions from this month", "Assistant");
-                
             }
                 // Fill income chart
                 try

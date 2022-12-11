@@ -9,7 +9,7 @@ namespace SpendWise
         // load transactions
         public void loadTransactions(DataGridView datagrid)
         {
-            string queryTransactions = "SELECT description, amount, action, date  FROM transactions";
+            string queryTransactions = "SELECT Description, Amount, Action, Date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
             
         }
@@ -64,8 +64,8 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT id, description, amount, action, date FROM Transactions WHERE Date LIKE '%{ date }%'", dataGrid);
-                dataGrid.Columns[0].Width = 30;
+                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{date}%'", dataGrid);
+                dataGrid.Columns[0].Visible = false;
                 dataGrid.Columns[3].Width = 50;
                 dataGrid.Columns[4].Width = 120;
             }
@@ -79,11 +79,10 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT id, description, amount, action, date FROM Transactions WHERE Date LIKE '{ getMonthNumber(date) }%'", dataGrid);
+                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{getMonthNumber(date)}%'", dataGrid);
                 dataGrid.Columns[0].Visible = false;
-                //dataGrid.Columns[0].Width = 30;
-                //dataGrid.Columns[3].Width = 50;
-                //dataGrid.Columns[4].Width = 120;
+                dataGrid.Columns[3].Width = 50;
+                dataGrid.Columns[4].Width = 120;
             }
             catch (Exception ex)
             {

@@ -114,6 +114,13 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_expenditure_count = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_income_count = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_transactions_count = new System.Windows.Forms.Label();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -182,7 +189,6 @@
             this.btn_money.Size = new System.Drawing.Size(50, 50);
             this.btn_money.TabIndex = 4;
             this.btn_money.UseVisualStyleBackColor = false;
-            this.btn_money.Click += new System.EventHandler(this.lbl_currency_Click);
             // 
             // txt_desc
             // 
@@ -296,7 +302,7 @@
             this.item_remove});
             this.menu_transactions.Name = "dataMenu";
             this.menu_transactions.ShowImageMargin = false;
-            this.menu_transactions.Size = new System.Drawing.Size(156, 48);
+            this.menu_transactions.Size = new System.Drawing.Size(93, 26);
             this.menu_transactions.Style = MetroFramework.MetroColorStyle.Green;
             this.menu_transactions.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.menu_transactions.UseStyleColors = true;
@@ -307,7 +313,7 @@
             this.item_remove.ForeColor = System.Drawing.Color.White;
             this.item_remove.Image = ((System.Drawing.Image)(resources.GetObject("item_remove.Image")));
             this.item_remove.Name = "item_remove";
-            this.item_remove.Size = new System.Drawing.Size(155, 22);
+            this.item_remove.Size = new System.Drawing.Size(92, 22);
             this.item_remove.Text = "Remove";
             this.item_remove.Click += new System.EventHandler(this.item_remove_Click);
             // 
@@ -1087,6 +1093,13 @@
             // panel_nav
             // 
             this.panel_nav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel_nav.Controls.Add(this.label4);
+            this.panel_nav.Controls.Add(this.lbl_income_count);
+            this.panel_nav.Controls.Add(this.lbl_transactions_count);
+            this.panel_nav.Controls.Add(this.lbl_expenditure_count);
+            this.panel_nav.Controls.Add(this.label2);
+            this.panel_nav.Controls.Add(this.label5);
+            this.panel_nav.Controls.Add(this.label1);
             this.panel_nav.Controls.Add(this.flowLayoutPanel1);
             this.panel_nav.Controls.Add(this.picbox_image);
             this.panel_nav.Controls.Add(this.panel_owner);
@@ -1249,6 +1262,83 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(7, 464);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Monthly Expense :";
+            // 
+            // lbl_expenditure_count
+            // 
+            this.lbl_expenditure_count.AutoSize = true;
+            this.lbl_expenditure_count.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.lbl_expenditure_count.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_expenditure_count.Location = new System.Drawing.Point(120, 464);
+            this.lbl_expenditure_count.Name = "lbl_expenditure_count";
+            this.lbl_expenditure_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_expenditure_count.TabIndex = 6;
+            this.lbl_expenditure_count.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Location = new System.Drawing.Point(7, 442);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Monthly Income : ";
+            // 
+            // lbl_income_count
+            // 
+            this.lbl_income_count.AutoSize = true;
+            this.lbl_income_count.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.lbl_income_count.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_income_count.Location = new System.Drawing.Point(120, 442);
+            this.lbl_income_count.Name = "lbl_income_count";
+            this.lbl_income_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_income_count.TabIndex = 6;
+            this.lbl_income_count.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto", 12F);
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(6, 412);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Transctions count";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Location = new System.Drawing.Point(7, 486);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Total Transactions :";
+            // 
+            // lbl_transactions_count
+            // 
+            this.lbl_transactions_count.AutoSize = true;
+            this.lbl_transactions_count.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.lbl_transactions_count.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_transactions_count.Location = new System.Drawing.Point(120, 486);
+            this.lbl_transactions_count.Name = "lbl_transactions_count";
+            this.lbl_transactions_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_transactions_count.TabIndex = 6;
+            this.lbl_transactions_count.Text = "0";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1304,6 +1394,7 @@
             this.panel_investments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
             this.panel_nav.ResumeLayout(false);
+            this.panel_nav.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
             this.panel_owner.ResumeLayout(false);
@@ -1396,6 +1487,13 @@
         private System.Windows.Forms.Button btn_common;
         private System.Windows.Forms.PictureBox dot_income;
         private System.Windows.Forms.PictureBox dot_expenditure;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_income_count;
+        private System.Windows.Forms.Label lbl_transactions_count;
+        private System.Windows.Forms.Label lbl_expenditure_count;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
     }
 }
 
