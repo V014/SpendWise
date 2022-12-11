@@ -35,6 +35,10 @@ namespace SpendWise
             timer.Start();
             // load previous window state
             previousState();
+            // check for notifications
+            loadInvestmentDot();
+            // check your income to expenditure ratio and present dot
+            loadMoneyDot();
         }
         // refreshes the whole app
         private void refresh()
@@ -70,6 +74,8 @@ namespace SpendWise
             lbl_investments.Text = loadInvestments();
             lbl_complete_investments.Text = loadCompleteInvestments();
             lbl_growth.Text = LoadGrowth().ToString() + "%";
+            // update investment dot
+            loadInvestmentDot();
         }
         // refreshes part of the app
         private void autoRefresh()
@@ -97,6 +103,34 @@ namespace SpendWise
             lbl_investments.Text = loadInvestments();
             // loads the number of complete investments
             lbl_complete_investments.Text = loadCompleteInvestments();
+            // update investment dot
+            loadInvestmentDot();
+        }
+        // check to see if there any pending investments 
+        private void loadInvestmentDot()
+        {
+            if (loadInvestments() == loadCompleteInvestments())
+            {
+                dot_investments.Visible = false;
+            }
+            else
+            {
+                dot_investments.Visible = true;
+            }
+        }
+        // check to see if there any pending investments 
+        private void loadMoneyDot()
+        {
+            if (int.Parse(loadIncome()) > int.Parse(loadExpenditure()))
+            {
+                dot_income.Visible = true;
+                dot_expenditure.Visible = false;
+            }
+            else
+            {
+                dot_income.Visible = false;
+                dot_expenditure.Visible = true;
+            }
         }
         // load previous state
         private void previousState()
@@ -553,9 +587,10 @@ namespace SpendWise
             {
                 try
                 {
+                    // collect the id
                     var id = data_transactions.CurrentRow.Cells[0].Value;
                     // build query to delete user transaction
-                    con.ExecuteQuery($"DELETE FROM transactions WHERE id = '{id}'");
+                    con.ExecuteQuery($"DELETE FROM transactions WHERE id = '{id}'");                 
                     // build query to pull transactions
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
@@ -612,7 +647,7 @@ namespace SpendWise
                 }
                 else
                 {
-                    dot_investments.Visible = true;
+                    dot_expenditure.Visible = true;
                 }
                 try
                 {
@@ -682,35 +717,6 @@ namespace SpendWise
             catch (Exception)
             {
                 // MessageBox.Show("No recent transactions from this month", "Assistant");
-                /*
-                if (string.IsNullOrEmpty(income))
-                {
-                    splitContainer_charts.Panel1.Controls.Clear();
-                    splitContainer_charts.Panel1.Controls.Add(cover);
-                    cover.Dock = DockStyle.Fill;
-                    cover.Show();
-
-                }
-                else if (string.IsNullOrEmpty(expenditure))
-                {
-                    splitContainer_charts.Panel2.Controls.Clear();
-                    splitContainer_charts.Panel2.Controls.Add(cover);
-                    cover.Dock = DockStyle.Fill;
-                    cover.Show();
-                }
-                else if (string.IsNullOrEmpty(income) & string.IsNullOrEmpty(expenditure))
-                {
-                    splitContainer_charts.Panel1.Controls.Clear();
-                    splitContainer_charts.Panel1.Controls.Add(cover);
-                    cover.Dock = DockStyle.Fill;
-                    cover.Show();
-
-                    splitContainer_charts.Panel2.Controls.Clear();
-                    splitContainer_charts.Panel2.Controls.Add(cover);
-                    cover.Dock = DockStyle.Fill;
-                    cover.Show();
-                }
-                */
                 
             }
                 // Fill income chart

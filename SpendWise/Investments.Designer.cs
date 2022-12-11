@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer_investments = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_add = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.txt_investment = new MetroFramework.Controls.MetroTextBox();
             this.lbl_title_add = new System.Windows.Forms.Label();
             this.data_investments = new System.Windows.Forms.DataGridView();
+            this.menu_investments = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).BeginInit();
             this.splitContainer_investments.Panel1.SuspendLayout();
             this.splitContainer_investments.Panel2.SuspendLayout();
@@ -51,6 +54,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_investments)).BeginInit();
+            this.menu_investments.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer_investments
@@ -329,6 +333,20 @@
             this.data_investments.TabIndex = 5;
             this.data_investments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_investments_CellClick);
             // 
+            // menu_investments
+            // 
+            this.menu_investments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeToolStripMenuItem});
+            this.menu_investments.Name = "menu_investments";
+            this.menu_investments.Size = new System.Drawing.Size(181, 48);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
+            // 
             // Investments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,7 +360,7 @@
             this.Text = "Investments";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Investments_Load);
+            this.Load += new System.EventHandler(this.loadInvestments);
             this.splitContainer_investments.Panel1.ResumeLayout(false);
             this.splitContainer_investments.Panel1.PerformLayout();
             this.splitContainer_investments.Panel2.ResumeLayout(false);
@@ -353,6 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.data_investments)).EndInit();
+            this.menu_investments.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -373,5 +392,7 @@
         private System.Windows.Forms.Label lbl_title_progress;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btn_update;
+        private MetroFramework.Controls.MetroContextMenu menu_investments;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }

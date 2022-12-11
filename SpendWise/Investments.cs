@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace SpendWise
         Dashboard dash = new Dashboard();
         StyleDataGrid styleGrid = new StyleDataGrid();
         int investID;
+        Transaction transaction = new Transaction();
+
         public Investments()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace SpendWise
             }
         }
 
-        private void Investments_Load(object sender, EventArgs e)
+        private void loadInvestments(object sender, EventArgs e)
         {
             try
             {
@@ -78,7 +81,7 @@ namespace SpendWise
                 {
                     con.ExecuteQuery($"INSERT INTO investments (title, amount, description, progress, dateSet) VALUES ('{txt_investment.Text}', '{txt_amount.Text}', '{txt_desc.Text}', '{scrollbar_progress.Value.ToString()}','{date}')");
                     MessageBox.Show("Investment set!", "Assistant");
-                    Investments_Load(sender, e);
+                    loadInvestments(sender, e);
                 }
                 catch (Exception)
                 {
@@ -99,7 +102,7 @@ namespace SpendWise
                 {
                     con.ExecuteQuery($"UPDATE investments SET title ='{txt_investment.Text}', amount = '{txt_amount.Text}', description = '{txt_desc.Text}', progress = '{scrollbar_progress.Value.ToString()}' WHERE id = '{investID}'");
                     MessageBox.Show("Investment updated!", "Assistant");
-                    Investments_Load(sender, e);
+                    loadInvestments(sender, e);
                 }
                 catch (Exception)
                 {
@@ -109,6 +112,52 @@ namespace SpendWise
             else
             {
                 MessageBox.Show("Fill in both the title and amount first!", "Assistant");
+            }
+        }
+
+        private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // play chime
+            SoundPlayer delete = new SoundPlayer(@"sfx/error.wav");
+            delete.Play();
+            DialogResult dialogResult = MessageBox.Show("Delete investment?", "Are you sure?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    // collect the id
+                    var id = data_investments.CurrentRow.Cells[0].Value;
+                    // build query to delete user transaction
+                    con.ExecuteQuery($"DELETE FROM investments WHERE id = '{id}'");
+                    // build query to pull transactions
+                    transaction.loadTransactions(data_investments);
+                    // refresh charts
+                    loadInvestments(sender, e);
+                    // play chime
+                    SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
+                    trash.Play();
+                }
+                catch (Exception ex)
+                {
+                    // play chime
+                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                    save.Play();
+                    // show suggestion box
+                    MessageBox.Show(ex.ToString());
+                    //MessageBox.Show("The application has failed to either update your transactions.", "Application error");
+                    try
+                    {
+                        // log the error
+                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( '{date}', 'SQL error', 'Transaction log')";
+                        con.ExecuteQuery(queryEvents);
+                        MessageBox.Show("Error recorded");
+                    }
+                    catch
+                    {
+                        // if logging fails, close the application
+                        Application.Exit();
+                    }
+                }
             }
         }
     }

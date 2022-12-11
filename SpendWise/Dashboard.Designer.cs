@@ -45,7 +45,7 @@
             this.lbl_money = new System.Windows.Forms.Label();
             this.txt_amount = new MetroFramework.Controls.MetroTextBox();
             this.lbl_currency = new System.Windows.Forms.Label();
-            this.menuTransactions = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.menu_transactions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.item_remove = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_income = new System.Windows.Forms.Panel();
             this.chart_income = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -114,7 +114,7 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.menuTransactions.SuspendLayout();
+            this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
             this.panel_expenditure.SuspendLayout();
@@ -289,17 +289,17 @@
             this.lbl_currency.Text = "Currency";
             this.lbl_currency.Click += new System.EventHandler(this.lbl_currency_Click);
             // 
-            // menuTransactions
+            // menu_transactions
             // 
-            this.menuTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.menuTransactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_transactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.menu_transactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.item_remove});
-            this.menuTransactions.Name = "dataMenu";
-            this.menuTransactions.ShowImageMargin = false;
-            this.menuTransactions.Size = new System.Drawing.Size(93, 26);
-            this.menuTransactions.Style = MetroFramework.MetroColorStyle.Green;
-            this.menuTransactions.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.menuTransactions.UseStyleColors = true;
+            this.menu_transactions.Name = "dataMenu";
+            this.menu_transactions.ShowImageMargin = false;
+            this.menu_transactions.Size = new System.Drawing.Size(156, 48);
+            this.menu_transactions.Style = MetroFramework.MetroColorStyle.Green;
+            this.menu_transactions.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.menu_transactions.UseStyleColors = true;
             // 
             // item_remove
             // 
@@ -307,7 +307,7 @@
             this.item_remove.ForeColor = System.Drawing.Color.White;
             this.item_remove.Image = ((System.Drawing.Image)(resources.GetObject("item_remove.Image")));
             this.item_remove.Name = "item_remove";
-            this.item_remove.Size = new System.Drawing.Size(92, 22);
+            this.item_remove.Size = new System.Drawing.Size(155, 22);
             this.item_remove.Text = "Remove";
             this.item_remove.Click += new System.EventHandler(this.item_remove_Click);
             // 
@@ -626,7 +626,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.data_transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.data_transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_transactions.ContextMenuStrip = this.menuTransactions;
+            this.data_transactions.ContextMenuStrip = this.menu_transactions;
             this.data_transactions.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -1267,7 +1267,7 @@
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Resize += new System.EventHandler(this.Dashboard_Resize);
-            this.menuTransactions.ResumeLayout(false);
+            this.menu_transactions.ResumeLayout(false);
             this.panel_income.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).EndInit();
             this.panel_expenditure.ResumeLayout(false);
@@ -1337,7 +1337,7 @@
         private System.Windows.Forms.ComboBox txt_desc;
         private System.Windows.Forms.Button btn_savings;
         private System.Windows.Forms.Button btn_money;
-        private MetroFramework.Controls.MetroContextMenu menuTransactions;
+        private MetroFramework.Controls.MetroContextMenu menu_transactions;
         private System.Windows.Forms.ToolStripMenuItem item_remove;
         private MetroFramework.Controls.MetroDateTime date_select;
         private MetroFramework.Controls.MetroComboBox cmb_month;
