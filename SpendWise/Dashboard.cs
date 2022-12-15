@@ -6,7 +6,7 @@ using System.IO;
 
 namespace SpendWise
 {
-    public partial class Dashboard : MetroFramework.Forms.MetroForm
+    public partial class Dashboard : Form
     {
         // reference the required classes
         Money money = new Money();
@@ -43,6 +43,7 @@ namespace SpendWise
             // show details on transactions
             lbl_income_count.Text = loadIncomeCount();
             lbl_expenditure_count.Text = loadExpenditureCount();
+            lbl_transactions_count.Text = loadTransactionsCount();
         }
         // refreshes the whole app
         private void refresh()
@@ -289,6 +290,11 @@ namespace SpendWise
         {
             string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m','{month}')");
             return Expenditure;
+        }
+        private string loadTransactionsCount()
+        {
+            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m','{month}')");
+            return Transactions;
         }
         // load the overall expenditure
         private string loadExpenditure()
