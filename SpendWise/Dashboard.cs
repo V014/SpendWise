@@ -42,6 +42,7 @@ namespace SpendWise
             loadMoneyDot();
             // show details on transactions
             lbl_income_count.Text = loadIncomeCount();
+            lbl_expenditure_count.Text = loadExpenditureCount();
         }
         // refreshes the whole app
         private void refresh()
@@ -283,6 +284,11 @@ namespace SpendWise
         {
             string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m','{month}')");
             return Income;
+        }
+        private string loadExpenditureCount()
+        {
+            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m','{month}')");
+            return Expenditure;
         }
         // load the overall expenditure
         private string loadExpenditure()
