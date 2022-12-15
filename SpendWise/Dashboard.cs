@@ -281,7 +281,7 @@ namespace SpendWise
         // load times gotten income
         private string loadIncomeCount()
         {
-            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND date = '{month}%'");
+            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m','{month}')");
             return Income;
         }
         // load the overall expenditure
