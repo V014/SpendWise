@@ -64,10 +64,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{date}%'", dataGrid);
-                dataGrid.Columns[0].Visible = false;
-                dataGrid.Columns[3].Width = 50;
-                dataGrid.Columns[4].Width = 120;
+                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{date}%'", dataGrid);
             }
             catch (Exception ex)
             {
@@ -79,10 +76,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{getMonthNumber(date)}%'", dataGrid);
-                dataGrid.Columns[0].Visible = false;
-                dataGrid.Columns[3].Width = 50;
-                dataGrid.Columns[4].Width = 120;
+                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{getMonthNumber(date)}%'", dataGrid);
             }
             catch (Exception ex)
             {

@@ -633,6 +633,7 @@ namespace SpendWise
         {
             transaction.loadDate(date_select.Text, data_transactions);
             string date = date_select.Text;
+
             SQLiteConnection connection = con.GetConnection();
             // get income
             SQLiteCommand queryMoney = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '+' AND Date LIKE '{date}%'", connection);
@@ -644,17 +645,25 @@ namespace SpendWise
             string income = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND Date LIKE '{date}%'");
             string expenditure = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND Date LIKE '{date}%'");
             // check for empty string
-            if (!string.IsNullOrEmpty(income) && !string.IsNullOrEmpty(expenditure))
+            if (!string.IsNullOrEmpty(income) || !string.IsNullOrEmpty(expenditure))
             {
-                // make a comparision to see which is highest
-                if (int.Parse(income) > int.Parse(expenditure))
+                try
                 {
-                    dot_income.Visible = true;
+                    // make a comparision to see which is highest
+                    if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
+                    {
+                        dot_income.Visible = true;
+                    }
+                    else
+                    {
+                        dot_expenditure.Visible = true;
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    dot_expenditure.Visible = true;
+                    // if income or expenditure is null do nothing
                 }
+                
                 // now to populate the charts
                 try
                 {
@@ -723,7 +732,7 @@ namespace SpendWise
             }
             catch (Exception)
             {
-                // MessageBox.Show("No recent transactions from this month", "Assistant");
+                // Incase of error do nothing
             }
                 // Fill income chart
                 try
