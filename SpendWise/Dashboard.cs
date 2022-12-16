@@ -184,7 +184,7 @@ namespace SpendWise
         {
             ToolTip buttonToolTip = new ToolTip();
             buttonToolTip.ToolTipTitle = "Hint";
-            buttonToolTip.UseFading = true;
+            buttonToolTip.UseFading = false;
             buttonToolTip.UseAnimation = true;
             buttonToolTip.IsBalloon = false;
             buttonToolTip.ShowAlways = true;
@@ -198,7 +198,11 @@ namespace SpendWise
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
             buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
-            
+            buttonToolTip.SetToolTip(lbl_income_count, "This is how many times you have been paid this month");
+            buttonToolTip.SetToolTip(lbl_expenditure_count, "This is how many times you have spent this month");
+            buttonToolTip.SetToolTip(lbl_transactions_count, "This is how many times you have transacted this month");
+            buttonToolTip.SetToolTip(chart_income, "This chart shows your daily income activity depending on the setting.");
+            buttonToolTip.SetToolTip(chart_expenditure, "This chart shows your daily expenditure activity depending on the setting.");
         }
         // pull user name from system
         private string loadUser()
@@ -280,17 +284,19 @@ namespace SpendWise
             string Income = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '+'");
             return Income;
         }
-        // load times gotten income
+        // load times gotten income in the month
         private string loadIncomeCount()
         {
             string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m','{month}')");
             return Income;
         }
+        // load times spent money in the month
         private string loadExpenditureCount()
         {
             string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m','{month}')");
             return Expenditure;
         }
+        // load total monthly transactions
         private string loadTransactionsCount()
         {
             string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m','{month}')");
@@ -845,7 +851,10 @@ namespace SpendWise
         // toggles charts depending on size
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            if(this.Width <= 880)
+            //lbl_width.Text = Width.ToString();
+            //lbl_height.Text = Height.ToString();
+
+            if (this.Width <= 880)
             {
                 splitContainer_dataCharts.Panel2Collapsed = true;
             }

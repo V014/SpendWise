@@ -16,6 +16,7 @@ namespace SpendWise
             dataGrid.RowHeadersVisible = false;
             dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGrid.ScrollBars = ScrollBars.Vertical;
 
             dataGrid.BackgroundColor = Color.FromArgb(17, 17, 17);
             dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(17, 17, 17);
