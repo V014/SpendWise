@@ -44,6 +44,7 @@ namespace SpendWise
             lbl_income_count.Text = loadIncomeCount();
             lbl_expenditure_count.Text = loadExpenditureCount();
             lbl_transactions_count.Text = loadTransactionsCount();
+            lbl_annual_count.Text = loadAnnualCount();
         }
         // refreshes the whole app
         private void refresh()
@@ -301,6 +302,12 @@ namespace SpendWise
         {
             string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m','{month}')");
             return Transactions;
+        }
+        // load Annual transactions
+        private string loadAnnualCount()
+        {
+            string annualTransactions = con.ReadString("SELECT COUNT(amount) FROM transactions");
+            return annualTransactions;
         }
         // load the overall expenditure
         private string loadExpenditure()

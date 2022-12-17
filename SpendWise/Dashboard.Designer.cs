@@ -125,6 +125,8 @@
             this.lbl_width = new System.Windows.Forms.Label();
             this.lbl_height = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbl_annual_count = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -1263,6 +1265,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_annual_count);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lbl_income_count);
             this.panel1.Controls.Add(this.lbl_transactions_count);
@@ -1283,9 +1287,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gray;
             this.label4.Location = new System.Drawing.Point(12, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 19);
+            this.label4.Size = new System.Drawing.Size(149, 19);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Transctions count";
+            this.label4.Text = "Transctions counter";
             // 
             // lbl_income_count
             // 
@@ -1388,6 +1392,29 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "x";
             this.label3.Visible = false;
+            // 
+            // lbl_annual_count
+            // 
+            this.lbl_annual_count.AutoSize = true;
+            this.lbl_annual_count.Cursor = System.Windows.Forms.Cursors.Help;
+            this.lbl_annual_count.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.lbl_annual_count.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_annual_count.Location = new System.Drawing.Point(126, 110);
+            this.lbl_annual_count.Name = "lbl_annual_count";
+            this.lbl_annual_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_annual_count.TabIndex = 15;
+            this.lbl_annual_count.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.Location = new System.Drawing.Point(13, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Anual Transactions :";
             // 
             // Dashboard
             // 
@@ -1554,6 +1581,8 @@
         private System.Windows.Forms.Label lbl_width;
         private System.Windows.Forms.Label lbl_height;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_annual_count;
+        private System.Windows.Forms.Label label7;
     }
 }
 
