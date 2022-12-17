@@ -1290,9 +1290,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gray;
             this.label4.Location = new System.Drawing.Point(12, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(149, 19);
+            this.label4.Size = new System.Drawing.Size(112, 19);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Transctions counter";
+            this.label4.Text = "Month counter";
             // 
             // lbl_income_count
             // 
@@ -1337,9 +1337,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(13, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Monthly Income : ";
+            this.label2.Text = "Times recieved : ";
             // 
             // label5
             // 
@@ -1359,9 +1359,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gray;
             this.label1.Location = new System.Drawing.Point(13, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Monthly Expense :";
+            this.label1.Text = "Times spent :";
             // 
             // lbl_annual_count
             // 

@@ -288,19 +288,19 @@ namespace SpendWise
         // load times gotten income in the month
         private string loadIncomeCount()
         {
-            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m','{month}')");
+            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND date LIKE '{month}%'");
             return Income;
         }
         // load times spent money in the month
         private string loadExpenditureCount()
         {
-            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m','{month}')");
+            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND date LIKE '{month}%'");
             return Expenditure;
         }
         // load total monthly transactions
         private string loadTransactionsCount()
         {
-            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m','{month}')");
+            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE date LIKE '{month}%'");
             return Transactions;
         }
         // load Annual transactions
