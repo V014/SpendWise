@@ -122,9 +122,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_width = new System.Windows.Forms.Label();
-            this.lbl_height = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lbl_annual_count = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.menu_transactions.SuspendLayout();
@@ -331,7 +328,7 @@
             this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_income.Location = new System.Drawing.Point(0, 0);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(300, 190);
+            this.panel_income.Size = new System.Drawing.Size(379, 193);
             this.panel_income.TabIndex = 4;
             // 
             // chart_income
@@ -390,7 +387,7 @@
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ShadowOffset = 6;
             this.chart_income.Series.Add(series1);
-            this.chart_income.Size = new System.Drawing.Size(300, 190);
+            this.chart_income.Size = new System.Drawing.Size(379, 193);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -401,7 +398,7 @@
             this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
             this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(300, 189);
+            this.panel_expenditure.Size = new System.Drawing.Size(379, 194);
             this.panel_expenditure.TabIndex = 5;
             // 
             // chart_expenditure
@@ -455,7 +452,7 @@
             series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series2.ShadowOffset = 6;
             this.chart_expenditure.Series.Add(series2);
-            this.chart_expenditure.Size = new System.Drawing.Size(300, 189);
+            this.chart_expenditure.Size = new System.Drawing.Size(379, 194);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
             // 
@@ -618,7 +615,7 @@
             this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_transactions.Location = new System.Drawing.Point(0, 0);
             this.panel_transactions.Name = "panel_transactions";
-            this.panel_transactions.Size = new System.Drawing.Size(524, 383);
+            this.panel_transactions.Size = new System.Drawing.Size(445, 391);
             this.panel_transactions.TabIndex = 10;
             // 
             // data_transactions
@@ -657,7 +654,7 @@
             this.data_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.data_transactions.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(524, 383);
+            this.data_transactions.Size = new System.Drawing.Size(445, 391);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellClick);
             // 
@@ -1107,7 +1104,7 @@
             this.panel_nav.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_nav.Location = new System.Drawing.Point(30, 30);
             this.panel_nav.Name = "panel_nav";
-            this.panel_nav.Size = new System.Drawing.Size(206, 596);
+            this.panel_nav.Size = new System.Drawing.Size(206, 604);
             this.panel_nav.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -1119,7 +1116,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 213);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 192);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 219);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // btn_plus
@@ -1133,7 +1130,7 @@
             this.btn_plus.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_plus.Location = new System.Drawing.Point(3, 3);
             this.btn_plus.Name = "btn_plus";
-            this.btn_plus.Size = new System.Drawing.Size(95, 88);
+            this.btn_plus.Size = new System.Drawing.Size(95, 99);
             this.btn_plus.TabIndex = 2;
             this.btn_plus.Text = "+";
             this.btn_plus.UseVisualStyleBackColor = false;
@@ -1150,7 +1147,7 @@
             this.btn_minus.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_minus.Location = new System.Drawing.Point(104, 3);
             this.btn_minus.Name = "btn_minus";
-            this.btn_minus.Size = new System.Drawing.Size(95, 88);
+            this.btn_minus.Size = new System.Drawing.Size(95, 99);
             this.btn_minus.TabIndex = 3;
             this.btn_minus.Text = "-";
             this.btn_minus.UseVisualStyleBackColor = false;
@@ -1163,9 +1160,9 @@
             this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(3, 97);
+            this.btn_refresh.Location = new System.Drawing.Point(3, 108);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(95, 88);
+            this.btn_refresh.Size = new System.Drawing.Size(95, 99);
             this.btn_refresh.TabIndex = 4;
             this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
@@ -1177,9 +1174,9 @@
             this.btn_reset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reset.Image = ((System.Drawing.Image)(resources.GetObject("btn_reset.Image")));
-            this.btn_reset.Location = new System.Drawing.Point(104, 97);
+            this.btn_reset.Location = new System.Drawing.Point(104, 108);
             this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(95, 88);
+            this.btn_reset.Size = new System.Drawing.Size(95, 99);
             this.btn_reset.TabIndex = 5;
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
@@ -1202,7 +1199,7 @@
             // 
             this.panel_owner.Controls.Add(this.btn_owner);
             this.panel_owner.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_owner.Location = new System.Drawing.Point(0, 561);
+            this.panel_owner.Location = new System.Drawing.Point(0, 569);
             this.panel_owner.Name = "panel_owner";
             this.panel_owner.Size = new System.Drawing.Size(206, 35);
             this.panel_owner.TabIndex = 4;
@@ -1213,6 +1210,7 @@
             this.btn_owner.FlatAppearance.BorderSize = 0;
             this.btn_owner.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btn_owner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_owner.Font = new System.Drawing.Font("Roboto", 8F);
             this.btn_owner.ForeColor = System.Drawing.Color.Gray;
             this.btn_owner.Location = new System.Drawing.Point(0, 6);
             this.btn_owner.Name = "btn_owner";
@@ -1233,30 +1231,35 @@
             // splitContainer_charts.Panel1
             // 
             this.splitContainer_charts.Panel1.Controls.Add(this.panel_income);
+            this.splitContainer_charts.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer_charts.Panel2
             // 
             this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
-            this.splitContainer_charts.Size = new System.Drawing.Size(300, 383);
-            this.splitContainer_charts.SplitterDistance = 190;
+            this.splitContainer_charts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer_charts.Size = new System.Drawing.Size(379, 391);
+            this.splitContainer_charts.SplitterDistance = 193;
             this.splitContainer_charts.TabIndex = 14;
             // 
             // splitContainer_dataCharts
             // 
             this.splitContainer_dataCharts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_dataCharts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_dataCharts.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer_dataCharts.Location = new System.Drawing.Point(236, 243);
             this.splitContainer_dataCharts.Name = "splitContainer_dataCharts";
             // 
             // splitContainer_dataCharts.Panel1
             // 
             this.splitContainer_dataCharts.Panel1.Controls.Add(this.panel_transactions);
+            this.splitContainer_dataCharts.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer_dataCharts.Panel2
             // 
             this.splitContainer_dataCharts.Panel2.Controls.Add(this.splitContainer_charts);
-            this.splitContainer_dataCharts.Size = new System.Drawing.Size(828, 383);
-            this.splitContainer_dataCharts.SplitterDistance = 524;
+            this.splitContainer_dataCharts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer_dataCharts.Size = new System.Drawing.Size(828, 391);
+            this.splitContainer_dataCharts.SplitterDistance = 445;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
             // timer
@@ -1275,9 +1278,9 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 405);
+            this.panel1.Location = new System.Drawing.Point(0, 432);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 156);
+            this.panel1.Size = new System.Drawing.Size(206, 137);
             this.panel1.TabIndex = 8;
             // 
             // label4
@@ -1360,39 +1363,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Monthly Expense :";
             // 
-            // lbl_width
-            // 
-            this.lbl_width.AutoSize = true;
-            this.lbl_width.ForeColor = System.Drawing.Color.White;
-            this.lbl_width.Location = new System.Drawing.Point(96, 14);
-            this.lbl_width.Name = "lbl_width";
-            this.lbl_width.Size = new System.Drawing.Size(32, 13);
-            this.lbl_width.TabIndex = 16;
-            this.lbl_width.Text = "width";
-            this.lbl_width.Visible = false;
-            // 
-            // lbl_height
-            // 
-            this.lbl_height.AutoSize = true;
-            this.lbl_height.ForeColor = System.Drawing.Color.White;
-            this.lbl_height.Location = new System.Drawing.Point(27, 14);
-            this.lbl_height.Name = "lbl_height";
-            this.lbl_height.Size = new System.Drawing.Size(36, 13);
-            this.lbl_height.TabIndex = 16;
-            this.lbl_height.Text = "height";
-            this.lbl_height.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(74, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "x";
-            this.label3.Visible = false;
-            // 
             // lbl_annual_count
             // 
             this.lbl_annual_count.AutoSize = true;
@@ -1422,16 +1392,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(1094, 656);
+            this.ClientSize = new System.Drawing.Size(1094, 664);
             this.ContextMenuStrip = this.menuUI;
-            this.Controls.Add(this.lbl_height);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lbl_width);
             this.Controls.Add(this.splitContainer_dataCharts);
             this.Controls.Add(this.panel_top);
             this.Controls.Add(this.panel_nav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(700, 0);
+            this.MinimumSize = new System.Drawing.Size(700, 310);
             this.Name = "Dashboard";
             this.Padding = new System.Windows.Forms.Padding(30);
             this.Text = "SpendWise";
@@ -1489,7 +1456,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1578,9 +1544,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_width;
-        private System.Windows.Forms.Label lbl_height;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_annual_count;
         private System.Windows.Forms.Label label7;
     }
