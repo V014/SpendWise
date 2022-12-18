@@ -367,6 +367,7 @@ namespace SpendWise
                 try
                 {
                     // instanciate values from controls
+                    string desc = txt_desc.Text;
                     int amount = Convert.ToInt32(txt_amount.Text);
                     int wallet = Convert.ToInt32(money.checkMoney());
                     int savings = Convert.ToInt32(money.checkSavings());
@@ -383,7 +384,7 @@ namespace SpendWise
                     // document new savings
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{txt_desc.Text}', {amount}, '{date_select.Text} {time}', '+')");
+                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, '{date_select.Text} {time}', '+')");
                     // refresh app
                     refresh();
                     // update the money count
