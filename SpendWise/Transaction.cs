@@ -9,41 +9,42 @@ namespace SpendWise
         // load transactions
         public void loadTransactions(DataGridView datagrid)
         {
-            string queryTransactions = "SELECT Description, Amount, Action, Date  FROM transactions";
+            string queryTransactions = "SELECT ID, Description, Amount, Action, Date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
-            
+            datagrid.Columns[0].Visible = false;
         }
+        // load the number of the month through the name
         public string getMonthNumber(string month)
         {
             string monthNumber;
             switch (month)
             {
                 case "January":
-                    monthNumber = "1";
+                    monthNumber = "01";
                     return monthNumber;
                 case "February":
-                    monthNumber = "2";
+                    monthNumber = "02";
                     return monthNumber;
                 case "March":
-                    monthNumber = "3";
+                    monthNumber = "03";
                     return monthNumber;
                 case "April":
-                    monthNumber = "4";
+                    monthNumber = "04";
                     return monthNumber;
                 case "May":
-                    monthNumber = "5";
+                    monthNumber = "05";
                     return monthNumber;
                 case "June":
-                    monthNumber = "6";
+                    monthNumber = "06";
                     return monthNumber;
                 case "July":
-                    monthNumber = "7";
+                    monthNumber = "07";
                     return monthNumber;
                 case "August":
-                    monthNumber = "8";
+                    monthNumber = "08";
                     return monthNumber;
                 case "September":
-                    monthNumber = "9";
+                    monthNumber = "09";
                     return monthNumber;
                 case "October":
                     monthNumber = "10";
@@ -55,7 +56,7 @@ namespace SpendWise
                     monthNumber = "12";
                     return monthNumber;
                 default:
-                    monthNumber = "1";
+                    monthNumber = "01";
                     return monthNumber;
             }
         }
@@ -64,7 +65,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{date}%'", dataGrid);
+                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE strftime('%d',date) = '{date}'", dataGrid);
             }
             catch (Exception ex)
             {
@@ -76,7 +77,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE Date LIKE '{getMonthNumber(date)}%'", dataGrid);
+                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE strftime('%m', date) = '{getMonthNumber(date)}'", dataGrid);
             }
             catch (Exception ex)
             {
