@@ -65,7 +65,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE strftime('%d',date) = '{date}'", dataGrid);
+                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE date LIKE '{date}%'", dataGrid);
             }
             catch (Exception ex)
             {

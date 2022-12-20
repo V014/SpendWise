@@ -653,14 +653,14 @@ namespace SpendWise
 
             SQLiteConnection connection = con.GetConnection();
             // get income
-            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '+' AND strftime('%m', date) = '{date}'", connection);
+            SQLiteCommand queryMoney = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '+' AND date LIKE '{date}%'", connection);
             SQLiteDataReader income_data = queryMoney.ExecuteReader();
             // get expenditure
-            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '-' AND strftime('%m', date) = '{date}'", connection);
+            SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '-' AND date LIKE '{date}%'", connection);
             SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
             // do some math to show the dots
-            string income = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND strftime('%m', date) = '{date}'");
-            string expenditure = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND strftime('%m', date) = '{date}'");
+            string income = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
+            string expenditure = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
             // check for empty string
             if (!string.IsNullOrEmpty(income) || !string.IsNullOrEmpty(expenditure))
             {
@@ -690,7 +690,7 @@ namespace SpendWise
                         chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                     }
 
-                    lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND strftime('%m', date) = '{date}'");
+                    lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
                 }
                 catch (Exception)
                 {
@@ -704,7 +704,7 @@ namespace SpendWise
                         chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                     }
 
-                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND strftime('%m', date) = '{date}'");
+                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
                 }
                 catch (Exception)
                 {
