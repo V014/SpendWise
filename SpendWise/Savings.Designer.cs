@@ -51,18 +51,18 @@
             this.btn_apply.ForeColor = System.Drawing.Color.White;
             this.btn_apply.Location = new System.Drawing.Point(0, 0);
             this.btn_apply.Name = "btn_apply";
-            this.btn_apply.Size = new System.Drawing.Size(118, 40);
+            this.btn_apply.Size = new System.Drawing.Size(132, 40);
             this.btn_apply.TabIndex = 5;
             this.btn_apply.Text = "Apply";
             this.btn_apply.UseVisualStyleBackColor = false;
-            this.btn_apply.Click += new System.EventHandler(this.btn_apply_Click);
+            this.btn_apply.Click += new System.EventHandler(this.Btn_apply_Click);
             // 
             // lbl_title
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Roboto", 16F);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_title.Location = new System.Drawing.Point(23, 60);
+            this.lbl_title.Location = new System.Drawing.Point(12, 12);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(124, 27);
             this.lbl_title.TabIndex = 3;
@@ -72,17 +72,17 @@
             // 
             this.lbl_percent.AutoSize = true;
             this.lbl_percent.Font = new System.Drawing.Font("Roboto", 66F);
-            this.lbl_percent.ForeColor = System.Drawing.Color.White;
-            this.lbl_percent.Location = new System.Drawing.Point(23, 87);
+            this.lbl_percent.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_percent.Location = new System.Drawing.Point(12, 39);
             this.lbl_percent.Name = "lbl_percent";
-            this.lbl_percent.Size = new System.Drawing.Size(143, 106);
+            this.lbl_percent.Size = new System.Drawing.Size(158, 106);
             this.lbl_percent.TabIndex = 3;
-            this.lbl_percent.Text = "00";
+            this.lbl_percent.Text = "0%";
             // 
             // scrollbar_savings_percentage
             // 
             this.scrollbar_savings_percentage.LargeChange = 10;
-            this.scrollbar_savings_percentage.Location = new System.Drawing.Point(23, 212);
+            this.scrollbar_savings_percentage.Location = new System.Drawing.Point(12, 164);
             this.scrollbar_savings_percentage.Maximum = 100;
             this.scrollbar_savings_percentage.Minimum = 0;
             this.scrollbar_savings_percentage.MouseWheelBarPartitions = 10;
@@ -107,7 +107,7 @@
             this.btn_reset.ForeColor = System.Drawing.Color.White;
             this.btn_reset.Location = new System.Drawing.Point(0, 0);
             this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(111, 40);
+            this.btn_reset.Size = new System.Drawing.Size(126, 40);
             this.btn_reset.TabIndex = 5;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@
             // panel_controls
             // 
             this.panel_controls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_controls.Location = new System.Drawing.Point(20, 246);
+            this.panel_controls.Location = new System.Drawing.Point(0, 197);
             this.panel_controls.Name = "panel_controls";
             // 
             // panel_controls.Panel1
@@ -126,25 +126,25 @@
             // panel_controls.Panel2
             // 
             this.panel_controls.Panel2.Controls.Add(this.btn_reset);
-            this.panel_controls.Size = new System.Drawing.Size(233, 40);
-            this.panel_controls.SplitterDistance = 118;
+            this.panel_controls.Size = new System.Drawing.Size(262, 40);
+            this.panel_controls.SplitterDistance = 132;
             this.panel_controls.TabIndex = 7;
             // 
             // Savings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 306);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ClientSize = new System.Drawing.Size(262, 237);
             this.Controls.Add(this.panel_controls);
             this.Controls.Add(this.scrollbar_savings_percentage);
             this.Controls.Add(this.lbl_percent);
             this.Controls.Add(this.lbl_title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Savings";
-            this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.panel_controls.Panel1.ResumeLayout(false);
             this.panel_controls.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panel_controls)).EndInit();

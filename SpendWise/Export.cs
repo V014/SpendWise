@@ -8,14 +8,13 @@ namespace SpendWise
 {
     public partial class Export : MetroFramework.Forms.MetroForm
     {
-        Connection con = new Connection();
-        string date = DateTime.Now.ToString("g");
-
+        readonly Connection con = new Connection();
+        // constructor
         public Export()
         {
             InitializeComponent();
         }
-
+        // exports a microsoft excel xlsx document  
         private void Btn_transactions_Click(object sender, EventArgs e)
         {
             // display UI that enable user to save file location
@@ -26,7 +25,7 @@ namespace SpendWise
                     try
                     {
                         // collect all the known transactions
-                        string queryExport = "SELECT id, description, amount, action, date FROM transactions";
+                        string queryExport = "SELECT ID, Description, Amount, Action, Date FROM transactions";
                         using (XLWorkbook workbook = new XLWorkbook())
                         {
                             // export them to an excel file Note. DataTable required
@@ -44,7 +43,7 @@ namespace SpendWise
                 }
             }
         }
-
+        // exports an sqlite db
         private void Btn_database_Click(object sender, EventArgs e)
         {
             // display UI that enable user to save file location
@@ -71,7 +70,7 @@ namespace SpendWise
                     catch (Exception)
                     {
                         MessageBox.Show("Feature unavailable!", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        con.ExecuteQuery($"INSERT INTO events (description, location, date) VALUES('Export function error', 'Export button'. '{date}')");
+                        con.ExecuteQuery($"INSERT INTO events (description, location, date) VALUES('Export function error', 'Export button'. 'date('now')')");
                     }
                 }
             }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace SpendWise
 {
-    public partial class Currency : MetroFramework.Forms.MetroForm
+    public partial class Currency : Form
     {
-        Connection con = new Connection();
+        readonly Connection con = new Connection();
 
         public Currency()
         {
@@ -13,7 +14,7 @@ namespace SpendWise
             txt_currency.Text = con.ReadString("SELECT currency FROM wallet");
         }
         
-        private void btn_save_Click(object sender, EventArgs e)
+        private void Btn_save_Click(object sender, EventArgs e)
         { 
             con.ExecuteQuery($"UPDATE wallet SET currency = '{txt_currency.Text}'");
             lbl_title.Text = "Wallet renamed!";

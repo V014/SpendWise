@@ -41,9 +41,9 @@
             this.panel_main.Controls.Add(this.txt_name);
             this.panel_main.Controls.Add(this.lbl_title);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(20, 60);
+            this.panel_main.Location = new System.Drawing.Point(0, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(245, 170);
+            this.panel_main.Size = new System.Drawing.Size(261, 145);
             this.panel_main.TabIndex = 0;
             // 
             // btn_submit
@@ -55,13 +55,13 @@
             this.btn_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btn_submit.ForeColor = System.Drawing.Color.White;
-            this.btn_submit.Location = new System.Drawing.Point(0, 126);
+            this.btn_submit.Location = new System.Drawing.Point(0, 101);
             this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(245, 44);
+            this.btn_submit.Size = new System.Drawing.Size(261, 44);
             this.btn_submit.TabIndex = 2;
             this.btn_submit.Text = "Save";
             this.btn_submit.UseVisualStyleBackColor = false;
-            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
+            this.btn_submit.Click += new System.EventHandler(this.Btn_submit_Click);
             // 
             // txt_name
             // 
@@ -69,7 +69,7 @@
             this.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_name.ForeColor = System.Drawing.Color.Gray;
-            this.txt_name.Location = new System.Drawing.Point(3, 30);
+            this.txt_name.Location = new System.Drawing.Point(12, 45);
             this.txt_name.MaximumSize = new System.Drawing.Size(236, 32);
             this.txt_name.Multiline = true;
             this.txt_name.Name = "txt_name";
@@ -81,7 +81,7 @@
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_title.Location = new System.Drawing.Point(3, 0);
+            this.lbl_title.Location = new System.Drawing.Point(12, 15);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(71, 26);
             this.lbl_title.TabIndex = 0;
@@ -91,16 +91,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 250);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ClientSize = new System.Drawing.Size(261, 145);
             this.Controls.Add(this.panel_main);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Profile";
-            this.Opacity = 0.96D;
-            this.Resizable = false;
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();

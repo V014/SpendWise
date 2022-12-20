@@ -177,7 +177,7 @@
             this.btn_savings.Size = new System.Drawing.Size(50, 50);
             this.btn_savings.TabIndex = 3;
             this.btn_savings.UseVisualStyleBackColor = false;
-            this.btn_savings.Click += new System.EventHandler(this.btn_savings_Click);
+            this.btn_savings.Click += new System.EventHandler(this.Btn_savings_Click);
             // 
             // btn_money
             // 
@@ -270,7 +270,7 @@
             this.txt_amount.MaxLength = 32767;
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.PasswordChar = '\0';
-            this.txt_amount.PromptText = "Amount 0.00";
+            this.txt_amount.WaterMark = "Amount 0.00";
             this.txt_amount.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_amount.SelectedText = "";
             this.txt_amount.SelectionLength = 0;
@@ -285,7 +285,7 @@
             this.txt_amount.WaterMark = "Amount 0.00";
             this.txt_amount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_amount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txt_amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_amount_KeyPress);
+            this.txt_amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_amount_KeyPress);
             // 
             // lbl_currency
             // 
@@ -297,7 +297,7 @@
             this.lbl_currency.Size = new System.Drawing.Size(55, 15);
             this.lbl_currency.TabIndex = 0;
             this.lbl_currency.Text = "Currency";
-            this.lbl_currency.Click += new System.EventHandler(this.lbl_currency_Click);
+            this.lbl_currency.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // menu_transactions
             // 
@@ -319,7 +319,7 @@
             this.item_remove.Name = "item_remove";
             this.item_remove.Size = new System.Drawing.Size(92, 22);
             this.item_remove.Text = "Remove";
-            this.item_remove.Click += new System.EventHandler(this.item_remove_Click);
+            this.item_remove.Click += new System.EventHandler(this.Item_remove_Click);
             // 
             // panel_income
             // 
@@ -591,7 +591,7 @@
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.importToolStripMenuItem.Text = "Import";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
@@ -599,7 +599,7 @@
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.exportToolStripMenuItem.Text = "Export";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -607,7 +607,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // panel_transactions
             // 
@@ -657,7 +657,7 @@
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_transactions.Size = new System.Drawing.Size(445, 391);
             this.data_transactions.TabIndex = 0;
-            this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellClick);
+            this.data_transactions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_transactions_CellClick);
             // 
             // panel_money
             // 
@@ -711,7 +711,7 @@
             this.lbl_title_amount.Size = new System.Drawing.Size(91, 15);
             this.lbl_title_amount.TabIndex = 0;
             this.lbl_title_amount.Text = "Specify amount";
-            this.lbl_title_amount.Click += new System.EventHandler(this.lbl_currency_Click);
+            this.lbl_title_amount.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_input
             // 
@@ -733,7 +733,7 @@
             this.lbl_title_transactions.Size = new System.Drawing.Size(119, 15);
             this.lbl_title_transactions.TabIndex = 0;
             this.lbl_title_transactions.Text = "Describe transaction";
-            this.lbl_title_transactions.Click += new System.EventHandler(this.lbl_currency_Click);
+            this.lbl_title_transactions.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_savings
             // 
@@ -1255,7 +1255,7 @@
             this.btn_plus.TabIndex = 2;
             this.btn_plus.Text = "+";
             this.btn_plus.UseVisualStyleBackColor = false;
-            this.btn_plus.Click += new System.EventHandler(this.btn_plus_Click);
+            this.btn_plus.Click += new System.EventHandler(this.Btn_plus_Click);
             // 
             // btn_minus
             // 
@@ -1272,7 +1272,7 @@
             this.btn_minus.TabIndex = 3;
             this.btn_minus.Text = "-";
             this.btn_minus.UseVisualStyleBackColor = false;
-            this.btn_minus.Click += new System.EventHandler(this.btn_minus_Click);
+            this.btn_minus.Click += new System.EventHandler(this.Btn_minus_Click);
             // 
             // btn_refresh
             // 
@@ -1286,7 +1286,7 @@
             this.btn_refresh.Size = new System.Drawing.Size(95, 99);
             this.btn_refresh.TabIndex = 4;
             this.btn_refresh.UseVisualStyleBackColor = false;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            this.btn_refresh.Click += new System.EventHandler(this.Btn_refresh_Click);
             // 
             // btn_reset
             // 
@@ -1300,7 +1300,7 @@
             this.btn_reset.Size = new System.Drawing.Size(95, 99);
             this.btn_reset.TabIndex = 5;
             this.btn_reset.UseVisualStyleBackColor = false;
-            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            this.btn_reset.Click += new System.EventHandler(this.Btn_reset_Click);
             // 
             // picbox_image
             // 

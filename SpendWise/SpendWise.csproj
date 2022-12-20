@@ -116,12 +116,6 @@
     <Compile Include="Currency.Designer.cs">
       <DependentUpon>Currency.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChartCover.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ChartCover.Designer.cs">
-      <DependentUpon>ChartCover.cs</DependentUpon>
-    </Compile>
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChartCover.resx">
-      <DependentUpon>ChartCover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Export.resx">
       <DependentUpon>Export.cs</DependentUpon>

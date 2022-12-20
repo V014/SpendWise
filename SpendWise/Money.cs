@@ -2,14 +2,15 @@
 {
     public class Money
     {
-        Connection con = new Connection();
-        public string checkMoney()
+        readonly Connection con = new Connection();
+        // pull the actual money value in the db
+        public string CheckMoney()
         {
-            // check sales
             string money = con.ReadString("SELECT money FROM wallet");
             return money;
         }
-        public string checkSavings()
+        // pull the savings value in the db
+        public string CheckSavings()
         {
             string savings = con.ReadString("SELECT savings FROM wallet WHERE id = 1");
             return savings;

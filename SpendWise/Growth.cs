@@ -1,48 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SpendWise
 {
-    public partial class Growth : MetroFramework.Forms.MetroForm
+    public partial class Growth : Form
     {
-        Dashboard dashboard = new Dashboard();
-        Connection con = new Connection();
+        private readonly Dashboard dashboard = new Dashboard();
+        private readonly Connection con = new Connection();
         public Growth()
         {
             InitializeComponent();
             try
             {
-                // beginning value
-            int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-                // ending value
-                int ev = int.Parse(dashboard.loadIncome());
-                // beginning year, current year, solve difference
-                int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-                int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
-                int years = yearNow - by;
-
-                lbl_bv.Text = bv.ToString();
-                lbl_ev.Text = ev.ToString();
+                // pull established year from dashboard
+                int established = dashboard.LoadEstablished();
+                // pull current year from dashborad
+                int yearNow = dashboard.LoadYear();
+                // calculates years in service
+                int years = yearNow - established;
+                // display beginning value
+                lbl_bv.Text = dashboard.LoadCapital().ToString();
+                // display ending value
+                lbl_ev.Text = dashboard.LoadRevenue().ToString();
+                // display years
                 lbl_years.Text = years.ToString();
+                // display compound annual growth rate
                 lbl_CAGR.Text = dashboard.LoadGrowth().ToString() + "%";
             }
             catch (Exception)
             {
                 MessageBox.Show("Data unavilable!", "Assistant");
+                // play chime
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES('date('now')', 'SQL error', 'Growth action')");
             }
             
-        }
-
-        private void PictureBox_Click(object sender, EventArgs e)
-        {
-            pictureBox.ImageLocation = @"res/growth/Formula.jpg";
         }
     }
 }

@@ -9,11 +9,10 @@ namespace SpendWise
     public partial class Dashboard : Form
     {
         // reference the required classes
-        Money money = new Money();
-        Transaction transaction = new Transaction();
-        Connection con = new Connection();
-        StyleDataGrid theme = new StyleDataGrid();
-  
+        readonly Money money = new Money();
+        readonly Transaction transaction = new Transaction();
+        readonly Connection con = new Connection();
+        readonly StyleDataGrid theme = new StyleDataGrid();
         // constructor
         public Dashboard()
         {
@@ -21,99 +20,101 @@ namespace SpendWise
             // play chime
             //SoundPlayer chime = new SoundPlayer(@"sfx/open.wav");
             //chime.Play();
-            refresh();
+            RefreshUI();
             // setup UI optimization
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             // setting up hints
-            toolTips();
+            ToolTips();
             // set timer to auto refresh
-            Timer timer = new Timer();
-            timer.Interval = (15 * 1000); // 15 secs
+            Timer timer = new Timer
+            {
+                Interval = (15 * 1000) // 15 secs
+            };
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
             // load previous window state
-            previousState();
+            PreviousState();
             // check for notifications
-            loadInvestmentDot();
+            LoadInvestmentDot();
             // check your income to expenditure ratio and present dot
-            loadMoneyDot();
+            LoadMoneyDot();
             // show details on transactions
-            lbl_income_count.Text = loadIncomeCount();
-            lbl_expenditure_count.Text = loadExpenditureCount();
-            lbl_transactions_count.Text = loadTransactionsCount();
-            lbl_annual_count.Text = loadAnnualCount();
+            lbl_income_count.Text = LoadIncomeCount();
+            lbl_expenditure_count.Text = LoadExpenditureCount();
+            lbl_transactions_count.Text = LoadTransactionsCount();
+            lbl_annual_count.Text = LoadAnnualCount();
         }
         // refreshes the whole app
-        private void refresh()
+        private void RefreshUI()
         {
             // display user name at the bottom of the ui
-            btn_owner.Text = loadUser();
+            btn_owner.Text = LoadUser();
             // displays profile image
-            loadPicture();
+            LoadPicture();
             // show money
-            lbl_money.Text = money.checkMoney();
+            lbl_money.Text = money.CheckMoney();
             // show savings
-            lbl_savings.Text = money.checkSavings();
+            lbl_savings.Text = money.CheckSavings();
             // show saved
-            if (loadSaved() > 0)
+            if (LoadSaved() > 0)
             {
-                lbl_saved.Text = loadSaved().ToString();
+                lbl_saved.Text = LoadSaved().ToString();
             }
             // style datagrid
             theme.style(data_transactions);
             // load the data into the data grid
             transaction.loadTransactions(data_transactions);
             // loads the set currency
-            lbl_currency.Text = loadCurrency();
+            lbl_currency.Text = LoadCurrency();
             // load charts
-            loadCharts();
+            LoadCharts();
             // apply details
-            lbl_income.Text = loadIncome();
-            lbl_expenditure.Text = loadExpenditure();
-            lbl_common.Text = loadCommon();
-            lbl_least.Text = loadLeast();
+            lbl_income.Text = LoadIncome();
+            lbl_expenditure.Text = LoadExpenditure();
+            lbl_common.Text = LoadCommon();
+            lbl_least.Text = LoadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "Description";
-            lbl_investments.Text = loadInvestments();
-            lbl_complete_investments.Text = loadCompleteInvestments();
+            lbl_investments.Text = LoadInvestments();
+            lbl_complete_investments.Text = LoadCompleteInvestments();
             lbl_growth.Text = LoadGrowth().ToString() + "%";
             // update investment dot
-            loadInvestmentDot();
+            LoadInvestmentDot();
         }
         // refreshes part of the app
-        private void autoRefresh()
+        private void AutoRefresh()
         {
             // display user name at the bottom of the ui
-            btn_owner.Text = loadUser();
+            btn_owner.Text = LoadUser();
             // displays profile image
-            loadPicture();
+            LoadPicture();
             // show money
-            lbl_money.Text = money.checkMoney();
+            lbl_money.Text = money.CheckMoney();
             // show savings
-            lbl_savings.Text = money.checkSavings();
+            lbl_savings.Text = money.CheckSavings();
             // show saved
-            if (loadSaved() > 0)
+            if (LoadSaved() > 0)
             {
-                lbl_saved.Text = loadSaved().ToString();
+                lbl_saved.Text = LoadSaved().ToString();
             }
             // loads the set currency
-            lbl_currency.Text = loadCurrency();
+            lbl_currency.Text = LoadCurrency();
             // loads the most common transaction
-            lbl_common.Text = loadCommon();
+            lbl_common.Text = LoadCommon();
             // loads the least common transaction
-            lbl_least.Text = loadLeast();
+            lbl_least.Text = LoadLeast();
             // loads the number of investments set
-            lbl_investments.Text = loadInvestments();
+            lbl_investments.Text = LoadInvestments();
             // loads the number of complete investments
-            lbl_complete_investments.Text = loadCompleteInvestments();
+            lbl_complete_investments.Text = LoadCompleteInvestments();
             // update investment dot
-            loadInvestmentDot();
+            LoadInvestmentDot();
         }
         // check to see if there any pending investments 
-        private void loadInvestmentDot()
+        private void LoadInvestmentDot()
         {
-            if (loadInvestments() == loadCompleteInvestments())
+            if (LoadInvestments() == LoadCompleteInvestments())
             {
                 dot_investments.Visible = false;
             }
@@ -123,9 +124,9 @@ namespace SpendWise
             }
         }
         // check to see if there any pending investments 
-        private void loadMoneyDot()
+        private void LoadMoneyDot()
         {
-            if (int.Parse(loadIncome()) > int.Parse(loadExpenditure()))
+            if (int.Parse(LoadIncome()) > int.Parse(LoadExpenditure()))
             {
                 dot_income.Visible = true;
                 dot_expenditure.Visible = false;
@@ -137,14 +138,14 @@ namespace SpendWise
             }
         }
         // load previous state
-        private void previousState()
+        private void PreviousState()
         {
             this.Width = int.Parse(con.ReadString("SELECT width FROM ui"));
             this.Height = int.Parse(con.ReadString("SELECT height FROM ui"));
             //return username;
         }
         // loads charts when called
-        private void loadCharts()
+        private void LoadCharts()
         {
             SQLiteConnection connection = con.GetConnection();
             // get income
@@ -179,18 +180,20 @@ namespace SpendWise
             }
         }
         // set tool tips where required
-        public void toolTips()
+        public void ToolTips()
         {
-            ToolTip buttonToolTip = new ToolTip();
-            buttonToolTip.ToolTipTitle = "Hint";
-            buttonToolTip.UseFading = false;
-            buttonToolTip.UseAnimation = true;
-            buttonToolTip.IsBalloon = false;
-            buttonToolTip.ShowAlways = true;
+            ToolTip buttonToolTip = new ToolTip
+            {
+                ToolTipTitle = "Hint",
+                UseFading = false,
+                UseAnimation = true,
+                IsBalloon = false,
+                ShowAlways = true,
 
-            buttonToolTip.AutoPopDelay = 5000;
-            buttonToolTip.InitialDelay = 1000;
-            buttonToolTip.ReshowDelay = 500;
+                AutoPopDelay = 5000,
+                InitialDelay = 1000,
+                ReshowDelay = 500
+            };
 
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
             buttonToolTip.SetToolTip(btn_owner, "Click to rename");
@@ -204,111 +207,147 @@ namespace SpendWise
             buttonToolTip.SetToolTip(chart_expenditure, "This chart shows your daily expenditure activity depending on the setting.");
         }
         // pull user name from system
-        private string loadUser()
+        private string LoadUser()
         {
             string username = con.ReadString("SELECT owner FROM wallet");
             return username;
         }
         // pull user profile picture
-        private void loadPicture()
+        private void LoadPicture()
         {
-            picbox_image.ImageLocation = @"res/profile/" + loadUser() + ".jpeg";
+            picbox_image.ImageLocation = @"res/profile/" + LoadUser() + ".jpeg";
         }
         // load the currency the user has set
-        private string loadCurrency()
+        private string LoadCurrency()
         {
             string queryCurrency = "SELECT currency FROM wallet";
             string symbol = con.ReadString(queryCurrency);
             return symbol;
         }
-        // load growth
+        // load the initial capital
+        public int LoadCapital()
+        {
+            // beginning value, your capital or investment
+            int capital = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY ID ASC LIMIT 1"));
+            return capital;
+        }
+        // load revenue
+        public int LoadRevenue()
+        {
+            // ending value, your revenue at the end of the year
+            int revenue = int.Parse(LoadIncome());
+            return revenue;
+        }
+        // load year of establishment
+        public int LoadEstablished()
+        {
+            int established = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY ID ASC LIMIT 1"));
+            return established;
+        }
+        // load current year
+        public int LoadYear()
+        {
+            int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
+            return yearNow;
+        }
+        // load growth//////////////////////////////////////////////////////////////
         public double LoadGrowth()
         {
             try
             {
-                if(!string.IsNullOrEmpty(loadIncome()))
+                if(!string.IsNullOrEmpty(LoadIncome()))
                 {
-                    // beginning value
-                    int bv = int.Parse(con.ReadString("SELECT amount FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-                    // ending value
-                    int ev = int.Parse(loadIncome());
-
-                    // beginning year, current year, solve difference
-                    int by = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY id ASC LIMIT 1"));
-                    int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
-                    int years = yearNow - by;
-
-                    // This is an example that assumes sqlites year extraction function is called year, we group records by year and
-                    // from the final counting of each unique year we understand the amount of unique years that have gone by
-                    
-
-                    // Years have been extracted from sqlite
-                    if (years != 0)
+                    // call capital
+                    int capital = LoadCapital();
+                    // call revenue
+                    int revenue = LoadRevenue();
+                    // year of establishment
+                    int established = LoadEstablished();
+                    // extract current year
+                    int yearNow = LoadYear();
+                    // subtract beginning year from current year 
+                    int years = yearNow - established;
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    // Compound Annual Growth Rate (CAGR) @github.com/V014/SpendWise
+                    // if years in business is not equal to zero
+                    if (years != 0) 
                     {
+                        // divide 1 by the amount of years in business
                         double factor = 1 / years;
-                        double total = Math.Pow(ev / bv, factor) - 1;
+                        // Following BIDMAS rule -> brackets, indices, division, multiplication, addition, subtraction
+                        // call math dot power function, divide capital from revenue, to the power of the factor, minus one
+                        double total = Math.Pow(revenue / capital, factor) - 1;
+                        // multiply total by a hundred to get percentage
                         double percent = total * 100;
+                        // return the CAGR
                         return percent;
                     }
                     else
                     {
+                        // if business is not a year old return zero, CARG is stricly calculated Annually
                         return 0;
                     }
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////
                 }
                 return 0;
             }
             catch (Exception)
             {
-                MessageBox.Show("Growth feature error!", "Assistant");
+                MessageBox.Show("Growth feature unavailable!", "Assistant");
+                // play chime
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES('date('now')', 'SQL error', 'Growth action')");
                 return 0;
             }
         }
         // load investments
-        private string loadInvestments()
+        private string LoadInvestments()
         {
             string queryCurrency = "SELECT COUNT(id) FROM investments";
             string investments = con.ReadString(queryCurrency);
             return investments;
         }
         // load complete investments
-        private string loadCompleteInvestments()
+        private string LoadCompleteInvestments()
         {
             string queryCurrency = "SELECT COUNT(id) FROM investments WHERE progress = 100";
             string investments = con.ReadString(queryCurrency);
             return investments;
         }
         // load the overall income
-        public string loadIncome()
+        public string LoadIncome()
         {
             string Income = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '+'");
             return Income;
         }
         // load times gotten income in the month
-        private string loadIncomeCount()
+        private string LoadIncomeCount()
         {
             string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m', date)");
             return Income;
         }
         // load times spent money in the month
-        private string loadExpenditureCount()
+        private string LoadExpenditureCount()
         {
             string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m', date)");
             return Expenditure;
         }
         // load total monthly transactions
-        private string loadTransactionsCount()
+        private string LoadTransactionsCount()
         {
             string Transactions = con.ReadString("SELECT COUNT(amount) FROM transactions WHERE strftime('%m', date)");
             return Transactions;
         }
         // load Annual transactions
-        private string loadAnnualCount()
+        private string LoadAnnualCount()
         {
             string annualTransactions = con.ReadString("SELECT COUNT(amount) FROM transactions");
             return annualTransactions;
         }
         // load the overall expenditure
-        private string loadExpenditure()
+        private string LoadExpenditure()
         {
             try
             {
@@ -322,11 +361,11 @@ namespace SpendWise
             
         }
         // load the overall saved
-        private int loadSaved()
+        private int LoadSaved()
         {
             try
             {
-                int saved = int.Parse(loadIncome()) - int.Parse(loadExpenditure());
+                int saved = int.Parse(LoadIncome()) - int.Parse(LoadExpenditure());
                 if(saved > 1)
                 {
                     return saved;
@@ -342,21 +381,21 @@ namespace SpendWise
             }
         }
         // load the common purchased item
-        private string loadCommon()
+        private string LoadCommon()
         {
             string queryCommon = "SELECT description, count(description) AS cnt FROM transactions GROUP BY description ORDER BY cnt DESC LIMIT 1";
             string Common = con.ReadString(queryCommon);
             return Common;
         }
         // load the common purchased item
-        private string loadLeast()
+        private string LoadLeast()
         {
             string queryLeast = "SELECT description, count(description) AS cnt FROM transactions GROUP BY description ORDER BY cnt ASC LIMIT 1";
             string Least = con.ReadString(queryLeast);
             return Least;
         }
-        // when the plus button is clicked...................................... //
-        private void btn_plus_Click(object sender, System.EventArgs e)
+        // when the plus button is clicked/////////////////////////////////////////
+        private void Btn_plus_Click(object sender, System.EventArgs e)
         {
             // check if a description and amount both exist
             if (txt_desc.Text != "Description" && txt_amount.Text != "")
@@ -367,8 +406,8 @@ namespace SpendWise
                     // instanciate values from controls
                     string desc = txt_desc.Text;
                     int amount = Convert.ToInt32(txt_amount.Text);
-                    int wallet = Convert.ToInt32(money.checkMoney());
-                    int savings = Convert.ToInt32(money.checkSavings());
+                    int wallet = Convert.ToInt32(money.CheckMoney());
+                    int savings = Convert.ToInt32(money.CheckSavings());
                     // add the previous and adding values
                     int moneyNow = wallet + amount;
                     // build the querys
@@ -384,13 +423,13 @@ namespace SpendWise
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, '{date_select.Text} strftime('%H:%M','now')', '+')");
                     // refresh app
-                    refresh();
+                    RefreshUI();
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // refresh the data grid
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
-                    loadCharts();
+                    LoadCharts();
                     // load data from where the user stopped
                     Date_select_ValueChanged(sender, e);
                     // play chime
@@ -416,8 +455,8 @@ namespace SpendWise
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
             }
         }
-        // when the minus button is clicked.................................... //
-        private void btn_minus_Click(object sender, EventArgs e)
+        // when the minus button is clicked////////////////////////////////////////
+        private void Btn_minus_Click(object sender, EventArgs e)
         {
             // check if a description and amount both exist
             if (txt_desc.Text != "Description" && txt_amount.Text != "")
@@ -428,7 +467,7 @@ namespace SpendWise
                     // instanciate values from controls
                     String desc = txt_desc.Text;
                     int amount = Convert.ToInt32(txt_amount.Text);
-                    int wallet = Convert.ToInt32(money.checkMoney());
+                    int wallet = Convert.ToInt32(money.CheckMoney());
                     // subtract the previous and adding values
                     int moneyNow = wallet - amount;
                     // build the query
@@ -438,11 +477,11 @@ namespace SpendWise
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{desc}', '{amount}', '{date_select.Text} strftime('%H:%M','now')', '-')");
                     // refresh app
-                    refresh();
+                    RefreshUI();
                     // refresh the data grid
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
-                    loadCharts();
+                    LoadCharts();
                     // load data from where the user stopped
                     Date_select_ValueChanged(sender, e);
                     // play chime
@@ -470,7 +509,7 @@ namespace SpendWise
             }
         }
         // when the amount textbox is clicked
-        private void txt_amount_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_amount_KeyPress(object sender, KeyPressEventArgs e)
         {
             int asciiCode = Convert.ToInt32(e.KeyChar);
             if ((asciiCode != 8))
@@ -487,7 +526,7 @@ namespace SpendWise
             }
         }
         // when the about button is clicked
-        private void btn_about_Click(object sender, EventArgs e)
+        private void Btn_about_Click(object sender, EventArgs e)
         {
             SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
@@ -495,7 +534,7 @@ namespace SpendWise
             us.Show();
         }
         // flush the database after confirmation
-        private void btn_reset_Click(object sender, EventArgs e)
+        private void Btn_reset_Click(object sender, EventArgs e)
         {
             // play chime
             SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
@@ -530,24 +569,24 @@ namespace SpendWise
             }
         }
         // what happens when name is clicked
-        private void lbl_owner_Click(object sender, EventArgs e)
+        private void Lbl_owner_Click(object sender, EventArgs e)
         {
             Profile profile = new Profile();
             profile.Show();
         }
         // when user wants to export document
-        private void btn_export_Click(object sender, EventArgs e)
+        private void Btn_export_Click(object sender, EventArgs e)
         {
 
         }
         // when the user clicks the currency label
-        private void lbl_currency_Click(object sender, EventArgs e)
+        private void Lbl_currency_Click(object sender, EventArgs e)
         {
             Currency currency = new Currency();
             currency.Show();
         }
         // transfers details from table transactions to the controls on the top left
-        private void data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Data_transactions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // play chime
             SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
@@ -560,20 +599,20 @@ namespace SpendWise
             con.ExecuteQuery($"UPDATE ui SET width = '{this.Width}', height = '{this.Height}'");
         }
         // when refresh button pressed
-        public void btn_refresh_Click(object sender, EventArgs e)
+        public void Btn_refresh_Click(object sender, EventArgs e)
         {
-            refresh();
+            RefreshUI();
             SoundPlayer edit = new SoundPlayer(@"sfx/beep.wav");
             edit.Play();
         }
         // when savings button is clicked
-        private void btn_savings_Click(object sender, EventArgs e)
+        private void Btn_savings_Click(object sender, EventArgs e)
         {
             Savings savings = new Savings();
             savings.Show();
         }
         // when a transaction is clicked
-        private void data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void Data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -602,7 +641,7 @@ namespace SpendWise
             }
         }
         // when the remove menu item is clicked
-        private void item_remove_Click(object sender, EventArgs e)
+        private void Item_remove_Click(object sender, EventArgs e)
         {
             // play chime
             SoundPlayer delete = new SoundPlayer(@"sfx/error.wav");
@@ -619,7 +658,7 @@ namespace SpendWise
                     // build query to pull transactions
                     transaction.loadTransactions(data_transactions);
                     // refresh charts
-                    loadCharts();
+                    LoadCharts();
                     // play chime
                     SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
                     trash.Play();
@@ -669,11 +708,15 @@ namespace SpendWise
                     // make a comparision to see which is highest
                     if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
                     {
+                        // show green dot if income is higher, hide red dot
                         dot_income.Visible = true;
+                        dot_expenditure.Visible = false;
                     }
                     else
                     {
+                        // show red dot if expenditure is higher, hide green dot
                         dot_expenditure.Visible = true;
+                        dot_income.Visible = false;
                     }
                 }
                 catch (Exception)
@@ -735,17 +778,19 @@ namespace SpendWise
             try
             {
                 // make a comparision to see which is highest
-                if (int.Parse(income) > int.Parse(expenditure))
+                if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
                 {
+                    // show green dot if income is higher, hide red dot
                     dot_income.Visible = true;
                     dot_expenditure.Visible = false;
                 }
                 else
                 {
+                    // show red dot if expenditure is higher, hide green dot
                     dot_expenditure.Visible = true;
                     dot_income.Visible = false;
                 }
-                
+
             }
             catch (Exception)
             {
@@ -783,18 +828,18 @@ namespace SpendWise
             }
         }
         // Imports data into apps
-        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ImportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Copy and replace database file into the spendwise application folder");
         }
         // eports data from app
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Export export = new Export();
             export.Show();
         }
         // displays about message
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SoundPlayer chime = new SoundPlayer(@"sfx/click.wav");
             chime.Play();
@@ -814,7 +859,7 @@ namespace SpendWise
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string sourcePath = ofd.FileName;
-                string name = loadUser();
+                string name = LoadUser();
                 string destinationPath = @"res/profile/" + name + ".jpeg";
                 if (!File.Exists(sourcePath))
                 {
@@ -839,7 +884,7 @@ namespace SpendWise
         // what should happen when the timer resets
         private void Timer_Tick(object sender, EventArgs e)
         {
-            autoRefresh();
+            AutoRefresh();
         }
         // displays growth form
         private void Btn_growth_Click(object sender, EventArgs e)

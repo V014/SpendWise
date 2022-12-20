@@ -33,7 +33,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
-            this.lbl_progress = new MetroFramework.Controls.MetroLabel();
             this.scrollbar_progress = new MetroFramework.Controls.MetroScrollBar();
             this.txt_desc = new MetroFramework.Controls.MetroTextBox();
             this.txt_amount = new MetroFramework.Controls.MetroTextBox();
@@ -45,6 +44,7 @@
             this.data_investments = new System.Windows.Forms.DataGridView();
             this.menu_investments = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_progress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).BeginInit();
             this.splitContainer_investments.Panel1.SuspendLayout();
             this.splitContainer_investments.Panel2.SuspendLayout();
@@ -60,13 +60,13 @@
             // splitContainer_investments
             // 
             this.splitContainer_investments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_investments.Location = new System.Drawing.Point(20, 60);
+            this.splitContainer_investments.Location = new System.Drawing.Point(0, 0);
             this.splitContainer_investments.Name = "splitContainer_investments";
             // 
             // splitContainer_investments.Panel1
             // 
-            this.splitContainer_investments.Panel1.Controls.Add(this.splitContainer1);
             this.splitContainer_investments.Panel1.Controls.Add(this.lbl_progress);
+            this.splitContainer_investments.Panel1.Controls.Add(this.splitContainer1);
             this.splitContainer_investments.Panel1.Controls.Add(this.scrollbar_progress);
             this.splitContainer_investments.Panel1.Controls.Add(this.txt_desc);
             this.splitContainer_investments.Panel1.Controls.Add(this.txt_amount);
@@ -79,14 +79,14 @@
             // splitContainer_investments.Panel2
             // 
             this.splitContainer_investments.Panel2.Controls.Add(this.data_investments);
-            this.splitContainer_investments.Size = new System.Drawing.Size(638, 395);
-            this.splitContainer_investments.SplitterDistance = 187;
+            this.splitContainer_investments.Size = new System.Drawing.Size(678, 414);
+            this.splitContainer_investments.SplitterDistance = 198;
             this.splitContainer_investments.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 364);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 383);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -96,8 +96,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btn_update);
-            this.splitContainer1.Size = new System.Drawing.Size(187, 31);
-            this.splitContainer1.SplitterDistance = 92;
+            this.splitContainer1.Size = new System.Drawing.Size(198, 31);
+            this.splitContainer1.SplitterDistance = 97;
             this.splitContainer1.TabIndex = 6;
             // 
             // btn_add
@@ -111,7 +111,7 @@
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Location = new System.Drawing.Point(0, 0);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(92, 31);
+            this.btn_add.Size = new System.Drawing.Size(97, 31);
             this.btn_add.TabIndex = 4;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
@@ -128,28 +128,16 @@
             this.btn_update.ForeColor = System.Drawing.Color.White;
             this.btn_update.Location = new System.Drawing.Point(0, 0);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(91, 31);
+            this.btn_update.Size = new System.Drawing.Size(97, 31);
             this.btn_update.TabIndex = 4;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = false;
             this.btn_update.Click += new System.EventHandler(this.Btn_update_Click);
             // 
-            // lbl_progress
-            // 
-            this.lbl_progress.AutoSize = true;
-            this.lbl_progress.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lbl_progress.Location = new System.Drawing.Point(9, 297);
-            this.lbl_progress.Name = "lbl_progress";
-            this.lbl_progress.Size = new System.Drawing.Size(35, 25);
-            this.lbl_progress.Style = MetroFramework.MetroColorStyle.Green;
-            this.lbl_progress.TabIndex = 5;
-            this.lbl_progress.Text = "0%";
-            this.lbl_progress.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
             // scrollbar_progress
             // 
             this.scrollbar_progress.LargeChange = 10;
-            this.scrollbar_progress.Location = new System.Drawing.Point(9, 336);
+            this.scrollbar_progress.Location = new System.Drawing.Point(12, 363);
             this.scrollbar_progress.Maximum = 100;
             this.scrollbar_progress.Minimum = 0;
             this.scrollbar_progress.MouseWheelBarPartitions = 10;
@@ -178,12 +166,12 @@
             this.txt_desc.CustomButton.UseSelectable = true;
             this.txt_desc.CustomButton.Visible = false;
             this.txt_desc.Lines = new string[0];
-            this.txt_desc.Location = new System.Drawing.Point(8, 163);
+            this.txt_desc.Location = new System.Drawing.Point(12, 176);
             this.txt_desc.MaxLength = 32767;
             this.txt_desc.Multiline = true;
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.PasswordChar = '\0';
-            this.txt_desc.PromptText = "Optional but important...";
+            this.txt_desc.WaterMark = "Optional but important...";
             this.txt_desc.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_desc.SelectedText = "";
             this.txt_desc.SelectionLength = 0;
@@ -215,11 +203,11 @@
             this.txt_amount.DisplayIcon = true;
             this.txt_amount.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txt_amount.Lines = new string[0];
-            this.txt_amount.Location = new System.Drawing.Point(8, 98);
+            this.txt_amount.Location = new System.Drawing.Point(12, 111);
             this.txt_amount.MaxLength = 32767;
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.PasswordChar = '\0';
-            this.txt_amount.PromptText = "Set cost...";
+            this.txt_amount.WaterMark = "Set cost...";
             this.txt_amount.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_amount.SelectedText = "";
             this.txt_amount.SelectionLength = 0;
@@ -241,7 +229,7 @@
             this.lbl_title_progress.AutoSize = true;
             this.lbl_title_progress.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_title_progress.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_progress.Location = new System.Drawing.Point(3, 266);
+            this.lbl_title_progress.Location = new System.Drawing.Point(7, 279);
             this.lbl_title_progress.Name = "lbl_title_progress";
             this.lbl_title_progress.Size = new System.Drawing.Size(85, 25);
             this.lbl_title_progress.TabIndex = 0;
@@ -252,7 +240,7 @@
             this.lbl_title_description.AutoSize = true;
             this.lbl_title_description.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_title_description.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_description.Location = new System.Drawing.Point(3, 130);
+            this.lbl_title_description.Location = new System.Drawing.Point(7, 143);
             this.lbl_title_description.Name = "lbl_title_description";
             this.lbl_title_description.Size = new System.Drawing.Size(108, 25);
             this.lbl_title_description.TabIndex = 0;
@@ -263,7 +251,7 @@
             this.lbl_title_amount.AutoSize = true;
             this.lbl_title_amount.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_title_amount.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_amount.Location = new System.Drawing.Point(3, 65);
+            this.lbl_title_amount.Location = new System.Drawing.Point(7, 78);
             this.lbl_title_amount.Name = "lbl_title_amount";
             this.lbl_title_amount.Size = new System.Drawing.Size(79, 25);
             this.lbl_title_amount.TabIndex = 0;
@@ -286,11 +274,11 @@
             this.txt_investment.DisplayIcon = true;
             this.txt_investment.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txt_investment.Lines = new string[0];
-            this.txt_investment.Location = new System.Drawing.Point(8, 33);
+            this.txt_investment.Location = new System.Drawing.Point(12, 46);
             this.txt_investment.MaxLength = 32767;
             this.txt_investment.Name = "txt_investment";
             this.txt_investment.PasswordChar = '\0';
-            this.txt_investment.PromptText = "Set title...";
+            this.txt_investment.WaterMark = "Set title...";
             this.txt_investment.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_investment.SelectedText = "";
             this.txt_investment.SelectionLength = 0;
@@ -311,7 +299,7 @@
             this.lbl_title_add.AutoSize = true;
             this.lbl_title_add.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_title_add.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_add.Location = new System.Drawing.Point(3, 0);
+            this.lbl_title_add.Location = new System.Drawing.Point(7, 13);
             this.lbl_title_add.Name = "lbl_title_add";
             this.lbl_title_add.Size = new System.Drawing.Size(46, 25);
             this.lbl_title_add.TabIndex = 0;
@@ -330,7 +318,7 @@
             this.data_investments.Location = new System.Drawing.Point(0, 0);
             this.data_investments.Name = "data_investments";
             this.data_investments.ReadOnly = true;
-            this.data_investments.Size = new System.Drawing.Size(447, 395);
+            this.data_investments.Size = new System.Drawing.Size(476, 414);
             this.data_investments.TabIndex = 5;
             this.data_investments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_investments_CellClick);
             // 
@@ -348,20 +336,32 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
             // 
+            // lbl_progress
+            // 
+            this.lbl_progress.AutoSize = true;
+            this.lbl_progress.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_progress.Font = new System.Drawing.Font("Roboto", 20F);
+            this.lbl_progress.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_progress.Location = new System.Drawing.Point(6, 314);
+            this.lbl_progress.Name = "lbl_progress";
+            this.lbl_progress.Size = new System.Drawing.Size(50, 33);
+            this.lbl_progress.TabIndex = 7;
+            this.lbl_progress.Text = "0%";
+            // 
             // Investments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 475);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ClientSize = new System.Drawing.Size(678, 414);
             this.Controls.Add(this.splitContainer_investments);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Investments";
-            this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Investments";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.loadInvestments);
+            this.Load += new System.EventHandler(this.LoadInvestments);
             this.splitContainer_investments.Panel1.ResumeLayout(false);
             this.splitContainer_investments.Panel1.PerformLayout();
             this.splitContainer_investments.Panel2.ResumeLayout(false);
@@ -388,12 +388,12 @@
         private System.Windows.Forms.Button btn_add;
         private MetroFramework.Controls.MetroTextBox txt_desc;
         private System.Windows.Forms.Label lbl_title_description;
-        private MetroFramework.Controls.MetroLabel lbl_progress;
         private MetroFramework.Controls.MetroScrollBar scrollbar_progress;
         private System.Windows.Forms.Label lbl_title_progress;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btn_update;
         private MetroFramework.Controls.MetroContextMenu menu_investments;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_progress;
     }
 }

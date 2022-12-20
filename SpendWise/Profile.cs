@@ -1,20 +1,20 @@
 ﻿using System;
+using System.Media;
 using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace SpendWise
 {
-    public partial class Profile : MetroFramework.Forms.MetroForm
+    public partial class Profile : Form
     {
-        Connection con = new Connection();
-        Dashboard dashboard = new Dashboard();
+        readonly Connection con = new Connection();
         public Profile()
         {
             InitializeComponent();
             txt_name.Text = WindowsIdentity.GetCurrent().Name;
         }
 
-        private void btn_submit_Click(object sender, EventArgs e)
+        private void Btn_submit_Click(object sender, EventArgs e)
         {
             string name = txt_name.Text;
             try
@@ -24,6 +24,11 @@ namespace SpendWise
             }
             catch
             {
+                // play chime
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES('date('now')', 'SQL error', 'Profile')");
                 MessageBox.Show("Feature unavailable", "Assistant");
             }
             

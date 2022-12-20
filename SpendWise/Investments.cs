@@ -4,20 +4,18 @@ using System.Windows.Forms;
 
 namespace SpendWise
 {
-    public partial class Investments : MetroFramework.Forms.MetroForm
+    public partial class Investments : Form
     {
-        Connection con = new Connection();
-        string date = DateTime.Now.ToString("g");
-        Dashboard dash = new Dashboard();
-        StyleDataGrid styleGrid = new StyleDataGrid();
+        readonly Connection con = new Connection();
+        readonly StyleDataGrid styleGrid = new StyleDataGrid();
+        readonly Transaction transaction = new Transaction();
         int investID;
-        Transaction transaction = new Transaction();
-
+        // constructor
         public Investments()
         {
             InitializeComponent();
         }
-
+        // regulate wrong types in certain controls
         private void MetroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             int asciiCode = Convert.ToInt32(e.KeyChar);
@@ -34,8 +32,8 @@ namespace SpendWise
                 }
             }
         }
-
-        private void loadInvestments(object sender, EventArgs e)
+        // load set invesments
+        private void LoadInvestments(object sender, EventArgs e)
         {
             try
             {
@@ -50,7 +48,7 @@ namespace SpendWise
                 MessageBox.Show("Investment list unavailable!","Assistant");
             }
         }
-
+        // display values from the db on controls
         private void Data_investments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = data_investments.Rows[e.RowIndex];
@@ -60,12 +58,12 @@ namespace SpendWise
             txt_desc.Text = row.Cells[3].Value.ToString();
             scrollbar_progress.Value = int.Parse(row.Cells[4].Value.ToString());
         }
-
+        // update label when slider is scrubbed
         private void Scrollbar_progress_Scroll(object sender, ScrollEventArgs e)
         {
             lbl_progress.Text = scrollbar_progress.Value.ToString() + "%";
         }
-
+        // when user adds data to the controls and presses add
         private void Btn_add_Click(object sender, EventArgs e)
         {
             string investment = txt_investment.Text;
@@ -77,9 +75,9 @@ namespace SpendWise
             {
                 try
                 {
-                    con.ExecuteQuery($"INSERT INTO investments (Title, Amount, Description, Progress, Date) VALUES ('{investment}', '{amount}', '{description}', '{progress}','{date}')");
+                    con.ExecuteQuery($"INSERT INTO investments (Title, Amount, Description, Progress, Date) VALUES ('{investment}', '{amount}', '{description}', '{progress}','date('now')')");
                     MessageBox.Show("Investment set!", "Assistant");
-                    loadInvestments(sender, e);
+                    LoadInvestments(sender, e);
                 }
                 catch (Exception)
                 {
@@ -91,7 +89,7 @@ namespace SpendWise
                 MessageBox.Show("Fill in both the title and amount first!", "Assistant");
             }
         }
-
+        // when user changes values on control and clicks update
         private void Btn_update_Click(object sender, EventArgs e)
         {
             string investment = txt_investment.Text;
@@ -105,7 +103,7 @@ namespace SpendWise
                 {
                     con.ExecuteQuery($"UPDATE investments SET Title ='{investment}', Amount = '{amount}', Description = '{description}', Progress = '{progress}' WHERE id = '{investID}'");
                     MessageBox.Show("Investment updated!", "Assistant");
-                    loadInvestments(sender, e);
+                    LoadInvestments(sender, e);
                 }
                 catch (Exception)
                 {
@@ -117,7 +115,7 @@ namespace SpendWise
                 MessageBox.Show("Fill in both the title and amount first!", "Assistant");
             }
         }
-
+        // remove values when user selects row
         private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // play chime
@@ -135,25 +133,22 @@ namespace SpendWise
                     // build query to pull transactions
                     transaction.loadTransactions(data_investments);
                     // refresh charts
-                    loadInvestments(sender, e);
+                    LoadInvestments(sender, e);
                     // play chime
                     SoundPlayer trash = new SoundPlayer(@"sfx/click.wav");
                     trash.Play();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // play chime
                     SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
-                    // show suggestion box
-                    MessageBox.Show(ex.ToString());
-                    //MessageBox.Show("The application has failed to either update your transactions.", "Application error");
                     try
                     {
                         // log the error
-                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( '{date}', 'SQL error', 'Transaction log')";
+                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( 'date('now')', 'SQL error', 'Investments')";
                         con.ExecuteQuery(queryEvents);
-                        MessageBox.Show("Error recorded");
+                        MessageBox.Show("Feature not available", "Assistant");
                     }
                     catch
                     {

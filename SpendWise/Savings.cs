@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SpendWise
 {
-    public partial class Savings : MetroFramework.Forms.MetroForm
+    public partial class Savings : Form
     {
-        Connection con = new Connection();
+        readonly Connection con = new Connection();
         public Savings()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace SpendWise
             lbl_percent.Text = scrollbar_savings_percentage.Value.ToString() + "%";
         }
 
-        private void btn_apply_Click(object sender, EventArgs e)
+        private void Btn_apply_Click(object sender, EventArgs e)
         {
             int percentage = scrollbar_savings_percentage.Value;
             try
