@@ -18,8 +18,8 @@ namespace SpendWise
         {
             InitializeComponent();
             // play chime
-            //SoundPlayer chime = new SoundPlayer(@"sfx/open.wav");
-            //chime.Play();
+            SoundPlayer chime = new SoundPlayer(@"sfx/melancholy.wav");
+            chime.Play();
             RefreshUI();
             // setup UI optimization
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -39,11 +39,21 @@ namespace SpendWise
             LoadInvestmentDot();
             // check your income to expenditure ratio and present dot
             LoadMoneyDot();
-            // show details on transactions
-            lbl_income_count.Text = LoadIncomeCount();
-            lbl_expenditure_count.Text = LoadExpenditureCount();
-            lbl_transactions_count.Text = LoadTransactionsCount();
-            lbl_annual_count.Text = LoadAnnualCount();
+            // show details on transaction counter
+            try
+            {
+                lbl_income_count.Text = LoadIncomeCount();
+                lbl_expenditure_count.Text = LoadExpenditureCount();
+                lbl_transactions_count.Text = LoadTransactionsCount();
+                lbl_annual_count.Text = LoadAnnualCount();
+            }
+            catch (Exception)
+            {
+                lbl_income_count.Text = "0";
+                lbl_expenditure_count.Text = "0";
+                lbl_transactions_count.Text = "0";
+                lbl_annual_count.Text = "0";
+            }
         }
         // refreshes the whole app
         private void RefreshUI()
@@ -126,16 +136,25 @@ namespace SpendWise
         // check to see if there any pending investments 
         private void LoadMoneyDot()
         {
-            if (int.Parse(LoadIncome()) > int.Parse(LoadExpenditure()))
+            try
             {
-                dot_income.Visible = true;
-                dot_expenditure.Visible = false;
+                if (int.Parse(LoadIncome()) > int.Parse(LoadExpenditure()))
+                {
+                    dot_income.Visible = true;
+                    dot_expenditure.Visible = false;
+                }
+                else
+                {
+                    dot_income.Visible = false;
+                    dot_expenditure.Visible = true;
+                }
             }
-            else
+            catch (Exception)
             {
                 dot_income.Visible = false;
-                dot_expenditure.Visible = true;
+                dot_expenditure.Visible = false;
             }
+            
         }
         // load previous state
         private void PreviousState()
@@ -298,28 +317,26 @@ namespace SpendWise
                 SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // log the error
-                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES('date('now')', 'SQL error', 'Growth action')");
+                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES(strftime('%Y-%m-%d %H:%M, 'now', ''localtime), 'SQL error', 'Growth action')");
                 return 0;
             }
         }
         // load investments
         private string LoadInvestments()
         {
-            string queryCurrency = "SELECT COUNT(id) FROM investments";
-            string investments = con.ReadString(queryCurrency);
+            string investments = con.ReadString("SELECT COUNT(id) FROM investments");
             return investments;
         }
         // load complete investments
         private string LoadCompleteInvestments()
         {
-            string queryCurrency = "SELECT COUNT(id) FROM investments WHERE progress = 100";
-            string investments = con.ReadString(queryCurrency);
+            string investments = con.ReadString("SELECT COUNT(id) FROM investments WHERE progress = 100");
             return investments;
         }
         // load the overall income
         public string LoadIncome()
         {
-            string Income = con.ReadString("SELECT sum(amount) FROM transactions WHERE action = '+'");
+            string Income = con.ReadString("SELECT sum(Amount) FROM transactions WHERE Action = '+'");
             return Income;
         }
         // load times gotten income in the month
@@ -545,9 +562,6 @@ namespace SpendWise
             {
                 if (dialogResult == DialogResult.Yes)
                 {
-                    // play chime
-                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
-                    chime2.Play();
                     // delete transactions
                     con.ExecuteQuery("DELETE FROM transactions");
                     // update wallet

@@ -30,12 +30,13 @@ namespace SpendWise
             }
             catch (Exception)
             {
-                MessageBox.Show("Data unavilable!", "Assistant");
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
-                save.Play();
+                SoundPlayer chime = new SoundPlayer(@"sfx/warning.wav");
+                chime.Play();
+
+                MessageBox.Show("Data unavilable!", "Assistant");
                 // log the error
-                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES('date('now')', 'SQL error', 'Growth action')");
+                // con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES(strftime('%Y-%m-%d %H:%M', 'now', 'localtime'), 'SQL error', 'Growth action')");
             }
             
         }
