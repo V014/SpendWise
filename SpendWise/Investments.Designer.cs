@@ -359,8 +359,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Investments";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Investments";
+            this.Text = "Investment Monitor";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.LoadInvestments);
             this.splitContainer_investments.Panel1.ResumeLayout(false);

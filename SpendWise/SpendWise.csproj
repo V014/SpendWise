@@ -128,6 +128,12 @@
     <Compile Include="Growth.Designer.cs">
       <DependentUpon>Growth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Income.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Income.Designer.cs">
+      <DependentUpon>Income.cs</DependentUpon>
+    </Compile>
     <Compile Include="Investments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,12 @@
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="StyleDataGrid.cs" />
+    <Compile Include="Expenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenditure.Designer.cs">
+      <DependentUpon>Expenditure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -178,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Growth.resx">
       <DependentUpon>Growth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Income.resx">
+      <DependentUpon>Income.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Investments.resx">
       <DependentUpon>Investments.cs</DependentUpon>
@@ -200,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenditure.resx">
+      <DependentUpon>Expenditure.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config">
       <SubType>Designer</SubType>

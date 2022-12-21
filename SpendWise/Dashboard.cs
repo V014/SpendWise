@@ -18,8 +18,8 @@ namespace SpendWise
         {
             InitializeComponent();
             // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/melancholy.wav");
-            chime.Play();
+            //SoundPlayer chime = new SoundPlayer(@"sfx/melancholy.wav");
+            //chime.Play();
             RefreshUI();
             // setup UI optimization
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -398,7 +398,7 @@ namespace SpendWise
             }
         }
         // load the common purchased item
-        private string LoadCommon()
+        public string LoadCommon()
         {
             string queryCommon = "SELECT description, count(description) AS cnt FROM transactions GROUP BY description ORDER BY cnt DESC LIMIT 1";
             string Common = con.ReadString(queryCommon);
@@ -887,6 +887,24 @@ namespace SpendWise
             {
                 picbox_image.Visible = true;
             }
+        }
+        // when the user clicks the expenditure button
+        private void Btn_expenditure_Click(object sender, EventArgs e)
+        {
+            Expenditure expenditure = new Expenditure();
+            expenditure.Show();
+        }
+        // when user clicks the income button
+        private void Btn_income_Click(object sender, EventArgs e)
+        {
+            Income income = new Income();
+            income.Show();
+        }
+        // when the user clicks the wallet button
+        private void Btn_money_Click(object sender, EventArgs e)
+        {
+            Currency currency = new Currency();
+            currency.Show();
         }
     }
 }

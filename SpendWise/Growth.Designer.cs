@@ -145,7 +145,7 @@
             this.Name = "Growth";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Growth";
+            this.Text = "Growth Monitor";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
