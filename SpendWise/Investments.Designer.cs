@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer_investments = new System.Windows.Forms.SplitContainer();
+            this.lbl_progress = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.data_investments = new System.Windows.Forms.DataGridView();
             this.menu_investments = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_progress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).BeginInit();
             this.splitContainer_investments.Panel1.SuspendLayout();
             this.splitContainer_investments.Panel2.SuspendLayout();
@@ -79,14 +79,26 @@
             // splitContainer_investments.Panel2
             // 
             this.splitContainer_investments.Panel2.Controls.Add(this.data_investments);
-            this.splitContainer_investments.Size = new System.Drawing.Size(678, 414);
+            this.splitContainer_investments.Size = new System.Drawing.Size(678, 395);
             this.splitContainer_investments.SplitterDistance = 198;
             this.splitContainer_investments.TabIndex = 0;
+            // 
+            // lbl_progress
+            // 
+            this.lbl_progress.AutoSize = true;
+            this.lbl_progress.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_progress.Font = new System.Drawing.Font("Roboto", 14F);
+            this.lbl_progress.ForeColor = System.Drawing.Color.White;
+            this.lbl_progress.Location = new System.Drawing.Point(87, 300);
+            this.lbl_progress.Name = "lbl_progress";
+            this.lbl_progress.Size = new System.Drawing.Size(35, 23);
+            this.lbl_progress.TabIndex = 7;
+            this.lbl_progress.Text = "0%";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 383);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 364);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -137,7 +149,7 @@
             // scrollbar_progress
             // 
             this.scrollbar_progress.LargeChange = 10;
-            this.scrollbar_progress.Location = new System.Drawing.Point(12, 363);
+            this.scrollbar_progress.Location = new System.Drawing.Point(12, 338);
             this.scrollbar_progress.Maximum = 100;
             this.scrollbar_progress.Minimum = 0;
             this.scrollbar_progress.MouseWheelBarPartitions = 10;
@@ -171,7 +183,7 @@
             this.txt_desc.Multiline = true;
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.PasswordChar = '\0';
-            this.txt_desc.WaterMark = "Optional but important...";
+            this.txt_desc.PromptText = "Optional but important...";
             this.txt_desc.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_desc.SelectedText = "";
             this.txt_desc.SelectionLength = 0;
@@ -207,7 +219,7 @@
             this.txt_amount.MaxLength = 32767;
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.PasswordChar = '\0';
-            this.txt_amount.WaterMark = "Set cost...";
+            this.txt_amount.PromptText = "Set cost...";
             this.txt_amount.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_amount.SelectedText = "";
             this.txt_amount.SelectionLength = 0;
@@ -229,7 +241,7 @@
             this.lbl_title_progress.AutoSize = true;
             this.lbl_title_progress.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_title_progress.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_progress.Location = new System.Drawing.Point(7, 279);
+            this.lbl_title_progress.Location = new System.Drawing.Point(7, 297);
             this.lbl_title_progress.Name = "lbl_title_progress";
             this.lbl_title_progress.Size = new System.Drawing.Size(85, 25);
             this.lbl_title_progress.TabIndex = 0;
@@ -278,7 +290,7 @@
             this.txt_investment.MaxLength = 32767;
             this.txt_investment.Name = "txt_investment";
             this.txt_investment.PasswordChar = '\0';
-            this.txt_investment.WaterMark = "Set title...";
+            this.txt_investment.PromptText = "Set title...";
             this.txt_investment.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_investment.SelectedText = "";
             this.txt_investment.SelectionLength = 0;
@@ -309,6 +321,7 @@
             // 
             this.data_investments.AllowUserToAddRows = false;
             this.data_investments.AllowUserToDeleteRows = false;
+            this.data_investments.AllowUserToResizeColumns = false;
             this.data_investments.AllowUserToResizeRows = false;
             this.data_investments.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.data_investments.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -318,7 +331,7 @@
             this.data_investments.Location = new System.Drawing.Point(0, 0);
             this.data_investments.Name = "data_investments";
             this.data_investments.ReadOnly = true;
-            this.data_investments.Size = new System.Drawing.Size(476, 414);
+            this.data_investments.Size = new System.Drawing.Size(476, 395);
             this.data_investments.TabIndex = 5;
             this.data_investments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_investments_CellClick);
             // 
@@ -336,24 +349,12 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
             // 
-            // lbl_progress
-            // 
-            this.lbl_progress.AutoSize = true;
-            this.lbl_progress.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_progress.Font = new System.Drawing.Font("Roboto", 20F);
-            this.lbl_progress.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_progress.Location = new System.Drawing.Point(6, 314);
-            this.lbl_progress.Name = "lbl_progress";
-            this.lbl_progress.Size = new System.Drawing.Size(50, 33);
-            this.lbl_progress.TabIndex = 7;
-            this.lbl_progress.Text = "0%";
-            // 
             // Investments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(678, 414);
+            this.ClientSize = new System.Drawing.Size(678, 395);
             this.Controls.Add(this.splitContainer_investments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

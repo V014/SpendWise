@@ -64,7 +64,7 @@ namespace SpendWise
             // style datagrid
             theme.style(data_transactions);
             // load the data into the data grid
-            transaction.loadTransactions(data_transactions);
+            transaction.LoadTransactions(data_transactions);
             // loads the set currency
             lbl_currency.Text = LoadCurrency();
             // load charts
@@ -421,13 +421,13 @@ namespace SpendWise
                     // document new savings
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, '{date_select.Text} strftime('%H:%M','now')', '+')");
+                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, strftime('%Y-%m-%d %H:%M','now','localtime'), '+')");
                     // refresh app
                     RefreshUI();
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // refresh the data grid
-                    transaction.loadTransactions(data_transactions);
+                    transaction.LoadTransactions(data_transactions);
                     // refresh charts
                     LoadCharts();
                     // load data from where the user stopped
@@ -443,13 +443,13 @@ namespace SpendWise
                     SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // log the error
-                    con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES('date('now')', 'SQL error', 'Plus action')");
-                    MessageBox.Show("Error logged!");      
+                    con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Plus action')");
+                    MessageBox.Show("Feature unavailable!", "Assistant");      
                 }
             } else
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/pop.wav");
                 save.Play();
                 // show suggestion box
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
@@ -475,11 +475,11 @@ namespace SpendWise
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{desc}', '{amount}', '{date_select.Text} strftime('%H:%M','now')', '-')");
+                    con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{desc}', '{amount}', strftime('%Y-%m-%d %H:%M','now','localtime'), '-')");
                     // refresh app
                     RefreshUI();
                     // refresh the data grid
-                    transaction.loadTransactions(data_transactions);
+                    transaction.LoadTransactions(data_transactions);
                     // refresh charts
                     LoadCharts();
                     // load data from where the user stopped
@@ -494,7 +494,7 @@ namespace SpendWise
                     SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // log the error
-                    con.ExecuteQuery($"INSERT INTO events (date, description, location) VALUES('date('now')', 'SQL error', 'Minus action')");
+                    con.ExecuteQuery($"INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Minus action')");
                     // show suggestion box
                     MessageBox.Show("Error logged");
                 }
@@ -502,7 +502,7 @@ namespace SpendWise
             else
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/pop.wav");
                 save.Play();
                 // show suggestion box
                 MessageBox.Show("Add both a description and amount!", "Suggestion");
@@ -574,11 +574,6 @@ namespace SpendWise
             Profile profile = new Profile();
             profile.Show();
         }
-        // when user wants to export document
-        private void Btn_export_Click(object sender, EventArgs e)
-        {
-
-        }
         // when the user clicks the currency label
         private void Lbl_currency_Click(object sender, EventArgs e)
         {
@@ -596,7 +591,7 @@ namespace SpendWise
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-            con.ExecuteQuery($"UPDATE ui SET width = '{this.Width}', height = '{this.Height}'");
+            con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
         }
         // when refresh button pressed
         public void Btn_refresh_Click(object sender, EventArgs e)
@@ -610,35 +605,6 @@ namespace SpendWise
         {
             Savings savings = new Savings();
             savings.Show();
-        }
-        // when a transaction is clicked
-        private void Data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow row = data_transactions.Rows[e.RowIndex];
-
-                txt_desc.Text = row.Cells[1].Value.ToString();
-                txt_amount.Text = row.Cells[2].Value.ToString();
-
-                int Id = int.Parse(row.Cells[0].Value.ToString());
-                string description = row.Cells[1].Value.ToString();
-                int amount = int.Parse(row.Cells[2].Value.ToString());
-                string action = row.Cells[3].Value.ToString();
-                string date = row.Cells[4].Value.ToString();
-                
-                con.ExecuteQuery($"UPDATE transactions SET Description = '{description}', Amount = '{amount}', Date = '{date}', Action = '{action}' WHERE Id = {Id}");
-
-                transaction.loadTransactions(data_transactions);
-                MessageBox.Show("Saved!");
-            }
-            catch (Exception ex) // reset textboxes
-            {
-                // refresh fields
-                txt_amount.Text = "0.00";
-                txt_desc.Text = "";
-                MessageBox.Show(ex.ToString(),"Not saved!");
-            }
         }
         // when the remove menu item is clicked
         private void Item_remove_Click(object sender, EventArgs e)
@@ -656,7 +622,7 @@ namespace SpendWise
                     // build query to delete user transaction
                     con.ExecuteQuery($"DELETE FROM transactions WHERE id = '{id}'");                 
                     // build query to pull transactions
-                    transaction.loadTransactions(data_transactions);
+                    transaction.LoadTransactions(data_transactions);
                     // refresh charts
                     LoadCharts();
                     // play chime
@@ -684,12 +650,12 @@ namespace SpendWise
                 }
             }
         }
-        // loads details from a particular date or month or year
+        // loads details from a particular date or month or year///////////////////////
         private void Date_select_ValueChanged(object sender, EventArgs e)
         {
-            transaction.loadDate(date_select.Text, data_transactions);
+            transaction.LoadDate(date_select.Text, data_transactions);
             string date = date_select.Text;
-
+            // call special connection class
             SQLiteConnection connection = con.GetConnection();
             // get income
             SQLiteCommand queryMoney = new SQLiteCommand($"SELECT Amount FROM transactions WHERE Action = '+' AND date LIKE '{date}%'", connection);
@@ -700,68 +666,63 @@ namespace SpendWise
             // do some math to show the dots
             string income = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
             string expenditure = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
-            // check for empty string
-            if (!string.IsNullOrEmpty(income) || !string.IsNullOrEmpty(expenditure))
+            // alawys use a try to catch unexpected errors 
+            try
             {
-                try
+                // make a comparision to see which is highest
+                if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
                 {
-                    // make a comparision to see which is highest
-                    if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
-                    {
-                        // show green dot if income is higher, hide red dot
-                        dot_income.Visible = true;
-                        dot_expenditure.Visible = false;
-                    }
-                    else
-                    {
-                        // show red dot if expenditure is higher, hide green dot
-                        dot_expenditure.Visible = true;
-                        dot_income.Visible = false;
-                    }
+                    // show green dot if income is higher, hide red dot
+                    dot_income.Visible = true;
+                    dot_expenditure.Visible = false;
                 }
-                catch (Exception)
+                else
                 {
-                    // if income or expenditure is null do nothing
+                    // show red dot if expenditure is higher, hide green dot
+                    dot_expenditure.Visible = true;
+                    dot_income.Visible = false;
                 }
-                
-                // now to populate the charts
-                try
-                {
-                    chart_income.Series[0].Points.Clear();
-                    while (income_data.Read())
-                    {
-                        chart_income.Series[0].Points.Add(income_data.GetInt32(0));
-                    }
-
-                    lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                try
-                {
-                    chart_expenditure.Series[0].Points.Clear();
-                    while (expenditure_data.Read())
-                    {
-                        chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
-                    }
-
-                    lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                // stops timer to prevent refresh
-                timer.Stop();
             }
-            
+            catch (Exception)
+            {
+                // if income or expenditure is null do nothing
+            }
+            // now to populate the charts
+            try
+            {
+                chart_income.Series[0].Points.Clear();
+                while (income_data.Read())
+                {
+                    chart_income.Series[0].Points.Add(income_data.GetInt32(0));
+                }
+
+                lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            try
+            {
+                chart_expenditure.Series[0].Points.Clear();
+                while (expenditure_data.Read())
+                {
+                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
+                }
+
+                lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // stops timer to prevent refresh
+            timer.Stop();
         }
-        // loads details from a oarticular month
+        // loads details from a oarticular month///////////////////////////////////////
         private void Cmb_month_SelectedIndexChanged(object sender, EventArgs e)
         {
-            transaction.loadMonth(cmb_month.Text, data_transactions);
+            transaction.LoadMonth(cmb_month.Text, data_transactions);
             string month = transaction.getMonthNumber(cmb_month.Text);
 
             SQLiteConnection connection = con.GetConnection();
@@ -772,13 +733,13 @@ namespace SpendWise
             SQLiteCommand queryExpenditure = new SQLiteCommand($"SELECT amount FROM transactions WHERE action = '-' AND strftime('%m', date) = '{month}'", connection);
             SQLiteDataReader expenditure_data = queryExpenditure.ExecuteReader();
             // check values
-            string income = con.ReadString($"SELECT amount FROM transactions WHERE action = '+' AND strftime('%m', date) = '{month}'");
-            string expenditure = con.ReadString($"SELECT amount FROM transactions WHERE action = '-' AND strftime('%m', date) = '{month}'");
+            string income = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND strftime('%m', date) = '{month}'");
+            string expenditure = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND strftime('%m', date) = '{month}'");
             // dot notification
             try
             {
                 // make a comparision to see which is highest
-                if (Convert.ToInt32(income) > Convert.ToInt32(expenditure))
+                if (int.Parse(income) > int.Parse(expenditure))
                 {
                     // show green dot if income is higher, hide red dot
                     dot_income.Visible = true;
@@ -796,9 +757,10 @@ namespace SpendWise
             {
                 // Incase of error do nothing
             }
-                // Fill income chart
-                try
-                {
+            
+            // Fill income chart
+            try
+            {
                 chart_income.Series[0].Points.Clear();
                 while (income_data.Read())
                 {

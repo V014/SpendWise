@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Media;
 using System.Windows.Forms;
 
 namespace SpendWise
 {
     class Transaction
     {
-        Connection con = new Connection();
+        readonly Connection con = new Connection();
         // load transactions
-        public void loadTransactions(DataGridView datagrid)
+        public void LoadTransactions(DataGridView datagrid)
         {
             string queryTransactions = "SELECT ID, Description, Amount, Action, Date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
@@ -61,27 +62,37 @@ namespace SpendWise
             }
         }
         // load specific transactions
-        public void loadDate(string date, DataGridView dataGrid)
+        public void LoadDate(string date, DataGridView dataGrid)
         {
             try
             {
                 con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE date LIKE '{date}%'", dataGrid);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                // play chime
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'loadDate action')");
+                MessageBox.Show("Month feature unavailable!, bring help!", "Assistant");
             }
         }
         // load specific month
-        public void loadMonth(string date, DataGridView dataGrid)
+        public void LoadMonth(string date, DataGridView dataGrid)
         {
             try
             {
                 con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE strftime('%m', date) = '{getMonthNumber(date)}'", dataGrid);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                // play chime
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'LoadMonth action')");
+                MessageBox.Show("Month feature unavailable!, bring help!", "Assistant");
             }
         }
     }

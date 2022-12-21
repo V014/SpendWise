@@ -42,10 +42,10 @@
             // 
             // btn_apply
             // 
-            this.btn_apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(94)))));
+            this.btn_apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btn_apply.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_apply.FlatAppearance.BorderSize = 0;
-            this.btn_apply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_apply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_apply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_apply.Font = new System.Drawing.Font("Roboto", 11F);
             this.btn_apply.ForeColor = System.Drawing.Color.White;
@@ -72,7 +72,7 @@
             // 
             this.lbl_percent.AutoSize = true;
             this.lbl_percent.Font = new System.Drawing.Font("Roboto", 66F);
-            this.lbl_percent.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_percent.ForeColor = System.Drawing.Color.White;
             this.lbl_percent.Location = new System.Drawing.Point(12, 39);
             this.lbl_percent.Name = "lbl_percent";
             this.lbl_percent.Size = new System.Drawing.Size(158, 106);
@@ -98,10 +98,10 @@
             // 
             // btn_reset
             // 
-            this.btn_reset.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.btn_reset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_reset.FlatAppearance.BorderSize = 0;
-            this.btn_reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reset.Font = new System.Drawing.Font("Roboto", 11F);
             this.btn_reset.ForeColor = System.Drawing.Color.White;

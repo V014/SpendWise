@@ -75,7 +75,7 @@ namespace SpendWise
             {
                 try
                 {
-                    con.ExecuteQuery($"INSERT INTO investments (Title, Amount, Description, Progress, Date) VALUES ('{investment}', '{amount}', '{description}', '{progress}','date('now')')");
+                    con.ExecuteQuery($"INSERT INTO investments (Title, Amount, Description, Progress, Date) VALUES ('{investment}', '{amount}', '{description}', '{progress}', strftime('%Y-%m-%d %M:%H','now','localtime'))");
                     MessageBox.Show("Investment set!", "Assistant");
                     LoadInvestments(sender, e);
                 }
@@ -131,7 +131,7 @@ namespace SpendWise
                     // build query to delete user transaction
                     con.ExecuteQuery($"DELETE FROM investments WHERE ID = '{id}'");
                     // build query to pull transactions
-                    transaction.loadTransactions(data_investments);
+                    transaction.LoadTransactions(data_investments);
                     // refresh charts
                     LoadInvestments(sender, e);
                     // play chime
@@ -146,7 +146,7 @@ namespace SpendWise
                     try
                     {
                         // log the error
-                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( 'date('now')', 'SQL error', 'Investments')";
+                        string queryEvents = $"INSERT INTO events  (Date, description, location) VALUES( strftime('%Y-%m-%d %M:%H','now','localtime'), 'SQL error', 'Investments')";
                         con.ExecuteQuery(queryEvents);
                         MessageBox.Show("Feature not available", "Assistant");
                     }
