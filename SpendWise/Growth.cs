@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
@@ -36,9 +37,45 @@ namespace SpendWise
 
                 MessageBox.Show("Data unavilable!", "Assistant");
                 // log the error
-                // con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES(strftime('%Y-%m-%d %H:%M', 'now', 'localtime'), 'SQL error', 'Growth action')");
+                con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES(strftime('%Y-%m-%d %H:%M', 'now', 'localtime'), 'SQL error', 'Growth action')");
             }
+            PreviousTheme();
             
+        }
+        private void PreviousTheme()
+        {
+            try
+            {
+                string UserTheme = con.ReadString("SELECT Theme FROM wallet");
+                if (UserTheme == "Light")
+                {
+                    this.BackColor = Color.White;
+                    lbl_title_CAGR.ForeColor = Color.Black;
+                    lbl_CAGR.ForeColor = Color.Black;
+                    lbl_title_bv.ForeColor = Color.Black;
+                    lbl_title_ev.ForeColor = Color.Black;
+                    lbl_title_years.ForeColor = Color.Black;
+                    lbl_bv.ForeColor = Color.Black;
+                    lbl_ev.ForeColor = Color.Black;
+                    lbl_years.ForeColor = Color.Black;
+                }
+                else if (UserTheme == "Dark")
+                {
+                    this.BackColor = Color.FromArgb(17, 17, 17);
+                    lbl_title_CAGR.ForeColor = Color.White;
+                    lbl_CAGR.ForeColor = Color.White;
+                    lbl_title_bv.ForeColor = Color.White;
+                    lbl_title_ev.ForeColor = Color.White;
+                    lbl_title_years.ForeColor = Color.White;
+                    lbl_bv.ForeColor = Color.White;
+                    lbl_ev.ForeColor = Color.White;
+                    lbl_years.ForeColor = Color.White;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

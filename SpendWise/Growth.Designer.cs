@@ -43,7 +43,7 @@
             this.lbl_years.AutoSize = true;
             this.lbl_years.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lbl_years.ForeColor = System.Drawing.Color.White;
-            this.lbl_years.Location = new System.Drawing.Point(159, 257);
+            this.lbl_years.Location = new System.Drawing.Point(21, 321);
             this.lbl_years.Name = "lbl_years";
             this.lbl_years.Size = new System.Drawing.Size(16, 18);
             this.lbl_years.TabIndex = 1;
@@ -54,7 +54,7 @@
             this.lbl_ev.AutoSize = true;
             this.lbl_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lbl_ev.ForeColor = System.Drawing.Color.White;
-            this.lbl_ev.Location = new System.Drawing.Point(159, 216);
+            this.lbl_ev.Location = new System.Drawing.Point(21, 262);
             this.lbl_ev.Name = "lbl_ev";
             this.lbl_ev.Size = new System.Drawing.Size(16, 18);
             this.lbl_ev.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.lbl_bv.AutoSize = true;
             this.lbl_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lbl_bv.ForeColor = System.Drawing.Color.White;
-            this.lbl_bv.Location = new System.Drawing.Point(159, 179);
+            this.lbl_bv.Location = new System.Drawing.Point(21, 206);
             this.lbl_bv.Name = "lbl_bv";
             this.lbl_bv.Size = new System.Drawing.Size(16, 18);
             this.lbl_bv.TabIndex = 4;
@@ -87,7 +87,7 @@
             this.lbl_title_CAGR.AutoSize = true;
             this.lbl_title_CAGR.Font = new System.Drawing.Font("Roboto", 8F);
             this.lbl_title_CAGR.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_CAGR.Location = new System.Drawing.Point(12, 13);
+            this.lbl_title_CAGR.Location = new System.Drawing.Point(25, 9);
             this.lbl_title_CAGR.Name = "lbl_title_CAGR";
             this.lbl_title_CAGR.Size = new System.Drawing.Size(196, 13);
             this.lbl_title_CAGR.TabIndex = 5;
@@ -96,33 +96,33 @@
             // lbl_title_years
             // 
             this.lbl_title_years.AutoSize = true;
-            this.lbl_title_years.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_years.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title_years.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_years.Location = new System.Drawing.Point(12, 257);
+            this.lbl_title_years.Location = new System.Drawing.Point(21, 292);
             this.lbl_title_years.Name = "lbl_title_years";
-            this.lbl_title_years.Size = new System.Drawing.Size(124, 18);
+            this.lbl_title_years.Size = new System.Drawing.Size(126, 18);
             this.lbl_title_years.TabIndex = 6;
             this.lbl_title_years.Text = "Years in business";
             // 
             // lbl_title_bv
             // 
             this.lbl_title_bv.AutoSize = true;
-            this.lbl_title_bv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_bv.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title_bv.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_bv.Location = new System.Drawing.Point(12, 179);
+            this.lbl_title_bv.Location = new System.Drawing.Point(21, 178);
             this.lbl_title_bv.Name = "lbl_title_bv";
-            this.lbl_title_bv.Size = new System.Drawing.Size(138, 18);
+            this.lbl_title_bv.Size = new System.Drawing.Size(144, 18);
             this.lbl_title_bv.TabIndex = 7;
             this.lbl_title_bv.Text = "Capital (Investment)";
             // 
             // lbl_title_ev
             // 
             this.lbl_title_ev.AutoSize = true;
-            this.lbl_title_ev.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbl_title_ev.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title_ev.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_ev.Location = new System.Drawing.Point(12, 216);
+            this.lbl_title_ev.Location = new System.Drawing.Point(21, 235);
             this.lbl_title_ev.Name = "lbl_title_ev";
-            this.lbl_title_ev.Size = new System.Drawing.Size(114, 18);
+            this.lbl_title_ev.Size = new System.Drawing.Size(116, 18);
             this.lbl_title_ev.TabIndex = 8;
             this.lbl_title_ev.Text = "Annual Revenue";
             // 
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(238, 294);
+            this.ClientSize = new System.Drawing.Size(238, 356);
             this.Controls.Add(this.lbl_years);
             this.Controls.Add(this.lbl_ev);
             this.Controls.Add(this.lbl_CAGR);

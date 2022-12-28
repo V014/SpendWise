@@ -3,6 +3,7 @@ using System.Data.SQLite;
 using System.Media;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
 
 namespace SpendWise
 {
@@ -35,6 +36,8 @@ namespace SpendWise
             timer.Start();
             // load previous window state
             PreviousState();
+            // load previous theme
+            PreviousTheme();
             // check for notifications
             LoadInvestmentDot();
             // check your income to expenditure ratio and present dot
@@ -72,7 +75,7 @@ namespace SpendWise
                 lbl_saved.Text = LoadSaved().ToString();
             }
             // style datagrid
-            theme.style(data_transactions);
+            // theme.style(data_transactions);
             // load the data into the data grid
             transaction.LoadTransactions(data_transactions);
             // loads the set currency
@@ -161,7 +164,26 @@ namespace SpendWise
         {
             this.Width = int.Parse(con.ReadString("SELECT width FROM ui"));
             this.Height = int.Parse(con.ReadString("SELECT height FROM ui"));
-            //return username;
+        }
+        // load pervious theme
+        private void PreviousTheme()
+        {
+            try
+            {
+                string UserTheme = con.ReadString("SELECT Theme FROM wallet");
+                if (UserTheme == "Light")
+                {
+                    LightMode();
+                }
+                else if (UserTheme == "Dark")
+                {
+                    DarkMode();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         // loads charts when called
         private void LoadCharts()
@@ -905,6 +927,146 @@ namespace SpendWise
         {
             Currency currency = new Currency();
             currency.Show();
+        }
+        // light mode properties
+        private void LightMode()
+        {
+            try
+            {
+                // style app
+                this.BackColor = Color.White;
+                // style datagrid
+                theme.LightStyle(data_transactions);
+                // style panels
+                panel_amount.BackColor = Color.FromArgb(235, 235, 235);
+                panel_input.BackColor = Color.FromArgb(235, 235, 235);
+                panel_money.BackColor = Color.FromArgb(235, 235, 235);
+                panel_savings.BackColor = Color.FromArgb(235, 235, 235);
+                panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
+                panel_overall_expenditure.BackColor = Color.FromArgb(235, 235, 235);
+                panel_total_saved.BackColor = Color.FromArgb(235, 235, 235);
+                panel_frequency.BackColor = Color.FromArgb(235, 235, 235);
+                panel_date.BackColor = Color.FromArgb(235, 235, 235);
+                panel_month.BackColor = Color.FromArgb(235, 235, 235);
+                panel_growth.BackColor = Color.FromArgb(235, 235, 235);
+                panel_investments.BackColor = Color.FromArgb(235, 235, 235);
+                // style text
+                lbl_title_amount.ForeColor = Color.Black;
+                lbl_title_transactions.ForeColor = Color.Black;
+                lbl_currency.ForeColor = Color.Black;
+                lbl_title_savings.ForeColor = Color.Black;
+                lbl_title_income.ForeColor = Color.Black;
+                lbl_title_expenditure.ForeColor = Color.Black;
+                lbl_title_saved.ForeColor = Color.Black;
+                lbl_title_date.ForeColor = Color.Black;
+                lbl_title_month.ForeColor = Color.Black;
+                lbl_title_growth.ForeColor = Color.Black;
+                lbl_title_investment.ForeColor = Color.Black;
+                lbl_money.ForeColor = Color.Black;
+                lbl_savings.ForeColor = Color.Black;
+                lbl_income.ForeColor = Color.Black; ;
+                lbl_expenditure.ForeColor = Color.Black;
+                lbl_saved.ForeColor = Color.Black;
+                lbl_growth.ForeColor = Color.Black;
+                lbl_complete_investments.ForeColor = Color.Black;
+                lbl_divider.ForeColor = Color.Black;
+                lbl_investments.ForeColor = Color.Black;
+                lbl_com.ForeColor = Color.Black;
+                lbl_common.ForeColor = Color.Black;
+                lbl_lst.ForeColor = Color.Black;
+                lbl_least.ForeColor = Color.Black;
+                // style buttons
+                btn_plus.BackColor = Color.FromArgb(72, 174, 120);
+                btn_minus.BackColor = Color.FromArgb(199, 26, 26);
+                btn_refresh.BackColor = Color.SteelBlue;
+                btn_reset.BackColor = Color.FromArgb(60, 0, 100);
+                // style controls
+                txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
+                txt_desc.BackColor = Color.White;
+                date_select.Theme = MetroFramework.MetroThemeStyle.Light;
+                cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
+                // update the wallet theme property in the db
+                con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Feature unavailable", "Assistant");
+            }
+        }
+        // dark mode properties
+        private void DarkMode()
+        {
+            try
+            {
+                // style app
+                this.BackColor = Color.FromArgb(17, 17, 17);
+                // style datagrid
+                theme.DarkStyle(data_transactions);
+                // style panels
+                panel_amount.BackColor = Color.FromArgb(24, 24, 24);
+                panel_input.BackColor = Color.FromArgb(24, 24, 24);
+                panel_money.BackColor = Color.FromArgb(24, 24, 24);
+                panel_savings.BackColor = Color.FromArgb(24, 24, 24);
+                panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
+                panel_overall_expenditure.BackColor = Color.FromArgb(24, 24, 24);
+                panel_total_saved.BackColor = Color.FromArgb(24, 24, 24);
+                panel_frequency.BackColor = Color.FromArgb(24, 24, 24);
+                panel_date.BackColor = Color.FromArgb(24, 24, 24);
+                panel_month.BackColor = Color.FromArgb(24, 24, 24);
+                panel_growth.BackColor = Color.FromArgb(24, 24, 24);
+                panel_investments.BackColor = Color.FromArgb(24, 24, 24);
+                // style text
+                lbl_title_amount.ForeColor = Color.White;
+                lbl_title_transactions.ForeColor = Color.White;
+                lbl_currency.ForeColor = Color.White;
+                lbl_title_savings.ForeColor = Color.White;
+                lbl_title_income.ForeColor = Color.White;
+                lbl_title_expenditure.ForeColor = Color.White;
+                lbl_title_saved.ForeColor = Color.White;
+                lbl_title_date.ForeColor = Color.White;
+                lbl_title_month.ForeColor = Color.White;
+                lbl_title_growth.ForeColor = Color.White;
+                lbl_title_investment.ForeColor = Color.White;
+                lbl_money.ForeColor = Color.White;
+                lbl_savings.ForeColor = Color.White;
+                lbl_income.ForeColor = Color.White; ;
+                lbl_expenditure.ForeColor = Color.White;
+                lbl_saved.ForeColor = Color.White;
+                lbl_growth.ForeColor = Color.White;
+                lbl_complete_investments.ForeColor = Color.White;
+                lbl_divider.ForeColor = Color.White;
+                lbl_investments.ForeColor = Color.White;
+                lbl_com.ForeColor = Color.White;
+                lbl_common.ForeColor = Color.White;
+                lbl_lst.ForeColor = Color.White;
+                lbl_least.ForeColor = Color.White;
+                // style buttons
+                btn_plus.BackColor = Color.FromArgb(20, 30, 30);
+                btn_minus.BackColor = Color.FromArgb(40, 30, 30);
+                btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
+                btn_reset.BackColor = Color.FromArgb(30, 20, 30);
+                // style controls
+                txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
+                txt_desc.BackColor = Color.FromArgb(17, 17, 17);
+                date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
+                cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
+                // update the wallet theme property in the db
+                con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Feature unavailable", "Assistant");
+            }
+        }
+        // when user sets light mode
+        private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LightMode();
+        }
+        // when user sets dark mode
+        private void DarkModeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DarkMode();
         }
     }
 }

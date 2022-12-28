@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.panel_main = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -37,7 +38,6 @@
             this.txt_main = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,6 +61,21 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(244, 384);
             this.panel_main.TabIndex = 0;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Font = new System.Drawing.Font("Roboto", 8F);
+            this.richTextBox1.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 275);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(244, 64);
+            this.richTextBox1.TabIndex = 6;
+            this.richTextBox1.Text = "Application Version : 3.2\nRelease Date : 12/21/2022\nSuppot : wangakanjala@gmail.c" +
+    "om\nGitHub : github.com/V014/SpendWise";
             // 
             // label2
             // 
@@ -139,21 +154,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBox1.Font = new System.Drawing.Font("Roboto", 8F);
-            this.richTextBox1.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 275);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(244, 64);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "Application Version : 3.2\nRelease Date : 12/21/2022\nSuppot : wangakanjala@gmail.c" +
-    "om\nGitHub : github.com/V014/SpendWise";
             // 
             // About
             // 

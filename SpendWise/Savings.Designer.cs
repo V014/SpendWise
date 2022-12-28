@@ -28,34 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_apply = new System.Windows.Forms.Button();
             this.lbl_title = new System.Windows.Forms.Label();
             this.lbl_percent = new System.Windows.Forms.Label();
             this.scrollbar_savings_percentage = new MetroFramework.Controls.MetroScrollBar();
-            this.btn_reset = new System.Windows.Forms.Button();
             this.panel_controls = new System.Windows.Forms.SplitContainer();
+            this.btn_apply = new System.Windows.Forms.Button();
+            this.btn_reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panel_controls)).BeginInit();
             this.panel_controls.Panel1.SuspendLayout();
             this.panel_controls.Panel2.SuspendLayout();
             this.panel_controls.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_apply
-            // 
-            this.btn_apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_apply.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_apply.FlatAppearance.BorderSize = 0;
-            this.btn_apply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_apply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_apply.Font = new System.Drawing.Font("Roboto", 11F);
-            this.btn_apply.ForeColor = System.Drawing.Color.White;
-            this.btn_apply.Location = new System.Drawing.Point(0, 0);
-            this.btn_apply.Name = "btn_apply";
-            this.btn_apply.Size = new System.Drawing.Size(132, 40);
-            this.btn_apply.TabIndex = 5;
-            this.btn_apply.Text = "Apply";
-            this.btn_apply.UseVisualStyleBackColor = false;
-            this.btn_apply.Click += new System.EventHandler(this.Btn_apply_Click);
             // 
             // lbl_title
             // 
@@ -96,23 +79,6 @@
             this.scrollbar_savings_percentage.UseSelectable = true;
             this.scrollbar_savings_percentage.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Scrollbar_savings_percentage_Scroll);
             // 
-            // btn_reset
-            // 
-            this.btn_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.btn_reset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_reset.FlatAppearance.BorderSize = 0;
-            this.btn_reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reset.Font = new System.Drawing.Font("Roboto", 11F);
-            this.btn_reset.ForeColor = System.Drawing.Color.White;
-            this.btn_reset.Location = new System.Drawing.Point(0, 0);
-            this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(126, 40);
-            this.btn_reset.TabIndex = 5;
-            this.btn_reset.Text = "Reset";
-            this.btn_reset.UseVisualStyleBackColor = false;
-            this.btn_reset.Click += new System.EventHandler(this.Btn_reset_Click);
-            // 
             // panel_controls
             // 
             this.panel_controls.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -129,6 +95,40 @@
             this.panel_controls.Size = new System.Drawing.Size(262, 40);
             this.panel_controls.SplitterDistance = 132;
             this.panel_controls.TabIndex = 7;
+            // 
+            // btn_apply
+            // 
+            this.btn_apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btn_apply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_apply.FlatAppearance.BorderSize = 0;
+            this.btn_apply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_apply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_apply.Font = new System.Drawing.Font("Roboto", 11F);
+            this.btn_apply.ForeColor = System.Drawing.Color.White;
+            this.btn_apply.Location = new System.Drawing.Point(0, 0);
+            this.btn_apply.Name = "btn_apply";
+            this.btn_apply.Size = new System.Drawing.Size(132, 40);
+            this.btn_apply.TabIndex = 5;
+            this.btn_apply.Text = "Apply";
+            this.btn_apply.UseVisualStyleBackColor = false;
+            this.btn_apply.Click += new System.EventHandler(this.Btn_apply_Click);
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.btn_reset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_reset.FlatAppearance.BorderSize = 0;
+            this.btn_reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reset.Font = new System.Drawing.Font("Roboto", 11F);
+            this.btn_reset.ForeColor = System.Drawing.Color.White;
+            this.btn_reset.Location = new System.Drawing.Point(0, 0);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(126, 40);
+            this.btn_reset.TabIndex = 5;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = false;
+            this.btn_reset.Click += new System.EventHandler(this.Btn_reset_Click);
             // 
             // Savings
             // 
@@ -156,12 +156,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_apply;
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Label lbl_percent;
         private MetroFramework.Controls.MetroScrollBar scrollbar_savings_percentage;
-        private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.SplitContainer panel_controls;
+        private System.Windows.Forms.Button btn_apply;
+        private System.Windows.Forms.Button btn_reset;
     }
 }

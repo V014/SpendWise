@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SpendWise
@@ -19,6 +13,7 @@ namespace SpendWise
         {
             InitializeComponent();
             LoadInvestments();
+            PreviousTheme();
         }
         // load things that profi the user
         private void LoadInvestments()
@@ -26,11 +21,32 @@ namespace SpendWise
             try
             {
                 con.LoadData($"SELECT Description, COUNT(description) AS Occured, SUM(Amount) AS Amount FROM transactions WHERE action = '+' GROUP BY Description ORDER BY Amount DESC", Data_income);
-                styleGrid.style(Data_income);
+                styleGrid.DarkStyle(Data_income);
             }
             catch (Exception)
             {
                 MessageBox.Show("Suggestion list unavailable!", "Assistant");
+            }
+        }
+        private void PreviousTheme()
+        {
+            try
+            {
+                string UserTheme = con.ReadString("SELECT Theme FROM wallet");
+                if (UserTheme == "Light")
+                {
+                    this.BackColor = Color.White;
+                    styleGrid.LightStyle(Data_income);
+                }
+                else if (UserTheme == "Dark")
+                {
+                    this.BackColor = Color.FromArgb(17, 17, 17);
+                    styleGrid.DarkStyle(Data_income);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

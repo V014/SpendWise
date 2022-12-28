@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace SpendWise
         public Investments()
         {
             InitializeComponent();
+            PreviousTheme();
         }
         // regulate wrong types in certain controls
         private void MetroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -38,7 +40,6 @@ namespace SpendWise
             try
             {
                 con.LoadData($"SELECT * FROM investments", data_investments);
-                styleGrid.style(data_investments);
                 data_investments.Columns[0].Visible = false;
                 data_investments.Columns[2].Visible = false;
                 data_investments.Columns[3].Visible = false;
@@ -156,6 +157,50 @@ namespace SpendWise
                         Application.Exit();
                     }
                 }
+            }
+        }
+        // check Previous theme
+        private void PreviousTheme()
+        {
+            try
+            {
+                string UserTheme = con.ReadString("SELECT Theme FROM wallet");
+                if (UserTheme == "Light")
+                {
+                    this.BackColor = Color.White;
+                    lbl_title_amount.ForeColor = Color.Black;
+                    lbl_title_description.ForeColor = Color.Black;
+                    lbl_title_add.ForeColor = Color.Black;
+                    lbl_title_progress.ForeColor = Color.Black;
+                    lbl_progress.ForeColor = Color.Black;
+                    scrollbar_progress.Theme = MetroFramework.MetroThemeStyle.Light;
+                    txt_investment.Theme = MetroFramework.MetroThemeStyle.Light;
+                    txt_desc.Theme = MetroFramework.MetroThemeStyle.Light;
+                    txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
+                    btn_add.BackColor = Color.FromArgb(72, 174, 120);
+                    btn_update.BackColor = Color.SteelBlue;
+                    styleGrid.LightStyle(data_investments);
+                }
+                else if (UserTheme == "Dark")
+                {
+                    this.BackColor = Color.FromArgb(17, 17, 17);
+                    lbl_title_amount.ForeColor = Color.White;
+                    lbl_title_description.ForeColor = Color.White;
+                    lbl_title_add.ForeColor = Color.White;
+                    lbl_title_progress.ForeColor = Color.White;
+                    lbl_progress.ForeColor = Color.White;
+                    scrollbar_progress.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    txt_investment.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    txt_desc.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    btn_add.BackColor = Color.FromArgb(20, 30, 30);
+                    btn_update.BackColor = Color.FromArgb(20, 30, 40);
+                    styleGrid.DarkStyle(data_investments);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

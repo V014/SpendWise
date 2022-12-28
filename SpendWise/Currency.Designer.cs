@@ -28,24 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel_main = new System.Windows.Forms.Panel();
             this.txt_currency = new System.Windows.Forms.ComboBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.lbl_title = new System.Windows.Forms.Label();
-            this.panel_main.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel_main
-            // 
-            this.panel_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.panel_main.Controls.Add(this.txt_currency);
-            this.panel_main.Controls.Add(this.btn_save);
-            this.panel_main.Controls.Add(this.lbl_title);
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(0, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(258, 164);
-            this.panel_main.TabIndex = 1;
             // 
             // txt_currency
             // 
@@ -60,10 +46,10 @@
             "$ United States Dollar",
             "€ European Euro",
             "MWK Malawian Kwacha"});
-            this.txt_currency.Location = new System.Drawing.Point(12, 66);
+            this.txt_currency.Location = new System.Drawing.Point(12, 57);
             this.txt_currency.Name = "txt_currency";
             this.txt_currency.Size = new System.Drawing.Size(230, 26);
-            this.txt_currency.TabIndex = 6;
+            this.txt_currency.TabIndex = 9;
             // 
             // btn_save
             // 
@@ -77,45 +63,45 @@
             this.btn_save.Location = new System.Drawing.Point(0, 120);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(258, 44);
-            this.btn_save.TabIndex = 2;
+            this.btn_save.TabIndex = 8;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.Btn_save_Click);
             // 
             // lbl_title
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Roboto", 16F);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_title.Location = new System.Drawing.Point(12, 18);
+            this.lbl_title.Location = new System.Drawing.Point(12, 9);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(137, 27);
-            this.lbl_title.TabIndex = 0;
+            this.lbl_title.TabIndex = 7;
             this.lbl_title.Text = "Select below";
             // 
             // Currency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(258, 164);
-            this.Controls.Add(this.panel_main);
+            this.Controls.Add(this.txt_currency);
+            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.lbl_title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Currency";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Currency";
-            this.panel_main.ResumeLayout(false);
-            this.panel_main.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel_main;
-        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.ComboBox txt_currency;
+        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Label lbl_title;
     }
 }
