@@ -45,9 +45,10 @@ namespace SpendWise
             // show details on transaction counter
             try
             {
-                lbl_income_count.Text = LoadIncomeCount();
-                lbl_expenditure_count.Text = LoadExpenditureCount();
-                lbl_transactions_count.Text = LoadTransactionsCount();
+                string currentMonth = con.ReadString("SELECT strftime('%m', 'now', 'localtime')");
+                lbl_income_count.Text = LoadIncomeCount(currentMonth);
+                lbl_expenditure_count.Text = LoadExpenditureCount(currentMonth);
+                lbl_transactions_count.Text = LoadTransactionsCount(currentMonth);
                 lbl_annual_count.Text = LoadAnnualCount();
             }
             catch (Exception)
@@ -362,21 +363,21 @@ namespace SpendWise
             return Income;
         }
         // load times gotten income in the month
-        private string LoadIncomeCount()
+        private string LoadIncomeCount(string setting)
         {
-            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m', date)");
+            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m', date) = '{setting}'");
             return Income;
         }
         // load times spent money in the month
-        private string LoadExpenditureCount()
+        private string LoadExpenditureCount(string setting)
         {
-            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m', date)");
+            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m', date) = '{setting}'");
             return Expenditure;
         }
         // load total monthly transactions
-        private string LoadTransactionsCount()
+        private string LoadTransactionsCount(string setting)
         {
-            string Transactions = con.ReadString("SELECT COUNT(amount) FROM transactions WHERE strftime('%m', date)");
+            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m', date) = '{setting}'");
             return Transactions;
         }
         // load Annual transactions
@@ -587,7 +588,7 @@ namespace SpendWise
                     // delete transactions
                     con.ExecuteQuery("DELETE FROM transactions");
                     // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET Money = 0.00, Savings = 0, Owner = 'My wallet', State = 'Mini', Currency = 'MWK'");
+                    con.ExecuteQuery("UPDATE wallet SET Money = 0.00, Savings = 0, Owner = 'My wallet', State = 'Mini', Currency = 'MWK', Theme = 'Light'");
                     // reset events
                     con.ExecuteQuery("DELETE FROM events");
                     // reset sequences

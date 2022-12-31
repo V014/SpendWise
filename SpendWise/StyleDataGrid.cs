@@ -53,10 +53,10 @@ namespace SpendWise
 
             dataGrid.AlternatingRowsDefaultCellStyle.Font = new Font("Roboto", 8);
             dataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(235, 235, 235);
-            dataGrid.AlternatingRowsDefaultCellStyle.ForeColor = Color.Gray;
+            dataGrid.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             dataGrid.RowsDefaultCellStyle.BackColor = Color.White;
-            dataGrid.RowsDefaultCellStyle.ForeColor = Color.Gray;
+            dataGrid.RowsDefaultCellStyle.ForeColor = Color.Black;
 
             dataGrid.DefaultCellStyle.Font = new Font("Roboto", 8);
             dataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
