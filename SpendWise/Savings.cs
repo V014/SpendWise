@@ -53,7 +53,7 @@ namespace SpendWise
                 if (dialogResult == DialogResult.Yes)
                 {
                     // play chime
-                    SoundPlayer chime2 = new SoundPlayer(@"sfx/erase.wav");
+                    SoundPlayer chime2 = new SoundPlayer(@"sfx/pulse.wav");
                     chime2.Play();
                     // update wallet
                     con.ExecuteQuery("UPDATE wallet SET savings = 0");
