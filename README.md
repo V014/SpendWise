@@ -12,6 +12,17 @@ It uses basic business formulas to solve mathematical problems you should have b
 - 💹 Compile annual projection 
 - 📤 Export transactions 
 
+## Other functions 
+- Set currency 
+- Set profile picture/motion picture 
+- Set wallet name
+- Set theme Light/Dark mode
+- Reset savings 
+- Reset entire dashboard 
+- Import database 
+- Adjustable UI
+- Recall UI customization 
+
 ## The main Dashboard 
 This is the full UI on a generic display, UI may vary depending on screen size and resolution 
 ![This is an image](https://github.com/V014/SpendWise/blob/master/SpendWise-Max.png)
