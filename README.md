@@ -3,12 +3,12 @@ This desktop application is made with dot net C-Sharp and packs a few features t
 It uses basic business formulas to solve mathematical problems you should have been solving to know you financial ernings.
 
 ## Main Functions
-Calculate Compound Annual Grwoth Rate (CAGR)
-Monitor expenditure 
-Monitor income
-Track savings
-Track investments
-Compile annual projection 
+-Calculate Compound Annual Grwoth Rate (CAGR)
+-Monitor expenditure 
+-Monitor income
+-Track savings
+-Track investments
+-Compile annual projection 
 
 ## The main Dashboard 
 This is the full UI on a generic display, UI may vary depending on screen size and resolution 
