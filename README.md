@@ -18,3 +18,7 @@ This is the full UI on a generic display, UI may vary depending on screen size a
 This is the UI when partially sized to focus on two programs while spendwise being dominant
 ![This is an image](https://github.com/V014/SpendWise/blob/master/SpendWise-Mid.png)
 
+## The mini Dashboard 
+This is the most discreet SpendWise can be without loosing its main functionality and at the same time get out of your way. 
+![This is an image](https://github.com/V014/SpendWise/blob/master/SpendWise-Mini.png)
+
