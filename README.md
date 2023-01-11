@@ -16,5 +16,5 @@ This is the full UI on a generic display, UI may vary depending on screen size a
 
 ## The medium Dashboard 
 This is the UI when partially sized to focus on two programs while spendwise being dominant
-![This is an image](https://github.com/V014/SpendWise/blob/master/SpendWise-mid.png)
+![This is an image](https://github.com/V014/SpendWise/blob/master/SpendWise-Mid.png)
 
