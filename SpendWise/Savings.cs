@@ -57,6 +57,7 @@ namespace SpendWise
                     chime2.Play();
                     // update wallet
                     con.ExecuteQuery("UPDATE wallet SET savings = 0");
+                    MessageBox.Show("Savings emptied!", "Assistant");
                 }
             }
             catch (Exception ex)
