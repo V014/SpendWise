@@ -21,9 +21,9 @@ namespace SpendWise
         // update the database with new savings amount
         private void Btn_apply_Click(object sender, EventArgs e)
         {
-            int percentage = scrollbar_savings_percentage.Value;
             try
             {
+                int percentage = scrollbar_savings_percentage.Value;
                 con.ExecuteQuery($"UPDATE wallet SET save = '{percentage}'");
                 lbl_title.Text = "Change saved!";
                 lbl_title.ForeColor = Color.MediumSeaGreen;
@@ -43,13 +43,13 @@ namespace SpendWise
         // reset percentage to zero
         private void Btn_reset_Click(object sender, EventArgs e)
         {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
-            chime.Play();
-            DialogResult dialogResult = MessageBox.Show("Resetting the savings will clear all your savings history, are you sure?", "Reset Savings?", MessageBoxButtons.YesNo);
-
             try
             {
+                // play chime
+                SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
+                chime.Play();
+                DialogResult dialogResult = MessageBox.Show("Resetting the savings will clear all your savings history, are you sure?", "Reset Savings?", MessageBoxButtons.YesNo);
+            
                 if (dialogResult == DialogResult.Yes)
                 {
                     // play chime
@@ -62,7 +62,7 @@ namespace SpendWise
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Something went wrong, bug recorded!!", "Assistant");
             }
         }
         // check Previous theme
@@ -92,7 +92,7 @@ namespace SpendWise
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Something went wrong, bug recorded!", "Assistant");
             }
         }
     }
