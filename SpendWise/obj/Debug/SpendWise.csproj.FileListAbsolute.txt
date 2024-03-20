@@ -182,3 +182,6 @@ C:\Users\wanga\Desktop\Coding\C#\SpendWise-master\SpendWise\obj\Debug\SpendWise.
 C:\Users\wanga\Desktop\Coding\C#\SpendWise-master\SpendWise\obj\Debug\SpendWise.SplashScreen.resources
 C:\Users\wanga\Desktop\Coding\C#\SpendWise-master\SpendWise\obj\Debug\SpendWise.Expenditure.resources
 C:\Users\wanga\Desktop\Coding\C#\SpendWise-master\SpendWise\obj\Debug\SpendWise.csproj.GenerateResource.Cache
+C:\Users\wanga\Desktop\Coding\C#\SpendWise\SpendWise\bin\Debug\SpendWise.exe.config
+C:\Users\wanga\Desktop\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.exe
+C:\Users\wanga\Desktop\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.pdb
