@@ -7,7 +7,7 @@ It uses basic business formulas to solve mathematical problems you should have b
 
 ## Main Functions
 
-- 🌱 Calculate Compound Annual Grwoth Rate (CAGR)
+- 🌱 Calculate Compound Annual Growth Rate (CAGR)
 - 💳 Monitor expenditure 
 - 💰 Monitor income
 - 💸 Track money
