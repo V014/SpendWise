@@ -127,6 +127,9 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -164,6 +167,7 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -696,7 +700,7 @@
             this.panel_money.Controls.Add(this.btn_money);
             this.panel_money.Controls.Add(this.lbl_money);
             this.panel_money.Controls.Add(this.lbl_currency);
-            this.panel_money.Location = new System.Drawing.Point(415, 3);
+            this.panel_money.Location = new System.Drawing.Point(621, 3);
             this.panel_money.Name = "panel_money";
             this.panel_money.Size = new System.Drawing.Size(200, 64);
             this.panel_money.TabIndex = 0;
@@ -706,16 +710,17 @@
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
             this.panel_top.Controls.Add(this.panel_amount);
             this.panel_top.Controls.Add(this.panel_input);
+            this.panel_top.Controls.Add(this.panel2);
             this.panel_top.Controls.Add(this.panel_money);
             this.panel_top.Controls.Add(this.panel_savings);
             this.panel_top.Controls.Add(this.panel_overal_income);
             this.panel_top.Controls.Add(this.panel_overall_expenditure);
             this.panel_top.Controls.Add(this.panel_total_saved);
-            this.panel_top.Controls.Add(this.panel_frequency);
             this.panel_top.Controls.Add(this.panel_date);
             this.panel_top.Controls.Add(this.panel_month);
             this.panel_top.Controls.Add(this.panel_growth);
             this.panel_top.Controls.Add(this.panel_investments);
+            this.panel_top.Controls.Add(this.panel_frequency);
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(236, 30);
             this.panel_top.Name = "panel_top";
@@ -761,9 +766,9 @@
             this.lbl_title_transactions.ForeColor = System.Drawing.Color.White;
             this.lbl_title_transactions.Location = new System.Drawing.Point(13, 3);
             this.lbl_title_transactions.Name = "lbl_title_transactions";
-            this.lbl_title_transactions.Size = new System.Drawing.Size(119, 15);
+            this.lbl_title_transactions.Size = new System.Drawing.Size(103, 15);
             this.lbl_title_transactions.TabIndex = 0;
-            this.lbl_title_transactions.Text = "Describe transaction";
+            this.lbl_title_transactions.Text = "Select Investment";
             this.lbl_title_transactions.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_savings
@@ -772,7 +777,7 @@
             this.panel_savings.Controls.Add(this.btn_savings);
             this.panel_savings.Controls.Add(this.lbl_title_savings);
             this.panel_savings.Controls.Add(this.lbl_savings);
-            this.panel_savings.Location = new System.Drawing.Point(621, 3);
+            this.panel_savings.Location = new System.Drawing.Point(3, 73);
             this.panel_savings.Name = "panel_savings";
             this.panel_savings.Size = new System.Drawing.Size(200, 64);
             this.panel_savings.TabIndex = 0;
@@ -795,7 +800,7 @@
             this.panel_overal_income.Controls.Add(this.btn_income);
             this.panel_overal_income.Controls.Add(this.lbl_title_income);
             this.panel_overal_income.Controls.Add(this.lbl_income);
-            this.panel_overal_income.Location = new System.Drawing.Point(3, 73);
+            this.panel_overal_income.Location = new System.Drawing.Point(209, 73);
             this.panel_overal_income.Name = "panel_overal_income";
             this.panel_overal_income.Size = new System.Drawing.Size(200, 64);
             this.panel_overal_income.TabIndex = 0;
@@ -845,7 +850,7 @@
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_title_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_expenditure);
-            this.panel_overall_expenditure.Location = new System.Drawing.Point(209, 73);
+            this.panel_overall_expenditure.Location = new System.Drawing.Point(415, 73);
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(200, 64);
             this.panel_overall_expenditure.TabIndex = 0;
@@ -894,7 +899,7 @@
             this.panel_total_saved.Controls.Add(this.btn_saved);
             this.panel_total_saved.Controls.Add(this.lbl_title_saved);
             this.panel_total_saved.Controls.Add(this.lbl_saved);
-            this.panel_total_saved.Location = new System.Drawing.Point(415, 73);
+            this.panel_total_saved.Location = new System.Drawing.Point(621, 73);
             this.panel_total_saved.Name = "panel_total_saved";
             this.panel_total_saved.Size = new System.Drawing.Size(200, 64);
             this.panel_total_saved.TabIndex = 0;
@@ -933,7 +938,8 @@
             this.panel_frequency.Controls.Add(this.lbl_com);
             this.panel_frequency.Controls.Add(this.lbl_common);
             this.panel_frequency.Controls.Add(this.lbl_lst);
-            this.panel_frequency.Location = new System.Drawing.Point(621, 73);
+            this.panel_frequency.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.panel_frequency.Location = new System.Drawing.Point(3, 213);
             this.panel_frequency.Name = "panel_frequency";
             this.panel_frequency.Size = new System.Drawing.Size(200, 64);
             this.panel_frequency.TabIndex = 0;
@@ -1420,6 +1426,62 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Location = new System.Drawing.Point(415, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 64);
+            this.panel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Select Expenditure";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Accessories",
+            "Business",
+            "Education",
+            "Family",
+            "Food",
+            "Private",
+            "Friend",
+            "Fun",
+            "Games",
+            "Hand out",
+            "Hobby",
+            "Medication",
+            "Phone bill ",
+            "Religion",
+            "Transport",
+            "Utility bill",
+            "Work",
+            "Habbit",
+            "Relief",
+            "Habit",
+            "Welfare"});
+            this.comboBox1.Location = new System.Drawing.Point(16, 24);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(166, 27);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.Tag = "";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1489,6 +1551,8 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1583,6 +1647,9 @@
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem1;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
