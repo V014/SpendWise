@@ -8,7 +8,11 @@ It uses basic business formulas to solve mathematical problems you should have b
 ## Main Functions
 
 - 🌱 Calculate Compound Annual Growth Rate (CAGR)
+<<<<<<< HEAD
 - 💳 Monitor expenditure
+=======
+- 💳 Monitor expenditure 
+>>>>>>> ab6b18e24c80259984de9fc5edaa6ead8fc0cea3
 - 💰 Monitor income
 - 💸 Track money
 - 🐖 Track savings
