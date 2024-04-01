@@ -927,16 +927,12 @@ namespace SpendWise
                 panel_savings.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overall_expenditure.BackColor = Color.FromArgb(235, 235, 235);
-                panel_date.BackColor = Color.FromArgb(235, 235, 235);
-                panel_month.BackColor = Color.FromArgb(235, 235, 235);
                 panel_growth.BackColor = Color.FromArgb(235, 235, 235);
                 panel_investments.BackColor = Color.FromArgb(235, 235, 235);
                 // style text
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_date.ForeColor = Color.Black;
-                lbl_title_month.ForeColor = Color.Black;
                 lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
                 lbl_complete_investments.ForeColor = Color.Black;
@@ -976,16 +972,12 @@ namespace SpendWise
                 panel_savings.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overall_expenditure.BackColor = Color.FromArgb(24, 24, 24);
-                panel_date.BackColor = Color.FromArgb(24, 24, 24);
-                panel_month.BackColor = Color.FromArgb(24, 24, 24);
                 panel_growth.BackColor = Color.FromArgb(24, 24, 24);
                 panel_investments.BackColor = Color.FromArgb(24, 24, 24);
                 // style text
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_date.ForeColor = Color.White;
-                lbl_title_month.ForeColor = Color.White;
                 lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
                 lbl_complete_investments.ForeColor = Color.White;
