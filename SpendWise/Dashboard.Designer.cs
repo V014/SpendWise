@@ -41,7 +41,6 @@
             this.btn_savings = new System.Windows.Forms.Button();
             this.btn_money = new System.Windows.Forms.Button();
             this.txt_desc = new System.Windows.Forms.ComboBox();
-            this.lbl_savings = new System.Windows.Forms.Label();
             this.lbl_money = new System.Windows.Forms.Label();
             this.txt_amount = new MetroFramework.Controls.MetroTextBox();
             this.lbl_currency = new System.Windows.Forms.Label();
@@ -75,8 +74,10 @@
             this.lbl_title_amount = new System.Windows.Forms.Label();
             this.panel_input = new System.Windows.Forms.Panel();
             this.lbl_title_transactions = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel_savings = new System.Windows.Forms.Panel();
-            this.lbl_title_savings = new System.Windows.Forms.Label();
             this.panel_overal_income = new System.Windows.Forms.Panel();
             this.dot_income = new System.Windows.Forms.PictureBox();
             this.btn_income = new System.Windows.Forms.Button();
@@ -88,8 +89,6 @@
             this.panel_total_saved = new System.Windows.Forms.Panel();
             this.btn_saved = new System.Windows.Forms.Button();
             this.lbl_title_saved = new System.Windows.Forms.Label();
-            this.panel_frequency = new System.Windows.Forms.Panel();
-            this.btn_common = new System.Windows.Forms.Button();
             this.panel_date = new System.Windows.Forms.Panel();
             this.lbl_title_date = new System.Windows.Forms.Label();
             this.panel_month = new System.Windows.Forms.Panel();
@@ -105,6 +104,8 @@
             this.lbl_divider = new System.Windows.Forms.Label();
             this.lbl_complete_investments = new System.Windows.Forms.Label();
             this.lbl_investments = new System.Windows.Forms.Label();
+            this.panel_frequency = new System.Windows.Forms.Panel();
+            this.btn_common = new System.Windows.Forms.Button();
             this.panel_nav = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_annual_count = new System.Windows.Forms.Label();
@@ -127,9 +128,6 @@
             this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -142,18 +140,19 @@
             this.panel_top.SuspendLayout();
             this.panel_amount.SuspendLayout();
             this.panel_input.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel_savings.SuspendLayout();
             this.panel_overal_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_income)).BeginInit();
             this.panel_overall_expenditure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
             this.panel_total_saved.SuspendLayout();
-            this.panel_frequency.SuspendLayout();
             this.panel_date.SuspendLayout();
             this.panel_month.SuspendLayout();
             this.panel_growth.SuspendLayout();
             this.panel_investments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).BeginInit();
+            this.panel_frequency.SuspendLayout();
             this.panel_nav.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -167,7 +166,6 @@
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -179,7 +177,7 @@
             this.btn_savings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_savings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_savings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_savings.Location = new System.Drawing.Point(143, 7);
+            this.btn_savings.Location = new System.Drawing.Point(3, 7);
             this.btn_savings.Name = "btn_savings";
             this.btn_savings.Size = new System.Drawing.Size(50, 50);
             this.btn_savings.TabIndex = 3;
@@ -236,17 +234,6 @@
             this.txt_desc.Size = new System.Drawing.Size(166, 27);
             this.txt_desc.TabIndex = 1;
             this.txt_desc.Tag = "";
-            // 
-            // lbl_savings
-            // 
-            this.lbl_savings.AutoSize = true;
-            this.lbl_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_savings.ForeColor = System.Drawing.Color.White;
-            this.lbl_savings.Location = new System.Drawing.Point(12, 26);
-            this.lbl_savings.Name = "lbl_savings";
-            this.lbl_savings.Size = new System.Drawing.Size(45, 24);
-            this.lbl_savings.TabIndex = 0;
-            this.lbl_savings.Text = "0.00";
             // 
             // lbl_money
             // 
@@ -771,27 +758,70 @@
             this.lbl_title_transactions.Text = "Select Investment";
             this.lbl_title_transactions.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Location = new System.Drawing.Point(415, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 64);
+            this.panel2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Select Expenditure";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Accessories",
+            "Business",
+            "Education",
+            "Family",
+            "Food",
+            "Private",
+            "Friend",
+            "Fun",
+            "Games",
+            "Hand out",
+            "Hobby",
+            "Medication",
+            "Phone bill ",
+            "Religion",
+            "Transport",
+            "Utility bill",
+            "Work",
+            "Habbit",
+            "Relief",
+            "Habit",
+            "Welfare"});
+            this.comboBox1.Location = new System.Drawing.Point(16, 24);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(166, 27);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.Tag = "";
+            // 
             // panel_savings
             // 
             this.panel_savings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_savings.Controls.Add(this.btn_savings);
-            this.panel_savings.Controls.Add(this.lbl_title_savings);
-            this.panel_savings.Controls.Add(this.lbl_savings);
             this.panel_savings.Location = new System.Drawing.Point(3, 73);
             this.panel_savings.Name = "panel_savings";
-            this.panel_savings.Size = new System.Drawing.Size(200, 64);
+            this.panel_savings.Size = new System.Drawing.Size(64, 64);
             this.panel_savings.TabIndex = 0;
-            // 
-            // lbl_title_savings
-            // 
-            this.lbl_title_savings.AutoSize = true;
-            this.lbl_title_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_title_savings.ForeColor = System.Drawing.Color.White;
-            this.lbl_title_savings.Location = new System.Drawing.Point(13, 3);
-            this.lbl_title_savings.Name = "lbl_title_savings";
-            this.lbl_title_savings.Size = new System.Drawing.Size(50, 15);
-            this.lbl_title_savings.TabIndex = 0;
-            this.lbl_title_savings.Text = "Savings";
             // 
             // panel_overal_income
             // 
@@ -800,7 +830,7 @@
             this.panel_overal_income.Controls.Add(this.btn_income);
             this.panel_overal_income.Controls.Add(this.lbl_title_income);
             this.panel_overal_income.Controls.Add(this.lbl_income);
-            this.panel_overal_income.Location = new System.Drawing.Point(209, 73);
+            this.panel_overal_income.Location = new System.Drawing.Point(73, 73);
             this.panel_overal_income.Name = "panel_overal_income";
             this.panel_overal_income.Size = new System.Drawing.Size(200, 64);
             this.panel_overal_income.TabIndex = 0;
@@ -850,7 +880,7 @@
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_title_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.lbl_expenditure);
-            this.panel_overall_expenditure.Location = new System.Drawing.Point(415, 73);
+            this.panel_overall_expenditure.Location = new System.Drawing.Point(279, 73);
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(200, 64);
             this.panel_overall_expenditure.TabIndex = 0;
@@ -899,7 +929,7 @@
             this.panel_total_saved.Controls.Add(this.btn_saved);
             this.panel_total_saved.Controls.Add(this.lbl_title_saved);
             this.panel_total_saved.Controls.Add(this.lbl_saved);
-            this.panel_total_saved.Location = new System.Drawing.Point(621, 73);
+            this.panel_total_saved.Location = new System.Drawing.Point(485, 73);
             this.panel_total_saved.Name = "panel_total_saved";
             this.panel_total_saved.Size = new System.Drawing.Size(200, 64);
             this.panel_total_saved.TabIndex = 0;
@@ -929,35 +959,6 @@
             this.lbl_title_saved.Size = new System.Drawing.Size(69, 15);
             this.lbl_title_saved.TabIndex = 0;
             this.lbl_title_saved.Text = "Total saved";
-            // 
-            // panel_frequency
-            // 
-            this.panel_frequency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel_frequency.Controls.Add(this.btn_common);
-            this.panel_frequency.Controls.Add(this.lbl_least);
-            this.panel_frequency.Controls.Add(this.lbl_com);
-            this.panel_frequency.Controls.Add(this.lbl_common);
-            this.panel_frequency.Controls.Add(this.lbl_lst);
-            this.panel_frequency.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.panel_frequency.Location = new System.Drawing.Point(3, 213);
-            this.panel_frequency.Name = "panel_frequency";
-            this.panel_frequency.Size = new System.Drawing.Size(200, 64);
-            this.panel_frequency.TabIndex = 0;
-            // 
-            // btn_common
-            // 
-            this.btn_common.BackColor = System.Drawing.Color.Transparent;
-            this.btn_common.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_common.BackgroundImage")));
-            this.btn_common.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_common.FlatAppearance.BorderSize = 0;
-            this.btn_common.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btn_common.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
-            this.btn_common.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_common.Location = new System.Drawing.Point(145, 6);
-            this.btn_common.Name = "btn_common";
-            this.btn_common.Size = new System.Drawing.Size(49, 52);
-            this.btn_common.TabIndex = 4;
-            this.btn_common.UseVisualStyleBackColor = false;
             // 
             // panel_date
             // 
@@ -1133,6 +1134,35 @@
             this.lbl_investments.Size = new System.Drawing.Size(20, 24);
             this.lbl_investments.TabIndex = 0;
             this.lbl_investments.Text = "0";
+            // 
+            // panel_frequency
+            // 
+            this.panel_frequency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_frequency.Controls.Add(this.btn_common);
+            this.panel_frequency.Controls.Add(this.lbl_least);
+            this.panel_frequency.Controls.Add(this.lbl_com);
+            this.panel_frequency.Controls.Add(this.lbl_common);
+            this.panel_frequency.Controls.Add(this.lbl_lst);
+            this.panel_frequency.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.panel_frequency.Location = new System.Drawing.Point(3, 213);
+            this.panel_frequency.Name = "panel_frequency";
+            this.panel_frequency.Size = new System.Drawing.Size(200, 64);
+            this.panel_frequency.TabIndex = 0;
+            // 
+            // btn_common
+            // 
+            this.btn_common.BackColor = System.Drawing.Color.Transparent;
+            this.btn_common.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_common.BackgroundImage")));
+            this.btn_common.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_common.FlatAppearance.BorderSize = 0;
+            this.btn_common.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_common.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
+            this.btn_common.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_common.Location = new System.Drawing.Point(145, 6);
+            this.btn_common.Name = "btn_common";
+            this.btn_common.Size = new System.Drawing.Size(49, 52);
+            this.btn_common.TabIndex = 4;
+            this.btn_common.UseVisualStyleBackColor = false;
             // 
             // panel_nav
             // 
@@ -1426,62 +1456,6 @@
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Location = new System.Drawing.Point(415, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 64);
-            this.panel2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Select Expenditure";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Accessories",
-            "Business",
-            "Education",
-            "Family",
-            "Food",
-            "Private",
-            "Friend",
-            "Fun",
-            "Games",
-            "Hand out",
-            "Hobby",
-            "Medication",
-            "Phone bill ",
-            "Religion",
-            "Transport",
-            "Utility bill",
-            "Work",
-            "Habbit",
-            "Relief",
-            "Habit",
-            "Welfare"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 27);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Tag = "";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1516,8 +1490,9 @@
             this.panel_amount.PerformLayout();
             this.panel_input.ResumeLayout(false);
             this.panel_input.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel_savings.ResumeLayout(false);
-            this.panel_savings.PerformLayout();
             this.panel_overal_income.ResumeLayout(false);
             this.panel_overal_income.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_income)).EndInit();
@@ -1526,8 +1501,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).EndInit();
             this.panel_total_saved.ResumeLayout(false);
             this.panel_total_saved.PerformLayout();
-            this.panel_frequency.ResumeLayout(false);
-            this.panel_frequency.PerformLayout();
             this.panel_date.ResumeLayout(false);
             this.panel_date.PerformLayout();
             this.panel_month.ResumeLayout(false);
@@ -1537,6 +1510,8 @@
             this.panel_investments.ResumeLayout(false);
             this.panel_investments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
+            this.panel_frequency.ResumeLayout(false);
+            this.panel_frequency.PerformLayout();
             this.panel_nav.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1551,8 +1526,6 @@
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1570,7 +1543,6 @@
         private System.Windows.Forms.Label lbl_least;
         private System.Windows.Forms.Label lbl_lst;
         public System.Windows.Forms.Label lbl_money;
-        public System.Windows.Forms.Label lbl_savings;
         private System.Windows.Forms.Label lbl_saved;
         private System.Windows.Forms.ComboBox txt_desc;
         private System.Windows.Forms.Button btn_savings;
@@ -1589,7 +1561,6 @@
         private System.Windows.Forms.Panel panel_money;
         private System.Windows.Forms.FlowLayoutPanel panel_top;
         private System.Windows.Forms.Panel panel_savings;
-        public System.Windows.Forms.Label lbl_title_savings;
         private System.Windows.Forms.Panel panel_overal_income;
         public System.Windows.Forms.Label lbl_title_income;
         private System.Windows.Forms.Panel panel_overall_expenditure;

@@ -74,8 +74,6 @@ namespace SpendWise
             LoadPicture();
             // show money
             lbl_money.Text = money.CheckMoney();
-            // show savings
-            lbl_savings.Text = money.CheckSavings();
             // show saved
             if (LoadSaved() > 0)
             {
@@ -111,8 +109,6 @@ namespace SpendWise
             LoadPicture();
             // show money
             lbl_money.Text = money.CheckMoney();
-            // show savings
-            lbl_savings.Text = money.CheckSavings();
             // show saved
             if (LoadSaved() > 0)
             {
@@ -964,7 +960,6 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_savings.ForeColor = Color.Black;
                 lbl_title_income.ForeColor = Color.Black;
                 lbl_title_expenditure.ForeColor = Color.Black;
                 lbl_title_saved.ForeColor = Color.Black;
@@ -973,7 +968,6 @@ namespace SpendWise
                 lbl_title_growth.ForeColor = Color.Black;
                 lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
-                lbl_savings.ForeColor = Color.Black;
                 lbl_income.ForeColor = Color.Black; ;
                 lbl_expenditure.ForeColor = Color.Black;
                 lbl_saved.ForeColor = Color.Black;
@@ -1029,7 +1023,6 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_savings.ForeColor = Color.White;
                 lbl_title_income.ForeColor = Color.White;
                 lbl_title_expenditure.ForeColor = Color.White;
                 lbl_title_saved.ForeColor = Color.White;
@@ -1038,7 +1031,6 @@ namespace SpendWise
                 lbl_title_growth.ForeColor = Color.White;
                 lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
-                lbl_savings.ForeColor = Color.White;
                 lbl_income.ForeColor = Color.White; ;
                 lbl_expenditure.ForeColor = Color.White;
                 lbl_saved.ForeColor = Color.White;
