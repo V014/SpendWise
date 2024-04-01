@@ -22,12 +22,20 @@ namespace SpendWise
             {
                 con.LoadData($"SELECT Description, COUNT(description) AS Occured, SUM(Amount) AS Amount FROM transactions WHERE action = '+' GROUP BY Description ORDER BY Amount DESC", Data_income);
                 styleGrid.DarkStyle(Data_income);
+                lbl_income.Text = "Total income collected: " + LoadIncome();
             }
             catch (Exception)
             {
                 MessageBox.Show("Suggestion list unavailable!", "Assistant");
             }
         }
+        // load the overall income
+        public string LoadIncome()
+        {
+            string Income = con.ReadString("SELECT sum(Amount) FROM transactions WHERE Action = '+'");
+            return Income;
+        }
+        // load the previous theme selected by the user
         private void PreviousTheme()
         {
             try

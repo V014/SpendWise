@@ -177,7 +177,7 @@
             this.btn_savings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_savings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(60)))), ((int)(((byte)(30)))));
             this.btn_savings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_savings.Location = new System.Drawing.Point(3, 7);
+            this.btn_savings.Location = new System.Drawing.Point(7, 7);
             this.btn_savings.Name = "btn_savings";
             this.btn_savings.Size = new System.Drawing.Size(50, 50);
             this.btn_savings.TabIndex = 3;

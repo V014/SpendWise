@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Data_income = new System.Windows.Forms.DataGridView();
+            this.lbl_income = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Data_income)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,15 +54,26 @@
             this.Data_income.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Data_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Data_income.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Data_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data_income.Location = new System.Drawing.Point(10, 10);
+            this.Data_income.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Data_income.Location = new System.Drawing.Point(10, 47);
             this.Data_income.MultiSelect = false;
             this.Data_income.Name = "Data_income";
             this.Data_income.ReadOnly = true;
             this.Data_income.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Data_income.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Data_income.Size = new System.Drawing.Size(339, 410);
+            this.Data_income.Size = new System.Drawing.Size(339, 373);
             this.Data_income.TabIndex = 5;
+            // 
+            // lbl_income
+            // 
+            this.lbl_income.AutoSize = true;
+            this.lbl_income.Font = new System.Drawing.Font("Roboto Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_income.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
+            this.lbl_income.Location = new System.Drawing.Point(6, 10);
+            this.lbl_income.Name = "lbl_income";
+            this.lbl_income.Size = new System.Drawing.Size(133, 19);
+            this.lbl_income.TabIndex = 6;
+            this.lbl_income.Text = "Collected Income:";
             // 
             // Income
             // 
@@ -69,6 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(359, 430);
+            this.Controls.Add(this.lbl_income);
             this.Controls.Add(this.Data_income);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -79,11 +92,13 @@
             this.Text = "Income Monitor";
             ((System.ComponentModel.ISupportInitialize)(this.Data_income)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView Data_income;
+        private System.Windows.Forms.Label lbl_income;
     }
 }
