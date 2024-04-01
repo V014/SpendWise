@@ -8,6 +8,7 @@ namespace SpendWise
     {
         readonly Connection con = new Connection();
         readonly StyleDataGrid styleGrid = new StyleDataGrid();
+        readonly Currency currency = new Currency();
 
         public Income()
         {
@@ -22,7 +23,7 @@ namespace SpendWise
             {
                 con.LoadData($"SELECT Description, COUNT(description) AS Occured, SUM(Amount) AS Amount FROM transactions WHERE action = '+' GROUP BY Description ORDER BY Amount DESC", Data_income);
                 styleGrid.DarkStyle(Data_income);
-                lbl_income.Text = "Total income collected: " + LoadIncome();
+                lbl_income.Text = "Total income collected: " + currency.LoadCurrency() + LoadIncome();
             }
             catch (Exception)
             {

@@ -55,7 +55,7 @@
             this.Data_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Data_income.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Data_income.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Data_income.Location = new System.Drawing.Point(10, 47);
+            this.Data_income.Location = new System.Drawing.Point(10, 53);
             this.Data_income.MultiSelect = false;
             this.Data_income.Name = "Data_income";
             this.Data_income.ReadOnly = true;
@@ -80,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(359, 430);
+            this.ClientSize = new System.Drawing.Size(359, 436);
             this.Controls.Add(this.lbl_income);
             this.Controls.Add(this.Data_income);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

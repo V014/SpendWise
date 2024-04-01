@@ -11,11 +11,17 @@ namespace SpendWise
         public Currency()
         {
             InitializeComponent();
-            txt_currency.Text = con.ReadString("SELECT currency FROM wallet");
+            txt_currency.Text = LoadCurrency();
             // load previous theme
             PreviousTheme();
         }
-        
+        // load the currency the user has set
+        public string LoadCurrency()
+        {
+            string queryCurrency = "SELECT currency FROM wallet";
+            string symbol = con.ReadString(queryCurrency);
+            return symbol;
+        }
         private void Btn_save_Click(object sender, EventArgs e)
         { 
             con.ExecuteQuery($"UPDATE wallet SET currency = '{txt_currency.Text}'");
