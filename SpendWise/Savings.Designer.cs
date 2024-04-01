@@ -34,6 +34,7 @@
             this.panel_controls = new System.Windows.Forms.SplitContainer();
             this.btn_apply = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
+            this.lbl_saved = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panel_controls)).BeginInit();
             this.panel_controls.Panel1.SuspendLayout();
             this.panel_controls.Panel2.SuspendLayout();
@@ -45,7 +46,7 @@
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Roboto", 16F);
             this.lbl_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_title.Location = new System.Drawing.Point(12, 12);
+            this.lbl_title.Location = new System.Drawing.Point(11, 37);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(124, 27);
             this.lbl_title.TabIndex = 3;
@@ -56,7 +57,7 @@
             this.lbl_percent.AutoSize = true;
             this.lbl_percent.Font = new System.Drawing.Font("Roboto", 66F);
             this.lbl_percent.ForeColor = System.Drawing.Color.White;
-            this.lbl_percent.Location = new System.Drawing.Point(12, 39);
+            this.lbl_percent.Location = new System.Drawing.Point(12, 64);
             this.lbl_percent.Name = "lbl_percent";
             this.lbl_percent.Size = new System.Drawing.Size(158, 106);
             this.lbl_percent.TabIndex = 3;
@@ -65,7 +66,7 @@
             // scrollbar_savings_percentage
             // 
             this.scrollbar_savings_percentage.LargeChange = 10;
-            this.scrollbar_savings_percentage.Location = new System.Drawing.Point(12, 164);
+            this.scrollbar_savings_percentage.Location = new System.Drawing.Point(12, 173);
             this.scrollbar_savings_percentage.Maximum = 100;
             this.scrollbar_savings_percentage.Minimum = 0;
             this.scrollbar_savings_percentage.MouseWheelBarPartitions = 10;
@@ -82,7 +83,7 @@
             // panel_controls
             // 
             this.panel_controls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_controls.Location = new System.Drawing.Point(0, 197);
+            this.panel_controls.Location = new System.Drawing.Point(0, 196);
             this.panel_controls.Name = "panel_controls";
             // 
             // panel_controls.Panel1
@@ -130,15 +131,27 @@
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.Btn_reset_Click);
             // 
+            // lbl_saved
+            // 
+            this.lbl_saved.AutoSize = true;
+            this.lbl_saved.Font = new System.Drawing.Font("Roboto Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_saved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
+            this.lbl_saved.Location = new System.Drawing.Point(12, 9);
+            this.lbl_saved.Name = "lbl_saved";
+            this.lbl_saved.Size = new System.Drawing.Size(59, 19);
+            this.lbl_saved.TabIndex = 3;
+            this.lbl_saved.Text = "Saved :";
+            // 
             // Savings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(262, 237);
+            this.ClientSize = new System.Drawing.Size(262, 236);
             this.Controls.Add(this.panel_controls);
             this.Controls.Add(this.scrollbar_savings_percentage);
             this.Controls.Add(this.lbl_percent);
+            this.Controls.Add(this.lbl_saved);
             this.Controls.Add(this.lbl_title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -162,5 +175,6 @@
         private System.Windows.Forms.SplitContainer panel_controls;
         private System.Windows.Forms.Button btn_apply;
         private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Label lbl_saved;
     }
 }

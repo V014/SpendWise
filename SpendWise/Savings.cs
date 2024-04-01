@@ -9,12 +9,15 @@ namespace SpendWise
     public partial class Savings : Form
     {
         readonly Connection con = new Connection();
+        readonly Money money = new Money();
         public Savings()
         {
             InitializeComponent();
             string percent = con.ReadString("SELECT save FROM wallet");
             lbl_percent.Text = percent + "%";
             scrollbar_savings_percentage.Value = int.Parse(percent);
+            // display current money save
+            lbl_saved.Text = "Money saved: " + money.CheckSavings();
             // check active theme
             PreviousTheme();
         }
