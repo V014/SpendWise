@@ -16,6 +16,20 @@ namespace SpendWise
         {
             InitializeComponent();
             PreviousTheme();
+            lbl_investments.Text = LoadInvestments();
+            lbl_complete_investments.Text = LoadCompleteInvestments();
+        }
+        // load investments
+        private string LoadInvestments()
+        {
+            string investments = con.ReadString("SELECT COUNT(id) FROM investments");
+            return investments;
+        }
+        // load complete investments
+        private string LoadCompleteInvestments()
+        {
+            string investments = con.ReadString("SELECT COUNT(id) FROM investments WHERE progress = 100");
+            return investments;
         }
         // regulate wrong types in certain controls
         private void MetroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -173,12 +187,19 @@ namespace SpendWise
                     lbl_title_add.ForeColor = Color.Black;
                     lbl_title_progress.ForeColor = Color.Black;
                     lbl_progress.ForeColor = Color.Black;
+                    lbl_complete_investments.ForeColor = Color.Black;
+                    lbl_divider.ForeColor = Color.Black;
+                    lbl_investments.ForeColor = Color.Black;
+
                     scrollbar_progress.Theme = MetroFramework.MetroThemeStyle.Light;
+
                     txt_investment.Theme = MetroFramework.MetroThemeStyle.Light;
                     txt_desc.Theme = MetroFramework.MetroThemeStyle.Light;
                     txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
+
                     btn_add.BackColor = Color.FromArgb(72, 174, 120);
                     btn_update.BackColor = Color.SteelBlue;
+
                     styleGrid.LightStyle(data_investments);
                 }
                 else if (UserTheme == "Dark")
@@ -189,12 +210,19 @@ namespace SpendWise
                     lbl_title_add.ForeColor = Color.White;
                     lbl_title_progress.ForeColor = Color.White;
                     lbl_progress.ForeColor = Color.White;
+                    lbl_complete_investments.ForeColor = Color.White;
+                    lbl_divider.ForeColor = Color.White;
+                    lbl_investments.ForeColor = Color.White;
+
                     scrollbar_progress.Theme = MetroFramework.MetroThemeStyle.Dark;
+
                     txt_investment.Theme = MetroFramework.MetroThemeStyle.Dark;
                     txt_desc.Theme = MetroFramework.MetroThemeStyle.Dark;
                     txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
+
                     btn_add.BackColor = Color.FromArgb(20, 30, 30);
                     btn_update.BackColor = Color.FromArgb(20, 30, 40);
+
                     styleGrid.DarkStyle(data_investments);
                 }
             }

@@ -85,8 +85,6 @@ namespace SpendWise
 
             txt_amount.Text = "";
             txt_desc.Text = "Description";
-            lbl_investments.Text = LoadInvestments();
-            lbl_complete_investments.Text = LoadCompleteInvestments();
             // update investment dot
             LoadInvestmentDot();
         }
@@ -101,10 +99,6 @@ namespace SpendWise
             lbl_money.Text = money.CheckMoney();
             // loads the set currency
             lbl_currency.Text = LoadCurrency();
-            // loads the number of investments set
-            lbl_investments.Text = LoadInvestments();
-            // loads the number of complete investments
-            lbl_complete_investments.Text = LoadCompleteInvestments();
             // update investment dot
             LoadInvestmentDot();
         }
@@ -933,11 +927,7 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
-                lbl_complete_investments.ForeColor = Color.Black;
-                lbl_divider.ForeColor = Color.Black;
-                lbl_investments.ForeColor = Color.Black;
                 // style buttons
                 btn_plus.BackColor = Color.FromArgb(72, 174, 120);
                 btn_minus.BackColor = Color.FromArgb(199, 26, 26);
@@ -978,11 +968,7 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
-                lbl_complete_investments.ForeColor = Color.White;
-                lbl_divider.ForeColor = Color.White;
-                lbl_investments.ForeColor = Color.White;
                 // style buttons
                 btn_plus.BackColor = Color.FromArgb(20, 30, 30);
                 btn_minus.BackColor = Color.FromArgb(40, 30, 30);

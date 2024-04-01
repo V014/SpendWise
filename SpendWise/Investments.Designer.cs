@@ -45,6 +45,11 @@
             this.data_investments = new System.Windows.Forms.DataGridView();
             this.menu_investments = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_title_investment = new System.Windows.Forms.Label();
+            this.lbl_divider = new System.Windows.Forms.Label();
+            this.lbl_complete_investments = new System.Windows.Forms.Label();
+            this.lbl_investments = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_investments)).BeginInit();
             this.splitContainer_investments.Panel1.SuspendLayout();
             this.splitContainer_investments.Panel2.SuspendLayout();
@@ -55,6 +60,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_investments)).BeginInit();
             this.menu_investments.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer_investments
@@ -79,8 +85,9 @@
             // splitContainer_investments.Panel2
             // 
             this.splitContainer_investments.Panel2.Controls.Add(this.data_investments);
+            this.splitContainer_investments.Panel2.Controls.Add(this.panel1);
             this.splitContainer_investments.Size = new System.Drawing.Size(678, 395);
-            this.splitContainer_investments.SplitterDistance = 198;
+            this.splitContainer_investments.SplitterDistance = 191;
             this.splitContainer_investments.TabIndex = 0;
             // 
             // lbl_progress
@@ -108,8 +115,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btn_update);
-            this.splitContainer1.Size = new System.Drawing.Size(198, 31);
-            this.splitContainer1.SplitterDistance = 97;
+            this.splitContainer1.Size = new System.Drawing.Size(191, 31);
+            this.splitContainer1.SplitterDistance = 93;
             this.splitContainer1.TabIndex = 6;
             // 
             // btn_add
@@ -123,7 +130,7 @@
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Location = new System.Drawing.Point(0, 0);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(97, 31);
+            this.btn_add.Size = new System.Drawing.Size(93, 31);
             this.btn_add.TabIndex = 4;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
@@ -140,7 +147,7 @@
             this.btn_update.ForeColor = System.Drawing.Color.White;
             this.btn_update.Location = new System.Drawing.Point(0, 0);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(97, 31);
+            this.btn_update.Size = new System.Drawing.Size(94, 31);
             this.btn_update.TabIndex = 4;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = false;
@@ -183,7 +190,7 @@
             this.txt_desc.Multiline = true;
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.PasswordChar = '\0';
-            this.txt_desc.WaterMark = "Optional but important...";
+            this.txt_desc.PromptText = "Optional but important...";
             this.txt_desc.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_desc.SelectedText = "";
             this.txt_desc.SelectionLength = 0;
@@ -219,7 +226,7 @@
             this.txt_amount.MaxLength = 32767;
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.PasswordChar = '\0';
-            this.txt_amount.WaterMark = "Set cost...";
+            this.txt_amount.PromptText = "Set cost...";
             this.txt_amount.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_amount.SelectedText = "";
             this.txt_amount.SelectionLength = 0;
@@ -290,7 +297,7 @@
             this.txt_investment.MaxLength = 32767;
             this.txt_investment.Name = "txt_investment";
             this.txt_investment.PasswordChar = '\0';
-            this.txt_investment.WaterMark = "Set title...";
+            this.txt_investment.PromptText = "Set title...";
             this.txt_investment.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_investment.SelectedText = "";
             this.txt_investment.SelectionLength = 0;
@@ -331,7 +338,7 @@
             this.data_investments.Location = new System.Drawing.Point(0, 0);
             this.data_investments.Name = "data_investments";
             this.data_investments.ReadOnly = true;
-            this.data_investments.Size = new System.Drawing.Size(476, 395);
+            this.data_investments.Size = new System.Drawing.Size(483, 354);
             this.data_investments.TabIndex = 5;
             this.data_investments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_investments_CellClick);
             // 
@@ -348,6 +355,62 @@
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbl_divider);
+            this.panel1.Controls.Add(this.lbl_complete_investments);
+            this.panel1.Controls.Add(this.lbl_investments);
+            this.panel1.Controls.Add(this.lbl_title_investment);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 354);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(483, 41);
+            this.panel1.TabIndex = 6;
+            // 
+            // lbl_title_investment
+            // 
+            this.lbl_title_investment.AutoSize = true;
+            this.lbl_title_investment.Font = new System.Drawing.Font("Roboto", 12F);
+            this.lbl_title_investment.ForeColor = System.Drawing.Color.White;
+            this.lbl_title_investment.Location = new System.Drawing.Point(3, 13);
+            this.lbl_title_investment.Name = "lbl_title_investment";
+            this.lbl_title_investment.Size = new System.Drawing.Size(107, 19);
+            this.lbl_title_investment.TabIndex = 1;
+            this.lbl_title_investment.Text = "Investments : ";
+            // 
+            // lbl_divider
+            // 
+            this.lbl_divider.AutoSize = true;
+            this.lbl_divider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_divider.ForeColor = System.Drawing.Color.White;
+            this.lbl_divider.Location = new System.Drawing.Point(148, 10);
+            this.lbl_divider.Name = "lbl_divider";
+            this.lbl_divider.Size = new System.Drawing.Size(15, 24);
+            this.lbl_divider.TabIndex = 2;
+            this.lbl_divider.Text = "/";
+            // 
+            // lbl_complete_investments
+            // 
+            this.lbl_complete_investments.AutoSize = true;
+            this.lbl_complete_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_complete_investments.ForeColor = System.Drawing.Color.White;
+            this.lbl_complete_investments.Location = new System.Drawing.Point(120, 10);
+            this.lbl_complete_investments.Name = "lbl_complete_investments";
+            this.lbl_complete_investments.Size = new System.Drawing.Size(20, 24);
+            this.lbl_complete_investments.TabIndex = 3;
+            this.lbl_complete_investments.Text = "0";
+            // 
+            // lbl_investments
+            // 
+            this.lbl_investments.AutoSize = true;
+            this.lbl_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_investments.ForeColor = System.Drawing.Color.White;
+            this.lbl_investments.Location = new System.Drawing.Point(171, 10);
+            this.lbl_investments.Name = "lbl_investments";
+            this.lbl_investments.Size = new System.Drawing.Size(20, 24);
+            this.lbl_investments.TabIndex = 4;
+            this.lbl_investments.Text = "0";
             // 
             // Investments
             // 
@@ -375,6 +438,8 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.data_investments)).EndInit();
             this.menu_investments.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -397,5 +462,10 @@
         private MetroFramework.Controls.MetroContextMenu menu_investments;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.Label lbl_progress;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label lbl_title_investment;
+        private System.Windows.Forms.Label lbl_divider;
+        private System.Windows.Forms.Label lbl_complete_investments;
+        private System.Windows.Forms.Label lbl_investments;
     }
 }
