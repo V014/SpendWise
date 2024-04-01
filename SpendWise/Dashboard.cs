@@ -802,17 +802,6 @@ namespace SpendWise
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // Imports data into apps
-        private void ImportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Copy and replace database file into the spendwise application folder");
-        }
-        // eports data from app
-        private void ExportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Export export = new Export();
-            export.Show();
-        }
         // displays about message
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1016,6 +1005,18 @@ namespace SpendWise
             {
                 // do nothing
             }
+        }
+
+        private void ImportStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Imports data into apps
+            MessageBox.Show("Copy and replace database file into the spendwise application folder");
+        }
+
+        private void ExportStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Export export = new Export();
+            export.Show();
         }
     }
 }

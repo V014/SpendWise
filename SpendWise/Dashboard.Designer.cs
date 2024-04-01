@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_savings = new System.Windows.Forms.Button();
@@ -53,12 +53,10 @@
             this.cmb_month = new MetroFramework.Controls.MetroComboBox();
             this.date_select = new MetroFramework.Controls.MetroDateTime();
             this.menuUI = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lightModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_transactions = new System.Windows.Forms.Panel();
             this.data_transactions = new System.Windows.Forms.DataGridView();
             this.panel_money = new System.Windows.Forms.Panel();
@@ -105,6 +103,9 @@
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.menuStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -310,52 +311,52 @@
             this.chart_income.BorderlineWidth = 0;
             this.chart_income.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_income.BorderSkin.BorderWidth = 0;
-            chartArea13.Area3DStyle.Inclination = 2;
-            chartArea13.Area3DStyle.IsRightAngleAxes = false;
-            chartArea13.Area3DStyle.Perspective = 20;
-            chartArea13.Area3DStyle.Rotation = 5;
-            chartArea13.Area3DStyle.WallWidth = 20;
-            chartArea13.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea13.AxisX.LineColor = System.Drawing.Color.Empty;
-            chartArea13.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea13.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea13.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea13.AxisY.LineColor = System.Drawing.Color.Empty;
-            chartArea13.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea13.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea13.BackColor = System.Drawing.Color.Transparent;
-            chartArea13.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea13.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea13.BorderColor = System.Drawing.Color.Empty;
-            chartArea13.BorderWidth = 0;
-            chartArea13.Name = "ChartArea1";
-            chartArea13.Position.Auto = false;
-            chartArea13.Position.Height = 94F;
-            chartArea13.Position.Width = 94F;
-            chartArea13.Position.X = 3F;
-            chartArea13.Position.Y = 3F;
-            chartArea13.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_income.ChartAreas.Add(chartArea13);
+            chartArea9.Area3DStyle.Inclination = 2;
+            chartArea9.Area3DStyle.IsRightAngleAxes = false;
+            chartArea9.Area3DStyle.Perspective = 20;
+            chartArea9.Area3DStyle.Rotation = 5;
+            chartArea9.Area3DStyle.WallWidth = 20;
+            chartArea9.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea9.AxisX.LineColor = System.Drawing.Color.Empty;
+            chartArea9.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea9.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea9.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea9.AxisY.LineColor = System.Drawing.Color.Empty;
+            chartArea9.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea9.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea9.BackColor = System.Drawing.Color.Transparent;
+            chartArea9.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea9.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea9.BorderColor = System.Drawing.Color.Empty;
+            chartArea9.BorderWidth = 0;
+            chartArea9.Name = "ChartArea1";
+            chartArea9.Position.Auto = false;
+            chartArea9.Position.Height = 94F;
+            chartArea9.Position.Width = 94F;
+            chartArea9.Position.X = 3F;
+            chartArea9.Position.Y = 3F;
+            chartArea9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_income.ChartAreas.Add(chartArea9);
             this.chart_income.Cursor = System.Windows.Forms.Cursors.Help;
             this.chart_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend13.BackColor = System.Drawing.Color.Transparent;
-            legend13.ForeColor = System.Drawing.Color.Gray;
-            legend13.Name = "Legend1";
-            this.chart_income.Legends.Add(legend13);
+            legend9.BackColor = System.Drawing.Color.Transparent;
+            legend9.ForeColor = System.Drawing.Color.Gray;
+            legend9.Name = "Legend1";
+            this.chart_income.Legends.Add(legend9);
             this.chart_income.Location = new System.Drawing.Point(0, 0);
             this.chart_income.Name = "chart_income";
             this.chart_income.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series13.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series13.BackSecondaryColor = System.Drawing.Color.DarkGreen;
-            series13.ChartArea = "ChartArea1";
-            series13.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
-            series13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            series13.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series13.LabelForeColor = System.Drawing.Color.Empty;
-            series13.Legend = "Legend1";
-            series13.Name = "Income";
-            series13.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_income.Series.Add(series13);
+            series9.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series9.BackSecondaryColor = System.Drawing.Color.DarkGreen;
+            series9.ChartArea = "ChartArea1";
+            series9.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
+            series9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            series9.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series9.LabelForeColor = System.Drawing.Color.Empty;
+            series9.Legend = "Legend1";
+            series9.Name = "Income";
+            series9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_income.Series.Add(series9);
             this.chart_income.Size = new System.Drawing.Size(384, 193);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
@@ -378,49 +379,49 @@
             this.chart_expenditure.BorderlineWidth = 0;
             this.chart_expenditure.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_expenditure.BorderSkin.BorderWidth = 0;
-            chartArea14.Area3DStyle.Inclination = 2;
-            chartArea14.Area3DStyle.IsRightAngleAxes = false;
-            chartArea14.Area3DStyle.Perspective = 20;
-            chartArea14.Area3DStyle.Rotation = 5;
-            chartArea14.Area3DStyle.WallWidth = 20;
-            chartArea14.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea14.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea14.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea14.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea14.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea14.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea14.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea14.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea14.BackColor = System.Drawing.Color.Transparent;
-            chartArea14.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea14.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea14.BorderColor = System.Drawing.Color.Empty;
-            chartArea14.BorderWidth = 0;
-            chartArea14.Name = "ChartArea1";
-            chartArea14.Position.Auto = false;
-            chartArea14.Position.Height = 94F;
-            chartArea14.Position.Width = 94F;
-            chartArea14.Position.X = 3F;
-            chartArea14.Position.Y = 3F;
-            chartArea14.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.ChartAreas.Add(chartArea14);
+            chartArea10.Area3DStyle.Inclination = 2;
+            chartArea10.Area3DStyle.IsRightAngleAxes = false;
+            chartArea10.Area3DStyle.Perspective = 20;
+            chartArea10.Area3DStyle.Rotation = 5;
+            chartArea10.Area3DStyle.WallWidth = 20;
+            chartArea10.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea10.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea10.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea10.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea10.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea10.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea10.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea10.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea10.BackColor = System.Drawing.Color.Transparent;
+            chartArea10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea10.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea10.BorderColor = System.Drawing.Color.Empty;
+            chartArea10.BorderWidth = 0;
+            chartArea10.Name = "ChartArea1";
+            chartArea10.Position.Auto = false;
+            chartArea10.Position.Height = 94F;
+            chartArea10.Position.Width = 94F;
+            chartArea10.Position.X = 3F;
+            chartArea10.Position.Y = 3F;
+            chartArea10.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.ChartAreas.Add(chartArea10);
             this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Help;
             this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend14.BackColor = System.Drawing.Color.Transparent;
-            legend14.ForeColor = System.Drawing.Color.Gray;
-            legend14.Name = "Legend1";
-            this.chart_expenditure.Legends.Add(legend14);
+            legend10.BackColor = System.Drawing.Color.Transparent;
+            legend10.ForeColor = System.Drawing.Color.Gray;
+            legend10.Name = "Legend1";
+            this.chart_expenditure.Legends.Add(legend10);
             this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
             this.chart_expenditure.Name = "chart_expenditure";
             this.chart_expenditure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series14.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series14.BackSecondaryColor = System.Drawing.Color.Firebrick;
-            series14.ChartArea = "ChartArea1";
-            series14.Color = System.Drawing.Color.Red;
-            series14.Legend = "Legend1";
-            series14.Name = "Out";
-            series14.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.Series.Add(series14);
+            series10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series10.BackSecondaryColor = System.Drawing.Color.Firebrick;
+            series10.ChartArea = "ChartArea1";
+            series10.Color = System.Drawing.Color.Red;
+            series10.Legend = "Legend1";
+            series10.Name = "Out";
+            series10.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.Series.Add(series10);
             this.chart_expenditure.Size = new System.Drawing.Size(384, 194);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
@@ -471,65 +472,48 @@
             // 
             this.menuUI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.menuUI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importToolStripMenuItem,
-            this.exportToolStripMenuItem,
-            this.aboutToolStripMenuItem,
-            this.darkModeToolStripMenuItem});
+            this.menuStripMenuItem,
+            this.themeToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuUI.Name = "uiMenu";
             this.menuUI.ShowImageMargin = false;
-            this.menuUI.Size = new System.Drawing.Size(86, 92);
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
-            this.importToolStripMenuItem.Text = "Import";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
-            this.exportToolStripMenuItem.Text = "Export";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportToolStripMenuItem_Click);
+            this.menuUI.Size = new System.Drawing.Size(156, 92);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // darkModeToolStripMenuItem
+            // themeToolStripMenuItem
             // 
-            this.darkModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lightModeToolStripMenuItem,
-            this.darkModeToolStripMenuItem1});
-            this.darkModeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
-            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
-            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
-            this.darkModeToolStripMenuItem.Text = "Theme";
+            this.darkModeToolStripMenuItem});
+            this.themeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
+            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.themeToolStripMenuItem.Text = "Theme";
             // 
             // lightModeToolStripMenuItem
             // 
             this.lightModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.lightModeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.lightModeToolStripMenuItem.Name = "lightModeToolStripMenuItem";
-            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lightModeToolStripMenuItem.Text = "Light";
             this.lightModeToolStripMenuItem.Click += new System.EventHandler(this.LightModeToolStripMenuItem_Click);
             // 
-            // darkModeToolStripMenuItem1
+            // darkModeToolStripMenuItem
             // 
-            this.darkModeToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.darkModeToolStripMenuItem1.ForeColor = System.Drawing.Color.Gray;
-            this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
-            this.darkModeToolStripMenuItem1.Text = "Dark";
-            this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.DarkModeToolStripMenuItem1_Click);
+            this.darkModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.darkModeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
+            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darkModeToolStripMenuItem.Text = "Dark";
+            this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.DarkModeToolStripMenuItem1_Click);
             // 
             // panel_transactions
             // 
@@ -1156,6 +1140,30 @@
             this.panel3.Size = new System.Drawing.Size(445, 40);
             this.panel3.TabIndex = 13;
             // 
+            // menuStripMenuItem
+            // 
+            this.menuStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importStripMenuItem,
+            this.exportStripMenuItem});
+            this.menuStripMenuItem.ForeColor = System.Drawing.Color.Gray;
+            this.menuStripMenuItem.Name = "menuStripMenuItem";
+            this.menuStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.menuStripMenuItem.Text = "File";
+            // 
+            // importStripMenuItem
+            // 
+            this.importStripMenuItem.Name = "importStripMenuItem";
+            this.importStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importStripMenuItem.Text = "Import";
+            this.importStripMenuItem.Click += new System.EventHandler(this.ImportStripMenuItem_Click);
+            // 
+            // exportStripMenuItem
+            // 
+            this.exportStripMenuItem.Name = "exportStripMenuItem";
+            this.exportStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportStripMenuItem.Text = "Export";
+            this.exportStripMenuItem.Click += new System.EventHandler(this.ExportStripMenuItem_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1235,8 +1243,6 @@
         private MetroFramework.Controls.MetroComboBox cmb_month;
         private MetroFramework.Controls.MetroTextBox txt_amount;
         private System.Windows.Forms.ContextMenuStrip menuUI;
-        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel panel_transactions;
         public System.Windows.Forms.DataGridView data_transactions;
@@ -1280,13 +1286,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_annual_count;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightModeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ToolStripMenuItem menuStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
     }
 }
 
