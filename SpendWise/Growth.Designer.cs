@@ -63,11 +63,11 @@
             // lbl_CAGR
             // 
             this.lbl_CAGR.AutoSize = true;
-            this.lbl_CAGR.Font = new System.Drawing.Font("Roboto", 72F);
+            this.lbl_CAGR.Font = new System.Drawing.Font("Roboto", 50F);
             this.lbl_CAGR.ForeColor = System.Drawing.Color.White;
-            this.lbl_CAGR.Location = new System.Drawing.Point(12, 43);
+            this.lbl_CAGR.Location = new System.Drawing.Point(14, 58);
             this.lbl_CAGR.Name = "lbl_CAGR";
-            this.lbl_CAGR.Size = new System.Drawing.Size(173, 115);
+            this.lbl_CAGR.Size = new System.Drawing.Size(122, 81);
             this.lbl_CAGR.TabIndex = 3;
             this.lbl_CAGR.Text = "0%";
             // 
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(238, 356);
+            this.ClientSize = new System.Drawing.Size(238, 360);
             this.Controls.Add(this.lbl_years);
             this.Controls.Add(this.lbl_ev);
             this.Controls.Add(this.lbl_CAGR);

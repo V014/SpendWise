@@ -88,14 +88,13 @@ namespace SpendWise
             // load charts
             LoadCharts();
 
-            lbl_expenditure.Text = LoadExpenditure();
             lbl_common.Text = LoadCommon();
             lbl_least.Text = LoadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "Description";
             lbl_investments.Text = LoadInvestments();
             lbl_complete_investments.Text = LoadCompleteInvestments();
-            lbl_growth.Text = LoadGrowth().ToString() + "%";
+            lbl_growth.Text = LoadGrowth() + "%";
             // update investment dot
             LoadInvestmentDot();
         }
@@ -284,7 +283,7 @@ namespace SpendWise
         // load year of establishment
         public int LoadEstablished()
         {
-            int established = int.Parse(con.ReadString("SELECT strftime('%Y') FROM transactions WHERE action = '+' ORDER BY ID ASC LIMIT 1"));
+            int established = int.Parse(con.ReadString("SELECT strftime('%Y', MIN(`Date`)) FROM transactions"));
             return established;
         }
         // load current year
@@ -294,7 +293,7 @@ namespace SpendWise
             return yearNow;
         }
         // load growth//////////////////////////////////////////////////////////////
-        public double LoadGrowth()
+        public string LoadGrowth()
         {
             try
             {
@@ -316,23 +315,23 @@ namespace SpendWise
                     if (years != 0) 
                     {
                         // divide 1 by the amount of years in business
-                        double factor = 1 / years;
+                        double factor = (1 / years) - 1 ;
                         // Following BIDMAS rule -> brackets, indices, division, multiplication, addition, subtraction
                         // call math dot power function, divide capital from revenue, to the power of the factor, minus one
-                        double total = Math.Pow(revenue / capital, factor) - 1;
+                        double total = Math.Pow(revenue / capital, factor);
                         // multiply total by a hundred to get percentage
                         double percent = total * 100;
                         // return the CAGR
-                        return percent;
+                        return Math.Round(percent, 2).ToString();
                     }
                     else
                     {
                         // if business is not a year old return zero, CARG is stricly calculated Annually
-                        return 0;
+                        return 0.ToString();
                     }
                     //////////////////////////////////////////////////////////////////////////////////////////////////////
                 }
-                return 0;
+                return 0.ToString();
             }
             catch (Exception)
             {
@@ -342,7 +341,7 @@ namespace SpendWise
                 save.Play();
                 // log the error
                 con.ExecuteQuery("INSERT INTO events (date, Description, Location) VALUES(strftime('%Y-%m-%d %H:%M, 'now', ''localtime), 'SQL error', 'Growth action')");
-                return 0;
+                return 0.ToString();
             }
         }
         // load investments
@@ -749,7 +748,6 @@ namespace SpendWise
                     chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                 }
 
-                lbl_expenditure.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '-' AND date LIKE '{date}%'");
             }
             catch (Exception)
             {
@@ -821,7 +819,6 @@ namespace SpendWise
                     chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
                 }
 
-                lbl_expenditure.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '-' AND strftime('%m', date) = '{month}' AND strftime('%Y', date) = '{year}'");
             }
             catch (Exception)
             {
@@ -957,14 +954,12 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_expenditure.ForeColor = Color.Black;
                 lbl_title_saved.ForeColor = Color.Black;
                 lbl_title_date.ForeColor = Color.Black;
                 lbl_title_month.ForeColor = Color.Black;
                 lbl_title_growth.ForeColor = Color.Black;
                 lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
-                lbl_expenditure.ForeColor = Color.Black;
                 lbl_saved.ForeColor = Color.Black;
                 lbl_growth.ForeColor = Color.Black;
                 lbl_complete_investments.ForeColor = Color.Black;
@@ -1018,14 +1013,12 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_expenditure.ForeColor = Color.White;
                 lbl_title_saved.ForeColor = Color.White;
                 lbl_title_date.ForeColor = Color.White;
                 lbl_title_month.ForeColor = Color.White;
                 lbl_title_growth.ForeColor = Color.White;
                 lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
-                lbl_expenditure.ForeColor = Color.White;
                 lbl_saved.ForeColor = Color.White;
                 lbl_growth.ForeColor = Color.White;
                 lbl_complete_investments.ForeColor = Color.White;

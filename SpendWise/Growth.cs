@@ -27,7 +27,7 @@ namespace SpendWise
                 // display years
                 lbl_years.Text = years.ToString();
                 // display compound annual growth rate
-                lbl_CAGR.Text = dashboard.LoadGrowth().ToString() + "%";
+                lbl_CAGR.Text = dashboard.LoadGrowth() + "%";
             }
             catch (Exception)
             {
