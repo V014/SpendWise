@@ -87,8 +87,7 @@ namespace SpendWise
             lbl_currency.Text = LoadCurrency();
             // load charts
             LoadCharts();
-            // apply details
-            lbl_income.Text = LoadIncome();
+
             lbl_expenditure.Text = LoadExpenditure();
             lbl_common.Text = LoadCommon();
             lbl_least.Text = LoadLeast();
@@ -737,7 +736,6 @@ namespace SpendWise
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                 }
 
-                lbl_income.Text = con.ReadString($"SELECT SUM(Amount) FROM transactions WHERE Action = '+' AND date LIKE '{date}%'");
             }
             catch (Exception)
             {
@@ -809,7 +807,6 @@ namespace SpendWise
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                 }
 
-                lbl_income.Text = con.ReadString($"SELECT SUM(amount) FROM transactions WHERE action = '+' AND strftime('%m', date) = '{month}' AND strftime('%Y', date) = '{year}'");
             }
             catch (Exception)
             {
@@ -960,7 +957,6 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_income.ForeColor = Color.Black;
                 lbl_title_expenditure.ForeColor = Color.Black;
                 lbl_title_saved.ForeColor = Color.Black;
                 lbl_title_date.ForeColor = Color.Black;
@@ -968,7 +964,6 @@ namespace SpendWise
                 lbl_title_growth.ForeColor = Color.Black;
                 lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
-                lbl_income.ForeColor = Color.Black; ;
                 lbl_expenditure.ForeColor = Color.Black;
                 lbl_saved.ForeColor = Color.Black;
                 lbl_growth.ForeColor = Color.Black;
@@ -1023,7 +1018,6 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_income.ForeColor = Color.White;
                 lbl_title_expenditure.ForeColor = Color.White;
                 lbl_title_saved.ForeColor = Color.White;
                 lbl_title_date.ForeColor = Color.White;
@@ -1031,7 +1025,6 @@ namespace SpendWise
                 lbl_title_growth.ForeColor = Color.White;
                 lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
-                lbl_income.ForeColor = Color.White; ;
                 lbl_expenditure.ForeColor = Color.White;
                 lbl_saved.ForeColor = Color.White;
                 lbl_growth.ForeColor = Color.White;
