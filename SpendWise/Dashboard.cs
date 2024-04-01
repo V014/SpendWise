@@ -74,11 +74,6 @@ namespace SpendWise
             LoadPicture();
             // show money
             lbl_money.Text = money.CheckMoney();
-            // show saved
-            if (LoadSaved() > 0)
-            {
-                lbl_saved.Text = LoadSaved().ToString();
-            }
             // style datagrid
             // theme.style(data_transactions);
             // load the data into the data grid
@@ -88,13 +83,10 @@ namespace SpendWise
             // load charts
             LoadCharts();
 
-            lbl_common.Text = LoadCommon();
-            lbl_least.Text = LoadLeast();
             txt_amount.Text = "";
             txt_desc.Text = "Description";
             lbl_investments.Text = LoadInvestments();
             lbl_complete_investments.Text = LoadCompleteInvestments();
-            lbl_growth.Text = LoadGrowth() + "%";
             // update investment dot
             LoadInvestmentDot();
         }
@@ -107,17 +99,8 @@ namespace SpendWise
             LoadPicture();
             // show money
             lbl_money.Text = money.CheckMoney();
-            // show saved
-            if (LoadSaved() > 0)
-            {
-                lbl_saved.Text = LoadSaved().ToString();
-            }
             // loads the set currency
             lbl_currency.Text = LoadCurrency();
-            // loads the most common transaction
-            lbl_common.Text = LoadCommon();
-            // loads the least common transaction
-            lbl_least.Text = LoadLeast();
             // loads the number of investments set
             lbl_investments.Text = LoadInvestments();
             // loads the number of complete investments
@@ -401,7 +384,7 @@ namespace SpendWise
             
         }
         // load the overall saved
-        private int LoadSaved()
+        public int LoadSaved()
         {
             try
             {
@@ -944,8 +927,6 @@ namespace SpendWise
                 panel_savings.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overall_expenditure.BackColor = Color.FromArgb(235, 235, 235);
-                panel_total_saved.BackColor = Color.FromArgb(235, 235, 235);
-                panel_frequency.BackColor = Color.FromArgb(235, 235, 235);
                 panel_date.BackColor = Color.FromArgb(235, 235, 235);
                 panel_month.BackColor = Color.FromArgb(235, 235, 235);
                 panel_growth.BackColor = Color.FromArgb(235, 235, 235);
@@ -954,21 +935,13 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.Black;
                 lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
-                lbl_title_saved.ForeColor = Color.Black;
                 lbl_title_date.ForeColor = Color.Black;
                 lbl_title_month.ForeColor = Color.Black;
-                lbl_title_growth.ForeColor = Color.Black;
                 lbl_title_investment.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
-                lbl_saved.ForeColor = Color.Black;
-                lbl_growth.ForeColor = Color.Black;
                 lbl_complete_investments.ForeColor = Color.Black;
                 lbl_divider.ForeColor = Color.Black;
                 lbl_investments.ForeColor = Color.Black;
-                lbl_com.ForeColor = Color.Black;
-                lbl_common.ForeColor = Color.Black;
-                lbl_lst.ForeColor = Color.Black;
-                lbl_least.ForeColor = Color.Black;
                 // style buttons
                 btn_plus.BackColor = Color.FromArgb(72, 174, 120);
                 btn_minus.BackColor = Color.FromArgb(199, 26, 26);
@@ -1003,8 +976,6 @@ namespace SpendWise
                 panel_savings.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overall_expenditure.BackColor = Color.FromArgb(24, 24, 24);
-                panel_total_saved.BackColor = Color.FromArgb(24, 24, 24);
-                panel_frequency.BackColor = Color.FromArgb(24, 24, 24);
                 panel_date.BackColor = Color.FromArgb(24, 24, 24);
                 panel_month.BackColor = Color.FromArgb(24, 24, 24);
                 panel_growth.BackColor = Color.FromArgb(24, 24, 24);
@@ -1013,21 +984,13 @@ namespace SpendWise
                 lbl_title_amount.ForeColor = Color.White;
                 lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
-                lbl_title_saved.ForeColor = Color.White;
                 lbl_title_date.ForeColor = Color.White;
                 lbl_title_month.ForeColor = Color.White;
-                lbl_title_growth.ForeColor = Color.White;
                 lbl_title_investment.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
-                lbl_saved.ForeColor = Color.White;
-                lbl_growth.ForeColor = Color.White;
                 lbl_complete_investments.ForeColor = Color.White;
                 lbl_divider.ForeColor = Color.White;
                 lbl_investments.ForeColor = Color.White;
-                lbl_com.ForeColor = Color.White;
-                lbl_common.ForeColor = Color.White;
-                lbl_lst.ForeColor = Color.White;
-                lbl_least.ForeColor = Color.White;
                 // style buttons
                 btn_plus.BackColor = Color.FromArgb(20, 30, 30);
                 btn_minus.BackColor = Color.FromArgb(40, 30, 30);
