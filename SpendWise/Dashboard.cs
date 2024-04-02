@@ -218,8 +218,7 @@ namespace SpendWise
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
             buttonToolTip.SetToolTip(btn_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
-            buttonToolTip.SetToolTip(btn_execute, "Add to wallet");
-            buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
+            buttonToolTip.SetToolTip(btn_execute, "Add or subtract from wallet");
             buttonToolTip.SetToolTip(lbl_income_count, "This is how many times you have been paid this month");
             buttonToolTip.SetToolTip(lbl_expenditure_count, "This is how many times you have spent this month");
             buttonToolTip.SetToolTip(lbl_transactions_count, "This is how many times you have transacted this month");
@@ -415,18 +414,18 @@ namespace SpendWise
         // when the plus button is clicked/////////////////////////////////////////
         private void Btn_plus_Click(object sender, System.EventArgs e)
         {
-            // check if a description and amount both exist
-            if (txt_investment.Text != "Description" && txt_amount.Text != "")
+            try
             {
-                // pull the last amount in the wallet then credit it
-                try
+                // instanciate values from controls
+                string desc = txt_investment.Text;
+                string date = date_select.Text;
+                int amount = Convert.ToInt32(txt_amount.Text);
+                int wallet = Convert.ToInt32(money.CheckMoney());
+                int savings = Convert.ToInt32(money.CheckSavings());
+
+                // check if a description and amount both exist
+                if (txt_investment.Text != "Description" && txt_amount.Text != "" && txt_expenditure.Text == "Description")
                 {
-                    // instanciate values from controls
-                    string desc = txt_investment.Text;
-                    string date = date_select.Text;
-                    int amount = Convert.ToInt32(txt_amount.Text);
-                    int wallet = Convert.ToInt32(money.CheckMoney());
-                    int savings = Convert.ToInt32(money.CheckSavings());
                     // add the previous and adding values
                     int moneyNow = wallet + amount;
                     // build the querys
@@ -454,39 +453,11 @@ namespace SpendWise
                     // play chime
                     SoundPlayer win = new SoundPlayer(@"sfx/win.wav");
                     win.Play();
+
                 }
-                //(Exception ex)
-                catch
+                else if (txt_expenditure.Text != "Description" && txt_amount.Text != "" && txt_investment.Text == "Description")
                 {
-                    // play chime
-                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
-                    save.Play();
-                    // log the error
-                    con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Plus action')");
-                    MessageBox.Show("Feature unavailable!", "Assistant");      
-                }
-            } else
-            {
-                // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/pop.wav");
-                save.Play();
-                // show suggestion box
-                MessageBox.Show("Add both a description and amount!", "Suggestion");
-            }
-        }
-        // when the minus button is clicked////////////////////////////////////////
-        private void Btn_minus_Click(object sender, EventArgs e)
-        {
-            // check if a description and amount both exist
-            if (txt_investment.Text != "Description" && txt_amount.Text != "")
-            {
-                // pull the last amount in the wallet then credit it
-                try
-                {
-                    // instanciate values from controls
-                    String desc = txt_investment.Text;
-                    int amount = Convert.ToInt32(txt_amount.Text);
-                    int wallet = Convert.ToInt32(money.CheckMoney());
+                    
                     // subtract the previous and adding values
                     int moneyNow = wallet - amount;
                     // build the query
@@ -506,26 +477,27 @@ namespace SpendWise
                     // play chime
                     SoundPlayer coins = new SoundPlayer(@"sfx/coins.wav");
                     coins.Play();
+
                 }
-                catch//(Exception ex)
+                else
                 {
                     // play chime
-                    SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                    SoundPlayer save = new SoundPlayer(@"sfx/pop.wav");
                     save.Play();
-                    // log the error
-                    con.ExecuteQuery($"INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Minus action')");
                     // show suggestion box
-                    MessageBox.Show("Error logged");
+                    MessageBox.Show("Add both a description and amount for either an investment or expenditure, not all fields should be set at once!", "Suggestion");
                 }
             }
-            else
+            catch
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/pop.wav");
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
-                // show suggestion box
-                MessageBox.Show("Add both a description and amount!", "Suggestion");
+                // log the error
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Plus action')");
+                MessageBox.Show("Feature unavailable!", "Assistant");
             }
+            
         }
         // when the amount textbox is clicked
         private void Txt_amount_KeyPress(object sender, KeyPressEventArgs e)
@@ -919,7 +891,6 @@ namespace SpendWise
                 lbl_money.ForeColor = Color.Black;
                 // style buttons
                 btn_execute.BackColor = Color.FromArgb(72, 174, 120);
-                btn_minus.BackColor = Color.FromArgb(199, 26, 26);
                 btn_refresh.BackColor = Color.SteelBlue;
                 btn_reset.BackColor = Color.FromArgb(60, 0, 100);
                 // style controls
@@ -960,7 +931,6 @@ namespace SpendWise
                 lbl_money.ForeColor = Color.White;
                 // style buttons
                 btn_execute.BackColor = Color.FromArgb(20, 30, 30);
-                btn_minus.BackColor = Color.FromArgb(40, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 btn_reset.BackColor = Color.FromArgb(30, 20, 30);
                 // style controls
