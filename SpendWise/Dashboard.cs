@@ -84,7 +84,8 @@ namespace SpendWise
             LoadCharts();
 
             txt_amount.Text = "";
-            txt_desc.Text = "Description";
+            txt_investment.Text = "Description";
+            txt_expenditure.Text = "Description";
             // update investment dot
             LoadInvestmentDot();
         }
@@ -217,7 +218,7 @@ namespace SpendWise
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
             buttonToolTip.SetToolTip(btn_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
-            buttonToolTip.SetToolTip(btn_plus, "Add to wallet");
+            buttonToolTip.SetToolTip(btn_execute, "Add to wallet");
             buttonToolTip.SetToolTip(btn_minus, "Remove from wallet");
             buttonToolTip.SetToolTip(lbl_income_count, "This is how many times you have been paid this month");
             buttonToolTip.SetToolTip(lbl_expenditure_count, "This is how many times you have spent this month");
@@ -415,13 +416,13 @@ namespace SpendWise
         private void Btn_plus_Click(object sender, System.EventArgs e)
         {
             // check if a description and amount both exist
-            if (txt_desc.Text != "Description" && txt_amount.Text != "")
+            if (txt_investment.Text != "Description" && txt_amount.Text != "")
             {
                 // pull the last amount in the wallet then credit it
                 try
                 {
                     // instanciate values from controls
-                    string desc = txt_desc.Text;
+                    string desc = txt_investment.Text;
                     string date = date_select.Text;
                     int amount = Convert.ToInt32(txt_amount.Text);
                     int wallet = Convert.ToInt32(money.CheckMoney());
@@ -440,7 +441,6 @@ namespace SpendWise
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, '{date}', '+')");
-                    //con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, strftime('%Y-%m-%d %H:%M','now','localtime'), '+')");
                     // refresh app
                     RefreshUI();
                     // update the money count
@@ -478,13 +478,13 @@ namespace SpendWise
         private void Btn_minus_Click(object sender, EventArgs e)
         {
             // check if a description and amount both exist
-            if (txt_desc.Text != "Description" && txt_amount.Text != "")
+            if (txt_investment.Text != "Description" && txt_amount.Text != "")
             {
                 // pull the last amount in the wallet then credit it
                 try
                 {
                     // instanciate values from controls
-                    String desc = txt_desc.Text;
+                    String desc = txt_investment.Text;
                     int amount = Convert.ToInt32(txt_amount.Text);
                     int wallet = Convert.ToInt32(money.CheckMoney());
                     // subtract the previous and adding values
@@ -918,13 +918,13 @@ namespace SpendWise
                 lbl_currency.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
                 // style buttons
-                btn_plus.BackColor = Color.FromArgb(72, 174, 120);
+                btn_execute.BackColor = Color.FromArgb(72, 174, 120);
                 btn_minus.BackColor = Color.FromArgb(199, 26, 26);
                 btn_refresh.BackColor = Color.SteelBlue;
                 btn_reset.BackColor = Color.FromArgb(60, 0, 100);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
-                txt_desc.BackColor = Color.White;
+                txt_investment.BackColor = Color.White;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
                 // update the wallet theme property in the db
@@ -959,13 +959,13 @@ namespace SpendWise
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
                 // style buttons
-                btn_plus.BackColor = Color.FromArgb(20, 30, 30);
+                btn_execute.BackColor = Color.FromArgb(20, 30, 30);
                 btn_minus.BackColor = Color.FromArgb(40, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 btn_reset.BackColor = Color.FromArgb(30, 20, 30);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
-                txt_desc.BackColor = Color.FromArgb(17, 17, 17);
+                txt_investment.BackColor = Color.FromArgb(17, 17, 17);
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
                 // update the wallet theme property in the db
