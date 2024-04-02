@@ -69,7 +69,7 @@ namespace SpendWise
         private void RefreshUI()
         {
             // display user name at the bottom of the ui
-            btn_owner.Text = LoadUser();
+            userToolStripMenuItem.Text = LoadUser();
             // displays profile image
             LoadPicture();
             // show money
@@ -93,7 +93,7 @@ namespace SpendWise
         private void AutoRefresh()
         {
             // display user name at the bottom of the ui
-            btn_owner.Text = LoadUser();
+            userToolStripMenuItem.Text = LoadUser();
             // displays profile image
             LoadPicture();
             // show money
@@ -216,7 +216,6 @@ namespace SpendWise
             };
 
             buttonToolTip.SetToolTip(btn_refresh, "Click to refresh");
-            buttonToolTip.SetToolTip(btn_owner, "Click to rename");
             buttonToolTip.SetToolTip(lbl_currency, "Click to change currency");
             buttonToolTip.SetToolTip(btn_execute, "Add or subtract from wallet");
             buttonToolTip.SetToolTip(lbl_income_count, "This is how many times you have been paid this month");
@@ -990,6 +989,12 @@ namespace SpendWise
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void UserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
         }
     }
 }
