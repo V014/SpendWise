@@ -174,9 +174,11 @@ namespace SpendWise
             // get expenditure
             SQLiteCommand queryExpenditure = new SQLiteCommand("SELECT amount FROM transactions WHERE action = '-'", connection);
             SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
+            // display income on chart
             try
             {
                 chart_income.Series[0].Points.Clear();
+
                 while (income.Read())
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
@@ -186,6 +188,8 @@ namespace SpendWise
             {
                 MessageBox.Show("Income unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // display expenditure on chart
+            
             try
             {
                 chart_expenditure.Series[0].Points.Clear();
@@ -198,6 +202,7 @@ namespace SpendWise
             {
                 MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+      
         }
         // set tool tips where required
         public void ToolTips()
@@ -522,11 +527,6 @@ namespace SpendWise
             chime.Play();
             About us = new About();
             us.Show();
-        }
-        // flush the database after confirmation
-        private void Btn_reset_Click(object sender, EventArgs e)
-        {
-
         }
         // what happens when name is clicked
         private void Lbl_owner_Click(object sender, EventArgs e)
