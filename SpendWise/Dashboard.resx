@@ -656,17 +656,6 @@
         gg==
 </value>
   </data>
-  <data name="btn_reset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAATlJREFUOE+d
-        lM1Kw0AURtON2BfQTVHRWl9BUCqI9eFcWVDaRe3Sp2hBXXZXChYF1yKo+FNocTOeb3IHDMQ0yYED6b3f
-        HSZpJlEazrkWXuEjvuILTqx2iBWLpkNgGwe4DGXqNpaExhG+KQUzvMBT3MNdbGIH1RNfuI/a/XVYpIHv
-        KIa45hsp0Nu0jPjGOT6H5q2qoMCKL2ZAZhXHGjAWKp7E1371dctmQk6PIdyi+FGxF1+7c8sthewZ3uOT
-        OVLxAcWx5crBArolsWWlcrBAuNfCCzFTxRH2/t5ay/q50Uw86qb6ER522/q5YUYvrfA7Kvz3C7IbNiOa
-        oVjmhbzTANxY2TeKHJEahoP9gcnDSyHr0OqroH4XdbbEJx7YeBIaeT8jehQ7NvY/hLSTPur1X6B2McVL
-        TNlFFP0CXG1By2loICQAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="picbox_image.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAD+9JREFUeF7t

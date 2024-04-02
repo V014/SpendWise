@@ -527,34 +527,7 @@ namespace SpendWise
         // flush the database after confirmation
         private void Btn_reset_Click(object sender, EventArgs e)
         {
-            // play chime
-            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
-            chime.Play();
-            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
 
-            try
-            {
-                if (dialogResult == DialogResult.Yes)
-                {
-                    // delete transactions
-                    con.ExecuteQuery("DELETE FROM transactions");
-                    // update wallet
-                    con.ExecuteQuery("UPDATE wallet SET Money = 0.00, Savings = 0, Owner = 'My wallet', State = 'Mini', Currency = 'MWK', Theme = 'Light'");
-                    // reset events
-                    con.ExecuteQuery("DELETE FROM events");
-                    // reset sequences
-                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
-                    // reset investments
-                    con.ExecuteQuery("DELETE FROM investments");
-                    // restart app
-                    Application.Restart();
-                    Environment.Exit(0);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
         }
         // what happens when name is clicked
         private void Lbl_owner_Click(object sender, EventArgs e)
@@ -892,7 +865,6 @@ namespace SpendWise
                 // style buttons
                 btn_execute.BackColor = Color.FromArgb(72, 174, 120);
                 btn_refresh.BackColor = Color.SteelBlue;
-                btn_reset.BackColor = Color.FromArgb(60, 0, 100);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
                 txt_investment.BackColor = Color.White;
@@ -932,7 +904,6 @@ namespace SpendWise
                 // style buttons
                 btn_execute.BackColor = Color.FromArgb(20, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
-                btn_reset.BackColor = Color.FromArgb(30, 20, 30);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
                 txt_investment.BackColor = Color.FromArgb(17, 17, 17);
@@ -987,6 +958,38 @@ namespace SpendWise
         {
             Export export = new Export();
             export.Show();
+        }
+
+        private void ResetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // play chime
+            SoundPlayer chime = new SoundPlayer(@"sfx/glass.wav");
+            chime.Play();
+            DialogResult dialogResult = MessageBox.Show("Resetting the wallet database will clear all your transaction history and settings, are you sure?", "Reset Wallet", MessageBoxButtons.YesNo);
+
+            try
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // delete transactions
+                    con.ExecuteQuery("DELETE FROM transactions");
+                    // update wallet
+                    con.ExecuteQuery("UPDATE wallet SET Money = 0.00, Savings = 0, Owner = 'My wallet', State = 'Mini', Currency = 'MWK', Theme = 'Light'");
+                    // reset events
+                    con.ExecuteQuery("DELETE FROM events");
+                    // reset sequences
+                    con.ExecuteQuery("UPDATE sqlite_sequence SET seq = 1");
+                    // reset investments
+                    con.ExecuteQuery("DELETE FROM investments");
+                    // restart app
+                    Application.Restart();
+                    Environment.Exit(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -54,7 +54,7 @@
             this.date_select = new MetroFramework.Controls.MetroDateTime();
             this.menuUI = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lightModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_transactions = new System.Windows.Forms.Panel();
@@ -94,7 +94,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_execute = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_reset = new System.Windows.Forms.Button();
             this.picbox_image = new System.Windows.Forms.PictureBox();
             this.panel_owner = new System.Windows.Forms.Panel();
             this.btn_owner = new System.Windows.Forms.Button();
@@ -105,6 +104,7 @@
             this.menuStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_transactions.SuspendLayout();
             this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
@@ -472,29 +472,30 @@
             this.menuUI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.menuUI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuStripMenuItem,
-            this.themeToolStripMenuItem,
+            this.propertiesToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuUI.Name = "uiMenu";
             this.menuUI.ShowImageMargin = false;
-            this.menuUI.Size = new System.Drawing.Size(86, 70);
+            this.menuUI.Size = new System.Drawing.Size(103, 70);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
-            // themeToolStripMenuItem
+            // propertiesToolStripMenuItem
             // 
-            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.propertiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lightModeToolStripMenuItem,
-            this.darkModeToolStripMenuItem});
-            this.themeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
-            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
-            this.themeToolStripMenuItem.Text = "Theme";
+            this.darkModeToolStripMenuItem,
+            this.resetToolStripMenuItem});
+            this.propertiesToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
+            this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.propertiesToolStripMenuItem.Text = "Properties";
             // 
             // lightModeToolStripMenuItem
             // 
@@ -973,7 +974,6 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btn_execute);
-            this.flowLayoutPanel1.Controls.Add(this.btn_reset);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 213);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -1010,20 +1010,6 @@
             this.btn_refresh.TabIndex = 4;
             this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.Btn_refresh_Click);
-            // 
-            // btn_reset
-            // 
-            this.btn_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(20)))), ((int)(((byte)(30)))));
-            this.btn_reset.FlatAppearance.BorderSize = 0;
-            this.btn_reset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reset.Image = ((System.Drawing.Image)(resources.GetObject("btn_reset.Image")));
-            this.btn_reset.Location = new System.Drawing.Point(104, 3);
-            this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(95, 99);
-            this.btn_reset.TabIndex = 5;
-            this.btn_reset.UseVisualStyleBackColor = false;
-            this.btn_reset.Click += new System.EventHandler(this.Btn_reset_Click);
             // 
             // picbox_image
             // 
@@ -1128,7 +1114,7 @@
             this.exportStripMenuItem});
             this.menuStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.menuStripMenuItem.Name = "menuStripMenuItem";
-            this.menuStripMenuItem.Size = new System.Drawing.Size(85, 22);
+            this.menuStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.menuStripMenuItem.Text = "File";
             // 
             // importStripMenuItem
@@ -1144,6 +1130,13 @@
             this.exportStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportStripMenuItem.Text = "Export";
             this.exportStripMenuItem.Click += new System.EventHandler(this.ExportStripMenuItem_Click);
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.ResetToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -1243,7 +1236,6 @@
         private System.Windows.Forms.Panel panel_owner;
         private System.Windows.Forms.PictureBox picbox_image;
         private System.Windows.Forms.SplitContainer splitContainer_charts;
-        private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_owner;
         private System.Windows.Forms.SplitContainer splitContainer_dataCharts;
         private System.Windows.Forms.Panel panel_growth;
@@ -1266,7 +1258,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_annual_count;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
@@ -1276,6 +1268,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
     }
 }
 
