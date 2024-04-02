@@ -294,7 +294,7 @@
             this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_income.Location = new System.Drawing.Point(0, 0);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(424, 212);
+            this.panel_income.Size = new System.Drawing.Size(566, 212);
             this.panel_income.TabIndex = 4;
             // 
             // chart_income
@@ -351,7 +351,7 @@
             series1.Name = "Income";
             series1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chart_income.Series.Add(series1);
-            this.chart_income.Size = new System.Drawing.Size(424, 212);
+            this.chart_income.Size = new System.Drawing.Size(566, 212);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -362,7 +362,7 @@
             this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
             this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(424, 215);
+            this.panel_expenditure.Size = new System.Drawing.Size(566, 215);
             this.panel_expenditure.TabIndex = 5;
             // 
             // chart_expenditure
@@ -416,7 +416,7 @@
             series2.Name = "Out";
             series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chart_expenditure.Series.Add(series2);
-            this.chart_expenditure.Size = new System.Drawing.Size(424, 215);
+            this.chart_expenditure.Size = new System.Drawing.Size(566, 215);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
             // 
@@ -579,15 +579,11 @@
             this.panel_top.Controls.Add(this.panel_input);
             this.panel_top.Controls.Add(this.panel2);
             this.panel_top.Controls.Add(this.panel_money);
-            this.panel_top.Controls.Add(this.panel_investments);
-            this.panel_top.Controls.Add(this.panel_savings);
-            this.panel_top.Controls.Add(this.panel_overal_income);
-            this.panel_top.Controls.Add(this.panel_overall_expenditure);
-            this.panel_top.Controls.Add(this.panel_growth);
+            this.panel_top.Controls.Add(this.panel1);
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_top.Location = new System.Drawing.Point(216, 10);
+            this.panel_top.Location = new System.Drawing.Point(74, 10);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(873, 213);
+            this.panel_top.Size = new System.Drawing.Size(1015, 213);
             this.panel_top.TabIndex = 11;
             // 
             // panel_amount
@@ -696,7 +692,8 @@
             this.panel_investments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_investments.Controls.Add(this.dot_investments);
             this.panel_investments.Controls.Add(this.btn_investments);
-            this.panel_investments.Location = new System.Drawing.Point(3, 73);
+            this.panel_investments.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_investments.Location = new System.Drawing.Point(0, 128);
             this.panel_investments.Name = "panel_investments";
             this.panel_investments.Size = new System.Drawing.Size(64, 64);
             this.panel_investments.TabIndex = 0;
@@ -731,7 +728,8 @@
             // 
             this.panel_savings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_savings.Controls.Add(this.btn_savings);
-            this.panel_savings.Location = new System.Drawing.Point(73, 73);
+            this.panel_savings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_savings.Location = new System.Drawing.Point(0, 64);
             this.panel_savings.Name = "panel_savings";
             this.panel_savings.Size = new System.Drawing.Size(64, 64);
             this.panel_savings.TabIndex = 0;
@@ -741,7 +739,8 @@
             this.panel_overal_income.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_overal_income.Controls.Add(this.dot_income);
             this.panel_overal_income.Controls.Add(this.btn_income);
-            this.panel_overal_income.Location = new System.Drawing.Point(143, 73);
+            this.panel_overal_income.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_overal_income.Location = new System.Drawing.Point(0, 320);
             this.panel_overal_income.Name = "panel_overal_income";
             this.panel_overal_income.Size = new System.Drawing.Size(64, 64);
             this.panel_overal_income.TabIndex = 0;
@@ -779,7 +778,8 @@
             this.panel_overall_expenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_overall_expenditure.Controls.Add(this.dot_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
-            this.panel_overall_expenditure.Location = new System.Drawing.Point(213, 73);
+            this.panel_overall_expenditure.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_overall_expenditure.Location = new System.Drawing.Point(0, 256);
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(64, 64);
             this.panel_overall_expenditure.TabIndex = 0;
@@ -815,7 +815,8 @@
             // 
             this.panel_growth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_growth.Controls.Add(this.btn_growth);
-            this.panel_growth.Location = new System.Drawing.Point(283, 73);
+            this.panel_growth.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_growth.Location = new System.Drawing.Point(0, 192);
             this.panel_growth.Name = "panel_growth";
             this.panel_growth.Size = new System.Drawing.Size(64, 64);
             this.panel_growth.TabIndex = 0;
@@ -839,12 +840,16 @@
             // panel_nav
             // 
             this.panel_nav.BackColor = System.Drawing.Color.Transparent;
-            this.panel_nav.Controls.Add(this.panel1);
+            this.panel_nav.Controls.Add(this.panel_overal_income);
+            this.panel_nav.Controls.Add(this.panel_overall_expenditure);
+            this.panel_nav.Controls.Add(this.panel_growth);
+            this.panel_nav.Controls.Add(this.panel_investments);
+            this.panel_nav.Controls.Add(this.panel_savings);
             this.panel_nav.Controls.Add(this.picbox_image);
             this.panel_nav.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_nav.Location = new System.Drawing.Point(10, 10);
             this.panel_nav.Name = "panel_nav";
-            this.panel_nav.Size = new System.Drawing.Size(206, 644);
+            this.panel_nav.Size = new System.Drawing.Size(64, 644);
             this.panel_nav.TabIndex = 13;
             // 
             // panel1
@@ -858,10 +863,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 213);
+            this.panel1.Location = new System.Drawing.Point(3, 73);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 431);
+            this.panel1.Size = new System.Drawing.Size(206, 134);
             this.panel1.TabIndex = 8;
             // 
             // lbl_annual_count
@@ -1006,7 +1010,7 @@
             this.picbox_image.Image = ((System.Drawing.Image)(resources.GetObject("picbox_image.Image")));
             this.picbox_image.Location = new System.Drawing.Point(0, 0);
             this.picbox_image.Name = "picbox_image";
-            this.picbox_image.Size = new System.Drawing.Size(206, 213);
+            this.picbox_image.Size = new System.Drawing.Size(64, 64);
             this.picbox_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picbox_image.TabIndex = 5;
             this.picbox_image.TabStop = false;
@@ -1029,7 +1033,7 @@
             // 
             this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
             this.splitContainer_charts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer_charts.Size = new System.Drawing.Size(424, 431);
+            this.splitContainer_charts.Size = new System.Drawing.Size(566, 431);
             this.splitContainer_charts.SplitterDistance = 212;
             this.splitContainer_charts.TabIndex = 14;
             // 
@@ -1038,7 +1042,7 @@
             this.splitContainer_dataCharts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_dataCharts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer_dataCharts.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer_dataCharts.Location = new System.Drawing.Point(216, 223);
+            this.splitContainer_dataCharts.Location = new System.Drawing.Point(74, 223);
             this.splitContainer_dataCharts.Name = "splitContainer_dataCharts";
             // 
             // splitContainer_dataCharts.Panel1
@@ -1050,7 +1054,7 @@
             // 
             this.splitContainer_dataCharts.Panel2.Controls.Add(this.splitContainer_charts);
             this.splitContainer_dataCharts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer_dataCharts.Size = new System.Drawing.Size(873, 431);
+            this.splitContainer_dataCharts.Size = new System.Drawing.Size(1015, 431);
             this.splitContainer_dataCharts.SplitterDistance = 445;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
