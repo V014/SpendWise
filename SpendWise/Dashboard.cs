@@ -172,35 +172,22 @@ namespace SpendWise
             SQLiteCommand queryMoney = new SQLiteCommand("SELECT amount FROM transactions WHERE action = '+' AND strftime('%Y', 'now')", connection);
             SQLiteDataReader income = queryMoney.ExecuteReader();
             // get expenditure
-            SQLiteCommand queryExpenditure = new SQLiteCommand("SELECT amount FROM transactions WHERE action = '-'", connection);
+            SQLiteCommand queryExpenditure = new SQLiteCommand("SELECT amount FROM transactions WHERE action = '-' AND strftime('%Y', 'now')", connection);
             SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
             // display income on chart
             try
             {
                 chart_income.Series[0].Points.Clear();
-
-                while (income.Read())
+                chart_income.Series[1].Points.Clear();
+                while (income.Read() && expenditure.Read())
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
+                    chart_income.Series[1].Points.Add(expenditure.GetInt32(0));
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Income unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            // display expenditure on chart
-            
-            try
-            {
-                chart_expenditure.Series[0].Points.Clear();
-                while (expenditure.Read())
-                {
-                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Charts unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
       
         }
@@ -227,7 +214,6 @@ namespace SpendWise
             buttonToolTip.SetToolTip(lbl_expenditure_count, "This is how many times you have spent this month");
             buttonToolTip.SetToolTip(lbl_transactions_count, "This is how many times you have transacted this month");
             buttonToolTip.SetToolTip(chart_income, "This chart shows your daily income activity depending on the setting.");
-            buttonToolTip.SetToolTip(chart_expenditure, "This chart shows your daily expenditure activity depending on the setting.");
         }
         // pull user name from system
         private string LoadUser()
@@ -651,9 +637,11 @@ namespace SpendWise
             try
             {
                 chart_income.Series[0].Points.Clear();
+                chart_income.Series[1].Points.Clear();
                 while (income_data.Read())
                 {
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
+                    chart_income.Series[1].Points.Add(expenditure_data.GetInt32(0));
                 }
 
             }
@@ -661,19 +649,7 @@ namespace SpendWise
             {
                 MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            try
-            {
-                chart_expenditure.Series[0].Points.Clear();
-                while (expenditure_data.Read())
-                {
-                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
             // stops timer to prevent refresh
             timer.Stop();
         }
@@ -721,29 +697,17 @@ namespace SpendWise
             try
             {
                 chart_income.Series[0].Points.Clear();
+                chart_income.Series[1].Points.Clear();
                 while (income_data.Read())
                 {
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
+                    chart_income.Series[1].Points.Add(expenditure_data.GetInt32(0));
                 }
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            // fill expenditure chart
-            try
-            {
-                chart_expenditure.Series[0].Points.Clear();
-                while (expenditure_data.Read())
-                {
-                    chart_expenditure.Series[0].Points.Add(expenditure_data.GetInt32(0));
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Charts unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // displays about message

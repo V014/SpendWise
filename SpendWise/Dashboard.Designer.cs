@@ -34,11 +34,11 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_savings = new System.Windows.Forms.Button();
             this.btn_money = new System.Windows.Forms.Button();
             this.txt_investment = new System.Windows.Forms.ComboBox();
@@ -47,10 +47,7 @@
             this.lbl_currency = new System.Windows.Forms.Label();
             this.menu_transactions = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.item_remove = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_income = new System.Windows.Forms.Panel();
             this.chart_income = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel_expenditure = new System.Windows.Forms.Panel();
-            this.chart_expenditure = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cmb_month = new MetroFramework.Controls.MetroComboBox();
             this.date_select = new MetroFramework.Controls.MetroDateTime();
             this.menuUI = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -58,7 +55,6 @@
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lightModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_transactions = new System.Windows.Forms.Panel();
             this.data_transactions = new System.Windows.Forms.DataGridView();
             this.panel_money = new System.Windows.Forms.Panel();
             this.panel_top = new System.Windows.Forms.FlowLayoutPanel();
@@ -95,7 +91,6 @@
             this.btn_execute = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.picbox_image = new System.Windows.Forms.PictureBox();
-            this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
             this.splitContainer_dataCharts = new System.Windows.Forms.SplitContainer();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
@@ -104,13 +99,14 @@
             this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel_transactions = new System.Windows.Forms.Panel();
+            this.panel_expenditure = new System.Windows.Forms.Panel();
+            this.panel_income = new System.Windows.Forms.Panel();
+            this.splitContainer_charts = new System.Windows.Forms.SplitContainer();
+            this.chart_expenditure = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menu_transactions.SuspendLayout();
-            this.panel_income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
-            this.panel_expenditure.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenditure)).BeginInit();
             this.menuUI.SuspendLayout();
-            this.panel_transactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).BeginInit();
             this.panel_money.SuspendLayout();
             this.panel_top.SuspendLayout();
@@ -128,15 +124,19 @@
             this.panel_nav.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_charts)).BeginInit();
-            this.splitContainer_charts.Panel1.SuspendLayout();
-            this.splitContainer_charts.Panel2.SuspendLayout();
-            this.splitContainer_charts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).BeginInit();
             this.splitContainer_dataCharts.Panel1.SuspendLayout();
             this.splitContainer_dataCharts.Panel2.SuspendLayout();
             this.splitContainer_dataCharts.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel_transactions.SuspendLayout();
+            this.panel_expenditure.SuspendLayout();
+            this.panel_income.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_charts)).BeginInit();
+            this.splitContainer_charts.Panel1.SuspendLayout();
+            this.splitContainer_charts.Panel2.SuspendLayout();
+            this.splitContainer_charts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_expenditure)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -288,16 +288,6 @@
             this.item_remove.Text = "Remove";
             this.item_remove.Click += new System.EventHandler(this.Item_remove_Click);
             // 
-            // panel_income
-            // 
-            this.panel_income.BackColor = System.Drawing.Color.Transparent;
-            this.panel_income.Controls.Add(this.chart_income);
-            this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_income.Location = new System.Drawing.Point(0, 0);
-            this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(528, 297);
-            this.panel_income.TabIndex = 4;
-            // 
             // chart_income
             // 
             this.chart_income.BackColor = System.Drawing.Color.Transparent;
@@ -344,7 +334,7 @@
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series1.BackSecondaryColor = System.Drawing.Color.DarkGreen;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
@@ -355,81 +345,15 @@
             series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series2.BackSecondaryColor = System.Drawing.Color.Firebrick;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Color = System.Drawing.Color.Red;
             series2.Legend = "Legend1";
             series2.Name = "Expenditure";
             series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chart_income.Series.Add(series1);
             this.chart_income.Series.Add(series2);
-            this.chart_income.Size = new System.Drawing.Size(528, 297);
+            this.chart_income.Size = new System.Drawing.Size(528, 295);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
-            // 
-            // panel_expenditure
-            // 
-            this.panel_expenditure.BackColor = System.Drawing.Color.Transparent;
-            this.panel_expenditure.Controls.Add(this.chart_expenditure);
-            this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
-            this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(528, 303);
-            this.panel_expenditure.TabIndex = 5;
-            // 
-            // chart_expenditure
-            // 
-            this.chart_expenditure.BackColor = System.Drawing.Color.Transparent;
-            this.chart_expenditure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.chart_expenditure.BorderlineColor = System.Drawing.Color.Empty;
-            this.chart_expenditure.BorderlineWidth = 0;
-            this.chart_expenditure.BorderSkin.BackColor = System.Drawing.Color.Empty;
-            this.chart_expenditure.BorderSkin.BorderWidth = 0;
-            chartArea2.Area3DStyle.Inclination = 2;
-            chartArea2.Area3DStyle.IsRightAngleAxes = false;
-            chartArea2.Area3DStyle.Perspective = 20;
-            chartArea2.Area3DStyle.Rotation = 5;
-            chartArea2.Area3DStyle.WallWidth = 20;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea2.BorderColor = System.Drawing.Color.Empty;
-            chartArea2.BorderWidth = 0;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 94F;
-            chartArea2.Position.Width = 94F;
-            chartArea2.Position.X = 3F;
-            chartArea2.Position.Y = 3F;
-            chartArea2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.ChartAreas.Add(chartArea2);
-            this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Help;
-            this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.ForeColor = System.Drawing.Color.Gray;
-            legend2.Name = "Legend1";
-            this.chart_expenditure.Legends.Add(legend2);
-            this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
-            this.chart_expenditure.Name = "chart_expenditure";
-            this.chart_expenditure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series3.BackSecondaryColor = System.Drawing.Color.Firebrick;
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.Red;
-            series3.Legend = "Legend1";
-            series3.Name = "Out";
-            series3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.Series.Add(series3);
-            this.chart_expenditure.Size = new System.Drawing.Size(528, 303);
-            this.chart_expenditure.TabIndex = 2;
-            this.chart_expenditure.Text = "chart1";
             // 
             // cmb_month
             // 
@@ -522,17 +446,6 @@
             this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.darkModeToolStripMenuItem.Text = "Dark";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.DarkModeToolStripMenuItem1_Click);
-            // 
-            // panel_transactions
-            // 
-            this.panel_transactions.BackColor = System.Drawing.Color.Transparent;
-            this.panel_transactions.Controls.Add(this.splitContainer_charts);
-            this.panel_transactions.Controls.Add(this.panel3);
-            this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_transactions.Location = new System.Drawing.Point(0, 0);
-            this.panel_transactions.Name = "panel_transactions";
-            this.panel_transactions.Size = new System.Drawing.Size(528, 644);
-            this.panel_transactions.TabIndex = 10;
             // 
             // data_transactions
             // 
@@ -644,11 +557,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txt_expenditure);
             this.panel2.Location = new System.Drawing.Point(3, 143);
             this.panel2.Name = "panel2";
+            this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel2.Size = new System.Drawing.Size(204, 64);
             this.panel2.TabIndex = 2;
             // 
@@ -876,6 +789,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 283);
             this.panel1.Name = "panel1";
+            this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel1.Size = new System.Drawing.Size(206, 134);
             this.panel1.TabIndex = 8;
             // 
@@ -1027,27 +941,6 @@
             this.picbox_image.TabStop = false;
             this.picbox_image.Click += new System.EventHandler(this.Picbox_image_Click);
             // 
-            // splitContainer_charts
-            // 
-            this.splitContainer_charts.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer_charts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_charts.Location = new System.Drawing.Point(0, 40);
-            this.splitContainer_charts.Name = "splitContainer_charts";
-            this.splitContainer_charts.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer_charts.Panel1
-            // 
-            this.splitContainer_charts.Panel1.Controls.Add(this.panel_income);
-            this.splitContainer_charts.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // splitContainer_charts.Panel2
-            // 
-            this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
-            this.splitContainer_charts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer_charts.Size = new System.Drawing.Size(528, 604);
-            this.splitContainer_charts.SplitterDistance = 297;
-            this.splitContainer_charts.TabIndex = 14;
-            // 
             // splitContainer_dataCharts
             // 
             this.splitContainer_dataCharts.BackColor = System.Drawing.Color.Transparent;
@@ -1122,6 +1015,113 @@
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.UserToolStripMenuItem_Click);
             // 
+            // panel_transactions
+            // 
+            this.panel_transactions.BackColor = System.Drawing.Color.Transparent;
+            this.panel_transactions.Controls.Add(this.splitContainer_charts);
+            this.panel_transactions.Controls.Add(this.panel3);
+            this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_transactions.Location = new System.Drawing.Point(0, 0);
+            this.panel_transactions.Name = "panel_transactions";
+            this.panel_transactions.Size = new System.Drawing.Size(528, 644);
+            this.panel_transactions.TabIndex = 10;
+            // 
+            // panel_expenditure
+            // 
+            this.panel_expenditure.BackColor = System.Drawing.Color.Transparent;
+            this.panel_expenditure.Controls.Add(this.chart_expenditure);
+            this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
+            this.panel_expenditure.Name = "panel_expenditure";
+            this.panel_expenditure.Size = new System.Drawing.Size(528, 305);
+            this.panel_expenditure.TabIndex = 5;
+            // 
+            // panel_income
+            // 
+            this.panel_income.BackColor = System.Drawing.Color.Transparent;
+            this.panel_income.Controls.Add(this.chart_income);
+            this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_income.Location = new System.Drawing.Point(0, 0);
+            this.panel_income.Name = "panel_income";
+            this.panel_income.Size = new System.Drawing.Size(528, 295);
+            this.panel_income.TabIndex = 4;
+            // 
+            // splitContainer_charts
+            // 
+            this.splitContainer_charts.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer_charts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_charts.Location = new System.Drawing.Point(0, 40);
+            this.splitContainer_charts.Name = "splitContainer_charts";
+            this.splitContainer_charts.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer_charts.Panel1
+            // 
+            this.splitContainer_charts.Panel1.Controls.Add(this.panel_income);
+            this.splitContainer_charts.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // 
+            // splitContainer_charts.Panel2
+            // 
+            this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
+            this.splitContainer_charts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer_charts.Size = new System.Drawing.Size(528, 604);
+            this.splitContainer_charts.SplitterDistance = 295;
+            this.splitContainer_charts.TabIndex = 14;
+            // 
+            // chart_expenditure
+            // 
+            this.chart_expenditure.BackColor = System.Drawing.Color.Transparent;
+            this.chart_expenditure.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chart_expenditure.BorderlineColor = System.Drawing.Color.Empty;
+            this.chart_expenditure.BorderlineWidth = 0;
+            this.chart_expenditure.BorderSkin.BackColor = System.Drawing.Color.Empty;
+            this.chart_expenditure.BorderSkin.BorderWidth = 0;
+            chartArea2.Area3DStyle.Inclination = 2;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.Perspective = 20;
+            chartArea2.Area3DStyle.Rotation = 5;
+            chartArea2.Area3DStyle.WallWidth = 20;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea2.BorderColor = System.Drawing.Color.Empty;
+            chartArea2.BorderWidth = 0;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 94F;
+            chartArea2.Position.Width = 94F;
+            chartArea2.Position.X = 3F;
+            chartArea2.Position.Y = 3F;
+            chartArea2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.ChartAreas.Add(chartArea2);
+            this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Help;
+            this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.Gray;
+            legend2.Name = "Legend1";
+            this.chart_expenditure.Legends.Add(legend2);
+            this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
+            this.chart_expenditure.Name = "chart_expenditure";
+            this.chart_expenditure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series3.BackSecondaryColor = System.Drawing.Color.Firebrick;
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.Red;
+            series3.Legend = "Legend1";
+            series3.Name = "Out";
+            series3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.Series.Add(series3);
+            this.chart_expenditure.Size = new System.Drawing.Size(528, 305);
+            this.chart_expenditure.TabIndex = 2;
+            this.chart_expenditure.Text = "chart1";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1142,12 +1142,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Resize += new System.EventHandler(this.Dashboard_Resize);
             this.menu_transactions.ResumeLayout(false);
-            this.panel_income.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).EndInit();
-            this.panel_expenditure.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenditure)).EndInit();
             this.menuUI.ResumeLayout(false);
-            this.panel_transactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).EndInit();
             this.panel_money.ResumeLayout(false);
             this.panel_money.PerformLayout();
@@ -1170,24 +1166,25 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
-            this.splitContainer_charts.Panel1.ResumeLayout(false);
-            this.splitContainer_charts.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_charts)).EndInit();
-            this.splitContainer_charts.ResumeLayout(false);
             this.splitContainer_dataCharts.Panel1.ResumeLayout(false);
             this.splitContainer_dataCharts.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_dataCharts)).EndInit();
             this.splitContainer_dataCharts.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel_transactions.ResumeLayout(false);
+            this.panel_expenditure.ResumeLayout(false);
+            this.panel_income.ResumeLayout(false);
+            this.splitContainer_charts.Panel1.ResumeLayout(false);
+            this.splitContainer_charts.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_charts)).EndInit();
+            this.splitContainer_charts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_expenditure)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel_income;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart_income;
-        private System.Windows.Forms.Panel panel_expenditure;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart_expenditure;
         public System.Windows.Forms.Label lbl_currency;
         public System.Windows.Forms.Label lbl_money;
         private System.Windows.Forms.ComboBox txt_investment;
@@ -1200,7 +1197,6 @@
         private MetroFramework.Controls.MetroTextBox txt_amount;
         private System.Windows.Forms.ContextMenuStrip menuUI;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Panel panel_transactions;
         public System.Windows.Forms.DataGridView data_transactions;
         private System.Windows.Forms.Panel panel_money;
         private System.Windows.Forms.FlowLayoutPanel panel_top;
@@ -1215,7 +1211,6 @@
         private System.Windows.Forms.Button btn_execute;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.PictureBox picbox_image;
-        private System.Windows.Forms.SplitContainer splitContainer_charts;
         private System.Windows.Forms.SplitContainer splitContainer_dataCharts;
         private System.Windows.Forms.Panel panel_growth;
         private System.Windows.Forms.Panel panel_investments;
@@ -1249,6 +1244,11 @@
         private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.Panel panel_transactions;
+        private System.Windows.Forms.SplitContainer splitContainer_charts;
+        private System.Windows.Forms.Panel panel_income;
+        private System.Windows.Forms.Panel panel_expenditure;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart_expenditure;
     }
 }
 
