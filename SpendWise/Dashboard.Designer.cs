@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_savings = new System.Windows.Forms.Button();
             this.btn_money = new System.Windows.Forms.Button();
             this.txt_investment = new System.Windows.Forms.ComboBox();
@@ -243,7 +243,7 @@
             this.txt_amount.SelectionLength = 0;
             this.txt_amount.SelectionStart = 0;
             this.txt_amount.ShortcutsEnabled = true;
-            this.txt_amount.Size = new System.Drawing.Size(118, 29);
+            this.txt_amount.Size = new System.Drawing.Size(121, 29);
             this.txt_amount.Style = MetroFramework.MetroColorStyle.Green;
             this.txt_amount.TabIndex = 0;
             this.txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -294,7 +294,7 @@
             this.panel_income.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_income.Location = new System.Drawing.Point(0, 0);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(566, 212);
+            this.panel_income.Size = new System.Drawing.Size(528, 297);
             this.panel_income.TabIndex = 4;
             // 
             // chart_income
@@ -305,53 +305,53 @@
             this.chart_income.BorderlineWidth = 0;
             this.chart_income.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_income.BorderSkin.BorderWidth = 0;
-            chartArea1.Area3DStyle.Inclination = 2;
-            chartArea1.Area3DStyle.IsRightAngleAxes = false;
-            chartArea1.Area3DStyle.Perspective = 20;
-            chartArea1.Area3DStyle.Rotation = 5;
-            chartArea1.Area3DStyle.WallWidth = 20;
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Empty;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Empty;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea1.BorderColor = System.Drawing.Color.Empty;
-            chartArea1.BorderWidth = 0;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 94F;
-            chartArea1.Position.Width = 94F;
-            chartArea1.Position.X = 3F;
-            chartArea1.Position.Y = 3F;
-            chartArea1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_income.ChartAreas.Add(chartArea1);
+            chartArea3.Area3DStyle.Inclination = 2;
+            chartArea3.Area3DStyle.IsRightAngleAxes = false;
+            chartArea3.Area3DStyle.Perspective = 20;
+            chartArea3.Area3DStyle.Rotation = 5;
+            chartArea3.Area3DStyle.WallWidth = 20;
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.Empty;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.Empty;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea3.BorderColor = System.Drawing.Color.Empty;
+            chartArea3.BorderWidth = 0;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 94F;
+            chartArea3.Position.Width = 94F;
+            chartArea3.Position.X = 3F;
+            chartArea3.Position.Y = 3F;
+            chartArea3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_income.ChartAreas.Add(chartArea3);
             this.chart_income.Cursor = System.Windows.Forms.Cursors.Help;
             this.chart_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.ForeColor = System.Drawing.Color.Gray;
-            legend1.Name = "Legend1";
-            this.chart_income.Legends.Add(legend1);
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.ForeColor = System.Drawing.Color.Gray;
+            legend3.Name = "Legend1";
+            this.chart_income.Legends.Add(legend3);
             this.chart_income.Location = new System.Drawing.Point(0, 0);
             this.chart_income.Name = "chart_income";
             this.chart_income.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series1.BackSecondaryColor = System.Drawing.Color.DarkGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series1.LabelForeColor = System.Drawing.Color.Empty;
-            series1.Legend = "Legend1";
-            series1.Name = "Income";
-            series1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_income.Series.Add(series1);
-            this.chart_income.Size = new System.Drawing.Size(566, 212);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series3.BackSecondaryColor = System.Drawing.Color.DarkGreen;
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series3.LabelForeColor = System.Drawing.Color.Empty;
+            series3.Legend = "Legend1";
+            series3.Name = "Income";
+            series3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_income.Series.Add(series3);
+            this.chart_income.Size = new System.Drawing.Size(528, 297);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -362,7 +362,7 @@
             this.panel_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_expenditure.Location = new System.Drawing.Point(0, 0);
             this.panel_expenditure.Name = "panel_expenditure";
-            this.panel_expenditure.Size = new System.Drawing.Size(566, 215);
+            this.panel_expenditure.Size = new System.Drawing.Size(528, 303);
             this.panel_expenditure.TabIndex = 5;
             // 
             // chart_expenditure
@@ -373,50 +373,50 @@
             this.chart_expenditure.BorderlineWidth = 0;
             this.chart_expenditure.BorderSkin.BackColor = System.Drawing.Color.Empty;
             this.chart_expenditure.BorderSkin.BorderWidth = 0;
-            chartArea2.Area3DStyle.Inclination = 2;
-            chartArea2.Area3DStyle.IsRightAngleAxes = false;
-            chartArea2.Area3DStyle.Perspective = 20;
-            chartArea2.Area3DStyle.Rotation = 5;
-            chartArea2.Area3DStyle.WallWidth = 20;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea2.BorderColor = System.Drawing.Color.Empty;
-            chartArea2.BorderWidth = 0;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 94F;
-            chartArea2.Position.Width = 94F;
-            chartArea2.Position.X = 3F;
-            chartArea2.Position.Y = 3F;
-            chartArea2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.ChartAreas.Add(chartArea2);
+            chartArea4.Area3DStyle.Inclination = 2;
+            chartArea4.Area3DStyle.IsRightAngleAxes = false;
+            chartArea4.Area3DStyle.Perspective = 20;
+            chartArea4.Area3DStyle.Rotation = 5;
+            chartArea4.Area3DStyle.WallWidth = 20;
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea4.BorderColor = System.Drawing.Color.Empty;
+            chartArea4.BorderWidth = 0;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 94F;
+            chartArea4.Position.Width = 94F;
+            chartArea4.Position.X = 3F;
+            chartArea4.Position.Y = 3F;
+            chartArea4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.ChartAreas.Add(chartArea4);
             this.chart_expenditure.Cursor = System.Windows.Forms.Cursors.Help;
             this.chart_expenditure.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.ForeColor = System.Drawing.Color.Gray;
-            legend2.Name = "Legend1";
-            this.chart_expenditure.Legends.Add(legend2);
+            legend4.BackColor = System.Drawing.Color.Transparent;
+            legend4.ForeColor = System.Drawing.Color.Gray;
+            legend4.Name = "Legend1";
+            this.chart_expenditure.Legends.Add(legend4);
             this.chart_expenditure.Location = new System.Drawing.Point(0, 0);
             this.chart_expenditure.Name = "chart_expenditure";
             this.chart_expenditure.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series2.BackSecondaryColor = System.Drawing.Color.Firebrick;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Out";
-            series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chart_expenditure.Series.Add(series2);
-            this.chart_expenditure.Size = new System.Drawing.Size(566, 215);
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series4.BackSecondaryColor = System.Drawing.Color.Firebrick;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.Red;
+            series4.Legend = "Legend1";
+            series4.Name = "Out";
+            series4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart_expenditure.Series.Add(series4);
+            this.chart_expenditure.Size = new System.Drawing.Size(528, 303);
             this.chart_expenditure.TabIndex = 2;
             this.chart_expenditure.Text = "chart1";
             // 
@@ -515,12 +515,12 @@
             // panel_transactions
             // 
             this.panel_transactions.BackColor = System.Drawing.Color.Transparent;
-            this.panel_transactions.Controls.Add(this.data_transactions);
+            this.panel_transactions.Controls.Add(this.splitContainer_charts);
             this.panel_transactions.Controls.Add(this.panel3);
             this.panel_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_transactions.Location = new System.Drawing.Point(0, 0);
             this.panel_transactions.Name = "panel_transactions";
-            this.panel_transactions.Size = new System.Drawing.Size(445, 431);
+            this.panel_transactions.Size = new System.Drawing.Size(528, 644);
             this.panel_transactions.TabIndex = 10;
             // 
             // data_transactions
@@ -532,32 +532,32 @@
             this.data_transactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.data_transactions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.data_transactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.data_transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.data_transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.data_transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_transactions.ContextMenuStrip = this.menu_transactions;
             this.data_transactions.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.data_transactions.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.data_transactions.DefaultCellStyle = dataGridViewCellStyle4;
             this.data_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.data_transactions.Location = new System.Drawing.Point(0, 40);
+            this.data_transactions.Location = new System.Drawing.Point(0, 0);
             this.data_transactions.MultiSelect = false;
             this.data_transactions.Name = "data_transactions";
             this.data_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(445, 391);
+            this.data_transactions.Size = new System.Drawing.Size(272, 644);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellEndEdit);
             // 
@@ -567,7 +567,7 @@
             this.panel_money.Controls.Add(this.btn_money);
             this.panel_money.Controls.Add(this.lbl_money);
             this.panel_money.Controls.Add(this.lbl_currency);
-            this.panel_money.Location = new System.Drawing.Point(633, 3);
+            this.panel_money.Location = new System.Drawing.Point(3, 213);
             this.panel_money.Name = "panel_money";
             this.panel_money.Size = new System.Drawing.Size(204, 64);
             this.panel_money.TabIndex = 0;
@@ -580,10 +580,10 @@
             this.panel_top.Controls.Add(this.panel2);
             this.panel_top.Controls.Add(this.panel_money);
             this.panel_top.Controls.Add(this.panel1);
-            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_top.Location = new System.Drawing.Point(74, 10);
+            this.panel_top.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_top.Location = new System.Drawing.Point(878, 10);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(1015, 213);
+            this.panel_top.Size = new System.Drawing.Size(211, 644);
             this.panel_top.TabIndex = 11;
             // 
             // panel_amount
@@ -614,7 +614,7 @@
             this.panel_input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_input.Controls.Add(this.lbl_title_transactions);
             this.panel_input.Controls.Add(this.txt_investment);
-            this.panel_input.Location = new System.Drawing.Point(213, 3);
+            this.panel_input.Location = new System.Drawing.Point(3, 73);
             this.panel_input.Name = "panel_input";
             this.panel_input.Size = new System.Drawing.Size(204, 64);
             this.panel_input.TabIndex = 0;
@@ -636,7 +636,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txt_expenditure);
-            this.panel2.Location = new System.Drawing.Point(423, 3);
+            this.panel2.Location = new System.Drawing.Point(3, 143);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(204, 64);
             this.panel2.TabIndex = 2;
@@ -689,7 +689,7 @@
             // 
             // panel_investments
             // 
-            this.panel_investments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_investments.BackColor = System.Drawing.Color.Transparent;
             this.panel_investments.Controls.Add(this.dot_investments);
             this.panel_investments.Controls.Add(this.btn_investments);
             this.panel_investments.Dock = System.Windows.Forms.DockStyle.Top;
@@ -726,7 +726,7 @@
             // 
             // panel_savings
             // 
-            this.panel_savings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_savings.BackColor = System.Drawing.Color.Transparent;
             this.panel_savings.Controls.Add(this.btn_savings);
             this.panel_savings.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_savings.Location = new System.Drawing.Point(0, 64);
@@ -736,7 +736,7 @@
             // 
             // panel_overal_income
             // 
-            this.panel_overal_income.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_overal_income.BackColor = System.Drawing.Color.Transparent;
             this.panel_overal_income.Controls.Add(this.dot_income);
             this.panel_overal_income.Controls.Add(this.btn_income);
             this.panel_overal_income.Dock = System.Windows.Forms.DockStyle.Top;
@@ -775,7 +775,7 @@
             // 
             // panel_overall_expenditure
             // 
-            this.panel_overall_expenditure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_overall_expenditure.BackColor = System.Drawing.Color.Transparent;
             this.panel_overall_expenditure.Controls.Add(this.dot_expenditure);
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
             this.panel_overall_expenditure.Dock = System.Windows.Forms.DockStyle.Top;
@@ -813,7 +813,7 @@
             // 
             // panel_growth
             // 
-            this.panel_growth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel_growth.BackColor = System.Drawing.Color.Transparent;
             this.panel_growth.Controls.Add(this.btn_growth);
             this.panel_growth.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_growth.Location = new System.Drawing.Point(0, 192);
@@ -863,7 +863,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 73);
+            this.panel1.Location = new System.Drawing.Point(3, 283);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 134);
             this.panel1.TabIndex = 8;
@@ -980,9 +980,9 @@
             this.btn_execute.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_execute.Font = new System.Drawing.Font("Roboto", 20F);
             this.btn_execute.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_execute.Location = new System.Drawing.Point(146, 24);
+            this.btn_execute.Location = new System.Drawing.Point(143, 24);
             this.btn_execute.Name = "btn_execute";
-            this.btn_execute.Size = new System.Drawing.Size(50, 29);
+            this.btn_execute.Size = new System.Drawing.Size(39, 29);
             this.btn_execute.TabIndex = 2;
             this.btn_execute.Text = "+";
             this.btn_execute.UseVisualStyleBackColor = false;
@@ -1020,7 +1020,7 @@
             // 
             this.splitContainer_charts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_charts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_charts.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer_charts.Location = new System.Drawing.Point(0, 40);
             this.splitContainer_charts.Name = "splitContainer_charts";
             this.splitContainer_charts.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1033,16 +1033,15 @@
             // 
             this.splitContainer_charts.Panel2.Controls.Add(this.panel_expenditure);
             this.splitContainer_charts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer_charts.Size = new System.Drawing.Size(566, 431);
-            this.splitContainer_charts.SplitterDistance = 212;
+            this.splitContainer_charts.Size = new System.Drawing.Size(528, 604);
+            this.splitContainer_charts.SplitterDistance = 297;
             this.splitContainer_charts.TabIndex = 14;
             // 
             // splitContainer_dataCharts
             // 
             this.splitContainer_dataCharts.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer_dataCharts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_dataCharts.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer_dataCharts.Location = new System.Drawing.Point(74, 223);
+            this.splitContainer_dataCharts.Location = new System.Drawing.Point(74, 10);
             this.splitContainer_dataCharts.Name = "splitContainer_dataCharts";
             // 
             // splitContainer_dataCharts.Panel1
@@ -1052,10 +1051,11 @@
             // 
             // splitContainer_dataCharts.Panel2
             // 
-            this.splitContainer_dataCharts.Panel2.Controls.Add(this.splitContainer_charts);
+            this.splitContainer_dataCharts.Panel2.Controls.Add(this.data_transactions);
             this.splitContainer_dataCharts.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer_dataCharts.Size = new System.Drawing.Size(1015, 431);
-            this.splitContainer_dataCharts.SplitterDistance = 445;
+            this.splitContainer_dataCharts.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer_dataCharts.Size = new System.Drawing.Size(804, 644);
+            this.splitContainer_dataCharts.SplitterDistance = 528;
             this.splitContainer_dataCharts.TabIndex = 15;
             // 
             // timer
@@ -1070,7 +1070,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 40);
+            this.panel3.Size = new System.Drawing.Size(528, 40);
             this.panel3.TabIndex = 13;
             // 
             // menuStripMenuItem
