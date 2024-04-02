@@ -174,12 +174,15 @@ namespace SpendWise
             // get expenditure
             SQLiteCommand queryExpenditure = new SQLiteCommand("SELECT amount FROM transactions WHERE action = '-' AND strftime('%Y', 'now')", connection);
             SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
-            // display income on chart
             try
             {
                 chart_income.Series[0].Points.Clear();
+<<<<<<< HEAD
                 chart_income.Series[1].Points.Clear();
                 while (income.Read() && expenditure.Read())
+=======
+                while (income.Read())
+>>>>>>> parent of 4bdde4a (closed session with chart errors)
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
                     chart_income.Series[1].Points.Add(expenditure.GetInt32(0));
@@ -187,9 +190,24 @@ namespace SpendWise
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MessageBox.Show("Charts unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+=======
+                MessageBox.Show("Income unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-      
+            try
+            {
+                chart_expenditure.Series[0].Points.Clear();
+                while (expenditure.Read())
+                {
+                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+>>>>>>> parent of 4bdde4a (closed session with chart errors)
+            }
         }
         // set tool tips where required
         public void ToolTips()
@@ -513,6 +531,11 @@ namespace SpendWise
             chime.Play();
             About us = new About();
             us.Show();
+        }
+        // flush the database after confirmation
+        private void Btn_reset_Click(object sender, EventArgs e)
+        {
+
         }
         // what happens when name is clicked
         private void Lbl_owner_Click(object sender, EventArgs e)
