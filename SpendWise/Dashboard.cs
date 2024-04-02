@@ -178,9 +178,12 @@ namespace SpendWise
             {
                 chart_income.Series[0].Points.Clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 chart_income.Series[1].Points.Clear();
                 while (income.Read() && expenditure.Read())
 =======
+=======
+>>>>>>> parent of 4bdde4a (closed session with chart errors)
                 while (income.Read())
 >>>>>>> parent of 4bdde4a (closed session with chart errors)
                 {
