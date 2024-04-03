@@ -129,7 +129,6 @@ C:\Users\Wanga\source\repos\SpendWise\SpendWise\bin\Debug\ClosedXML.pdb
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\bin\Debug\ClosedXML.xml
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
-C:\Users\Wanga\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.About.resources
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Currency.resources
 C:\Users\Wanga\source\repos\SpendWise\SpendWise\obj\Debug\SpendWise.Dashboard.resources

@@ -177,15 +177,8 @@ namespace SpendWise
             try
             {
                 chart_income.Series[0].Points.Clear();
-<<<<<<< HEAD
-<<<<<<< HEAD
                 chart_income.Series[1].Points.Clear();
                 while (income.Read() && expenditure.Read())
-=======
-=======
->>>>>>> parent of 4bdde4a (closed session with chart errors)
-                while (income.Read())
->>>>>>> parent of 4bdde4a (closed session with chart errors)
                 {
                     chart_income.Series[0].Points.Add(income.GetInt32(0));
                     chart_income.Series[1].Points.Add(expenditure.GetInt32(0));
@@ -193,23 +186,7 @@ namespace SpendWise
             }
             catch (Exception ex)
             {
-<<<<<<< HEAD
                 MessageBox.Show("Charts unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-=======
-                MessageBox.Show("Income unavailabe" + ex.ToString(), "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            try
-            {
-                chart_expenditure.Series[0].Points.Clear();
-                while (expenditure.Read())
-                {
-                    chart_expenditure.Series[0].Points.Add(expenditure.GetInt32(0));
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Expenditure unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
->>>>>>> parent of 4bdde4a (closed session with chart errors)
             }
         }
         // set tool tips where required
