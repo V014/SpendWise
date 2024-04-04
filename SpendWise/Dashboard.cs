@@ -763,14 +763,6 @@ namespace SpendWise
         // toggles charts depending on size
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            if (this.Width <= 880)
-            {
-                splitContainer_dataCharts.Panel2Collapsed = true;
-            }
-            else
-            {
-                splitContainer_dataCharts.Panel2Collapsed = false;
-            }
             if (this.Height <= 500)
             {
                 picbox_image.Visible = false;
