@@ -64,6 +64,10 @@ namespace SpendWise
                 lbl_expenditure.Text = LoadExpenditure();
                 // show money in wallet on money panel
                 lbl_money.Text = money.CheckMoney();
+                // show savings on savings panel
+                lbl_saved.Text = LoadSaved().ToString();
+
+
             }
             catch (Exception)
             {
