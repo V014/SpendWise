@@ -333,3 +333,4 @@ C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise\SpendWise\bin\Deb
 C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise\SpendWise\bin\Debug\ExcelNumberFormat.xml
 C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache

@@ -59,8 +59,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.data_transactions = new System.Windows.Forms.DataGridView();
             this.panel_money = new System.Windows.Forms.Panel();
-            this.panel_top = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_counters = new System.Windows.Forms.Panel();
             this.lbl_annual_count = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -84,19 +83,19 @@
             this.btn_expenditure = new System.Windows.Forms.Button();
             this.panel_growth = new System.Windows.Forms.Panel();
             this.btn_growth = new System.Windows.Forms.Button();
-            this.panel_nav = new System.Windows.Forms.Panel();
+            this.panel_left = new System.Windows.Forms.Panel();
             this.picbox_image = new System.Windows.Forms.PictureBox();
             this.btn_refresh = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_top = new System.Windows.Forms.Panel();
+            this.panel_combo_box = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.splitContainer_main = new System.Windows.Forms.SplitContainer();
             this.menu_transactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
             this.menuUI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).BeginInit();
             this.panel_money.SuspendLayout();
-            this.panel_top.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_counters.SuspendLayout();
             this.panel_investments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).BeginInit();
             this.panel_savings.SuspendLayout();
@@ -105,10 +104,14 @@
             this.panel_overall_expenditure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
             this.panel_growth.SuspendLayout();
-            this.panel_nav.SuspendLayout();
+            this.panel_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel_top.SuspendLayout();
+            this.panel_combo_box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_main)).BeginInit();
+            this.splitContainer_main.Panel1.SuspendLayout();
+            this.splitContainer_main.Panel2.SuspendLayout();
+            this.splitContainer_main.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -300,7 +303,7 @@
             legend1.ForeColor = System.Drawing.Color.Gray;
             legend1.Name = "Legend1";
             this.chart_income.Legends.Add(legend1);
-            this.chart_income.Location = new System.Drawing.Point(74, 50);
+            this.chart_income.Location = new System.Drawing.Point(0, 0);
             this.chart_income.Name = "chart_income";
             this.chart_income.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
@@ -322,7 +325,7 @@
             series2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chart_income.Series.Add(series1);
             this.chart_income.Series.Add(series2);
-            this.chart_income.Size = new System.Drawing.Size(811, 604);
+            this.chart_income.Size = new System.Drawing.Size(726, 604);
             this.chart_income.TabIndex = 2;
             this.chart_income.Text = "chart1";
             // 
@@ -484,12 +487,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.data_transactions.DefaultCellStyle = dataGridViewCellStyle2;
-            this.data_transactions.Location = new System.Drawing.Point(3, 213);
+            this.data_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.data_transactions.Location = new System.Drawing.Point(0, 198);
             this.data_transactions.MultiSelect = false;
             this.data_transactions.Name = "data_transactions";
             this.data_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(204, 428);
+            this.data_transactions.Size = new System.Drawing.Size(285, 406);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellEndEdit);
             // 
@@ -500,40 +504,28 @@
             this.panel_money.Controls.Add(this.lbl_money);
             this.panel_money.Controls.Add(this.lbl_currency);
             this.panel_money.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_money.Location = new System.Drawing.Point(3, 3);
+            this.panel_money.Location = new System.Drawing.Point(0, 0);
             this.panel_money.Name = "panel_money";
-            this.panel_money.Size = new System.Drawing.Size(204, 64);
+            this.panel_money.Size = new System.Drawing.Size(285, 64);
             this.panel_money.TabIndex = 0;
             // 
-            // panel_top
+            // panel_counters
             // 
-            this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.Controls.Add(this.panel_money);
-            this.panel_top.Controls.Add(this.panel1);
-            this.panel_top.Controls.Add(this.data_transactions);
-            this.panel_top.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_top.Location = new System.Drawing.Point(885, 10);
-            this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(204, 644);
-            this.panel_top.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lbl_annual_count);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lbl_income_count);
-            this.panel1.Controls.Add(this.lbl_transactions_count);
-            this.panel1.Controls.Add(this.lbl_expenditure_count);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 73);
-            this.panel1.Name = "panel1";
-            this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel1.Size = new System.Drawing.Size(206, 134);
-            this.panel1.TabIndex = 8;
+            this.panel_counters.Controls.Add(this.lbl_annual_count);
+            this.panel_counters.Controls.Add(this.label7);
+            this.panel_counters.Controls.Add(this.label4);
+            this.panel_counters.Controls.Add(this.lbl_income_count);
+            this.panel_counters.Controls.Add(this.lbl_transactions_count);
+            this.panel_counters.Controls.Add(this.lbl_expenditure_count);
+            this.panel_counters.Controls.Add(this.label2);
+            this.panel_counters.Controls.Add(this.label5);
+            this.panel_counters.Controls.Add(this.label1);
+            this.panel_counters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_counters.Location = new System.Drawing.Point(0, 64);
+            this.panel_counters.Name = "panel_counters";
+            this.panel_counters.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.panel_counters.Size = new System.Drawing.Size(285, 134);
+            this.panel_counters.TabIndex = 8;
             // 
             // lbl_annual_count
             // 
@@ -840,20 +832,20 @@
             this.btn_growth.UseVisualStyleBackColor = false;
             this.btn_growth.Click += new System.EventHandler(this.Btn_growth_Click);
             // 
-            // panel_nav
+            // panel_left
             // 
-            this.panel_nav.BackColor = System.Drawing.Color.Transparent;
-            this.panel_nav.Controls.Add(this.panel_overal_income);
-            this.panel_nav.Controls.Add(this.panel_overall_expenditure);
-            this.panel_nav.Controls.Add(this.panel_growth);
-            this.panel_nav.Controls.Add(this.panel_investments);
-            this.panel_nav.Controls.Add(this.panel_savings);
-            this.panel_nav.Controls.Add(this.picbox_image);
-            this.panel_nav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_nav.Location = new System.Drawing.Point(10, 10);
-            this.panel_nav.Name = "panel_nav";
-            this.panel_nav.Size = new System.Drawing.Size(64, 644);
-            this.panel_nav.TabIndex = 13;
+            this.panel_left.BackColor = System.Drawing.Color.Transparent;
+            this.panel_left.Controls.Add(this.panel_overal_income);
+            this.panel_left.Controls.Add(this.panel_overall_expenditure);
+            this.panel_left.Controls.Add(this.panel_growth);
+            this.panel_left.Controls.Add(this.panel_investments);
+            this.panel_left.Controls.Add(this.panel_savings);
+            this.panel_left.Controls.Add(this.picbox_image);
+            this.panel_left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_left.Location = new System.Drawing.Point(10, 10);
+            this.panel_left.Name = "panel_left";
+            this.panel_left.Size = new System.Drawing.Size(64, 644);
+            this.panel_left.TabIndex = 13;
             // 
             // picbox_image
             // 
@@ -883,33 +875,52 @@
             this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.Btn_refresh_Click);
             // 
-            // panel3
+            // panel_top
             // 
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.btn_execute);
-            this.panel3.Controls.Add(this.txt_expenditure);
-            this.panel3.Controls.Add(this.txt_investment);
-            this.panel3.Controls.Add(this.txt_amount);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(74, 10);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(811, 40);
-            this.panel3.TabIndex = 13;
+            this.panel_top.Controls.Add(this.panel_combo_box);
+            this.panel_top.Controls.Add(this.btn_execute);
+            this.panel_top.Controls.Add(this.txt_expenditure);
+            this.panel_top.Controls.Add(this.txt_investment);
+            this.panel_top.Controls.Add(this.txt_amount);
+            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_top.Location = new System.Drawing.Point(74, 10);
+            this.panel_top.Name = "panel_top";
+            this.panel_top.Size = new System.Drawing.Size(1015, 40);
+            this.panel_top.TabIndex = 13;
             // 
-            // panel2
+            // panel_combo_box
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.btn_refresh);
-            this.panel2.Controls.Add(this.cmb_month);
-            this.panel2.Controls.Add(this.date_select);
-            this.panel2.Location = new System.Drawing.Point(536, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 32);
-            this.panel2.TabIndex = 13;
+            this.panel_combo_box.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_combo_box.Controls.Add(this.btn_refresh);
+            this.panel_combo_box.Controls.Add(this.cmb_month);
+            this.panel_combo_box.Controls.Add(this.date_select);
+            this.panel_combo_box.Location = new System.Drawing.Point(740, 3);
+            this.panel_combo_box.Name = "panel_combo_box";
+            this.panel_combo_box.Size = new System.Drawing.Size(272, 32);
+            this.panel_combo_box.TabIndex = 13;
             // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // splitContainer_main
+            // 
+            this.splitContainer_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_main.Location = new System.Drawing.Point(74, 50);
+            this.splitContainer_main.Name = "splitContainer_main";
+            // 
+            // splitContainer_main.Panel1
+            // 
+            this.splitContainer_main.Panel1.Controls.Add(this.chart_income);
+            // 
+            // splitContainer_main.Panel2
+            // 
+            this.splitContainer_main.Panel2.Controls.Add(this.data_transactions);
+            this.splitContainer_main.Panel2.Controls.Add(this.panel_counters);
+            this.splitContainer_main.Panel2.Controls.Add(this.panel_money);
+            this.splitContainer_main.Size = new System.Drawing.Size(1015, 604);
+            this.splitContainer_main.SplitterDistance = 726;
+            this.splitContainer_main.TabIndex = 14;
             // 
             // Dashboard
             // 
@@ -919,10 +930,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(1099, 664);
             this.ContextMenuStrip = this.menuUI;
-            this.Controls.Add(this.chart_income);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel_nav);
+            this.Controls.Add(this.splitContainer_main);
             this.Controls.Add(this.panel_top);
+            this.Controls.Add(this.panel_left);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 310);
             this.Name = "Dashboard";
@@ -937,9 +947,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_transactions)).EndInit();
             this.panel_money.ResumeLayout(false);
             this.panel_money.PerformLayout();
-            this.panel_top.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_counters.ResumeLayout(false);
+            this.panel_counters.PerformLayout();
             this.panel_investments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dot_investments)).EndInit();
             this.panel_savings.ResumeLayout(false);
@@ -948,10 +957,14 @@
             this.panel_overall_expenditure.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).EndInit();
             this.panel_growth.ResumeLayout(false);
-            this.panel_nav.ResumeLayout(false);
+            this.panel_left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel_top.ResumeLayout(false);
+            this.panel_combo_box.ResumeLayout(false);
+            this.splitContainer_main.Panel1.ResumeLayout(false);
+            this.splitContainer_main.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_main)).EndInit();
+            this.splitContainer_main.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -972,11 +985,10 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         public System.Windows.Forms.DataGridView data_transactions;
         private System.Windows.Forms.Panel panel_money;
-        private System.Windows.Forms.FlowLayoutPanel panel_top;
         private System.Windows.Forms.Panel panel_savings;
         private System.Windows.Forms.Panel panel_overal_income;
         private System.Windows.Forms.Panel panel_overall_expenditure;
-        private System.Windows.Forms.Panel panel_nav;
+        private System.Windows.Forms.Panel panel_left;
         private System.Windows.Forms.Button btn_execute;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.PictureBox picbox_image;
@@ -990,7 +1002,7 @@
         private System.Windows.Forms.PictureBox dot_investments;
         private System.Windows.Forms.PictureBox dot_income;
         private System.Windows.Forms.PictureBox dot_expenditure;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_counters;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_income_count;
         private System.Windows.Forms.Label lbl_transactions_count;
@@ -1004,13 +1016,14 @@
         private System.Windows.Forms.ToolStripMenuItem lightModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkModeToolStripMenuItem;
         private System.Windows.Forms.ComboBox txt_expenditure;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel_top;
         private System.Windows.Forms.ToolStripMenuItem menuStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_combo_box;
+        private System.Windows.Forms.SplitContainer splitContainer_main;
     }
 }
 
