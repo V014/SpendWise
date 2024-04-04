@@ -91,8 +91,8 @@
             this.btn_expenditure = new System.Windows.Forms.Button();
             this.panel_growth = new System.Windows.Forms.Panel();
             this.btn_growth = new System.Windows.Forms.Button();
-            this.lbl_growing = new System.Windows.Forms.Label();
             this.lbl_growth = new System.Windows.Forms.Label();
+            this.lbl_growing = new System.Windows.Forms.Label();
             this.panel_left = new System.Windows.Forms.Panel();
             this.panel_profile = new System.Windows.Forms.Panel();
             this.picbox_image = new System.Windows.Forms.PictureBox();
@@ -928,8 +928,8 @@
             // 
             this.panel_growth.BackColor = System.Drawing.Color.Transparent;
             this.panel_growth.Controls.Add(this.btn_growth);
-            this.panel_growth.Controls.Add(this.lbl_growing);
             this.panel_growth.Controls.Add(this.lbl_growth);
+            this.panel_growth.Controls.Add(this.lbl_growing);
             this.panel_growth.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_growth.Location = new System.Drawing.Point(0, 448);
             this.panel_growth.Name = "panel_growth";
@@ -952,28 +952,28 @@
             this.btn_growth.UseVisualStyleBackColor = false;
             this.btn_growth.Click += new System.EventHandler(this.Btn_growth_Click);
             // 
-            // lbl_growing
-            // 
-            this.lbl_growing.AutoSize = true;
-            this.lbl_growing.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_growing.ForeColor = System.Drawing.Color.White;
-            this.lbl_growing.Location = new System.Drawing.Point(69, 33);
-            this.lbl_growing.Name = "lbl_growing";
-            this.lbl_growing.Size = new System.Drawing.Size(45, 24);
-            this.lbl_growing.TabIndex = 0;
-            this.lbl_growing.Text = "0.00";
-            // 
             // lbl_growth
             // 
             this.lbl_growth.AutoSize = true;
-            this.lbl_growth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_growth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lbl_growth.ForeColor = System.Drawing.Color.White;
-            this.lbl_growth.Location = new System.Drawing.Point(70, 7);
+            this.lbl_growth.Location = new System.Drawing.Point(69, 33);
             this.lbl_growth.Name = "lbl_growth";
-            this.lbl_growth.Size = new System.Drawing.Size(46, 15);
+            this.lbl_growth.Size = new System.Drawing.Size(45, 24);
             this.lbl_growth.TabIndex = 0;
-            this.lbl_growth.Text = "Growth";
-            this.lbl_growth.Click += new System.EventHandler(this.Lbl_currency_Click);
+            this.lbl_growth.Text = "0.00";
+            // 
+            // lbl_growing
+            // 
+            this.lbl_growing.AutoSize = true;
+            this.lbl_growing.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_growing.ForeColor = System.Drawing.Color.White;
+            this.lbl_growing.Location = new System.Drawing.Point(70, 7);
+            this.lbl_growing.Name = "lbl_growing";
+            this.lbl_growing.Size = new System.Drawing.Size(46, 15);
+            this.lbl_growing.TabIndex = 0;
+            this.lbl_growing.Text = "Growth";
+            this.lbl_growing.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_left
             // 
@@ -1242,8 +1242,8 @@
         public System.Windows.Forms.Label lbl_income;
         public System.Windows.Forms.Label lbl_expenditure;
         public System.Windows.Forms.Label lbl_expenditures;
-        public System.Windows.Forms.Label lbl_growing;
         public System.Windows.Forms.Label lbl_growth;
+        public System.Windows.Forms.Label lbl_growing;
         private System.Windows.Forms.Panel panel_menu_toggle;
         private System.Windows.Forms.Button btn_toggle;
         private System.Windows.Forms.Panel panel_profile;

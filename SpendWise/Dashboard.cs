@@ -66,7 +66,8 @@ namespace SpendWise
                 lbl_money.Text = money.CheckMoney();
                 // show savings on savings panel
                 lbl_saved.Text = LoadSaved().ToString();
-
+                // show growth percent on percent panel
+                lbl_growth.Text = LoadGrowth();
 
             }
             catch (Exception)
