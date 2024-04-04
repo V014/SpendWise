@@ -73,38 +73,38 @@
             this.txt_expenditure = new System.Windows.Forms.ComboBox();
             this.panel_investments = new System.Windows.Forms.Panel();
             this.dot_investments = new System.Windows.Forms.PictureBox();
+            this.lbl_investment = new System.Windows.Forms.Label();
+            this.lbl_investments = new System.Windows.Forms.Label();
             this.btn_investments = new System.Windows.Forms.Button();
             this.panel_savings = new System.Windows.Forms.Panel();
+            this.lbl_saved = new System.Windows.Forms.Label();
+            this.lbl_savings = new System.Windows.Forms.Label();
             this.panel_overal_income = new System.Windows.Forms.Panel();
             this.dot_income = new System.Windows.Forms.PictureBox();
+            this.lbl_income_collected = new System.Windows.Forms.Label();
+            this.lbl_income = new System.Windows.Forms.Label();
             this.btn_income = new System.Windows.Forms.Button();
             this.panel_overall_expenditure = new System.Windows.Forms.Panel();
             this.dot_expenditure = new System.Windows.Forms.PictureBox();
+            this.lbl_expenditure = new System.Windows.Forms.Label();
+            this.lbl_expenditures = new System.Windows.Forms.Label();
             this.btn_expenditure = new System.Windows.Forms.Button();
             this.panel_growth = new System.Windows.Forms.Panel();
             this.btn_growth = new System.Windows.Forms.Button();
+            this.lbl_growing = new System.Windows.Forms.Label();
+            this.lbl_growth = new System.Windows.Forms.Label();
             this.panel_left = new System.Windows.Forms.Panel();
+            this.panel_profile = new System.Windows.Forms.Panel();
             this.picbox_image = new System.Windows.Forms.PictureBox();
+            this.lbl_user = new System.Windows.Forms.Label();
+            this.lbl_profile = new System.Windows.Forms.Label();
+            this.panel_menu_toggle = new System.Windows.Forms.Panel();
+            this.btn_toggle = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.panel_top = new System.Windows.Forms.Panel();
             this.panel_combo_box = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer_main = new System.Windows.Forms.SplitContainer();
-            this.lbl_savings = new System.Windows.Forms.Label();
-            this.lbl_saved = new System.Windows.Forms.Label();
-            this.lbl_investments = new System.Windows.Forms.Label();
-            this.lbl_investment = new System.Windows.Forms.Label();
-            this.lbl_growth = new System.Windows.Forms.Label();
-            this.lbl_growing = new System.Windows.Forms.Label();
-            this.lbl_expenditures = new System.Windows.Forms.Label();
-            this.lbl_expenditure = new System.Windows.Forms.Label();
-            this.lbl_income = new System.Windows.Forms.Label();
-            this.lbl_income_collected = new System.Windows.Forms.Label();
-            this.panel_menu_toggle = new System.Windows.Forms.Panel();
-            this.btn_toggle = new System.Windows.Forms.Button();
-            this.panel_profile = new System.Windows.Forms.Panel();
-            this.lbl_profile = new System.Windows.Forms.Label();
-            this.lbl_user = new System.Windows.Forms.Label();
             this.menu_transactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).BeginInit();
             this.menuUI.SuspendLayout();
@@ -120,15 +120,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dot_expenditure)).BeginInit();
             this.panel_growth.SuspendLayout();
             this.panel_left.SuspendLayout();
+            this.panel_profile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).BeginInit();
+            this.panel_menu_toggle.SuspendLayout();
             this.panel_top.SuspendLayout();
             this.panel_combo_box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_main)).BeginInit();
             this.splitContainer_main.Panel1.SuspendLayout();
             this.splitContainer_main.Panel2.SuspendLayout();
             this.splitContainer_main.SuspendLayout();
-            this.panel_menu_toggle.SuspendLayout();
-            this.panel_profile.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_savings
@@ -324,13 +324,14 @@
             this.chart_income.Name = "chart_income";
             this.chart_income.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series1.BackSecondaryColor = System.Drawing.Color.DarkGreen;
+            series1.BackSecondaryColor = System.Drawing.Color.MediumSeaGreen;
+            series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(174)))), ((int)(((byte)(120)))));
+            series1.Color = System.Drawing.Color.DarkGreen;
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
             series1.LabelForeColor = System.Drawing.Color.Empty;
             series1.Legend = "Legend1";
+            series1.MarkerSize = 0;
             series1.Name = "Income";
             series1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
@@ -441,7 +442,7 @@
             this.lightModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.lightModeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.lightModeToolStripMenuItem.Name = "lightModeToolStripMenuItem";
-            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lightModeToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.lightModeToolStripMenuItem.Text = "Light";
             this.lightModeToolStripMenuItem.Click += new System.EventHandler(this.LightModeToolStripMenuItem_Click);
             // 
@@ -450,21 +451,21 @@
             this.darkModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.darkModeToolStripMenuItem.ForeColor = System.Drawing.Color.Gray;
             this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
-            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.darkModeToolStripMenuItem.Text = "Dark";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.DarkModeToolStripMenuItem1_Click);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.UserToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.ResetToolStripMenuItem_Click);
             // 
@@ -707,7 +708,7 @@
             this.panel_investments.Controls.Add(this.lbl_investments);
             this.panel_investments.Controls.Add(this.btn_investments);
             this.panel_investments.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_investments.Location = new System.Drawing.Point(0, 256);
+            this.panel_investments.Location = new System.Drawing.Point(0, 384);
             this.panel_investments.Name = "panel_investments";
             this.panel_investments.Size = new System.Drawing.Size(200, 64);
             this.panel_investments.TabIndex = 0;
@@ -721,6 +722,29 @@
             this.dot_investments.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.dot_investments.TabIndex = 4;
             this.dot_investments.TabStop = false;
+            // 
+            // lbl_investment
+            // 
+            this.lbl_investment.AutoSize = true;
+            this.lbl_investment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_investment.ForeColor = System.Drawing.Color.White;
+            this.lbl_investment.Location = new System.Drawing.Point(69, 33);
+            this.lbl_investment.Name = "lbl_investment";
+            this.lbl_investment.Size = new System.Drawing.Size(45, 24);
+            this.lbl_investment.TabIndex = 0;
+            this.lbl_investment.Text = "0.00";
+            // 
+            // lbl_investments
+            // 
+            this.lbl_investments.AutoSize = true;
+            this.lbl_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_investments.ForeColor = System.Drawing.Color.White;
+            this.lbl_investments.Location = new System.Drawing.Point(67, 7);
+            this.lbl_investments.Name = "lbl_investments";
+            this.lbl_investments.Size = new System.Drawing.Size(72, 15);
+            this.lbl_investments.TabIndex = 0;
+            this.lbl_investments.Text = "Investments";
+            this.lbl_investments.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_investments
             // 
@@ -745,10 +769,33 @@
             this.panel_savings.Controls.Add(this.lbl_saved);
             this.panel_savings.Controls.Add(this.lbl_savings);
             this.panel_savings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_savings.Location = new System.Drawing.Point(0, 192);
+            this.panel_savings.Location = new System.Drawing.Point(0, 320);
             this.panel_savings.Name = "panel_savings";
             this.panel_savings.Size = new System.Drawing.Size(200, 64);
             this.panel_savings.TabIndex = 0;
+            // 
+            // lbl_saved
+            // 
+            this.lbl_saved.AutoSize = true;
+            this.lbl_saved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_saved.ForeColor = System.Drawing.Color.White;
+            this.lbl_saved.Location = new System.Drawing.Point(69, 33);
+            this.lbl_saved.Name = "lbl_saved";
+            this.lbl_saved.Size = new System.Drawing.Size(45, 24);
+            this.lbl_saved.TabIndex = 0;
+            this.lbl_saved.Text = "0.00";
+            // 
+            // lbl_savings
+            // 
+            this.lbl_savings.AutoSize = true;
+            this.lbl_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_savings.ForeColor = System.Drawing.Color.White;
+            this.lbl_savings.Location = new System.Drawing.Point(67, 7);
+            this.lbl_savings.Name = "lbl_savings";
+            this.lbl_savings.Size = new System.Drawing.Size(50, 15);
+            this.lbl_savings.TabIndex = 0;
+            this.lbl_savings.Text = "Savings";
+            this.lbl_savings.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_overal_income
             // 
@@ -758,7 +805,7 @@
             this.panel_overal_income.Controls.Add(this.lbl_income);
             this.panel_overal_income.Controls.Add(this.btn_income);
             this.panel_overal_income.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_overal_income.Location = new System.Drawing.Point(0, 448);
+            this.panel_overal_income.Location = new System.Drawing.Point(0, 192);
             this.panel_overal_income.Name = "panel_overal_income";
             this.panel_overal_income.Size = new System.Drawing.Size(200, 64);
             this.panel_overal_income.TabIndex = 0;
@@ -774,6 +821,29 @@
             this.dot_income.TabIndex = 5;
             this.dot_income.TabStop = false;
             this.dot_income.Visible = false;
+            // 
+            // lbl_income_collected
+            // 
+            this.lbl_income_collected.AutoSize = true;
+            this.lbl_income_collected.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_income_collected.ForeColor = System.Drawing.Color.White;
+            this.lbl_income_collected.Location = new System.Drawing.Point(69, 33);
+            this.lbl_income_collected.Name = "lbl_income_collected";
+            this.lbl_income_collected.Size = new System.Drawing.Size(45, 24);
+            this.lbl_income_collected.TabIndex = 0;
+            this.lbl_income_collected.Text = "0.00";
+            // 
+            // lbl_income
+            // 
+            this.lbl_income.AutoSize = true;
+            this.lbl_income.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_income.ForeColor = System.Drawing.Color.White;
+            this.lbl_income.Location = new System.Drawing.Point(64, 7);
+            this.lbl_income.Name = "lbl_income";
+            this.lbl_income.Size = new System.Drawing.Size(48, 15);
+            this.lbl_income.TabIndex = 0;
+            this.lbl_income.Text = "Income";
+            this.lbl_income.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_income
             // 
@@ -799,7 +869,7 @@
             this.panel_overall_expenditure.Controls.Add(this.lbl_expenditures);
             this.panel_overall_expenditure.Controls.Add(this.btn_expenditure);
             this.panel_overall_expenditure.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_overall_expenditure.Location = new System.Drawing.Point(0, 384);
+            this.panel_overall_expenditure.Location = new System.Drawing.Point(0, 256);
             this.panel_overall_expenditure.Name = "panel_overall_expenditure";
             this.panel_overall_expenditure.Size = new System.Drawing.Size(200, 64);
             this.panel_overall_expenditure.TabIndex = 0;
@@ -814,6 +884,29 @@
             this.dot_expenditure.TabIndex = 5;
             this.dot_expenditure.TabStop = false;
             this.dot_expenditure.Visible = false;
+            // 
+            // lbl_expenditure
+            // 
+            this.lbl_expenditure.AutoSize = true;
+            this.lbl_expenditure.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_expenditure.ForeColor = System.Drawing.Color.White;
+            this.lbl_expenditure.Location = new System.Drawing.Point(66, 33);
+            this.lbl_expenditure.Name = "lbl_expenditure";
+            this.lbl_expenditure.Size = new System.Drawing.Size(45, 24);
+            this.lbl_expenditure.TabIndex = 0;
+            this.lbl_expenditure.Text = "0.00";
+            // 
+            // lbl_expenditures
+            // 
+            this.lbl_expenditures.AutoSize = true;
+            this.lbl_expenditures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_expenditures.ForeColor = System.Drawing.Color.White;
+            this.lbl_expenditures.Location = new System.Drawing.Point(64, 7);
+            this.lbl_expenditures.Name = "lbl_expenditures";
+            this.lbl_expenditures.Size = new System.Drawing.Size(79, 15);
+            this.lbl_expenditures.TabIndex = 0;
+            this.lbl_expenditures.Text = "Expenditures";
+            this.lbl_expenditures.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_expenditure
             // 
@@ -838,7 +931,7 @@
             this.panel_growth.Controls.Add(this.lbl_growing);
             this.panel_growth.Controls.Add(this.lbl_growth);
             this.panel_growth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_growth.Location = new System.Drawing.Point(0, 320);
+            this.panel_growth.Location = new System.Drawing.Point(0, 448);
             this.panel_growth.Name = "panel_growth";
             this.panel_growth.Size = new System.Drawing.Size(200, 64);
             this.panel_growth.TabIndex = 0;
@@ -859,14 +952,37 @@
             this.btn_growth.UseVisualStyleBackColor = false;
             this.btn_growth.Click += new System.EventHandler(this.Btn_growth_Click);
             // 
+            // lbl_growing
+            // 
+            this.lbl_growing.AutoSize = true;
+            this.lbl_growing.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_growing.ForeColor = System.Drawing.Color.White;
+            this.lbl_growing.Location = new System.Drawing.Point(69, 33);
+            this.lbl_growing.Name = "lbl_growing";
+            this.lbl_growing.Size = new System.Drawing.Size(45, 24);
+            this.lbl_growing.TabIndex = 0;
+            this.lbl_growing.Text = "0.00";
+            // 
+            // lbl_growth
+            // 
+            this.lbl_growth.AutoSize = true;
+            this.lbl_growth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_growth.ForeColor = System.Drawing.Color.White;
+            this.lbl_growth.Location = new System.Drawing.Point(70, 7);
+            this.lbl_growth.Name = "lbl_growth";
+            this.lbl_growth.Size = new System.Drawing.Size(46, 15);
+            this.lbl_growth.TabIndex = 0;
+            this.lbl_growth.Text = "Growth";
+            this.lbl_growth.Click += new System.EventHandler(this.Lbl_currency_Click);
+            // 
             // panel_left
             // 
             this.panel_left.BackColor = System.Drawing.Color.Transparent;
-            this.panel_left.Controls.Add(this.panel_overal_income);
-            this.panel_left.Controls.Add(this.panel_overall_expenditure);
             this.panel_left.Controls.Add(this.panel_growth);
             this.panel_left.Controls.Add(this.panel_investments);
             this.panel_left.Controls.Add(this.panel_savings);
+            this.panel_left.Controls.Add(this.panel_overall_expenditure);
+            this.panel_left.Controls.Add(this.panel_overal_income);
             this.panel_left.Controls.Add(this.panel_money);
             this.panel_left.Controls.Add(this.panel_profile);
             this.panel_left.Controls.Add(this.panel_menu_toggle);
@@ -875,6 +991,17 @@
             this.panel_left.Name = "panel_left";
             this.panel_left.Size = new System.Drawing.Size(200, 644);
             this.panel_left.TabIndex = 13;
+            // 
+            // panel_profile
+            // 
+            this.panel_profile.Controls.Add(this.picbox_image);
+            this.panel_profile.Controls.Add(this.lbl_user);
+            this.panel_profile.Controls.Add(this.lbl_profile);
+            this.panel_profile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_profile.Location = new System.Drawing.Point(0, 64);
+            this.panel_profile.Name = "panel_profile";
+            this.panel_profile.Size = new System.Drawing.Size(200, 64);
+            this.panel_profile.TabIndex = 7;
             // 
             // picbox_image
             // 
@@ -888,6 +1015,54 @@
             this.picbox_image.TabIndex = 5;
             this.picbox_image.TabStop = false;
             this.picbox_image.Click += new System.EventHandler(this.Picbox_image_Click);
+            // 
+            // lbl_user
+            // 
+            this.lbl_user.AutoSize = true;
+            this.lbl_user.Font = new System.Drawing.Font("Roboto", 12F);
+            this.lbl_user.ForeColor = System.Drawing.Color.White;
+            this.lbl_user.Location = new System.Drawing.Point(66, 36);
+            this.lbl_user.Name = "lbl_user";
+            this.lbl_user.Size = new System.Drawing.Size(80, 19);
+            this.lbl_user.TabIndex = 0;
+            this.lbl_user.Text = "Username";
+            // 
+            // lbl_profile
+            // 
+            this.lbl_profile.AutoSize = true;
+            this.lbl_profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_profile.ForeColor = System.Drawing.Color.White;
+            this.lbl_profile.Location = new System.Drawing.Point(70, 6);
+            this.lbl_profile.Name = "lbl_profile";
+            this.lbl_profile.Size = new System.Drawing.Size(42, 15);
+            this.lbl_profile.TabIndex = 0;
+            this.lbl_profile.Text = "Profile";
+            this.lbl_profile.Click += new System.EventHandler(this.Lbl_currency_Click);
+            // 
+            // panel_menu_toggle
+            // 
+            this.panel_menu_toggle.Controls.Add(this.btn_toggle);
+            this.panel_menu_toggle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_menu_toggle.Location = new System.Drawing.Point(0, 0);
+            this.panel_menu_toggle.Name = "panel_menu_toggle";
+            this.panel_menu_toggle.Size = new System.Drawing.Size(200, 64);
+            this.panel_menu_toggle.TabIndex = 6;
+            // 
+            // btn_toggle
+            // 
+            this.btn_toggle.BackColor = System.Drawing.Color.Transparent;
+            this.btn_toggle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_toggle.BackgroundImage")));
+            this.btn_toggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_toggle.FlatAppearance.BorderSize = 0;
+            this.btn_toggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_toggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_toggle.Location = new System.Drawing.Point(7, 6);
+            this.btn_toggle.Name = "btn_toggle";
+            this.btn_toggle.Size = new System.Drawing.Size(50, 50);
+            this.btn_toggle.TabIndex = 4;
+            this.btn_toggle.UseVisualStyleBackColor = false;
+            this.btn_toggle.Click += new System.EventHandler(this.Btn_toggle_Click);
             // 
             // btn_refresh
             // 
@@ -949,180 +1124,6 @@
             this.splitContainer_main.SplitterDistance = 628;
             this.splitContainer_main.TabIndex = 14;
             // 
-            // lbl_savings
-            // 
-            this.lbl_savings.AutoSize = true;
-            this.lbl_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_savings.ForeColor = System.Drawing.Color.White;
-            this.lbl_savings.Location = new System.Drawing.Point(67, 7);
-            this.lbl_savings.Name = "lbl_savings";
-            this.lbl_savings.Size = new System.Drawing.Size(50, 15);
-            this.lbl_savings.TabIndex = 0;
-            this.lbl_savings.Text = "Savings";
-            this.lbl_savings.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_saved
-            // 
-            this.lbl_saved.AutoSize = true;
-            this.lbl_saved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_saved.ForeColor = System.Drawing.Color.White;
-            this.lbl_saved.Location = new System.Drawing.Point(69, 33);
-            this.lbl_saved.Name = "lbl_saved";
-            this.lbl_saved.Size = new System.Drawing.Size(45, 24);
-            this.lbl_saved.TabIndex = 0;
-            this.lbl_saved.Text = "0.00";
-            // 
-            // lbl_investments
-            // 
-            this.lbl_investments.AutoSize = true;
-            this.lbl_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_investments.ForeColor = System.Drawing.Color.White;
-            this.lbl_investments.Location = new System.Drawing.Point(67, 7);
-            this.lbl_investments.Name = "lbl_investments";
-            this.lbl_investments.Size = new System.Drawing.Size(72, 15);
-            this.lbl_investments.TabIndex = 0;
-            this.lbl_investments.Text = "Investments";
-            this.lbl_investments.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_investment
-            // 
-            this.lbl_investment.AutoSize = true;
-            this.lbl_investment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_investment.ForeColor = System.Drawing.Color.White;
-            this.lbl_investment.Location = new System.Drawing.Point(69, 33);
-            this.lbl_investment.Name = "lbl_investment";
-            this.lbl_investment.Size = new System.Drawing.Size(45, 24);
-            this.lbl_investment.TabIndex = 0;
-            this.lbl_investment.Text = "0.00";
-            // 
-            // lbl_growth
-            // 
-            this.lbl_growth.AutoSize = true;
-            this.lbl_growth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_growth.ForeColor = System.Drawing.Color.White;
-            this.lbl_growth.Location = new System.Drawing.Point(70, 7);
-            this.lbl_growth.Name = "lbl_growth";
-            this.lbl_growth.Size = new System.Drawing.Size(46, 15);
-            this.lbl_growth.TabIndex = 0;
-            this.lbl_growth.Text = "Growth";
-            this.lbl_growth.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_growing
-            // 
-            this.lbl_growing.AutoSize = true;
-            this.lbl_growing.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_growing.ForeColor = System.Drawing.Color.White;
-            this.lbl_growing.Location = new System.Drawing.Point(69, 33);
-            this.lbl_growing.Name = "lbl_growing";
-            this.lbl_growing.Size = new System.Drawing.Size(45, 24);
-            this.lbl_growing.TabIndex = 0;
-            this.lbl_growing.Text = "0.00";
-            // 
-            // lbl_expenditures
-            // 
-            this.lbl_expenditures.AutoSize = true;
-            this.lbl_expenditures.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_expenditures.ForeColor = System.Drawing.Color.White;
-            this.lbl_expenditures.Location = new System.Drawing.Point(64, 7);
-            this.lbl_expenditures.Name = "lbl_expenditures";
-            this.lbl_expenditures.Size = new System.Drawing.Size(79, 15);
-            this.lbl_expenditures.TabIndex = 0;
-            this.lbl_expenditures.Text = "Expenditures";
-            this.lbl_expenditures.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_expenditure
-            // 
-            this.lbl_expenditure.AutoSize = true;
-            this.lbl_expenditure.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_expenditure.ForeColor = System.Drawing.Color.White;
-            this.lbl_expenditure.Location = new System.Drawing.Point(66, 33);
-            this.lbl_expenditure.Name = "lbl_expenditure";
-            this.lbl_expenditure.Size = new System.Drawing.Size(45, 24);
-            this.lbl_expenditure.TabIndex = 0;
-            this.lbl_expenditure.Text = "0.00";
-            // 
-            // lbl_income
-            // 
-            this.lbl_income.AutoSize = true;
-            this.lbl_income.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_income.ForeColor = System.Drawing.Color.White;
-            this.lbl_income.Location = new System.Drawing.Point(64, 7);
-            this.lbl_income.Name = "lbl_income";
-            this.lbl_income.Size = new System.Drawing.Size(48, 15);
-            this.lbl_income.TabIndex = 0;
-            this.lbl_income.Text = "Income";
-            this.lbl_income.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_income_collected
-            // 
-            this.lbl_income_collected.AutoSize = true;
-            this.lbl_income_collected.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbl_income_collected.ForeColor = System.Drawing.Color.White;
-            this.lbl_income_collected.Location = new System.Drawing.Point(69, 33);
-            this.lbl_income_collected.Name = "lbl_income_collected";
-            this.lbl_income_collected.Size = new System.Drawing.Size(45, 24);
-            this.lbl_income_collected.TabIndex = 0;
-            this.lbl_income_collected.Text = "0.00";
-            // 
-            // panel_menu_toggle
-            // 
-            this.panel_menu_toggle.Controls.Add(this.btn_toggle);
-            this.panel_menu_toggle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_menu_toggle.Location = new System.Drawing.Point(0, 0);
-            this.panel_menu_toggle.Name = "panel_menu_toggle";
-            this.panel_menu_toggle.Size = new System.Drawing.Size(200, 64);
-            this.panel_menu_toggle.TabIndex = 6;
-            // 
-            // btn_toggle
-            // 
-            this.btn_toggle.BackColor = System.Drawing.Color.Transparent;
-            this.btn_toggle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_toggle.BackgroundImage")));
-            this.btn_toggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_toggle.FlatAppearance.BorderSize = 0;
-            this.btn_toggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btn_toggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btn_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_toggle.Location = new System.Drawing.Point(7, 6);
-            this.btn_toggle.Name = "btn_toggle";
-            this.btn_toggle.Size = new System.Drawing.Size(50, 50);
-            this.btn_toggle.TabIndex = 4;
-            this.btn_toggle.UseVisualStyleBackColor = false;
-            this.btn_toggle.Click += new System.EventHandler(this.Btn_toggle_Click);
-            // 
-            // panel_profile
-            // 
-            this.panel_profile.Controls.Add(this.picbox_image);
-            this.panel_profile.Controls.Add(this.lbl_user);
-            this.panel_profile.Controls.Add(this.lbl_profile);
-            this.panel_profile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_profile.Location = new System.Drawing.Point(0, 64);
-            this.panel_profile.Name = "panel_profile";
-            this.panel_profile.Size = new System.Drawing.Size(200, 64);
-            this.panel_profile.TabIndex = 7;
-            // 
-            // lbl_profile
-            // 
-            this.lbl_profile.AutoSize = true;
-            this.lbl_profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_profile.ForeColor = System.Drawing.Color.White;
-            this.lbl_profile.Location = new System.Drawing.Point(70, 6);
-            this.lbl_profile.Name = "lbl_profile";
-            this.lbl_profile.Size = new System.Drawing.Size(42, 15);
-            this.lbl_profile.TabIndex = 0;
-            this.lbl_profile.Text = "Profile";
-            this.lbl_profile.Click += new System.EventHandler(this.Lbl_currency_Click);
-            // 
-            // lbl_user
-            // 
-            this.lbl_user.AutoSize = true;
-            this.lbl_user.Font = new System.Drawing.Font("Roboto", 12F);
-            this.lbl_user.ForeColor = System.Drawing.Color.White;
-            this.lbl_user.Location = new System.Drawing.Point(66, 36);
-            this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(80, 19);
-            this.lbl_user.TabIndex = 0;
-            this.lbl_user.Text = "Username";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1164,16 +1165,16 @@
             this.panel_growth.ResumeLayout(false);
             this.panel_growth.PerformLayout();
             this.panel_left.ResumeLayout(false);
+            this.panel_profile.ResumeLayout(false);
+            this.panel_profile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_image)).EndInit();
+            this.panel_menu_toggle.ResumeLayout(false);
             this.panel_top.ResumeLayout(false);
             this.panel_combo_box.ResumeLayout(false);
             this.splitContainer_main.Panel1.ResumeLayout(false);
             this.splitContainer_main.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_main)).EndInit();
             this.splitContainer_main.ResumeLayout(false);
-            this.panel_menu_toggle.ResumeLayout(false);
-            this.panel_profile.ResumeLayout(false);
-            this.panel_profile.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -2400,9 +2400,9 @@
   </data>
   <data name="btn_toggle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABFSURBVEhLYxgFBMH////TaIlBFtAU0N6CUTDwABgPxrTEwyCZAjFWr1ELQ2NiFAwkAEYETQFd
-        LMBaUVALQwNqFOACDAwA8jR5flf8vygAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAEVJREFUSEtj
+        GAUEwf///9NoiUEW0BTQ3oJRMPAAGA/GtMTDIJkCMVavUQtDY2IUDCQARgRNAV0swFpRUAtDA2oU4AIM
+        DADyNHl+V/y/KAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btn_refresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

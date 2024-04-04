@@ -12,6 +12,7 @@ namespace SpendWise
         // reference the required classes
         readonly Money money = new Money();
         readonly Transaction transaction = new Transaction();
+
         readonly Connection con = new Connection();
         readonly SQLiteConnection sqlcon = new SQLiteConnection();
         readonly StyleDataGrid theme = new StyleDataGrid();
@@ -55,8 +56,14 @@ namespace SpendWise
                 lbl_expenditure_count.Text = LoadExpenditureCount(currentMonth);
                 // show all transactions
                 lbl_transactions_count.Text = LoadTransactionsCount(currentMonth);
-
+                // show annual transactions count
                 lbl_annual_count.Text = LoadAnnualCount();
+                // show income on income panel
+                lbl_income_collected.Text = LoadIncome();
+                // show expenditure on expenditure panel
+                lbl_expenditure.Text = LoadExpenditure();
+                // show money in wallet on money panel
+                lbl_money.Text = money.CheckMoney();
             }
             catch (Exception)
             {
@@ -324,11 +331,13 @@ namespace SpendWise
             return investments;
         }
         // load the overall income
+        
         public string LoadIncome()
         {
             string Income = con.ReadString("SELECT sum(Amount) FROM transactions WHERE Action = '+'");
             return Income;
         }
+        
         // load times gotten income in the month
         private string LoadIncomeCount(string setting)
         {
