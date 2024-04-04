@@ -835,12 +835,14 @@ namespace SpendWise
                 // style datagrid
                 theme.DarkStyle(data_transactions);
                 // style panels
+                /*
                 panel_money.BackColor = Color.FromArgb(24, 24, 24);
                 panel_savings.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overall_expenditure.BackColor = Color.FromArgb(24, 24, 24);
                 panel_growth.BackColor = Color.FromArgb(24, 24, 24);
                 panel_investments.BackColor = Color.FromArgb(24, 24, 24);
+                */
                 // style text
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
@@ -939,6 +941,18 @@ namespace SpendWise
         {
             Profile profile = new Profile();
             profile.Show();
+        }
+
+        private void Btn_toggle_Click(object sender, EventArgs e)
+        {
+            if (panel_left.Width == 200)
+            {
+                panel_left.Width = 64;
+            }
+            else
+            {
+                panel_left.Width = 200;
+            }
         }
     }
 }
