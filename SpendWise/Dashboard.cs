@@ -13,6 +13,7 @@ namespace SpendWise
         readonly Money money = new Money();
         readonly Transaction transaction = new Transaction();
         readonly Connection con = new Connection();
+        readonly SQLiteConnection sqlcon = new SQLiteConnection();
         readonly StyleDataGrid theme = new StyleDataGrid();
         // constructor
         public Dashboard()
@@ -84,8 +85,8 @@ namespace SpendWise
             LoadCharts();
 
             txt_amount.Text = "";
-            txt_investment.Text = "Description";
-            txt_expenditure.Text = "Description";
+            txt_investment.Text = "Income";
+            txt_expenditure.Text = "Expenditure";
             // update investment dot
             LoadInvestmentDot();
         }
@@ -176,12 +177,13 @@ namespace SpendWise
             SQLiteDataReader expenditure = queryExpenditure.ExecuteReader();
             try
             {
-                chart_income.Series[0].Points.Clear();
-                chart_income.Series[1].Points.Clear();
+                chart_income.Series[0].Points.Clear(); // first set of data income
+                chart_income.Series[1].Points.Clear(); // second set of data expenditure
+
                 while (income.Read() && expenditure.Read())
                 {
-                    chart_income.Series[0].Points.Add(income.GetInt32(0));
-                    chart_income.Series[1].Points.Add(expenditure.GetInt32(0));
+                    chart_income.Series[0].Points.Add(income.GetInt32(0)); // first set of data income
+                    chart_income.Series[1].Points.Add(expenditure.GetInt32(0)); // second set of data expenditure
                 }
             }
             catch (Exception ex)
@@ -298,9 +300,9 @@ namespace SpendWise
                 }
                 return 0.ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Growth feature unavailable!", "Assistant");
+                MessageBox.Show("Growth feature unavailable! " + ex.Message, "Assistant");
                 // play chime
                 SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
@@ -476,14 +478,14 @@ namespace SpendWise
                     MessageBox.Show("Add both a description and amount for either an investment or expenditure, not all fields should be set at once!", "Suggestion");
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 // play chime
                 SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // log the error
                 con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Plus action')");
-                MessageBox.Show("Feature unavailable!", "Assistant");
+                MessageBox.Show("Execute feature unavailable! " + ex.Message, "Assistant");
             }
             
         }
@@ -541,6 +543,7 @@ namespace SpendWise
         {
             Application.Exit();
             con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
+            sqlcon.Close();
         }
         // when refresh button pressed
         public void Btn_refresh_Click(object sender, EventArgs e)
@@ -815,8 +818,6 @@ namespace SpendWise
                 // style datagrid
                 theme.LightStyle(data_transactions);
                 // style panels
-                panel_amount.BackColor = Color.FromArgb(235, 235, 235);
-                panel_input.BackColor = Color.FromArgb(235, 235, 235);
                 panel_money.BackColor = Color.FromArgb(235, 235, 235);
                 panel_savings.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
@@ -824,8 +825,6 @@ namespace SpendWise
                 panel_growth.BackColor = Color.FromArgb(235, 235, 235);
                 panel_investments.BackColor = Color.FromArgb(235, 235, 235);
                 // style text
-                lbl_title_amount.ForeColor = Color.Black;
-                lbl_title_transactions.ForeColor = Color.Black;
                 lbl_currency.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
                 // style buttons
@@ -837,11 +836,11 @@ namespace SpendWise
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
                 // update the wallet theme property in the db
-                con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
+                // con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Feature unavailable", "Assistant");
+                MessageBox.Show("Light mode feature unavailable! " + ex.Message, "Assistant");
             }
         }
         // dark mode properties
@@ -854,8 +853,6 @@ namespace SpendWise
                 // style datagrid
                 theme.DarkStyle(data_transactions);
                 // style panels
-                panel_amount.BackColor = Color.FromArgb(24, 24, 24);
-                panel_input.BackColor = Color.FromArgb(24, 24, 24);
                 panel_money.BackColor = Color.FromArgb(24, 24, 24);
                 panel_savings.BackColor = Color.FromArgb(24, 24, 24);
                 panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
@@ -863,8 +860,6 @@ namespace SpendWise
                 panel_growth.BackColor = Color.FromArgb(24, 24, 24);
                 panel_investments.BackColor = Color.FromArgb(24, 24, 24);
                 // style text
-                lbl_title_amount.ForeColor = Color.White;
-                lbl_title_transactions.ForeColor = Color.White;
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
                 // style buttons
@@ -876,11 +871,11 @@ namespace SpendWise
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
                 // update the wallet theme property in the db
-                con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
+                // con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Feature unavailable", "Assistant");
+                MessageBox.Show("Dark mode feature unavailable, " + ex.Message, "Assistant");
             }
         }
         // when user sets light mode

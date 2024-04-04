@@ -241,3 +241,65 @@ C:\Users\wanga\Documents\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.cspro
 C:\Users\wanga\Documents\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
 C:\Users\wanga\Documents\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.exe
 C:\Users\wanga\Documents\Coding\C#\SpendWise\SpendWise\obj\Debug\SpendWise.pdb
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\SpendWise.exe.config
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\SpendWise.exe
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\SpendWise.pdb
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\ExcelNumberFormat.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.Design.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.pdb
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.xml
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\bin\Debug\ExcelNumberFormat.xml
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.About.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Currency.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Dashboard.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Export.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Growth.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Income.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Investments.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Profile.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Properties.Resources.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Savings.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.SplashScreen.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Expenditure.resources
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.GenerateResource.cache
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.CoreCompileInputs.cache
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.exe
+C:\Users\wanga\source\repos\SpendWise-broken\SpendWise\obj\Debug\SpendWise.pdb
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\SpendWise.exe.config
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\SpendWise.exe
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\SpendWise.pdb
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\ExcelNumberFormat.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.Design.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.pdb
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\ClosedXML.xml
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\bin\Debug\ExcelNumberFormat.xml
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csprojAssemblyReference.cache
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.About.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Currency.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Dashboard.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Export.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Growth.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Income.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Investments.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Profile.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Properties.Resources.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Savings.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.SplashScreen.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.Expenditure.resources
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.GenerateResource.cache
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.CoreCompileInputs.cache
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.csproj.CopyComplete
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.exe
+C:\Users\wanga\Documents\Visual Studio 2019\Projects\SpendWise-broken\SpendWise\obj\Debug\SpendWise.pdb
