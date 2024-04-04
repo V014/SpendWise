@@ -484,8 +484,8 @@ namespace SpendWise
                 SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                 save.Play();
                 // log the error
-                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'SQL error', 'Plus action')");
-                MessageBox.Show("Execute feature unavailable! " + ex.Message, "Assistant");
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot record income or expenditure', 'Execute action')");
+                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
@@ -501,7 +501,7 @@ namespace SpendWise
                 }
                 else
                 {
-                    MessageBox.Show("Numbers Only Please!", "Error: Number Only", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Numbers Only Please! ", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     e.Handled = true;
                 }
             }
@@ -513,11 +513,6 @@ namespace SpendWise
             chime.Play();
             About us = new About();
             us.Show();
-        }
-        // flush the database after confirmation
-        private void Btn_reset_Click(object sender, EventArgs e)
-        {
-
         }
         // what happens when name is clicked
         private void Lbl_owner_Click(object sender, EventArgs e)
@@ -587,18 +582,9 @@ namespace SpendWise
                     SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
                     save.Play();
                     // show suggestion box
-                    MessageBox.Show(ex.ToString());
-                    try
-                    {
-                        // log the error 
-                        con.ExecuteQuery($"INSERT INTO events  (Date, description, location) VALUES( 'date('now')', 'SQL error', 'Transaction log')");
-                        MessageBox.Show("Error logged");
-                    }
-                    catch
-                    {
-                        // if logging fails, close the application
-                        Application.Exit();
-                    }
+                    MessageBox.Show("Failed to delete transaction" + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // log the error 
+                    con.ExecuteQuery($"INSERT INTO events (Date, description, location) VALUES( 'date('now')', 'SQL error', 'Transaction log')");
                 }
             }
         }
@@ -644,16 +630,18 @@ namespace SpendWise
             {
                 chart_income.Series[0].Points.Clear();
                 chart_income.Series[1].Points.Clear();
-                while (income_data.Read())
+                while (income_data.Read() & expenditure_data.Read())
                 {
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                     chart_income.Series[1].Points.Add(expenditure_data.GetInt32(0));
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Income unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Daily charts unavailabe" + ex.Message , "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // log the error 
+                con.ExecuteQuery($"INSERT INTO events  (Date, description, location) VALUES( 'date('now')', 'Daily charts not displaying', 'Day combo box')");
             }
             
             // stops timer to prevent refresh
@@ -704,16 +692,18 @@ namespace SpendWise
             {
                 chart_income.Series[0].Points.Clear();
                 chart_income.Series[1].Points.Clear();
-                while (income_data.Read())
+                while (income_data.Read() && expenditure_data.Read())
                 {
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                     chart_income.Series[1].Points.Add(expenditure_data.GetInt32(0));
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Charts unavailabe", "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Monthly charts unavailabe" + ex.Message , "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // log the error 
+                con.ExecuteQuery($"INSERT INTO events  (Date, description, location) VALUES( 'date('now')', 'Monthly charts not displaying', 'Month combo box')");
             }
         }
         // displays about message
