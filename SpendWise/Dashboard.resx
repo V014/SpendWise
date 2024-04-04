@@ -2398,6 +2398,13 @@
         RK5CYII=
 </value>
   </data>
+  <data name="btn_toggle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAABFSURBVEhLYxgFBMH////TaIlBFtAU0N6CUTDwABgPxrTEwyCZAjFWr1ELQ2NiFAwkAEYETQFd
+        LMBaUVALQwNqFOACDAwA8jR5flf8vygAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btn_refresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAaVJREFUSEvt
@@ -2414,13 +2421,6 @@
   <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>160, 16</value>
   </metadata>
-  <data name="btn_toggle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABFSURBVEhLYxgFBMH////TaIlBFtAU0N6CUTDwABgPxrTEwyCZAjFWr1ELQ2NiFAwkAEYETQFd
-        LMBaUVALQwNqFOACDAwA8jR5flf8vygAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>48</value>
   </metadata>
