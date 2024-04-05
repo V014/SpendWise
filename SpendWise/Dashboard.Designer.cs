@@ -329,7 +329,8 @@
             series1.BackSecondaryColor = System.Drawing.Color.MediumSeaGreen;
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Green;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             series1.LabelForeColor = System.Drawing.Color.Empty;
             series1.Legend = "Legend1";
@@ -340,7 +341,9 @@
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Single;
             series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series2.BackSecondaryColor = System.Drawing.Color.Firebrick;
+            series2.BorderWidth = 2;
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series2.Color = System.Drawing.Color.Red;
             series2.Legend = "Legend1";
             series2.Name = "Expenditure";
@@ -512,12 +515,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.data_transactions.DefaultCellStyle = dataGridViewCellStyle2;
             this.data_transactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.data_transactions.Location = new System.Drawing.Point(0, 134);
+            this.data_transactions.Location = new System.Drawing.Point(0, 0);
             this.data_transactions.MultiSelect = false;
             this.data_transactions.Name = "data_transactions";
             this.data_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_transactions.Size = new System.Drawing.Size(247, 470);
+            this.data_transactions.Size = new System.Drawing.Size(247, 604);
             this.data_transactions.TabIndex = 0;
             this.data_transactions.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellEndEdit);
             // 
@@ -544,11 +547,11 @@
             this.panel_counters.Controls.Add(this.label2);
             this.panel_counters.Controls.Add(this.label5);
             this.panel_counters.Controls.Add(this.label1);
-            this.panel_counters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_counters.Location = new System.Drawing.Point(0, 0);
+            this.panel_counters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_counters.Location = new System.Drawing.Point(0, 512);
             this.panel_counters.Name = "panel_counters";
             this.panel_counters.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel_counters.Size = new System.Drawing.Size(247, 134);
+            this.panel_counters.Size = new System.Drawing.Size(200, 132);
             this.panel_counters.TabIndex = 8;
             // 
             // lbl_annual_count
@@ -774,7 +777,6 @@
             this.lbl_invest.Size = new System.Drawing.Size(72, 15);
             this.lbl_invest.TabIndex = 0;
             this.lbl_invest.Text = "Investments";
-            this.lbl_invest.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_investments
             // 
@@ -825,7 +827,6 @@
             this.lbl_savings.Size = new System.Drawing.Size(50, 15);
             this.lbl_savings.TabIndex = 0;
             this.lbl_savings.Text = "Savings";
-            this.lbl_savings.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_overal_income
             // 
@@ -873,7 +874,6 @@
             this.lbl_income.Size = new System.Drawing.Size(48, 15);
             this.lbl_income.TabIndex = 0;
             this.lbl_income.Text = "Income";
-            this.lbl_income.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_income
             // 
@@ -936,7 +936,6 @@
             this.lbl_expenditures.Size = new System.Drawing.Size(79, 15);
             this.lbl_expenditures.TabIndex = 0;
             this.lbl_expenditures.Text = "Expenditures";
-            this.lbl_expenditures.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // btn_expenditure
             // 
@@ -1003,11 +1002,11 @@
             this.lbl_growing.Size = new System.Drawing.Size(46, 15);
             this.lbl_growing.TabIndex = 0;
             this.lbl_growing.Text = "Growth";
-            this.lbl_growing.Click += new System.EventHandler(this.Lbl_currency_Click);
             // 
             // panel_left
             // 
             this.panel_left.BackColor = System.Drawing.Color.Transparent;
+            this.panel_left.Controls.Add(this.panel_counters);
             this.panel_left.Controls.Add(this.panel_growth);
             this.panel_left.Controls.Add(this.panel_investments);
             this.panel_left.Controls.Add(this.panel_savings);
@@ -1149,7 +1148,6 @@
             // splitContainer_main.Panel2
             // 
             this.splitContainer_main.Panel2.Controls.Add(this.data_transactions);
-            this.splitContainer_main.Panel2.Controls.Add(this.panel_counters);
             this.splitContainer_main.Size = new System.Drawing.Size(879, 604);
             this.splitContainer_main.SplitterDistance = 628;
             this.splitContainer_main.TabIndex = 14;

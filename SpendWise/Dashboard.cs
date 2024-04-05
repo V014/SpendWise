@@ -425,14 +425,15 @@ namespace SpendWise
             try
             {
                 // instanciate values from controls
-                string desc = txt_investment.Text;
+                string investment = txt_investment.Text;
+                string expenditure = txt_expenditure.Text;
                 string date = date_select.Text;
                 int amount = Convert.ToInt32(txt_amount.Text);
                 int wallet = Convert.ToInt32(money.CheckMoney());
                 int savings = Convert.ToInt32(money.CheckSavings());
 
-                // check if a description and amount both exist
-                if (txt_investment.Text != "Description" && txt_amount.Text != "" && txt_expenditure.Text == "Description")
+                // check if a investment and amount field both exist
+                if (investment != "Income" && txt_amount.Text != "" && expenditure == "Expenditure")
                 {
                     // add the previous and adding values
                     int moneyNow = wallet + amount;
@@ -447,7 +448,7 @@ namespace SpendWise
                     // document new savings
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{desc}', {amount}, '{date}', '+')");
+                    con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{investment}', {amount}, '{date}', '+')");
                     // refresh app
                     RefreshUI();
                     // update the money count
@@ -463,7 +464,7 @@ namespace SpendWise
                     win.Play();
 
                 }
-                else if (txt_expenditure.Text != "Description" && txt_amount.Text != "" && txt_investment.Text == "Description")
+                else if (expenditure != "Expenditure" && txt_amount.Text != "" && investment == "Income")
                 {
                     
                     // subtract the previous and adding values
@@ -473,7 +474,7 @@ namespace SpendWise
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // log the changes
-                    con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{desc}', '{amount}', strftime('%Y-%m-%d %H:%M','now','localtime'), '-')");
+                    con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{expenditure}', '{amount}', strftime('%Y-%m-%d %H:%M','now','localtime'), '-')");
                     // refresh app
                     RefreshUI();
                     // refresh the data grid

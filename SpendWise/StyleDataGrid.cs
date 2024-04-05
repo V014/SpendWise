@@ -34,7 +34,7 @@ namespace SpendWise
 
             dataGrid.DefaultCellStyle.Font = new Font("Roboto", 8);
             dataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(72, 174, 120);
+            dataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 177, 89);
 
             dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(17, 17, 17);
             dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -60,7 +60,7 @@ namespace SpendWise
 
             dataGrid.DefaultCellStyle.Font = new Font("Roboto", 8);
             dataGrid.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(72, 174, 120);
+            dataGrid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 177, 89);
 
             dataGrid.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             dataGrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
