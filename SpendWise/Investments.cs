@@ -20,13 +20,13 @@ namespace SpendWise
             lbl_complete_investments.Text = LoadCompleteInvestments();
         }
         // load investments
-        private string LoadInvestments()
+        public string LoadInvestments()
         {
             string investments = con.ReadString("SELECT COUNT(id) FROM investments");
             return investments;
         }
         // load complete investments
-        private string LoadCompleteInvestments()
+        public string LoadCompleteInvestments()
         {
             string investments = con.ReadString("SELECT COUNT(id) FROM investments WHERE progress = 100");
             return investments;

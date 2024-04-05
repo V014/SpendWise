@@ -12,7 +12,7 @@ namespace SpendWise
         // reference the required classes
         readonly Money money = new Money();
         readonly Transaction transaction = new Transaction();
-
+        readonly Investments invest = new Investments();
         readonly Connection con = new Connection();
         readonly SQLiteConnection sqlcon = new SQLiteConnection();
         readonly StyleDataGrid theme = new StyleDataGrid();
@@ -68,6 +68,10 @@ namespace SpendWise
                 lbl_saved.Text = LoadSaved().ToString();
                 // show growth percent on percent panel
                 lbl_growth.Text = LoadGrowth();
+                // show complete investments
+                lbl_complete_investments.Text = invest.LoadCompleteInvestments();
+                // show total investments
+                lbl_investments.Text = invest.LoadInvestments();
 
             }
             catch (Exception)
