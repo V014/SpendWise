@@ -72,6 +72,8 @@ namespace SpendWise
                 lbl_complete_investments.Text = invest.LoadCompleteInvestments();
                 // show total investments
                 lbl_investments.Text = invest.LoadInvestments();
+                // show username
+                lbl_user.Text = LoadUser();
 
             }
             catch (Exception)
@@ -229,7 +231,7 @@ namespace SpendWise
             buttonToolTip.SetToolTip(lbl_income_count, "This is how many times you have been paid this month");
             buttonToolTip.SetToolTip(lbl_expenditure_count, "This is how many times you have spent this month");
             buttonToolTip.SetToolTip(lbl_transactions_count, "This is how many times you have transacted this month");
-            buttonToolTip.SetToolTip(chart_income, "This chart shows your daily income activity depending on the setting.");
+            // buttonToolTip.SetToolTip(chart_income, "This chart shows your daily income activity depending on the setting.");
         }
         // pull user name from system
         private string LoadUser()
@@ -649,8 +651,11 @@ namespace SpendWise
             {
                 chart_income.Series[0].Points.Clear();
                 chart_income.Series[1].Points.Clear();
-                while (income_data.Read() & expenditure_data.Read())
+                while (income_data.Read() && expenditure_data.Read())
                 {
+                    // Change the chart type
+                    //chart_income.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                    //chart_income.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
                     chart_income.Series[0].Points.Add(income_data.GetInt32(0));
                     chart_income.Series[1].Points.Add(expenditure_data.GetInt32(0));
                 }
