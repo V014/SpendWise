@@ -50,14 +50,16 @@ namespace SpendWise
             {
                 // get the month from the database.
                 string currentMonth = con.ReadString("SELECT strftime('%m', 'now', 'localtime')");
+                // get the year
+                string year = con.ReadString("Select strftime('%Y', 'now', 'localtime')");
                 // show the income
-                lbl_income_count.Text = LoadIncomeCount(currentMonth);
+                lbl_income_count.Text = LoadIncomeCount(currentMonth, year);
                 // show the exoenditure
-                lbl_expenditure_count.Text = LoadExpenditureCount(currentMonth);
+                lbl_expenditure_count.Text = LoadExpenditureCount(currentMonth, year);
                 // show all transactions
-                lbl_transactions_count.Text = LoadTransactionsCount(currentMonth);
+                lbl_transactions_count.Text = LoadTransactionsCount(currentMonth, year);
                 // show annual transactions count
-                lbl_annual_count.Text = LoadAnnualCount();
+                lbl_annual_count.Text = LoadAnnualCount(year);
                 // show income on income panel
                 lbl_income_collected.Text = LoadIncome();
                 // show expenditure on expenditure panel
@@ -350,27 +352,27 @@ namespace SpendWise
         }
         
         // load times gotten income in the month
-        private string LoadIncomeCount(string setting)
+        private string LoadIncomeCount(string month, string year)
         {
-            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m', date) = '{setting}'");
+            string Income = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '+' AND strftime('%m', date) = '{month}' AND strftime('%Y', date) = '{year}'");
             return Income;
         }
         // load times spent money in the month
-        private string LoadExpenditureCount(string setting)
+        private string LoadExpenditureCount(string month, string year)
         {
-            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m', date) = '{setting}'");
+            string Expenditure = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE action = '-' AND strftime('%m', date) = '{month}' AND strftime('%Y', date) = '{year}'");
             return Expenditure;
         }
         // load total monthly transactions
-        private string LoadTransactionsCount(string setting)
+        private string LoadTransactionsCount(string month, string year)
         {
-            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m', date) = '{setting}'");
+            string Transactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%m', date) = '{month}' AND strftime('%Y', date) = '{year}'");
             return Transactions;
         }
         // load Annual transactions
-        private string LoadAnnualCount()
+        private string LoadAnnualCount(string year)
         {
-            string annualTransactions = con.ReadString("SELECT COUNT(amount) FROM transactions");
+            string annualTransactions = con.ReadString($"SELECT COUNT(amount) FROM transactions WHERE strftime('%Y', date) = '{year}'");
             return annualTransactions;
         }
         // load the overall expenditure
