@@ -12,7 +12,7 @@ namespace SpendWise
         {
             string queryTransactions = "SELECT ID, Description, Amount, Action, Date  FROM transactions";
             con.LoadData(queryTransactions, datagrid);
-            datagrid.Columns[0].Visible = false;
+            //datagrid.Columns[0].Visible = false;
         }
         // load the number of the month through the name
         public string getMonthNumber(string month)
@@ -66,7 +66,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE date LIKE '{date}%'", dataGrid);
+                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE date LIKE '{date}%'", dataGrid);
             }
             catch (Exception)
             {
@@ -83,7 +83,7 @@ namespace SpendWise
         {
             try
             {
-                con.LoadData($"SELECT Description, Amount, Action, Date FROM Transactions WHERE strftime('%m', date) = '{getMonthNumber(date)}' AND strftime('%Y', date) = '{year}'", dataGrid);
+                con.LoadData($"SELECT ID, Description, Amount, Action, Date FROM Transactions WHERE strftime('%m', date) = '{getMonthNumber(date)}' AND strftime('%Y', date) = '{year}'", dataGrid);
             }
             catch (Exception)
             {
