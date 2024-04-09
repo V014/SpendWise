@@ -903,13 +903,12 @@ namespace SpendWise
         {
             try
             {
-                DataGridViewRow selectedRow = data_transactions.SelectedRows[0];
-                string id = selectedRow.Cells[0].Value.ToString();
-                string description = selectedRow.Cells[1].Value.ToString();
-                string amount = selectedRow.Cells[2].Value.ToString();
-                string date = selectedRow.Cells[4].Value.ToString();
-                string action = selectedRow.Cells[3].Value.ToString();
-
+                // collect the id
+                var id = data_transactions.CurrentRow.Cells[0].Value;
+                string description = data_transactions.CurrentRow.Cells[1].Value.ToString();
+                string amount = data_transactions.CurrentRow.Cells[2].Value.ToString();
+                string action = data_transactions.CurrentRow.Cells[3].Value.ToString();
+                string date = data_transactions.CurrentRow.Cells[4].Value.ToString();
                 con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID={id}");
                 RefreshUI();
             }
