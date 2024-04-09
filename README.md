@@ -8,11 +8,8 @@ It uses basic business formulas to solve mathematical problems you should have b
 ## Main Functions
 
 - 🌱 Calculate Compound Annual Growth Rate (CAGR)
-<<<<<<< HEAD
 - 💳 Monitor expenditure
-=======
-- 💳 Monitor expenditure 
->>>>>>> ab6b18e24c80259984de9fc5edaa6ead8fc0cea3
+- 💳 Monitor expenditure
 - 💰 Monitor income
 - 💸 Track money
 - 🐖 Track savings
@@ -58,4 +55,3 @@ This is the UI when partially sized to focus on two programs while spendwise bei
 This is the most discreet SpendWise can be without loosing its main functionality and at the same time get out of your way.
 
 <img src ="screenshots/SpendWise-Mini.png" alt="Minimal sized interface">
-
