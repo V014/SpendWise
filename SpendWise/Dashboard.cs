@@ -789,13 +789,19 @@ namespace SpendWise
         // toggles charts depending on size
         private void Dashboard_Resize(object sender, EventArgs e)
         {
-            if (this.Height <= 500)
+            if (this.Width <= 950)
             {
-                picbox_image.Visible = false;
+                // picbox_image.Visible = false;
+                panel_combo_box.Visible = false;
+                splitContainer_main.Panel1Collapsed = true;
+                panel_profile.Visible = false;
             }
             else
             {
-                picbox_image.Visible = true;
+                panel_combo_box.Visible = true;
+                splitContainer_main.Panel1Collapsed = false;
+                panel_profile.Visible = false;
+                // picbox_image.Visible = true;
             }
         }
         // when the user clicks the expenditure button
