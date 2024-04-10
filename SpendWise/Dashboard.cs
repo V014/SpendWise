@@ -979,10 +979,12 @@ namespace SpendWise
             if (panel_left.Width == 200)
             {
                 panel_left.Width = 64;
+                panel_counters.Visible = false;
             }
             else
             {
                 panel_left.Width = 200;
+                panel_counters.Visible = true;
             }
         }
     }
