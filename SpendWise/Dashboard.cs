@@ -504,8 +504,8 @@ namespace SpendWise
             catch (Exception ex)
             {
                 // play chime
-                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
-                save.Play();
+                // SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                // save.Play();
                 // log the error
                 con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot record income or expenditure', 'Execute action')");
                 MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -945,12 +945,13 @@ namespace SpendWise
                 string amount = data_transactions.CurrentRow.Cells[2].Value.ToString();
                 string action = data_transactions.CurrentRow.Cells[3].Value.ToString();
                 string date = data_transactions.CurrentRow.Cells[4].Value.ToString();
-                con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID={id}");
+                con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID='{id}'");
                 RefreshUI();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // do nothing
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot update data grid', 'edit action')");
+                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
