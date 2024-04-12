@@ -880,6 +880,20 @@ namespace SpendWise
                 // style text
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
+                lbl_profile.ForeColor = Color.White;
+                lbl_user.ForeColor = Color.White;
+                lbl_income.ForeColor = Color.White;
+                lbl_income_collected.ForeColor = Color.White;
+                lbl_expenditures.ForeColor = Color.White;
+                lbl_expenditure.ForeColor = Color.White;
+                lbl_savings.ForeColor = Color.White;
+                lbl_saved.ForeColor = Color.White;
+                lbl_invest.ForeColor = Color.White;
+                lbl_complete_investments.ForeColor = Color.White;
+                lbl_investments.ForeColor = Color.White;
+                lbl_divider.ForeColor = Color.White;
+                lbl_growing.ForeColor = Color.White;
+                lbl_growth.ForeColor = Color.White;
                 // style buttons
                 // btn_execute.BackColor = Color.FromArgb(20, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
