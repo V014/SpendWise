@@ -560,7 +560,6 @@ namespace SpendWise
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-            con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
             sqlcon.Close();
         }
         // when refresh button pressed
@@ -708,9 +707,9 @@ namespace SpendWise
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Incase of error do nothing
+                MessageBox.Show("Comparison data unavailabe, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             // Fill income chart
@@ -1017,6 +1016,11 @@ namespace SpendWise
                 panel_left.Width = 200;
                 panel_counters.Visible = true;
             }
+        }
+
+        private void Dashboard_ResizeEnd(object sender, EventArgs e)
+        {
+            con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
         }
     }
 }

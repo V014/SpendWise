@@ -268,7 +268,7 @@
             this.item_remove});
             this.menu_transactions.Name = "dataMenu";
             this.menu_transactions.ShowImageMargin = false;
-            this.menu_transactions.Size = new System.Drawing.Size(156, 48);
+            this.menu_transactions.Size = new System.Drawing.Size(93, 26);
             this.menu_transactions.Style = MetroFramework.MetroColorStyle.Green;
             this.menu_transactions.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.menu_transactions.UseStyleColors = true;
@@ -279,7 +279,7 @@
             this.item_remove.ForeColor = System.Drawing.Color.Black;
             this.item_remove.Image = ((System.Drawing.Image)(resources.GetObject("item_remove.Image")));
             this.item_remove.Name = "item_remove";
-            this.item_remove.Size = new System.Drawing.Size(155, 22);
+            this.item_remove.Size = new System.Drawing.Size(92, 22);
             this.item_remove.Text = "Remove";
             this.item_remove.Click += new System.EventHandler(this.Item_remove_Click);
             // 
@@ -425,14 +425,14 @@
             // importStripMenuItem
             // 
             this.importStripMenuItem.Name = "importStripMenuItem";
-            this.importStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importStripMenuItem.Text = "Import";
             this.importStripMenuItem.Click += new System.EventHandler(this.ImportStripMenuItem_Click);
             // 
             // exportStripMenuItem
             // 
             this.exportStripMenuItem.Name = "exportStripMenuItem";
-            this.exportStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exportStripMenuItem.Text = "Export";
             this.exportStripMenuItem.Click += new System.EventHandler(this.ExportStripMenuItem_Click);
             // 
@@ -1176,6 +1176,7 @@
             this.Text = "SpendWise";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
+            this.ResizeEnd += new System.EventHandler(this.Dashboard_ResizeEnd);
             this.Resize += new System.EventHandler(this.Dashboard_Resize);
             this.menu_transactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_income)).EndInit();
