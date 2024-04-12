@@ -850,7 +850,7 @@ namespace SpendWise
                 lbl_growth.ForeColor = Color.Black;
                 // style buttons
                 btn_refresh.BackColor = Color.SteelBlue;
-
+                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -893,6 +893,7 @@ namespace SpendWise
                 lbl_growth.ForeColor = Color.White;
                 // style buttons
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
+                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
