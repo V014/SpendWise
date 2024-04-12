@@ -832,17 +832,19 @@ namespace SpendWise
                 // style datagrid
                 theme.LightStyle(data_transactions);
                 // style panels
+                /*
                 panel_money.BackColor = Color.FromArgb(235, 235, 235);
                 panel_savings.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
                 panel_overall_expenditure.BackColor = Color.FromArgb(235, 235, 235);
                 panel_growth.BackColor = Color.FromArgb(235, 235, 235);
                 panel_investments.BackColor = Color.FromArgb(235, 235, 235);
+                */
                 // style text
                 lbl_currency.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
                 // style buttons
-                btn_execute.BackColor = Color.FromArgb(72, 174, 120);
+                // btn_execute.BackColor = Color.FromArgb(72, 174, 120);
                 btn_refresh.BackColor = Color.SteelBlue;
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -850,7 +852,7 @@ namespace SpendWise
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
                 // update the wallet theme property in the db
-                // con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
+                
             }
             catch (Exception ex)
             {
@@ -879,7 +881,7 @@ namespace SpendWise
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
                 // style buttons
-                btn_execute.BackColor = Color.FromArgb(20, 30, 30);
+                // btn_execute.BackColor = Color.FromArgb(20, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -887,7 +889,7 @@ namespace SpendWise
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
                 // update the wallet theme property in the db
-                // con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
+                
             }
             catch (Exception ex)
             {
@@ -897,11 +899,13 @@ namespace SpendWise
         // when user sets light mode
         private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
             LightMode();
         }
         // when user sets dark mode
         private void DarkModeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
             DarkMode();
         }
         // if user edits in datagrid, reflect the changes
