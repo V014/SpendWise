@@ -862,11 +862,12 @@ namespace SpendWise
                 btn_refresh.BackColor = Color.SteelBlue;
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
-                txt_investment.BackColor = Color.White;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
+                txt_investment.BackColor = Color.White;
+                txt_expenditure.BackColor = Color.White;
                 // update the wallet theme property in the db
-                
+
             }
             catch (Exception ex)
             {
@@ -913,11 +914,12 @@ namespace SpendWise
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
-                txt_investment.BackColor = Color.FromArgb(17, 17, 17);
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
+                txt_investment.BackColor = Color.FromArgb(17,17,17);
+                txt_expenditure.BackColor = Color.FromArgb(17, 17, 17);
                 // update the wallet theme property in the db
-                
+
             }
             catch (Exception ex)
             {
