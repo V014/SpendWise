@@ -203,11 +203,11 @@
             // lbl_money
             // 
             this.lbl_money.AutoSize = true;
-            this.lbl_money.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_money.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_money.ForeColor = System.Drawing.Color.White;
             this.lbl_money.Location = new System.Drawing.Point(69, 32);
             this.lbl_money.Name = "lbl_money";
-            this.lbl_money.Size = new System.Drawing.Size(45, 24);
+            this.lbl_money.Size = new System.Drawing.Size(40, 19);
             this.lbl_money.TabIndex = 0;
             this.lbl_money.Text = "0.00";
             this.lbl_money.Click += new System.EventHandler(this.Btn_money_Click);
@@ -728,33 +728,33 @@
             // lbl_divider
             // 
             this.lbl_divider.AutoSize = true;
-            this.lbl_divider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_divider.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_divider.ForeColor = System.Drawing.Color.White;
             this.lbl_divider.Location = new System.Drawing.Point(99, 33);
             this.lbl_divider.Name = "lbl_divider";
-            this.lbl_divider.Size = new System.Drawing.Size(15, 24);
+            this.lbl_divider.Size = new System.Drawing.Size(16, 19);
             this.lbl_divider.TabIndex = 6;
             this.lbl_divider.Text = "/";
             // 
             // lbl_complete_investments
             // 
             this.lbl_complete_investments.AutoSize = true;
-            this.lbl_complete_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_complete_investments.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_complete_investments.ForeColor = System.Drawing.Color.White;
             this.lbl_complete_investments.Location = new System.Drawing.Point(71, 33);
             this.lbl_complete_investments.Name = "lbl_complete_investments";
-            this.lbl_complete_investments.Size = new System.Drawing.Size(20, 24);
+            this.lbl_complete_investments.Size = new System.Drawing.Size(18, 19);
             this.lbl_complete_investments.TabIndex = 7;
             this.lbl_complete_investments.Text = "0";
             // 
             // lbl_investments
             // 
             this.lbl_investments.AutoSize = true;
-            this.lbl_investments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_investments.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_investments.ForeColor = System.Drawing.Color.White;
             this.lbl_investments.Location = new System.Drawing.Point(122, 33);
             this.lbl_investments.Name = "lbl_investments";
-            this.lbl_investments.Size = new System.Drawing.Size(20, 24);
+            this.lbl_investments.Size = new System.Drawing.Size(18, 19);
             this.lbl_investments.TabIndex = 8;
             this.lbl_investments.Text = "0";
             // 
@@ -810,11 +810,11 @@
             // lbl_saved
             // 
             this.lbl_saved.AutoSize = true;
-            this.lbl_saved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_saved.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_saved.ForeColor = System.Drawing.Color.White;
             this.lbl_saved.Location = new System.Drawing.Point(69, 33);
             this.lbl_saved.Name = "lbl_saved";
-            this.lbl_saved.Size = new System.Drawing.Size(45, 24);
+            this.lbl_saved.Size = new System.Drawing.Size(40, 19);
             this.lbl_saved.TabIndex = 0;
             this.lbl_saved.Text = "0.00";
             // 
@@ -857,11 +857,11 @@
             // lbl_income_collected
             // 
             this.lbl_income_collected.AutoSize = true;
-            this.lbl_income_collected.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_income_collected.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_income_collected.ForeColor = System.Drawing.Color.White;
             this.lbl_income_collected.Location = new System.Drawing.Point(69, 33);
             this.lbl_income_collected.Name = "lbl_income_collected";
-            this.lbl_income_collected.Size = new System.Drawing.Size(45, 24);
+            this.lbl_income_collected.Size = new System.Drawing.Size(40, 19);
             this.lbl_income_collected.TabIndex = 0;
             this.lbl_income_collected.Text = "0.00";
             // 
@@ -919,11 +919,11 @@
             // lbl_expenditure
             // 
             this.lbl_expenditure.AutoSize = true;
-            this.lbl_expenditure.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_expenditure.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_expenditure.ForeColor = System.Drawing.Color.White;
             this.lbl_expenditure.Location = new System.Drawing.Point(66, 33);
             this.lbl_expenditure.Name = "lbl_expenditure";
-            this.lbl_expenditure.Size = new System.Drawing.Size(45, 24);
+            this.lbl_expenditure.Size = new System.Drawing.Size(40, 19);
             this.lbl_expenditure.TabIndex = 0;
             this.lbl_expenditure.Text = "0.00";
             // 
@@ -985,11 +985,11 @@
             // lbl_growth
             // 
             this.lbl_growth.AutoSize = true;
-            this.lbl_growth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbl_growth.Font = new System.Drawing.Font("Roboto", 12F);
             this.lbl_growth.ForeColor = System.Drawing.Color.White;
             this.lbl_growth.Location = new System.Drawing.Point(69, 33);
             this.lbl_growth.Name = "lbl_growth";
-            this.lbl_growth.Size = new System.Drawing.Size(45, 24);
+            this.lbl_growth.Size = new System.Drawing.Size(40, 19);
             this.lbl_growth.TabIndex = 0;
             this.lbl_growth.Text = "0.00";
             // 
