@@ -851,6 +851,12 @@ namespace SpendWise
                 // style buttons
                 btn_refresh.BackColor = Color.SteelBlue;
                 btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -894,6 +900,12 @@ namespace SpendWise
                 // style buttons
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
