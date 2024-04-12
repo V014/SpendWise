@@ -831,15 +831,6 @@ namespace SpendWise
                 this.BackColor = Color.White;
                 // style datagrid
                 theme.LightStyle(data_transactions);
-                // style panels
-                /*
-                panel_money.BackColor = Color.FromArgb(235, 235, 235);
-                panel_savings.BackColor = Color.FromArgb(235, 235, 235);
-                panel_overal_income.BackColor = Color.FromArgb(235, 235, 235);
-                panel_overall_expenditure.BackColor = Color.FromArgb(235, 235, 235);
-                panel_growth.BackColor = Color.FromArgb(235, 235, 235);
-                panel_investments.BackColor = Color.FromArgb(235, 235, 235);
-                */
                 // style text
                 lbl_currency.ForeColor = Color.Black;
                 lbl_money.ForeColor = Color.Black;
@@ -858,16 +849,16 @@ namespace SpendWise
                 lbl_growing.ForeColor = Color.Black;
                 lbl_growth.ForeColor = Color.Black;
                 // style buttons
-                // btn_execute.BackColor = Color.FromArgb(72, 174, 120);
                 btn_refresh.BackColor = Color.SteelBlue;
+
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
                 date_select.Theme = MetroFramework.MetroThemeStyle.Light;
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
                 txt_investment.BackColor = Color.White;
                 txt_expenditure.BackColor = Color.White;
-                // update the wallet theme property in the db
-
+                // style the toggle button
+                btn_toggle.Image = Image.FromFile("res/toggle_dark.png");
             }
             catch (Exception ex)
             {
@@ -883,15 +874,6 @@ namespace SpendWise
                 this.BackColor = Color.FromArgb(17, 17, 17);
                 // style datagrid
                 theme.DarkStyle(data_transactions);
-                // style panels
-                /*
-                panel_money.BackColor = Color.FromArgb(24, 24, 24);
-                panel_savings.BackColor = Color.FromArgb(24, 24, 24);
-                panel_overal_income.BackColor = Color.FromArgb(24, 24, 24);
-                panel_overall_expenditure.BackColor = Color.FromArgb(24, 24, 24);
-                panel_growth.BackColor = Color.FromArgb(24, 24, 24);
-                panel_investments.BackColor = Color.FromArgb(24, 24, 24);
-                */
                 // style text
                 lbl_currency.ForeColor = Color.White;
                 lbl_money.ForeColor = Color.White;
@@ -910,7 +892,6 @@ namespace SpendWise
                 lbl_growing.ForeColor = Color.White;
                 lbl_growth.ForeColor = Color.White;
                 // style buttons
-                // btn_execute.BackColor = Color.FromArgb(20, 30, 30);
                 btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
                 // style controls
                 txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -918,8 +899,8 @@ namespace SpendWise
                 cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
                 txt_investment.BackColor = Color.FromArgb(17,17,17);
                 txt_expenditure.BackColor = Color.FromArgb(17, 17, 17);
-                // update the wallet theme property in the db
-
+                // style the toggle button
+                btn_toggle.Image = Image.FromFile("res/toggle.png");
             }
             catch (Exception ex)
             {
@@ -929,12 +910,14 @@ namespace SpendWise
         // when user sets light mode
         private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // update the database
             con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
             LightMode();
         }
         // when user sets dark mode
         private void DarkModeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            // updated the database
             con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
             DarkMode();
         }
