@@ -656,13 +656,6 @@
         gg==
 </value>
   </data>
-  <data name="btn_toggle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAEVJREFUSEtj
-        GAUEwf///9NoiUEW0BTQ3oJRMPAAGA/GtMTDIJkCMVavUQtDY2IUDCQARgRNAV0swFpRUAtDA2oU4AIM
-        DADyNHl+V/y/KAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="picbox_image.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAD+9JREFUeF7t
@@ -2403,6 +2396,13 @@
         5iIRm0h0meiyEHRpyP81xSG/x08cCluwHyvwnOE5wWsCWS1eSwACMSViE4guET+BAEgEy/74CQTrTiHT
         wLpTf/mXeDou3QMrzoZj3bp1SiS6CIaDSGO4y82MJVjvDDEAr4Fze8TE/P8BURyxcXTEaBoAAAAASUVO
         RK5CYII=
+</value>
+  </data>
+  <data name="btn_toggle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAEVJREFUSEtj
+        GAUEwf///9NoiUEW0BTQ3oJRMPAAGA/GtMTDIJkCMVavUQtDY2IUDCQARgRNAV0swFpRUAtDA2oU4AIM
+        DADyNHl+V/y/KAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btn_refresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
