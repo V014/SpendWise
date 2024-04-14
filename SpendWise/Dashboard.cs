@@ -279,7 +279,7 @@ namespace SpendWise
             int yearNow = int.Parse(con.ReadString("SELECT strftime('%Y')"));
             return yearNow;
         }
-        // load growth//////////////////////////////////////////////////////////////
+        // load growth
         public string LoadGrowth()
         {
             try
@@ -344,7 +344,6 @@ namespace SpendWise
             return investments;
         }
         // load the overall income
-        
         public string LoadIncome()
         {
             string Income = con.ReadString("SELECT sum(Amount) FROM transactions WHERE Action = '+'");
@@ -423,7 +422,7 @@ namespace SpendWise
             string Least = con.ReadString(queryLeast);
             return Least;
         }
-        // when the plus button is clicked/////////////////////////////////////////
+        // Record transaction
         private void Btn_plus_Click(object sender, System.EventArgs e)
         {
             try
@@ -821,118 +820,6 @@ namespace SpendWise
             Currency currency = new Currency();
             currency.Show();
         }
-        // light mode properties
-        private void LightMode()
-        {
-            try
-            {
-                // style app
-                this.BackColor = Color.White;
-                // style datagrid
-                theme.LightStyle(data_transactions);
-                // style text
-                lbl_currency.ForeColor = Color.Black;
-                lbl_money.ForeColor = Color.Black;
-                lbl_profile.ForeColor = Color.Black;
-                lbl_user.ForeColor = Color.Black;
-                lbl_income.ForeColor = Color.Black;
-                lbl_income_collected.ForeColor = Color.Black;
-                lbl_expenditures.ForeColor = Color.Black;
-                lbl_expenditure.ForeColor = Color.Black;
-                lbl_savings.ForeColor = Color.Black;
-                lbl_saved.ForeColor = Color.Black;
-                lbl_invest.ForeColor = Color.Black;
-                lbl_complete_investments.ForeColor = Color.Black;
-                lbl_investments.ForeColor = Color.Black;
-                lbl_divider.ForeColor = Color.Black;
-                lbl_growing.ForeColor = Color.Black;
-                lbl_growth.ForeColor = Color.Black;
-                // style buttons
-                btn_refresh.BackColor = Color.SteelBlue;
-                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
-                // style controls
-                txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
-                date_select.Theme = MetroFramework.MetroThemeStyle.Light;
-                cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
-                txt_investment.BackColor = Color.White;
-                txt_expenditure.BackColor = Color.White;
-                // style the toggle button
-                btn_toggle.Image = Image.FromFile("res/toggle_dark.png");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Light mode feature unavailable! " + ex.Message, "Assistant");
-            }
-        }
-        // dark mode properties
-        private void DarkMode()
-        {
-            try
-            {
-                // style app
-                this.BackColor = Color.FromArgb(17, 17, 17);
-                // style datagrid
-                theme.DarkStyle(data_transactions);
-                // style text
-                lbl_currency.ForeColor = Color.White;
-                lbl_money.ForeColor = Color.White;
-                lbl_profile.ForeColor = Color.White;
-                lbl_user.ForeColor = Color.White;
-                lbl_income.ForeColor = Color.White;
-                lbl_income_collected.ForeColor = Color.White;
-                lbl_expenditures.ForeColor = Color.White;
-                lbl_expenditure.ForeColor = Color.White;
-                lbl_savings.ForeColor = Color.White;
-                lbl_saved.ForeColor = Color.White;
-                lbl_invest.ForeColor = Color.White;
-                lbl_complete_investments.ForeColor = Color.White;
-                lbl_investments.ForeColor = Color.White;
-                lbl_divider.ForeColor = Color.White;
-                lbl_growing.ForeColor = Color.White;
-                lbl_growth.ForeColor = Color.White;
-                // style buttons
-                btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
-                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
-                // style controls
-                txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
-                date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
-                cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
-                txt_investment.BackColor = Color.FromArgb(17,17,17);
-                txt_expenditure.BackColor = Color.FromArgb(17, 17, 17);
-                // style the toggle button
-                btn_toggle.Image = Image.FromFile("res/toggle.png");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Dark mode feature unavailable, " + ex.Message, "Assistant");
-            }
-        }
-        // when user sets light mode
-        private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // update the database
-            con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
-            LightMode();
-        }
-        // when user sets dark mode
-        private void DarkModeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            // updated the database
-            con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
-            DarkMode();
-        }
         // if user edits in datagrid, reflect the changes
         private void data_transactions_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -1021,6 +908,118 @@ namespace SpendWise
         private void Dashboard_ResizeEnd(object sender, EventArgs e)
         {
             con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
+        }
+        // light mode properties
+        private void LightMode()
+        {
+            try
+            {
+                // style app
+                this.BackColor = Color.White;
+                // style datagrid
+                theme.LightStyle(data_transactions);
+                // style text
+                lbl_currency.ForeColor = Color.Black;
+                lbl_money.ForeColor = Color.Black;
+                lbl_profile.ForeColor = Color.Black;
+                lbl_user.ForeColor = Color.Black;
+                lbl_income.ForeColor = Color.Black;
+                lbl_income_collected.ForeColor = Color.Black;
+                lbl_expenditures.ForeColor = Color.Black;
+                lbl_expenditure.ForeColor = Color.Black;
+                lbl_savings.ForeColor = Color.Black;
+                lbl_saved.ForeColor = Color.Black;
+                lbl_invest.ForeColor = Color.Black;
+                lbl_complete_investments.ForeColor = Color.Black;
+                lbl_investments.ForeColor = Color.Black;
+                lbl_divider.ForeColor = Color.Black;
+                lbl_growing.ForeColor = Color.Black;
+                lbl_growth.ForeColor = Color.Black;
+                // style buttons
+                btn_refresh.BackColor = Color.SteelBlue;
+                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(228, 237, 240);
+                // style controls
+                txt_amount.Theme = MetroFramework.MetroThemeStyle.Light;
+                date_select.Theme = MetroFramework.MetroThemeStyle.Light;
+                cmb_month.Theme = MetroFramework.MetroThemeStyle.Light;
+                txt_investment.BackColor = Color.White;
+                txt_expenditure.BackColor = Color.White;
+                // style the toggle button
+                btn_toggle.Image = Image.FromFile("res/toggle_dark.png");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Light mode feature unavailable! " + ex.Message, "Assistant");
+            }
+        }
+        // dark mode properties
+        private void DarkMode()
+        {
+            try
+            {
+                // style app
+                this.BackColor = Color.FromArgb(17, 17, 17);
+                // style datagrid
+                theme.DarkStyle(data_transactions);
+                // style text
+                lbl_currency.ForeColor = Color.White;
+                lbl_money.ForeColor = Color.White;
+                lbl_profile.ForeColor = Color.White;
+                lbl_user.ForeColor = Color.White;
+                lbl_income.ForeColor = Color.White;
+                lbl_income_collected.ForeColor = Color.White;
+                lbl_expenditures.ForeColor = Color.White;
+                lbl_expenditure.ForeColor = Color.White;
+                lbl_savings.ForeColor = Color.White;
+                lbl_saved.ForeColor = Color.White;
+                lbl_invest.ForeColor = Color.White;
+                lbl_complete_investments.ForeColor = Color.White;
+                lbl_investments.ForeColor = Color.White;
+                lbl_divider.ForeColor = Color.White;
+                lbl_growing.ForeColor = Color.White;
+                lbl_growth.ForeColor = Color.White;
+                // style buttons
+                btn_refresh.BackColor = Color.FromArgb(20, 30, 40);
+                btn_toggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_money.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_income.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_expenditure.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_savings.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_investments.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                btn_growth.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 46, 47);
+                // style controls
+                txt_amount.Theme = MetroFramework.MetroThemeStyle.Dark;
+                date_select.Theme = MetroFramework.MetroThemeStyle.Dark;
+                cmb_month.Theme = MetroFramework.MetroThemeStyle.Dark;
+                txt_investment.BackColor = Color.FromArgb(17, 17, 17);
+                txt_expenditure.BackColor = Color.FromArgb(17, 17, 17);
+                // style the toggle button
+                btn_toggle.Image = Image.FromFile("res/toggle.png");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dark mode feature unavailable, " + ex.Message, "Assistant");
+            }
+        }
+        // when user sets light mode
+        private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // update the database
+            con.ExecuteQuery("UPDATE wallet SET Theme = 'Light'");
+            LightMode();
+        }
+        // when user sets dark mode
+        private void DarkModeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // updated the database
+            con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
+            DarkMode();
         }
     }
 }
