@@ -1005,7 +1005,7 @@ namespace SpendWise
                 string amount = data_transactions.CurrentRow.Cells[2].Value.ToString();
                 string action = data_transactions.CurrentRow.Cells[3].Value.ToString();
                 string date = data_transactions.CurrentRow.Cells[4].Value.ToString();
-                //MessageBox.Show(id.ToString() + " " + description + " " + amount + " " + action + " " + date);
+                // MessageBox.Show(id.ToString() + " " + description + " " + amount + " " + action + " " + date);
                 con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID='{id}'");
             }
             catch (Exception ex)
