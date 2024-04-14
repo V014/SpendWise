@@ -524,7 +524,7 @@
             this.data_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_transactions.Size = new System.Drawing.Size(279, 580);
             this.data_transactions.TabIndex = 0;
-            this.data_transactions.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_transactions_CellEndEdit);
+            this.data_transactions.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Data_transactions_CellValueChanged);
             // 
             // panel_money
             // 

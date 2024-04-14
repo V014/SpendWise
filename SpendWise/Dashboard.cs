@@ -349,7 +349,6 @@ namespace SpendWise
             string Income = con.ReadString("SELECT sum(Amount) FROM transactions WHERE Action = '+'");
             return Income;
         }
-        
         // load times gotten income in the month
         private string LoadIncomeCount(string month, string year)
         {
@@ -422,7 +421,7 @@ namespace SpendWise
             string Least = con.ReadString(queryLeast);
             return Least;
         }
-        // Record transaction
+        // Record transaction ////////////////////////////////////////////////////////////////////////
         private void Btn_plus_Click(object sender, System.EventArgs e)
         {
             try
@@ -452,16 +451,6 @@ namespace SpendWise
                     con.ExecuteQuery($"UPDATE wallet SET savings = {savingsNow} WHERE id = 1");
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions (description, amount, date, action) VALUES('{investment}', {amount}, '{date}', '+')");
-                    // refresh app
-                    RefreshUI();
-                    // update the money count
-                    lbl_money.Text = moneyNow.ToString();
-                    // refresh the data grid
-                    transaction.LoadTransactions(data_transactions);
-                    // refresh charts
-                    LoadCharts();
-                    // load data from where the user stopped
-                    Date_select_ValueChanged(sender, e);
                     // play chime
                     SoundPlayer win = new SoundPlayer(@"sfx/win.wav");
                     win.Play();
@@ -473,23 +462,14 @@ namespace SpendWise
                     // subtract the previous and adding values
                     int moneyNow = wallet - amount;
                     // build the query
-                    con.ExecuteQuery($"UPDATE wallet SET money = '{moneyNow}'");
+                    con.ExecuteQuery($"UPDATE wallet SET money = {moneyNow} WHERE id = 1");
                     // update the money count
                     lbl_money.Text = moneyNow.ToString();
                     // log the changes
                     con.ExecuteQuery($"INSERT INTO transactions(description, amount, date, action) VALUES('{expenditure}', '{amount}', strftime('%Y-%m-%d %H:%M','now','localtime'), '-')");
-                    // refresh app
-                    RefreshUI();
-                    // refresh the data grid
-                    transaction.LoadTransactions(data_transactions);
-                    // refresh charts
-                    LoadCharts();
-                    // load data from where the user stopped
-                    Date_select_ValueChanged(sender, e);
                     // play chime
                     SoundPlayer coins = new SoundPlayer(@"sfx/coins.wav");
                     coins.Play();
-
                 }
                 else
                 {
@@ -499,15 +479,23 @@ namespace SpendWise
                     // show suggestion box
                     MessageBox.Show("Add both a description and amount for either an investment or expenditure, not all fields should be set at once!", "Suggestion");
                 }
+                // refresh app
+                RefreshUI();
+                // refresh the data grid
+                transaction.LoadTransactions(data_transactions);
+                // refresh charts
+                LoadCharts();
+                // load data from where the user stopped
+                Date_select_ValueChanged(sender, e);
             }
             catch (Exception ex)
             {
                 // play chime
-                // SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
-                // save.Play();
+                SoundPlayer save = new SoundPlayer(@"sfx/error.wav");
+                save.Play();
                 // log the error
                 con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot record income or expenditure', 'Execute action')");
-                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK);
             }
             
         }
@@ -823,22 +811,7 @@ namespace SpendWise
         // if user edits in datagrid, reflect the changes
         private void data_transactions_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                // collect the id
-                var id = data_transactions.CurrentRow.Cells[0].Value;
-                string description = data_transactions.CurrentRow.Cells[1].Value.ToString();
-                string amount = data_transactions.CurrentRow.Cells[2].Value.ToString();
-                string action = data_transactions.CurrentRow.Cells[3].Value.ToString();
-                string date = data_transactions.CurrentRow.Cells[4].Value.ToString();
-                con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID='{id}'");
-                RefreshUI();
-            }
-            catch (Exception ex)
-            {
-                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot update data grid', 'edit action')");
-                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
         }
         // Import database instructions
         private void ImportStripMenuItem_Click(object sender, EventArgs e)
@@ -1020,6 +993,27 @@ namespace SpendWise
             // updated the database
             con.ExecuteQuery("UPDATE wallet SET Theme = 'Dark'");
             DarkMode();
+        }
+
+        private void Data_transactions_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // collect the id
+                var id = data_transactions.CurrentRow.Cells[0].Value;
+                string description = data_transactions.CurrentRow.Cells[1].Value.ToString();
+                string amount = data_transactions.CurrentRow.Cells[2].Value.ToString();
+                string action = data_transactions.CurrentRow.Cells[3].Value.ToString();
+                string date = data_transactions.CurrentRow.Cells[4].Value.ToString();
+                //MessageBox.Show(id.ToString() + " " + description + " " + amount + " " + action + " " + date);
+                con.ExecuteQuery($"Update transactions SET Description='{description}', Amount='{amount}', Action='{action}', date='{date}' WHERE ID='{id}'");
+            }
+            catch (Exception ex)
+            {
+                con.ExecuteQuery("INSERT INTO events (date, description, location) VALUES(strftime('%Y-%m-%d %H:%M','now','localtime'), 'Cannot update data grid', 'edit action')");
+                MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            transaction.LoadTransactions(data_transactions);
         }
     }
 }
