@@ -840,19 +840,19 @@ namespace SpendWise
                 MessageBox.Show("Failed to record the transaction, " + ex.Message, "Assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        // Import database instructions
         private void ImportStripMenuItem_Click(object sender, EventArgs e)
         {
             // Imports data into apps
             MessageBox.Show("Copy and replace database file into the spendwise application folder");
         }
-
+        // export database function
         private void ExportStripMenuItem_Click(object sender, EventArgs e)
         {
             Export export = new Export();
             export.Show();
         }
-
+        // reset the application feature
         private void ResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // play chime
@@ -884,13 +884,13 @@ namespace SpendWise
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        // User profile feature
         private void UserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Profile profile = new Profile();
             profile.Show();
         }
-
+        // menu button event
         private void Btn_toggle_Click(object sender, EventArgs e)
         {
             if (panel_left.Width == 200)
@@ -904,7 +904,7 @@ namespace SpendWise
                 panel_counters.Visible = true;
             }
         }
-
+        // Application resize event
         private void Dashboard_ResizeEnd(object sender, EventArgs e)
         {
             con.ExecuteQuery($"UPDATE ui SET width = '{Width}', height = '{Height}'");
