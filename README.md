@@ -38,7 +38,13 @@ It uses basic business formulas to solve mathematical problems you should have b
 - Sticky month selector
 - Occurrence monitor
 
-## The main Dashboard
+## The main Dashboard 2024
+
+This is the full UI on a generic display, UI may vary depending on screen size and resolution
+
+<img src ="screenshots/SpendWise-Max-2024.png" alt="Main interface">
+
+## The main previous Dashboard 2022
 
 This is the full UI on a generic display, UI may vary depending on screen size and resolution
 
